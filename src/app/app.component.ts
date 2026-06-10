@@ -5,7 +5,13 @@ import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { TabViewModule } from 'primeng/tabview';
 import { TableModule } from 'primeng/table';
-import { ADMIN_PASSWORD, GROUP_STANDINGS_STORAGE_KEY, TEAM_RESULTS_STORAGE_KEY } from './admin-config';
+import {
+  ADMIN_PASSWORD,
+  SEED_FIREBASE_GROUP_STANDINGS_ON_STARTUP,
+  TEAM_RESULTS_STORAGE_KEY
+} from './admin-config';
+import groupStandings from '../assets/data/group-standings.json';
+import { getGroupStandings, seedGroupStandingsIfEmpty } from '../firebase.js';
 
 type TeamResult = {
   team: string;
@@ -156,16 +162,19 @@ export class AppComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     try {
-      const [resultsResponse, scoringResponse, standingsResponse] = await Promise.all([
+      if (SEED_FIREBASE_GROUP_STANDINGS_ON_STARTUP) {
+        await this.seedFirebaseGroupStandings();
+      }
+
+      const [resultsResponse, scoringResponse, standings] = await Promise.all([
         fetch('assets/data/team-results.json'),
         fetch('assets/data/scoring-rules.json'),
-        fetch('assets/data/group-standings.json')
+        this.loadFirebaseGroupStandings()
       ]);
       const results = (await resultsResponse.json()) as TeamResult[];
       const scoring = (await scoringResponse.json()) as ScoringRules;
-      const standings = (await standingsResponse.json()) as GroupStanding[];
 
-      this.groupStandings = this.loadStoredStandings(this.normalizeStandings(standings));
+      this.groupStandings = this.normalizeStandings(standings);
       this.standingsGroups = this.getStandingGroups(this.groupStandings);
       this.participants = this.buildParticipantsFromStandings(this.groupStandings);
       this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
@@ -175,7 +184,7 @@ export class AppComponent implements OnInit {
       this.recalculateSummaries();
       this.loading = false;
     } catch (error) {
-      this.error = 'No se pudieron cargar los JSON locales.';
+      this.error = 'No se pudieron cargar los datos del Mundial.';
       this.loading = false;
       console.error(error);
     }
@@ -356,13 +365,11 @@ export class AppComponent implements OnInit {
   }
 
   private async reloadOriginalGroupStandings(): Promise<void> {
-    const response = await fetch('assets/data/group-standings.json');
-    const standings = (await response.json()) as GroupStanding[];
+    const standings = await this.loadFirebaseGroupStandings();
     this.groupStandings = this.normalizeStandings(standings);
     this.standingsGroups = this.getStandingGroups(this.groupStandings);
     this.participants = this.buildParticipantsFromStandings(this.groupStandings);
     this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
-    this.persistGroupStandings();
     this.recalculateSummaries();
     this.statusMessage = 'Se restauró el standings original.';
   }
@@ -398,29 +405,6 @@ export class AppComponent implements OnInit {
 
   private persistEditableResults(): void {
     window.localStorage.setItem(TEAM_RESULTS_STORAGE_KEY, JSON.stringify(this.editableResults));
-  }
-
-  private persistGroupStandings(): void {
-    window.localStorage.setItem(GROUP_STANDINGS_STORAGE_KEY, JSON.stringify(this.serializeGroupStandings(this.groupStandings)));
-  }
-
-  private loadStoredStandings(defaultStandings: GroupStanding[]): GroupStanding[] {
-    const storedValue = window.localStorage.getItem(GROUP_STANDINGS_STORAGE_KEY);
-
-    if (!storedValue) {
-      return defaultStandings;
-    }
-
-    try {
-      const parsed = JSON.parse(storedValue) as GroupStanding[];
-      if (!Array.isArray(parsed)) {
-        return defaultStandings;
-      }
-
-      return this.normalizeStandings(parsed);
-    } catch {
-      return defaultStandings;
-    }
   }
 
   private recalculateSummaries(): void {
@@ -536,8 +520,11 @@ export class AppComponent implements OnInit {
     this.standingsGroups = this.getStandingGroups(this.groupStandings);
     this.participants = this.buildParticipantsFromStandings(this.groupStandings);
     this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
-    this.persistGroupStandings();
     this.recalculateSummaries();
+  }
+
+  private async loadFirebaseGroupStandings(): Promise<GroupStanding[]> {
+    return await getGroupStandings<GroupStanding>();
   }
 
   private buildParticipantsFromStandings(standings: GroupStanding[]): Participant[] {
@@ -651,5 +638,17 @@ export class AppComponent implements OnInit {
     }
 
     return Math.min(3, Math.max(0, Math.trunc(value)));
+  }
+
+  private async seedFirebaseGroupStandings(): Promise<void> {
+    try {
+      const result = await seedGroupStandingsIfEmpty(groupStandings);
+      this.statusMessage = result.skipped
+        ? 'Firebase ya tenía datos en groupStandings.'
+        : `Firebase inicializado con ${result.inserted} documentos en groupStandings.`;
+    } catch (error) {
+      console.error('Error cargando groupStandings en Firebase:', error);
+      this.statusMessage = 'Falló la carga inicial de groupStandings en Firebase.';
+    }
   }
 }
