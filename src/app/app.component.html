@@ -22,9 +22,9 @@
             <ng-template pTemplate="header">
               <tr>
                 <th>Jugador</th>
+                <th class="numeric strong">Total puntos</th>
                 <th class="numeric">Puntos de Selección</th>
                 <th class="numeric">Puntos de predicciones</th>
-                <th class="numeric">Total puntos</th>
               </tr>
             </ng-template>
             <ng-template pTemplate="body" let-summary>
@@ -40,14 +40,14 @@
                     </div>
                   </div>
                 </td>
+                <td data-label="Total puntos" class="numeric strong">
+                  {{ summary.totalPoints + summary.predictionPoints }}
+                </td>
                 <td data-label="Puntos de Selección" class="numeric strong">
                   {{ summary.totalPoints }}
                 </td>
                 <td data-label="Puntos de predicciones" class="numeric strong">
                   {{ summary.predictionPoints }}
-                </td>
-                <td data-label="Total puntos" class="numeric strong">
-                  {{ summary.totalPoints + summary.predictionPoints }}
                 </td>
               </tr>
             </ng-template>
@@ -96,7 +96,7 @@
                     styleClass="group-standings-table"
                     [value]="group.predictions"
                     [responsiveLayout]="'scroll'"
-                    [tableStyle]="{ 'min-width': '620px' }"
+                    [tableStyle]="{ 'min-width': '560px' }"
                   >
                     <ng-template pTemplate="header">
                       <tr>
@@ -375,7 +375,7 @@
                         styleClass="admin-standings-table"
                         [value]="getStandingsForGroup(groupKey)"
                         [responsiveLayout]="'scroll'"
-                        [tableStyle]="{ 'min-width': '1200px' }"
+                        [tableStyle]="{ 'min-width': '1040px' }"
                       >
                         <ng-template pTemplate="header">
                           <tr>
@@ -547,7 +547,7 @@
                 styleClass="admin-table"
                 [value]="editableResults"
                 [responsiveLayout]="'scroll'"
-                [tableStyle]="{ 'min-width': '900px' }"
+                [tableStyle]="{ 'min-width': '820px' }"
               >
                 <ng-template pTemplate="header">
                   <tr>
