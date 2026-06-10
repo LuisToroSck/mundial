@@ -1,0 +1,42 @@
+:root {
+  color-scheme: light;
+  --page-bg: #f3f6fb;
+  --surface: rgba(255, 255, 255, 0.88);
+  --surface-strong: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #5b6476;
+  --accent: #0ea5e9;
+  --accent-strong: #2563eb;
+  --accent-soft: rgba(14, 165, 233, 0.12);
+  --border: rgba(15, 23, 42, 0.08);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 35%),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.16), transparent 32%),
+    linear-gradient(180deg, #f7f9fd 0%, var(--page-bg) 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.p-component {
+  font-family: inherit;
+}
+
+.surface-card {
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}

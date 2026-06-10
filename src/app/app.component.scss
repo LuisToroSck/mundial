@@ -1,0 +1,738 @@
+.shell {
+  width: min(1200px, calc(100vw - 32px));
+  margin: 32px auto 48px;
+  display: grid;
+  gap: 24px;
+}
+
+.hero {
+  padding: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  gap: 20px;
+  align-items: end;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.02;
+  max-width: 12ch;
+}
+
+.lead {
+  margin-top: 14px;
+  max-width: 60ch;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.hero-stats,
+.participant-metrics {
+  display: grid;
+  gap: 12px;
+}
+
+.hero-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hero-stats article,
+.participant-metrics article {
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+}
+
+.hero-stats span,
+.participant-metrics span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.hero-stats strong,
+.participant-metrics strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.6rem;
+}
+
+.content {
+  padding: 14px 18px 18px;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.state {
+  padding: 26px 10px;
+  color: var(--text-muted);
+}
+
+.state.error {
+  color: #b91c1c;
+}
+
+.participant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.participant-header h2 {
+  font-size: 1.6rem;
+}
+
+.selection-chip {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.admin-panel {
+  padding: 16px;
+  margin-bottom: 18px;
+}
+
+.admin-section {
+  margin-top: 18px;
+}
+
+.admin-header-tight {
+  margin-bottom: 10px;
+}
+
+.admin-text-input,
+.admin-number-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text-main);
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+}
+
+.admin-color-input {
+  width: 100%;
+  min-width: 56px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 0.2rem;
+}
+
+.admin-number-input {
+  text-align: right;
+}
+
+.admin-text-input:focus,
+.admin-number-input:focus,
+.admin-color-input:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent-strong) 30%, transparent);
+  outline-offset: 1px;
+}
+
+.admin-standings-table .team-cell {
+  min-width: 180px;
+}
+
+.admin-standings-table td {
+  vertical-align: middle;
+}
+
+.admin-standings-table .p-datatable-thead > tr > th,
+.admin-standings-table .p-datatable-tbody > tr > td {
+  padding: 0.5rem 0.55rem;
+}
+
+.admin-standings-table .p-datatable-thead > tr > th {
+  white-space: nowrap;
+}
+
+.admin-standings-table .numeric {
+  min-width: 72px;
+}
+
+.summary-block {
+  margin-bottom: 18px;
+}
+
+.groups-block {
+  margin-bottom: 18px;
+}
+
+.groups-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.group-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface-strong);
+  padding: 12px;
+}
+
+.group-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.group-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-strong);
+}
+
+.group-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.group-teams-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.group-team-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 0.76rem;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.group-team-chip .flag-img {
+  width: 18px;
+  height: 12px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.group-teams {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.group-teams li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.group-owner {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.group-standings-wrap {
+  margin-top: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+:host ::ng-deep .group-standings-table .p-datatable-thead > tr > th,
+:host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td {
+  padding: 0.45rem 0.55rem;
+  font-size: 0.76rem;
+}
+
+:host ::ng-deep .group-standings-table .p-datatable-thead > tr > th {
+  white-space: nowrap;
+}
+
+:host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td:first-child,
+:host ::ng-deep .group-standings-table .p-datatable-thead > tr > th:first-child {
+  width: 2.2rem;
+  text-align: center;
+}
+
+:host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td:nth-child(2),
+:host ::ng-deep .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {
+  min-width: 180px;
+}
+
+:host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td:nth-child(1),
+:host ::ng-deep .group-standings-table .p-datatable-thead > tr > th:nth-child(1) {
+  min-width: 180px;
+}
+
+:host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td.numeric,
+:host ::ng-deep .group-standings-table .p-datatable-thead > tr > th.numeric {
+  text-align: right;
+}
+
+:host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td.strong {
+  font-weight: 700;
+}
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.admin-note {
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.admin-note span {
+  font-weight: 700;
+  color: var(--text-main);
+}
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.admin-login {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.admin-field {
+  flex: 1 1 260px;
+}
+.admin-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.admin-field input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem 0.95rem;
+  font: inherit;
+  background: var(--surface-strong);
+  color: var(--text-main);
+}
+.admin-button {
+  border: 0;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  background: var(--accent-strong);
+  color: #fff;
+  cursor: pointer;
+}
+.admin-button.secondary {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+.admin-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.admin-success {
+  margin-bottom: 12px;
+  color: var(--accent-strong);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.admin-table-wrap {
+  margin-top: 8px;
+}
+.admin-checkbox-cell {
+  text-align: center;
+}
+.admin-checkbox-cell input[type='checkbox'] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--accent-strong);
+}
+
+.admin-group-wins {
+  width: 3.2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.25rem 0.35rem;
+  text-align: center;
+  font: inherit;
+  background: var(--surface-strong);
+  color: var(--text-main);
+}
+
+/* Subtle highlight for top-2 rows */
+:host ::ng-deep .group-standings-table .p-datatable-tbody > tr.highlight-top > td,
+:host ::ng-deep .admin-standings-table .p-datatable-tbody > tr.highlight-top > td,
+.admin-standings-table .p-datatable-tbody > tr.highlight-top > td {
+  background-color: rgba(15, 23, 42, 0.03);
+  transition: background-color 120ms ease-in-out;
+}
+
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.summary-header h2 {
+  font-size: 1.4rem;
+  margin-top: 2px;
+}
+
+.summary-hint {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.player-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.player-cell strong,
+.player-cell span {
+  display: block;
+}
+
+.player-cell span {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  margin-top: 2px;
+}
+
+.player-dot {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.04);
+}
+
+.participant-metrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+:host ::ng-deep .p-tabview-nav {
+  border: 0;
+  margin-bottom: 12px;
+}
+
+:host ::ng-deep .p-tabview-nav-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+:host ::ng-deep .p-tabview-nav-container::-webkit-scrollbar,
+.table-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+:host ::ng-deep .p-tabview-nav-container::-webkit-scrollbar-thumb,
+.table-scroll::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.18);
+  border-radius: 999px;
+}
+
+:host ::ng-deep .p-tabview-panels {
+  padding: 0;
+}
+
+:host ::ng-deep .p-tabview-nav li {
+  flex: 0 0 auto;
+}
+
+:host ::ng-deep .p-tabview-nav li .p-tabview-nav-link {
+  border: 0;
+  border-radius: 999px;
+  margin-right: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  padding-inline: 18px;
+}
+
+:host ::ng-deep .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: var(--accent-strong);
+  color: white;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  border-color: var(--border);
+}
+
+.team-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flag {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  font-size: 1rem;
+}
+
+.flag-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 6px;
+  object-fit: cover;
+  display: inline-block;
+}
+
+.numeric {
+  text-align: right;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats,
+  .participant-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .participant-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .summary-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .groups-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100vw - 16px, 1200px);
+    margin: 12px auto 24px;
+    gap: 16px;
+  }
+
+  .hero,
+  .content {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+    max-width: 14ch;
+  }
+
+  .lead {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .hero-stats strong,
+  .participant-metrics strong {
+    font-size: 1.35rem;
+  }
+
+  .hero-stats article,
+  .participant-metrics article {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .participant-metrics {
+    gap: 10px;
+  }
+
+  .summary-header h2,
+  .participant-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .participant-header,
+  .summary-header {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .player-cell {
+    gap: 10px;
+  }
+
+  .player-cell span {
+    margin-top: 0;
+  }
+
+  :host ::ng-deep .p-tabview-nav li .p-tabview-nav-link {
+    padding-inline: 14px;
+    font-size: 0.92rem;
+  }
+
+  :host ::ng-deep .p-datatable .p-datatable-thead > tr > th,
+  :host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    padding: 0.5rem 0.38rem;
+    font-size: 0.76rem;
+  }
+
+  .table-scroll {
+    overflow-x: hidden;
+  }
+
+  .admin-table-wrap {
+    overflow-x: auto;
+  }
+
+  :host ::ng-deep .admin-table .p-datatable-table {
+    width: 900px;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-table,
+  :host ::ng-deep .selection-table .p-datatable-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-thead > tr > th:nth-child(1),
+  :host ::ng-deep .summary-table .p-datatable-tbody > tr > td:nth-child(1) {
+    width: 36%;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-thead > tr > th:nth-child(n + 2),
+  :host ::ng-deep .summary-table .p-datatable-tbody > tr > td:nth-child(n + 2) {
+    width: 16%;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-thead > tr > th:nth-child(1),
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td:nth-child(1) {
+    width: 52%;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-thead > tr > th:nth-child(n + 2),
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td:nth-child(n + 2) {
+    width: 16%;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-thead > tr > th,
+  :host ::ng-deep .selection-table .p-datatable-thead > tr > th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.72rem;
+    letter-spacing: 0;
+  }
+
+  .player-cell,
+  .team-cell {
+    min-width: 0;
+    gap: 6px;
+  }
+
+  .player-cell strong,
+  .team-cell span:last-child {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .flag-img {
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 4px;
+  }
+
+  .player-dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    box-shadow: none;
+  }
+  .admin-header,
+  .admin-login {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .admin-actions {
+    justify-content: flex-start;
+  }
+  .admin-panel {
+    padding: 14px;
+  }
+  .admin-button {
+    width: 100%;
+  }
+
+  .groups-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .group-owner {
+    font-size: 0.72rem;
+  }
+
+  .group-teams-preview {
+    justify-content: flex-start;
+  }
+
+  :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th,
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td {
+    padding: 0.38rem 0.45rem;
+    font-size: 0.7rem;
+  }
+}

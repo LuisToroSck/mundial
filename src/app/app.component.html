@@ -1,0 +1,338 @@
+<main class="shell">
+
+  <section class="content surface-card">
+    @if (loading) {
+      <p class="state">Cargando datos locales...</p>
+    } @else if (error) {
+      <p class="state error">{{ error }}</p>
+    } @else {
+      <p-divider />
+
+      <section class="groups-block">
+        <div class="summary-header">
+          <div>
+            <h2>Tabla posiciones predicciones Mundial 2026</h2>
+          </div>
+        </div>
+
+        <p-tabView>
+          @for (group of worldCupGroups; track trackByGroup($index, group)) {
+            <p-tabPanel [header]="'Grupo ' + group.group">
+              <article class="group-card">
+                <header class="group-card-header">
+                  <div>
+                    <span class="group-badge">Grupo {{ group.group }}</span>
+                    <div class="group-count">{{ group.teams.length }} selecciones</div>
+                  </div>
+
+                  <div class="group-teams-preview">
+                    @for (team of group.teams; track team.team) {
+                      <span class="group-team-chip">
+                        <img class="flag-img" [src]="'assets/banderas/Banderas/' + team.flag + '.png'" (error)="imgError($event)" alt="{{ team.team }}" />
+                        <span>{{ team.team }}</span>
+                      </span>
+                    }
+                  </div>
+                </header>
+
+                <div class="group-standings-wrap">
+                  <p-table styleClass="group-standings-table" [value]="group.predictions" [responsiveLayout]="'scroll'" [tableStyle]="{ 'min-width': '620px' }">
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th>Pos</th>
+                        <th>Jugador</th>
+                        <th class="numeric">G</th>
+                        <th class="numeric">E</th>
+                        <th class="numeric">P</th>
+                        <th class="numeric">GF</th>
+                        <th class="numeric">GC</th>
+                        <th class="numeric">DG</th>
+                        <th class="numeric">PTS</th>
+                        <th class="numeric">PJ</th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+                      <tr [class.highlight-top]="rowIndex < 2">
+                        <td>{{ rowIndex + 1 }}</td>
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-dot" [style.background]="row.participantColor"></span>
+                            <div>
+                              <strong>{{ row.participantName }}</strong>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="numeric">{{ row.G }}</td>
+                        <td class="numeric">{{ row.E }}</td>
+                        <td class="numeric">{{ row.P }}</td>
+                        <td class="numeric">{{ row.GF }}</td>
+                        <td class="numeric">{{ row.GC }}</td>
+                        <td class="numeric">{{ row.DG }}</td>
+                        <td class="numeric strong">{{ row.PTS }}</td>
+                        <td class="numeric">{{ row.PJ }}</td>
+                      </tr>
+                    </ng-template>
+                  </p-table>
+                </div>
+              </article>
+            </p-tabPanel>
+          }
+        </p-tabView>
+      </section>
+
+      <p-divider />
+
+      <div class="summary-block">
+        <div class="summary-header">
+          <div>
+            <h2>Tabla general Mundial 2026</h2>
+          </div>
+        </div>
+
+        <div class="table-scroll">
+          <p-table styleClass="summary-table" [value]="summaries" [responsiveLayout]="'scroll'" [tableStyle]="{ 'min-width': '100%' }">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Jugador</th>
+                <th class="numeric">Puntos de Selección</th>
+                <th class="numeric">Puntos de predicciones</th>
+                <th class="numeric">Total puntos</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-summary>
+              <tr>
+                <td data-label="Jugador">
+                  <div class="player-cell">
+                    <span class="player-dot" [style.background]="summary.color"></span>
+                    <div>
+                      <strong>{{ summary.name }}</strong>
+                    </div>
+                  </div>
+                </td>
+                <td data-label="Puntos de Selección" class="numeric strong">{{ summary.totalPoints }}</td>
+                <td data-label="Puntos de predicciones" class="numeric strong">{{ summary.predictionPoints }}</td>
+                <td data-label="Total puntos" class="numeric strong">{{ summary.totalPoints + summary.predictionPoints }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+
+      <p-divider />
+
+      <p-tabView>
+        @for (summary of summaries; track trackByName($index, summary)) {
+          <p-tabPanel [header]="summary.name">
+            <div class="participant-header">
+              <div>
+                <h2>{{ summary.name }}</h2>
+              </div>
+              <p-chip [label]="summary.selectionCount + ' selecciones'" [styleClass]="'selection-chip'" />
+            </div>
+
+            <div class="participant-metrics">
+              <article>
+                <span>Puntos de Selección</span>
+                <strong>{{ summary.totalPoints }}</strong>
+              </article>
+              <article>
+                <span>Victoria en grupo</span>
+                <strong>{{ summary.wins }}</strong>
+              </article>
+              <article>
+                <span>Avance de ronda</span>
+                <strong>{{ summary.roundsAdvanced }}</strong>
+              </article>
+            </div>
+
+            <p-divider />
+
+            <div class="table-scroll">
+              <p-table styleClass="selection-table" [value]="summary.selections" [responsiveLayout]="'scroll'" [tableStyle]="{ 'min-width': '100%' }">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Selección</th>
+                    <th class="numeric">Victoria en grupo</th>
+                    <th class="numeric">Avance de ronda</th>
+                    <th class="numeric">Puntos de Selección</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-selection>
+                  <tr>
+                    <td data-label="Selección">
+                      <div class="team-cell">
+                        <img class="flag-img" [src]="'assets/banderas/Banderas/' + selection.flag + '.png'" (error)="imgError($event)" alt="{{ selection.team }}" />
+                        <span>{{ selection.team }}</span>
+                      </div>
+                    </td>
+                    <td data-label="Victorias" class="numeric">{{ selection.wins }}</td>
+                    <td data-label="Rondas" class="numeric">{{ selection.roundsAdvanced }}</td>
+                    <td data-label="Puntos de Selección" class="numeric strong">{{ selection.points }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </p-tabPanel>
+        }
+      </p-tabView>
+
+      <p-divider />
+
+      <section class="admin-panel surface-card">
+        <div class="admin-header">
+          <div>
+            <p class="eyebrow">Administrador</p>
+            <h2>Editar standings y predicciones</h2>
+            <p class="admin-note">La contraseña se define en <span>src/app/admin-config.ts</span>.</p>
+          </div>
+
+          <div class="admin-actions">
+            @if (adminPanelOpen && adminUnlocked) {
+              <button type="button" class="admin-button secondary" (click)="downloadGroupStandings()">Descargar standings</button>
+              <button type="button" class="admin-button secondary" (click)="downloadEditableResults()">Descargar JSON</button>
+              <button type="button" class="admin-button secondary" (click)="closeAdminPanel()">Cerrar vista</button>
+            } @else if (adminPanelOpen) {
+              <button type="button" class="admin-button secondary" (click)="closeAdminPanel()">Cerrar vista</button>
+            } @else {
+              <button type="button" class="admin-button secondary" (click)="toggleAdminPanel()">Abrir administrador</button>
+            }
+          </div>
+        </div>
+
+        @if (adminPanelOpen) {
+          @if (!adminUnlocked) {
+            <div class="admin-login">
+              <div class="admin-field">
+                <label for="adminPassword">Contraseña</label>
+                <input id="adminPassword" #adminPasswordInput type="password" placeholder="Ingresa la clave" (input)="resetAdminPasswordFeedback()" />
+              </div>
+              <button type="button" class="admin-button" (click)="unlockAdmin(adminPasswordInput.value)">Entrar</button>
+            </div>
+            @if (adminError) {
+              <p class="state error">{{ adminError }}</p>
+            }
+          } @else {
+            <div class="admin-success">{{ statusMessage }}</div>
+
+            <div class="admin-section">
+              <div class="admin-header admin-header-tight">
+                <div>
+                  <p class="eyebrow">Group standings</p>
+                  <h2>Editar grupo por grupo</h2>
+                  <p class="admin-note">Los campos `DG`, `PTS` y `PJ` se calculan automáticamente en el front.</p>
+                </div>
+
+                <div class="admin-actions">
+                  <button type="button" class="admin-button secondary" (click)="downloadGroupStandings()">Descargar standings</button>
+                  <button type="button" class="admin-button secondary" (click)="restoreOriginalGroupStandings()">Restaurar standings</button>
+                </div>
+              </div>
+
+              <p-tabView>
+                @for (groupKey of standingsGroups; track trackByStandingGroup($index, groupKey)) {
+                  <p-tabPanel [header]="'Grupo ' + groupKey">
+                    <div class="table-scroll admin-table-wrap">
+                      <p-table styleClass="admin-standings-table" [value]="getStandingsForGroup(groupKey)" [responsiveLayout]="'scroll'" [tableStyle]="{ 'min-width': '1200px' }">
+                        <ng-template pTemplate="header">
+                          <tr>
+                            <th>Equipo</th>
+                            <th>Jugador</th>
+                            <th>Color</th>
+                            <th class="numeric">G</th>
+                            <th class="numeric">E</th>
+                            <th class="numeric">P</th>
+                            <th class="numeric">GF</th>
+                            <th class="numeric">GC</th>
+                            <th class="numeric">DG</th>
+                            <th class="numeric">PTS</th>
+                            <th class="numeric">PJ</th>
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-standing>
+                          <tr [class.highlight-top]="getTopTeamsForGroup(groupKey).has(standing.team)">
+                            <td>
+                              <div class="team-cell">
+                                <img class="flag-img" [src]="'assets/banderas/Banderas/' + standing.flag + '.png'" (error)="imgError($event)" alt="{{ standing.team }}" />
+                                <span>{{ standing.team }}</span>
+                              </div>
+                            </td>
+                            <td>
+                              <input class="admin-text-input" type="text" [value]="standing.playerName" (input)="setStandingText(standing.group, standing.team, 'playerName', $any($event.target).value)" />
+                            </td>
+                            <td>
+                              <input class="admin-color-input" type="color" [value]="standing.playerColor" (input)="setStandingText(standing.group, standing.team, 'playerColor', $any($event.target).value)" />
+                            </td>
+                            <td class="numeric">
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.G" (input)="setStandingNumber(standing.group, standing.team, 'G', $any($event.target).value)" />
+                            </td>
+                            <td class="numeric">
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.E" (input)="setStandingNumber(standing.group, standing.team, 'E', $any($event.target).value)" />
+                            </td>
+                            <td class="numeric">
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.P" (input)="setStandingNumber(standing.group, standing.team, 'P', $any($event.target).value)" />
+                            </td>
+                            <td class="numeric">
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.GF" (input)="setStandingNumber(standing.group, standing.team, 'GF', $any($event.target).value)" />
+                            </td>
+                            <td class="numeric">
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.GC" (input)="setStandingNumber(standing.group, standing.team, 'GC', $any($event.target).value)" />
+                            </td>
+                            <td class="numeric strong">{{ standing.DG }}</td>
+                            <td class="numeric strong">{{ standing.PTS }}</td>
+                            <td class="numeric strong">{{ standing.PJ }}</td>
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                    </div>
+                  </p-tabPanel>
+                }
+              </p-tabView>
+            </div>
+
+            <p-divider />
+
+            <div class="table-scroll admin-table-wrap">
+              <p-table styleClass="admin-table" [value]="editableResults" [responsiveLayout]="'scroll'" [tableStyle]="{ 'min-width': '900px' }">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Selección</th>
+                    @for (stage of stageDefinitions; track stage.key) {
+                      <th class="numeric">{{ stage.label }}</th>
+                    }
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-result>
+                  <tr>
+                    <td data-label="Selección">
+                      <div class="team-cell">
+                        <img class="flag-img" [src]="'assets/banderas/Banderas/' + result.flag + '.png'" (error)="imgError($event)" alt="{{ result.team }}" />
+                        <span>{{ result.team }}</span>
+                      </div>
+                    </td>
+                    @for (stage of stageDefinitions; track stage.key) {
+                      <td class="numeric admin-checkbox-cell">
+                        @if (stage.key === 'groupWin') {
+                          <input
+                            type="number"
+                            min="0"
+                            max="3"
+                            step="1"
+                            class="admin-group-wins"
+                            [value]="result.milestones.groupWin"
+                            (change)="setGroupWins(result.team, $any($event.target).value)"
+                          />
+                        } @else {
+                          <input type="checkbox" [checked]="result.milestones[stage.key] > 0" (change)="setMilestone(result.team, stage.key, $any($event.target).checked)" />
+                        }
+                      </td>
+                    }
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          }
+        }
+      </section>
+    }
+  </section>
+</main>

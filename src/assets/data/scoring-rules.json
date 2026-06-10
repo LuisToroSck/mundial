@@ -1,0 +1,12 @@
+{
+  "stages": [
+    { "key": "groupWin", "label": "Victoria en grupo", "points": 1 },
+    { "key": "round32", "label": "Pasar a 32vos", "points": 2 },
+    { "key": "round16", "label": "Pasar a 16vos", "points": 3 },
+    { "key": "round8", "label": "Pasar a 8vos", "points": 4 },
+    { "key": "quarterFinal", "label": "Pasar a 4tos", "points": 5 },
+    { "key": "semiFinal", "label": "Pasar a semifinal", "points": 6 },
+    { "key": "final", "label": "Pasar a final", "points": 7 },
+    { "key": "champion", "label": "Campeón", "points": 8 }
+  ]
+}
