@@ -86881,9 +86881,9 @@ function replaceGroupStandings(items) {
 var _forTrack0 = ($index, $item) => $item.team;
 var _forTrack1 = ($index, $item) => $item.key;
 var _c017 = () => ({ "min-width": "100%" });
-var _c117 = () => ({ "min-width": "560px" });
-var _c211 = () => ({ "min-width": "820px" });
-var _c38 = () => ({ "min-width": "1040px" });
+var _c117 = () => ({ "min-width": "500px" });
+var _c211 = () => ({ "min-width": "740px" });
+var _c38 = () => ({ "min-width": "920px" });
 function AppComponent_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "p", 4);
@@ -86909,7 +86909,7 @@ function AppComponent_Conditional_4_ng_template_7_Template(rf, ctx) {
     \u0275\u0275text(2, "Jugador");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "th", 22);
-    \u0275\u0275text(4, "Total puntos");
+    \u0275\u0275text(4, "Puntos totales");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "th", 23);
     \u0275\u0275text(6, "Puntos de Selecci\xF3n");
@@ -86950,11 +86950,11 @@ function AppComponent_Conditional_4_ng_template_8_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" ", summary_r2.predictionPoints, " ");
   }
 }
-function AppComponent_Conditional_4_For_16_For_10_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_17_For_10_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "span", 35)(1, "img", 38);
-    \u0275\u0275listener("error", function AppComponent_Conditional_4_For_16_For_10_Template_img_error_1_listener($event) {
+    \u0275\u0275listener("error", function AppComponent_Conditional_4_For_17_For_10_Template_img_error_1_listener($event) {
       \u0275\u0275restoreView(_r3);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.imgError($event));
@@ -86973,7 +86973,7 @@ function AppComponent_Conditional_4_For_16_For_10_Template(rf, ctx) {
     \u0275\u0275textInterpolate(team_r4.flag);
   }
 }
-function AppComponent_Conditional_4_For_16_ng_template_13_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_17_ng_template_13_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "th");
     \u0275\u0275text(2, "Pos");
@@ -87007,7 +87007,7 @@ function AppComponent_Conditional_4_For_16_ng_template_13_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
 }
-function AppComponent_Conditional_4_For_16_ng_template_14_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_17_ng_template_14_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "td", 39);
     \u0275\u0275text(2);
@@ -87070,7 +87070,7 @@ function AppComponent_Conditional_4_For_16_ng_template_14_Template(rf, ctx) {
     \u0275\u0275textInterpolate(row_r5.PJ);
   }
 }
-function AppComponent_Conditional_4_For_16_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_17_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "p-tabPanel", 14)(1, "article", 30)(2, "header", 31)(3, "div")(4, "span", 32);
     \u0275\u0275text(5);
@@ -87079,10 +87079,10 @@ function AppComponent_Conditional_4_For_16_Template(rf, ctx) {
     \u0275\u0275text(7);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(8, "div", 34);
-    \u0275\u0275repeaterCreate(9, AppComponent_Conditional_4_For_16_For_10_Template, 4, 3, "span", 35, _forTrack0);
+    \u0275\u0275repeaterCreate(9, AppComponent_Conditional_4_For_17_For_10_Template, 4, 3, "span", 35, _forTrack0);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(11, "div", 36)(12, "p-table", 37);
-    \u0275\u0275template(13, AppComponent_Conditional_4_For_16_ng_template_13_Template, 21, 0, "ng-template", 10)(14, AppComponent_Conditional_4_For_16_ng_template_14_Template, 25, 14, "ng-template", 11);
+    \u0275\u0275template(13, AppComponent_Conditional_4_For_17_ng_template_13_Template, 21, 0, "ng-template", 10)(14, AppComponent_Conditional_4_For_17_ng_template_14_Template, 25, 14, "ng-template", 11);
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
@@ -87098,7 +87098,7 @@ function AppComponent_Conditional_4_For_16_Template(rf, ctx) {
     \u0275\u0275property("value", group_r7.predictions)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(6, _c117));
   }
 }
-function AppComponent_Conditional_4_For_25_ng_template_25_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_26_ng_template_25_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "th");
     \u0275\u0275text(2, "Selecci\xF3n");
@@ -87114,11 +87114,11 @@ function AppComponent_Conditional_4_For_25_ng_template_25_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
 }
-function AppComponent_Conditional_4_For_25_ng_template_26_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_26_ng_template_26_Template(rf, ctx) {
   if (rf & 1) {
     const _r8 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "tr")(1, "td", 53)(2, "div", 54)(3, "img", 38);
-    \u0275\u0275listener("error", function AppComponent_Conditional_4_For_25_ng_template_26_Template_img_error_3_listener($event) {
+    \u0275\u0275elementStart(0, "tr")(1, "td", 52)(2, "div", 53)(3, "img", 38);
+    \u0275\u0275listener("error", function AppComponent_Conditional_4_For_26_ng_template_26_Template_img_error_3_listener($event) {
       \u0275\u0275restoreView(_r8);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.imgError($event));
@@ -87127,10 +87127,10 @@ function AppComponent_Conditional_4_For_25_ng_template_26_Template(rf, ctx) {
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(6, "td", 55);
+    \u0275\u0275elementStart(6, "td", 54);
     \u0275\u0275text(7);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(8, "td", 56);
+    \u0275\u0275elementStart(8, "td", 55);
     \u0275\u0275text(9);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(10, "td", 28);
@@ -87152,7 +87152,7 @@ function AppComponent_Conditional_4_For_25_ng_template_26_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" ", selection_r9.points, " ");
   }
 }
-function AppComponent_Conditional_4_For_25_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_26_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "p-tabPanel", 14)(1, "div", 48)(2, "div")(3, "h2");
     \u0275\u0275text(4);
@@ -87178,8 +87178,8 @@ function AppComponent_Conditional_4_For_25_Template(rf, ctx) {
     \u0275\u0275text(21);
     \u0275\u0275elementEnd()()();
     \u0275\u0275element(22, "p-divider");
-    \u0275\u0275elementStart(23, "div", 51)(24, "p-table", 52);
-    \u0275\u0275template(25, AppComponent_Conditional_4_For_25_ng_template_25_Template, 9, 0, "ng-template", 10)(26, AppComponent_Conditional_4_For_25_ng_template_26_Template, 12, 6, "ng-template", 11);
+    \u0275\u0275elementStart(23, "div", 8)(24, "p-table", 51);
+    \u0275\u0275template(25, AppComponent_Conditional_4_For_26_ng_template_25_Template, 9, 0, "ng-template", 10)(26, AppComponent_Conditional_4_For_26_ng_template_26_Template, 12, 6, "ng-template", 11);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -87199,27 +87199,27 @@ function AppComponent_Conditional_4_For_25_Template(rf, ctx) {
     \u0275\u0275property("value", summary_r10.selections)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(10, _c017));
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_41_Template(rf, ctx) {
   if (rf & 1) {
     const _r11 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 57);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_40_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_41_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r11);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.downloadGroupStandings());
     });
     \u0275\u0275text(1, " Respaldar standings ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "button", 57);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_40_Template_button_click_2_listener() {
+    \u0275\u0275elementStart(2, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_41_Template_button_click_2_listener() {
       \u0275\u0275restoreView(_r11);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.downloadEditableResults());
     });
     \u0275\u0275text(3, " Descargar JSON ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "button", 57);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_40_Template_button_click_4_listener() {
+    \u0275\u0275elementStart(4, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_41_Template_button_click_4_listener() {
       \u0275\u0275restoreView(_r11);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.closeAdminPanel());
@@ -87228,11 +87228,11 @@ function AppComponent_Conditional_4_Conditional_40_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_Conditional_4_Conditional_41_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_42_Template(rf, ctx) {
   if (rf & 1) {
     const _r12 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 57);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_41_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_42_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r12);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.closeAdminPanel());
@@ -87241,11 +87241,11 @@ function AppComponent_Conditional_4_Conditional_41_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_Conditional_4_Conditional_42_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Template(rf, ctx) {
   if (rf & 1) {
     const _r13 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 57);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_42_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_43_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r13);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.toggleAdminPanel());
@@ -87254,7 +87254,7 @@ function AppComponent_Conditional_4_Conditional_42_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_0_Conditional_8_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_0_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "p", 5);
     \u0275\u0275text(1);
@@ -87266,21 +87266,21 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_0_Conditional_8_T
     \u0275\u0275textInterpolate(ctx_r0.adminError);
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_0_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
     const _r14 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 58)(1, "div", 59)(2, "label", 60);
+    \u0275\u0275elementStart(0, "div", 57)(1, "div", 58)(2, "label", 59);
     \u0275\u0275text(3, "Contrase\xF1a");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "input", 61, 0);
-    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_43_Conditional_0_Template_input_input_4_listener() {
+    \u0275\u0275elementStart(4, "input", 60, 0);
+    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_44_Conditional_0_Template_input_input_4_listener() {
       \u0275\u0275restoreView(_r14);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.resetAdminPasswordFeedback());
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(6, "button", 62);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_43_Conditional_0_Template_button_click_6_listener() {
+    \u0275\u0275elementStart(6, "button", 61);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_44_Conditional_0_Template_button_click_6_listener() {
       \u0275\u0275restoreView(_r14);
       const adminPasswordInput_r15 = \u0275\u0275reference(5);
       const ctx_r0 = \u0275\u0275nextContext(3);
@@ -87288,7 +87288,7 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_0_Template(rf, ct
     });
     \u0275\u0275text(7, " Entrar ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(8, AppComponent_Conditional_4_Conditional_43_Conditional_0_Conditional_8_Template, 2, 1, "p", 5);
+    \u0275\u0275template(8, AppComponent_Conditional_4_Conditional_44_Conditional_0_Conditional_8_Template, 2, 1, "p", 5);
   }
   if (rf & 2) {
     const ctx_r0 = \u0275\u0275nextContext(3);
@@ -87296,7 +87296,7 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_0_Template(rf, ct
     \u0275\u0275conditional(ctx_r0.adminError ? 8 : -1);
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_3_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_3_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "th");
     \u0275\u0275text(2, "Equipo");
@@ -87333,11 +87333,11 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_templ
     \u0275\u0275elementEnd()();
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template(rf, ctx) {
   if (rf & 1) {
     const _r18 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "tr")(1, "td")(2, "div", 54)(3, "img", 38);
-    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_img_error_3_listener($event) {
+    \u0275\u0275elementStart(0, "tr")(1, "td")(2, "div", 53)(3, "img", 38);
+    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template_img_error_3_listener($event) {
       \u0275\u0275restoreView(_r18);
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.imgError($event));
@@ -87346,50 +87346,50 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_templ
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(6, "td")(7, "input", 71);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_7_listener($event) {
+    \u0275\u0275elementStart(6, "td")(7, "input", 70);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template_input_change_7_listener($event) {
       const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r19.group, standing_r19.team, "playerName", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "td")(9, "input", 72);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_9_listener($event) {
+    \u0275\u0275elementStart(8, "td")(9, "input", 71);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template_input_change_9_listener($event) {
       const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r19.group, standing_r19.team, "playerColor", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "td", 23)(11, "input", 73);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_11_listener($event) {
+    \u0275\u0275elementStart(10, "td", 23)(11, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template_input_change_11_listener($event) {
       const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "G", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(12, "td", 23)(13, "input", 73);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_13_listener($event) {
+    \u0275\u0275elementStart(12, "td", 23)(13, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template_input_change_13_listener($event) {
       const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "E", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(14, "td", 23)(15, "input", 73);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_15_listener($event) {
+    \u0275\u0275elementStart(14, "td", 23)(15, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template_input_change_15_listener($event) {
       const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "P", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(16, "td", 23)(17, "input", 73);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_17_listener($event) {
+    \u0275\u0275elementStart(16, "td", 23)(17, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template_input_change_17_listener($event) {
       const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "GF", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(18, "td", 23)(19, "input", 73);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_19_listener($event) {
+    \u0275\u0275elementStart(18, "td", 23)(19, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template_input_change_19_listener($event) {
       const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "GC", $event.target.value));
@@ -87437,10 +87437,10 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_templ
     \u0275\u0275textInterpolate(standing_r19.PJ);
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p-tabPanel", 14)(1, "div", 68)(2, "p-table", 70);
-    \u0275\u0275template(3, AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_3_Template, 23, 0, "ng-template", 10)(4, AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template, 26, 15, "ng-template", 11);
+    \u0275\u0275elementStart(0, "p-tabPanel", 14)(1, "div", 67)(2, "p-table", 69);
+    \u0275\u0275template(3, AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_3_Template, 23, 0, "ng-template", 10)(4, AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_ng_template_4_Template, 26, 15, "ng-template", 11);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -87451,7 +87451,7 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_Template
     \u0275\u0275property("value", ctx_r0.getStandingsForGroup(groupKey_r20))("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(4, _c38));
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_For_4_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_26_For_4_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "th", 23);
     \u0275\u0275text(1);
@@ -87463,12 +87463,12 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_
     \u0275\u0275textInterpolate(stage_r21.label);
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_26_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "th");
     \u0275\u0275text(2, "Selecci\xF3n");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(3, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_For_4_Template, 2, 1, "th", 23, _forTrack1);
+    \u0275\u0275repeaterCreate(3, AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_26_For_4_Template, 2, 1, "th", 23, _forTrack1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -87477,11 +87477,11 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_
     \u0275\u0275repeater(ctx_r0.stageDefinitions);
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_1_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_For_7_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r23 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 77);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_1_Template_input_change_0_listener($event) {
+    \u0275\u0275elementStart(0, "input", 76);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_For_7_Conditional_1_Template_input_change_0_listener($event) {
       \u0275\u0275restoreView(_r23);
       const result_r24 = \u0275\u0275nextContext(2).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(4);
@@ -87494,11 +87494,11 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_
     \u0275\u0275property("value", result_r24.milestones.groupWin);
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_2_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_For_7_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
     const _r25 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 78);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_2_Template_input_change_0_listener($event) {
+    \u0275\u0275elementStart(0, "input", 77);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_For_7_Conditional_2_Template_input_change_0_listener($event) {
       \u0275\u0275restoreView(_r25);
       const stage_r26 = \u0275\u0275nextContext().$implicit;
       const result_r24 = \u0275\u0275nextContext().$implicit;
@@ -87513,10 +87513,10 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_
     \u0275\u0275property("checked", result_r24.milestones[stage_r26.key] > 0);
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_For_7_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "td", 74);
-    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_1_Template, 1, 1, "input", 75)(2, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_2_Template, 1, 1, "input", 76);
+    \u0275\u0275elementStart(0, "td", 73);
+    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_For_7_Conditional_1_Template, 1, 1, "input", 74)(2, AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_For_7_Conditional_2_Template, 1, 1, "input", 75);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -87525,11 +87525,11 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_
     \u0275\u0275conditional(stage_r26.key === "groupWin" ? 1 : 2);
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_Template(rf, ctx) {
   if (rf & 1) {
     const _r22 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "tr")(1, "td", 53)(2, "div", 54)(3, "img", 38);
-    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_Template_img_error_3_listener($event) {
+    \u0275\u0275elementStart(0, "tr")(1, "td", 52)(2, "div", 53)(3, "img", 38);
+    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_Template_img_error_3_listener($event) {
       \u0275\u0275restoreView(_r22);
       const ctx_r0 = \u0275\u0275nextContext(4);
       return \u0275\u0275resetView(ctx_r0.imgError($event));
@@ -87538,7 +87538,7 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275repeaterCreate(6, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Template, 3, 1, "td", 74, _forTrack1);
+    \u0275\u0275repeaterCreate(6, AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_For_7_Template, 3, 1, "td", 73, _forTrack1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -87553,13 +87553,13 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_
     \u0275\u0275repeater(ctx_r0.stageDefinitions);
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r16 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 63);
+    \u0275\u0275elementStart(0, "div", 62);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "div", 64)(3, "div", 65)(4, "div")(5, "p", 18);
+    \u0275\u0275elementStart(2, "div", 63)(3, "div", 64)(4, "div")(5, "p", 18);
     \u0275\u0275text(6, "Group standings");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(7, "h2");
@@ -87568,43 +87568,43 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template(rf, ct
     \u0275\u0275elementStart(9, "p", 19);
     \u0275\u0275text(10, " Los campos `DG`, `PTS` y `PJ` se calculan autom\xE1ticamente en el front. ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(11, "div", 20)(12, "input", 66, 1);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template_input_change_12_listener($event) {
+    \u0275\u0275elementStart(11, "div", 20)(12, "input", 65, 1);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_44_Conditional_1_Template_input_change_12_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.uploadGroupStandingsFile($event));
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(14, "button", 57);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template_button_click_14_listener() {
+    \u0275\u0275elementStart(14, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_44_Conditional_1_Template_button_click_14_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.downloadGroupStandings());
     });
     \u0275\u0275text(15, " Respaldar standings ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(16, "button", 57);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template_button_click_16_listener() {
+    \u0275\u0275elementStart(16, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_44_Conditional_1_Template_button_click_16_listener() {
       \u0275\u0275restoreView(_r16);
       const groupStandingsUpload_r17 = \u0275\u0275reference(13);
       return \u0275\u0275resetView(groupStandingsUpload_r17.click());
     });
     \u0275\u0275text(17, " Cargar respaldo ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(18, "button", 57);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template_button_click_18_listener() {
+    \u0275\u0275elementStart(18, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_44_Conditional_1_Template_button_click_18_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.restoreOriginalGroupStandings());
     });
     \u0275\u0275text(19, " Restaurar standings ");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(20, "p-tabView", 67);
-    \u0275\u0275repeaterCreate(21, AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_Template, 5, 5, "p-tabPanel", 14, \u0275\u0275componentInstance().trackByStandingGroup, true);
+    \u0275\u0275elementStart(20, "p-tabView", 66);
+    \u0275\u0275repeaterCreate(21, AppComponent_Conditional_4_Conditional_44_Conditional_1_For_22_Template, 5, 5, "p-tabPanel", 14, \u0275\u0275componentInstance().trackByStandingGroup, true);
     \u0275\u0275elementEnd()();
     \u0275\u0275element(23, "p-divider");
-    \u0275\u0275elementStart(24, "div", 68)(25, "p-table", 69);
-    \u0275\u0275template(26, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_Template, 5, 0, "ng-template", 10)(27, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_Template, 8, 3, "ng-template", 11);
+    \u0275\u0275elementStart(24, "div", 67)(25, "p-table", 68);
+    \u0275\u0275template(26, AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_26_Template, 5, 0, "ng-template", 10)(27, AppComponent_Conditional_4_Conditional_44_Conditional_1_ng_template_27_Template, 8, 3, "ng-template", 11);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -87617,9 +87617,9 @@ function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template(rf, ct
     \u0275\u0275property("value", ctx_r0.editableResults)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(4, _c211));
   }
 }
-function AppComponent_Conditional_4_Conditional_43_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_44_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, AppComponent_Conditional_4_Conditional_43_Conditional_0_Template, 9, 1)(1, AppComponent_Conditional_4_Conditional_43_Conditional_1_Template, 28, 5);
+    \u0275\u0275template(0, AppComponent_Conditional_4_Conditional_44_Conditional_0_Template, 9, 1)(1, AppComponent_Conditional_4_Conditional_44_Conditional_1_Template, 28, 5);
   }
   if (rf & 2) {
     const ctx_r0 = \u0275\u0275nextContext(2);
@@ -87634,51 +87634,52 @@ function AppComponent_Conditional_4_Template(rf, ctx) {
     \u0275\u0275elementStart(5, "div", 8)(6, "p-table", 9);
     \u0275\u0275template(7, AppComponent_Conditional_4_ng_template_7_Template, 9, 0, "ng-template", 10)(8, AppComponent_Conditional_4_ng_template_8_Template, 13, 6, "ng-template", 11);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(9, "section", 12)(10, "div", 7)(11, "div")(12, "h2");
-    \u0275\u0275text(13, "Tabla posiciones predicciones Mundial 2026");
+    \u0275\u0275element(9, "p-divider");
+    \u0275\u0275elementStart(10, "section", 12)(11, "div", 7)(12, "div")(13, "h2");
+    \u0275\u0275text(14, "Tabla posiciones predicciones Mundial 2026");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(14, "p-tabView", 13);
-    \u0275\u0275repeaterCreate(15, AppComponent_Conditional_4_For_16_Template, 15, 7, "p-tabPanel", 14, \u0275\u0275componentInstance().trackByGroup, true);
+    \u0275\u0275elementStart(15, "p-tabView", 13);
+    \u0275\u0275repeaterCreate(16, AppComponent_Conditional_4_For_17_Template, 15, 7, "p-tabPanel", 14, \u0275\u0275componentInstance().trackByGroup, true);
     \u0275\u0275elementEnd()();
-    \u0275\u0275element(17, "p-divider");
-    \u0275\u0275elementStart(18, "section")(19, "div", 7)(20, "div")(21, "h2");
-    \u0275\u0275text(22, "Puntos de Selecci\xF3n");
+    \u0275\u0275element(18, "p-divider");
+    \u0275\u0275elementStart(19, "section")(20, "div", 7)(21, "div")(22, "h2");
+    \u0275\u0275text(23, "Puntos de Selecci\xF3n");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(23, "p-tabView", 15);
-    \u0275\u0275repeaterCreate(24, AppComponent_Conditional_4_For_25_Template, 27, 11, "p-tabPanel", 14, \u0275\u0275componentInstance().trackByName, true);
+    \u0275\u0275elementStart(24, "p-tabView", 15);
+    \u0275\u0275repeaterCreate(25, AppComponent_Conditional_4_For_26_Template, 27, 11, "p-tabPanel", 14, \u0275\u0275componentInstance().trackByName, true);
     \u0275\u0275elementEnd()();
-    \u0275\u0275element(26, "p-divider");
-    \u0275\u0275elementStart(27, "section", 16)(28, "div", 17)(29, "div")(30, "p", 18);
-    \u0275\u0275text(31, "Administrador");
+    \u0275\u0275element(27, "p-divider");
+    \u0275\u0275elementStart(28, "section", 16)(29, "div", 17)(30, "div")(31, "p", 18);
+    \u0275\u0275text(32, "Administrador");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(32, "h2");
-    \u0275\u0275text(33, "Editar standings y predicciones");
+    \u0275\u0275elementStart(33, "h2");
+    \u0275\u0275text(34, "Editar standings y predicciones");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(34, "p", 19);
-    \u0275\u0275text(35, " La contrase\xF1a se define en ");
-    \u0275\u0275elementStart(36, "span");
-    \u0275\u0275text(37, "src/app/admin-config.ts");
+    \u0275\u0275elementStart(35, "p", 19);
+    \u0275\u0275text(36, " La contrase\xF1a se define en ");
+    \u0275\u0275elementStart(37, "span");
+    \u0275\u0275text(38, "src/app/admin-config.ts");
     \u0275\u0275elementEnd();
-    \u0275\u0275text(38, ". ");
+    \u0275\u0275text(39, ". ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(39, "div", 20);
-    \u0275\u0275template(40, AppComponent_Conditional_4_Conditional_40_Template, 6, 0)(41, AppComponent_Conditional_4_Conditional_41_Template, 2, 0, "button", 21)(42, AppComponent_Conditional_4_Conditional_42_Template, 2, 0, "button", 21);
+    \u0275\u0275elementStart(40, "div", 20);
+    \u0275\u0275template(41, AppComponent_Conditional_4_Conditional_41_Template, 6, 0)(42, AppComponent_Conditional_4_Conditional_42_Template, 2, 0, "button", 21)(43, AppComponent_Conditional_4_Conditional_43_Template, 2, 0, "button", 21);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(43, AppComponent_Conditional_4_Conditional_43_Template, 2, 1);
+    \u0275\u0275template(44, AppComponent_Conditional_4_Conditional_44_Template, 2, 1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     const ctx_r0 = \u0275\u0275nextContext();
     \u0275\u0275advance(6);
     \u0275\u0275property("value", ctx_r0.summaries)("tableStyle", \u0275\u0275pureFunction0(4, _c017));
-    \u0275\u0275advance(9);
+    \u0275\u0275advance(10);
     \u0275\u0275repeater(ctx_r0.worldCupGroups);
     \u0275\u0275advance(9);
     \u0275\u0275repeater(ctx_r0.summaries);
     \u0275\u0275advance(16);
-    \u0275\u0275conditional(ctx_r0.adminPanelOpen && ctx_r0.adminUnlocked ? 40 : ctx_r0.adminPanelOpen ? 41 : 42);
+    \u0275\u0275conditional(ctx_r0.adminPanelOpen && ctx_r0.adminUnlocked ? 41 : ctx_r0.adminPanelOpen ? 42 : 43);
     \u0275\u0275advance(3);
-    \u0275\u0275conditional(ctx_r0.adminPanelOpen ? 43 : -1);
+    \u0275\u0275conditional(ctx_r0.adminPanelOpen ? 44 : -1);
   }
 }
 var STAGE_ORDER = [
@@ -88234,17 +88235,17 @@ var AppComponent = class _AppComponent {
   static \u0275fac = function AppComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _AppComponent)();
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 5, vars: 1, consts: [["adminPasswordInput", ""], ["groupStandingsUpload", ""], [1, "shell"], [1, "content", "surface-card"], [1, "state"], [1, "state", "error"], [1, "summary-block"], [1, "summary-header"], [1, "table"], ["styleClass", "summary-table", 3, "value", "tableStyle"], ["pTemplate", "header"], ["pTemplate", "body"], [1, "groups-block"], ["styleClass", "group-tabview"], [3, "header"], ["styleClass", "participant-tabview"], [1, "admin-panel", "surface-card"], [1, "admin-header"], [1, "eyebrow"], [1, "admin-note"], [1, "admin-actions"], ["type", "button", 1, "admin-button", "secondary"], [1, "numeric", "strong"], [1, "numeric"], ["data-label", "Jugador"], [1, "player-cell"], [1, "player-dot"], ["data-label", "Total puntos", 1, "numeric", "strong"], ["data-label", "Puntos de Selecci\xF3n", 1, "numeric", "strong"], ["data-label", "Puntos de predicciones", 1, "numeric", "strong"], [1, "group-card"], [1, "group-card-header"], [1, "group-badge"], [1, "group-count"], [1, "group-teams-preview"], [1, "group-team-chip"], [1, "group-standings-wrap"], ["styleClass", "group-standings-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "flag-img", 3, "error", "src", "alt"], ["data-label", "Pos"], ["data-label", "G", 1, "numeric"], ["data-label", "E", 1, "numeric"], ["data-label", "P", 1, "numeric"], ["data-label", "GF", 1, "numeric"], ["data-label", "GC", 1, "numeric"], ["data-label", "DG", 1, "numeric"], ["data-label", "PTS", 1, "numeric", "strong"], ["data-label", "PJ", 1, "numeric"], [1, "participant-header"], [3, "label", "styleClass"], [1, "participant-metrics"], [1, "table-scroll"], ["styleClass", "selection-table", 3, "value", "responsiveLayout", "tableStyle"], ["data-label", "Selecci\xF3n"], [1, "team-cell"], ["data-label", "Victorias", 1, "numeric"], ["data-label", "Rondas", 1, "numeric"], ["type", "button", 1, "admin-button", "secondary", 3, "click"], [1, "admin-login"], [1, "admin-field"], ["for", "adminPassword"], ["id", "adminPassword", "type", "password", "placeholder", "Ingresa la clave", 3, "input"], ["type", "button", 1, "admin-button", 3, "click"], [1, "admin-success"], [1, "admin-section"], [1, "admin-header", "admin-header-tight"], ["type", "file", "accept", ".json,application/json", "hidden", "", 3, "change"], ["styleClass", "group-tabview admin-group-tabview"], [1, "table-scroll", "admin-table-wrap"], ["styleClass", "admin-table", 3, "value", "responsiveLayout", "tableStyle"], ["styleClass", "admin-standings-table", 3, "value", "responsiveLayout", "tableStyle"], ["type", "text", 1, "admin-text-input", 3, "change", "value"], ["type", "color", 1, "admin-color-input", 3, "change", "value"], ["type", "number", "min", "0", "step", "1", 1, "admin-number-input", 3, "change", "value"], [1, "numeric", "admin-checkbox-cell"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "value"], ["type", "checkbox", 3, "checked"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "change", "value"], ["type", "checkbox", 3, "change", "checked"]], template: function AppComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 5, vars: 1, consts: [["adminPasswordInput", ""], ["groupStandingsUpload", ""], [1, "shell"], [1, "content", "surface-card"], [1, "state"], [1, "state", "error"], [1, "summary-block"], [1, "summary-header"], [1, "table-scroll"], ["styleClass", "summary-table", 3, "value", "tableStyle"], ["pTemplate", "header"], ["pTemplate", "body"], [1, "groups-block"], ["styleClass", "group-tabview"], [3, "header"], ["styleClass", "participant-tabview"], [1, "admin-panel", "surface-card"], [1, "admin-header"], [1, "eyebrow"], [1, "admin-note"], [1, "admin-actions"], ["type", "button", 1, "admin-button", "secondary"], [1, "numeric", "strong"], [1, "numeric"], ["data-label", "Jugador"], [1, "player-cell"], [1, "player-dot"], ["data-label", "Total puntos", 1, "numeric", "strong"], ["data-label", "Puntos de Selecci\xF3n", 1, "numeric", "strong"], ["data-label", "Puntos de predicciones", 1, "numeric", "strong"], [1, "group-card"], [1, "group-card-header"], [1, "group-badge"], [1, "group-count"], [1, "group-teams-preview"], [1, "group-team-chip"], [1, "group-standings-wrap"], ["styleClass", "group-standings-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "flag-img", 3, "error", "src", "alt"], ["data-label", "Pos"], ["data-label", "G", 1, "numeric"], ["data-label", "E", 1, "numeric"], ["data-label", "P", 1, "numeric"], ["data-label", "GF", 1, "numeric"], ["data-label", "GC", 1, "numeric"], ["data-label", "DG", 1, "numeric"], ["data-label", "PTS", 1, "numeric", "strong"], ["data-label", "PJ", 1, "numeric"], [1, "participant-header"], [3, "label", "styleClass"], [1, "participant-metrics"], ["styleClass", "selection-table", 3, "value", "responsiveLayout", "tableStyle"], ["data-label", "Selecci\xF3n"], [1, "team-cell"], ["data-label", "Victorias", 1, "numeric"], ["data-label", "Rondas", 1, "numeric"], ["type", "button", 1, "admin-button", "secondary", 3, "click"], [1, "admin-login"], [1, "admin-field"], ["for", "adminPassword"], ["id", "adminPassword", "type", "password", "placeholder", "Ingresa la clave", 3, "input"], ["type", "button", 1, "admin-button", 3, "click"], [1, "admin-success"], [1, "admin-section"], [1, "admin-header", "admin-header-tight"], ["type", "file", "accept", ".json,application/json", "hidden", "", 3, "change"], ["styleClass", "group-tabview admin-group-tabview"], [1, "table-scroll", "admin-table-wrap"], ["styleClass", "admin-table", 3, "value", "responsiveLayout", "tableStyle"], ["styleClass", "admin-standings-table", 3, "value", "responsiveLayout", "tableStyle"], ["type", "text", 1, "admin-text-input", 3, "change", "value"], ["type", "color", 1, "admin-color-input", 3, "change", "value"], ["type", "number", "min", "0", "step", "1", 1, "admin-number-input", 3, "change", "value"], [1, "numeric", "admin-checkbox-cell"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "value"], ["type", "checkbox", 3, "checked"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "change", "value"], ["type", "checkbox", 3, "change", "checked"]], template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275elementStart(0, "main", 2)(1, "section", 3);
-      \u0275\u0275template(2, AppComponent_Conditional_2_Template, 2, 0, "p", 4)(3, AppComponent_Conditional_3_Template, 2, 1, "p", 5)(4, AppComponent_Conditional_4_Template, 44, 5);
+      \u0275\u0275template(2, AppComponent_Conditional_2_Template, 2, 0, "p", 4)(3, AppComponent_Conditional_3_Template, 2, 1, "p", 5)(4, AppComponent_Conditional_4_Template, 45, 5);
       \u0275\u0275elementEnd()();
     }
     if (rf & 2) {
       \u0275\u0275advance(2);
       \u0275\u0275conditional(ctx.loading ? 2 : ctx.error ? 3 : 4);
     }
-  }, dependencies: [CommonModule, CardModule, PrimeTemplate, ChipModule, Chip, DividerModule, Divider, TabViewModule, TabView, TabPanel, TableModule, Table], styles: ["\n\n.shell[_ngcontent-%COMP%] {\n  width: min(1200px, 100vw - 32px);\n  margin: 32px auto 48px;\n  display: grid;\n  gap: 24px;\n}\n.hero[_ngcontent-%COMP%] {\n  padding: 28px;\n  display: grid;\n  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);\n  gap: 20px;\n  align-items: end;\n}\n.eyebrow[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.82rem;\n  font-weight: 700;\n  letter-spacing: 0.14em;\n  text-transform: uppercase;\n  color: var(--accent-strong);\n}\nh1[_ngcontent-%COMP%], \nh2[_ngcontent-%COMP%], \np[_ngcontent-%COMP%] {\n  margin: 0;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: clamp(2rem, 4vw, 3.6rem);\n  line-height: 1.02;\n  max-width: 12ch;\n}\n.lead[_ngcontent-%COMP%] {\n  margin-top: 14px;\n  max-width: 60ch;\n  color: var(--text-muted);\n  font-size: 1.02rem;\n  line-height: 1.7;\n}\n.hero-stats[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 12px;\n}\n.hero-stats[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n  padding: 16px;\n  border-radius: 18px;\n  background: var(--surface-strong);\n  border: 1px solid var(--border);\n}\n.hero-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n  color: var(--text-muted);\n  font-size: 0.86rem;\n}\n.hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-top: 8px;\n  font-size: 1.6rem;\n}\n.content[_ngcontent-%COMP%] {\n  padding: 14px 18px 18px;\n}\n.table-scroll[_ngcontent-%COMP%] {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.state[_ngcontent-%COMP%] {\n  padding: 26px 10px;\n  color: var(--text-muted);\n}\n.state.error[_ngcontent-%COMP%] {\n  color: #b91c1c;\n}\n.participant-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 18px;\n}\n.participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.6rem;\n}\n.selection-chip[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-panel[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin-bottom: 18px;\n}\n.admin-section[_ngcontent-%COMP%] {\n  margin-top: 18px;\n}\n.admin-header-tight[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n.admin-text-input[_ngcontent-%COMP%], \n.admin-number-input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  color: var(--text-main);\n  padding: 0.55rem 0.7rem;\n  font: inherit;\n}\n.admin-color-input[_ngcontent-%COMP%] {\n  width: 100%;\n  min-width: 56px;\n  height: 38px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  padding: 0.2rem;\n}\n.admin-number-input[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.admin-text-input[_ngcontent-%COMP%]:focus, \n.admin-number-input[_ngcontent-%COMP%]:focus, \n.admin-color-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid color-mix(in srgb, var(--accent-strong) 30%, transparent);\n  outline-offset: 1px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .team-cell[_ngcontent-%COMP%] {\n  min-width: 150px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   td[_ngcontent-%COMP%] {\n  vertical-align: middle;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%], \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  padding: 0.42rem 0.45rem;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .numeric[_ngcontent-%COMP%] {\n  min-width: 60px;\n}\n.summary-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, minmax(0, 1fr));\n  gap: 12px;\n}\n.group-card[_ngcontent-%COMP%] {\n  border: 1px solid var(--border);\n  border-radius: 16px;\n  background: var(--surface-strong);\n  padding: 12px;\n}\n.group-card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 12px;\n  margin-bottom: 10px;\n  flex-wrap: wrap;\n}\n.group-badge[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  color: var(--accent-strong);\n}\n.group-count[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--text-muted);\n}\n.group-teams-preview[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 8px;\n}\n.group-team-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 0.35rem 0.6rem;\n  border-radius: 999px;\n  background: var(--surface);\n  border: 1px solid var(--border);\n  font-size: 0.76rem;\n  color: var(--text-main);\n  white-space: nowrap;\n}\n.group-team-chip[_ngcontent-%COMP%]   .flag-img[_ngcontent-%COMP%] {\n  width: 18px;\n  height: 12px;\n  object-fit: cover;\n  border-radius: 2px;\n}\n.group-teams[_ngcontent-%COMP%] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: grid;\n  gap: 8px;\n}\n.group-teams[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.group-owner[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n}\n.group-standings-wrap[_ngcontent-%COMP%] {\n  margin-top: 12px;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td {\n  padding: 0.36rem 0.42rem;\n  font-size: 0.76rem;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n  white-space: nowrap;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child {\n  width: 2.2rem;\n  text-align: center;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n  min-width: 148px;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(1), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(1) {\n  min-width: 2.6rem;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.numeric, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th.numeric {\n  text-align: right;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.strong {\n  font-weight: 700;\n}\n.admin-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.admin-note[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.admin-note[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-weight: 700;\n  color: var(--text-main);\n}\n.admin-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n}\n.admin-login[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  align-items: flex-end;\n  flex-wrap: wrap;\n}\n.admin-field[_ngcontent-%COMP%] {\n  flex: 1 1 260px;\n}\n.admin-field[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 6px;\n  font-size: 0.85rem;\n  font-weight: 700;\n  color: var(--text-muted);\n}\n.admin-field[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 14px;\n  padding: 0.85rem 0.95rem;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n.admin-button[_ngcontent-%COMP%] {\n  border: 0;\n  border-radius: 14px;\n  padding: 0.85rem 1rem;\n  font: inherit;\n  font-weight: 700;\n  background: var(--accent-strong);\n  color: #fff;\n  cursor: pointer;\n}\n.admin-button.secondary[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-button[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.admin-success[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  color: var(--accent-strong);\n  font-size: 0.9rem;\n  font-weight: 700;\n}\n.admin-table-wrap[_ngcontent-%COMP%] {\n  margin-top: 8px;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%] {\n  text-align: center;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] {\n  width: 1rem;\n  height: 1rem;\n  accent-color: var(--accent-strong);\n}\n.admin-group-wins[_ngcontent-%COMP%] {\n  width: 3.2rem;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  padding: 0.25rem 0.35rem;\n  text-align: center;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top > td, \n[_nghost-%COMP%]     .admin-standings-table .p-datatable-tbody > tr.highlight-top > td, \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr.highlight-top[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  background-color: rgba(15, 23, 42, 0.03);\n  transition: background-color 120ms ease-in-out;\n}\n.summary-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.4rem;\n  margin-top: 2px;\n}\n.summary-hint[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.player-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n[_nghost-%COMP%]     .summary-table .player-cell {\n  gap: 8px;\n}\n.player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n}\n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.86rem;\n  margin-top: 2px;\n}\n.player-dot[_ngcontent-%COMP%] {\n  width: 0.9rem;\n  height: 0.9rem;\n  border-radius: 50%;\n  flex: 0 0 auto;\n  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.04);\n}\n.participant-metrics[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n[_nghost-%COMP%]     .p-tabview-nav {\n  border: 0;\n  margin-bottom: 12px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container {\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 8px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar-thumb, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: rgba(15, 23, 42, 0.18);\n  border-radius: 999px;\n}\n[_nghost-%COMP%]     .p-tabview-panels {\n  padding: 0;\n}\n[_nghost-%COMP%]     .p-tabview-nav li {\n  flex: 0 0 auto;\n}\n[_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n  border: 0;\n  border-radius: 999px;\n  margin-right: 8px;\n  background: transparent;\n  color: var(--text-muted);\n  padding-inline: 18px;\n}\n[_nghost-%COMP%]     .p-tabview-nav li.p-highlight .p-tabview-nav-link {\n  background: var(--accent-strong);\n  color: white;\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th {\n  background: transparent;\n  color: var(--text-muted);\n  border-color: var(--border);\n  padding: 0.55rem 0.65rem;\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n  border-color: var(--border);\n  padding: 0.55rem 0.65rem;\n}\n.team-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.flag[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 50%;\n  display: grid;\n  place-items: center;\n  background: var(--accent-soft);\n  font-size: 1rem;\n}\n.flag-img[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 6px;\n  object-fit: cover;\n  display: inline-block;\n}\n.numeric[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.strong[_ngcontent-%COMP%] {\n  font-weight: 700;\n}\n@media (max-width: 900px) {\n  .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .hero-stats[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .participant-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .summary-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n}\n@media (max-width: 640px) {\n  .shell[_ngcontent-%COMP%] {\n    width: min(100vw - 16px, 1200px);\n    margin: 12px auto 24px;\n    gap: 16px;\n  }\n  .hero[_ngcontent-%COMP%], \n   .content[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: clamp(1.6rem, 8vw, 2.4rem);\n    max-width: 14ch;\n  }\n  .lead[_ngcontent-%COMP%] {\n    font-size: 0.95rem;\n    line-height: 1.6;\n  }\n  .hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n    font-size: 1.35rem;\n  }\n  .hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n    padding: 14px;\n    border-radius: 16px;\n  }\n  .participant-metrics[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n    font-size: 1.2rem;\n  }\n  .participant-header[_ngcontent-%COMP%], \n   .summary-header[_ngcontent-%COMP%] {\n    gap: 10px;\n    margin-bottom: 12px;\n  }\n  .player-cell[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n    margin-top: 0;\n  }\n  [_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n    padding-inline: 14px;\n    font-size: 0.92rem;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav-container {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 8px;\n    margin-bottom: 10px;\n    padding-bottom: 2px;\n    scroll-snap-type: x proximity;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li {\n    flex: 0 0 calc((100% - 16px) / 10);\n    min-width: calc((100% - 16px) / 10);\n    scroll-snap-align: start;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li .p-tabview-nav-link {\n    width: 100%;\n    margin-right: 0;\n    justify-content: center;\n    text-align: center;\n    padding: 0.5rem 0.12rem;\n    font-size: 0.7rem;\n    line-height: 1.1;\n    white-space: nowrap;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav-container {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 8px;\n    margin-bottom: 10px;\n    padding-bottom: 2px;\n    scroll-snap-type: x proximity;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li {\n    flex: 0 0 calc((100% - 16px) / 10);\n    min-width: calc((100% - 16px) / 10);\n    scroll-snap-align: start;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li .p-tabview-nav-link {\n    width: 100%;\n    margin-right: 0;\n    justify-content: center;\n    text-align: center;\n    padding: 0.5rem 0.12rem;\n    font-size: 0.7rem;\n    line-height: 1.15;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n  [_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n    padding: 0.5rem 0.38rem;\n    font-size: 0.76rem;\n  }\n  .admin-table-wrap[_ngcontent-%COMP%] {\n    overflow-x: auto;\n  }\n  [_nghost-%COMP%]     .admin-table .p-datatable-table {\n    width: 820px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-wrapper, \n   [_nghost-%COMP%]     .selection-table .p-datatable-wrapper, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-wrapper {\n    overflow: visible;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table, \n   [_nghost-%COMP%]     .selection-table .p-datatable-table, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-table {\n    width: 100%;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead {\n    display: none;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table {\n    min-width: 100%;\n    table-layout: fixed;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-table {\n    min-width: 560px !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-table {\n    min-width: 560px !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.42rem 0.32rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.32rem 0.28rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.38rem 0.34rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:first-child {\n    text-align: left;\n    width: 28%;\n    min-width: 92px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:not(:first-child), \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:not(:first-child) {\n    width: 24%;\n  }\n  [_nghost-%COMP%]     .summary-table .player-cell {\n    gap: 6px;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n    text-align: left;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th:first-child {\n    text-align: left;\n    min-width: 180px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th {\n    white-space: normal;\n    font-size: 0.7rem;\n    line-height: 1.15;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n    white-space: nowrap;\n    font-size: 0.68rem;\n    line-height: 1.1;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th {\n    white-space: nowrap;\n    font-size: 0.68rem;\n    line-height: 1.1;\n  }\n  .player-cell[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%] {\n    min-width: 0;\n    gap: 6px;\n  }\n  .player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:last-child {\n    display: block;\n    min-width: 0;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n  }\n  .flag-img[_ngcontent-%COMP%] {\n    width: 1.35rem;\n    height: 1.35rem;\n    border-radius: 4px;\n  }\n  .player-dot[_ngcontent-%COMP%] {\n    width: 0.7rem;\n    height: 0.7rem;\n    box-shadow: none;\n  }\n  .admin-header[_ngcontent-%COMP%], \n   .admin-login[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .admin-actions[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  .admin-panel[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .admin-button[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .group-owner[_ngcontent-%COMP%] {\n    font-size: 0.72rem;\n  }\n  .group-teams-preview[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top {\n    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);\n  }\n}\n@media (max-width: 420px) {\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li {\n    flex-basis: calc((100% - 12px) / 5);\n    min-width: calc((100% - 12px) / 5);\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li {\n    flex-basis: calc((100% - 12px) / 5);\n    min-width: calc((100% - 12px) / 5);\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+  }, dependencies: [CommonModule, CardModule, PrimeTemplate, ChipModule, Chip, DividerModule, Divider, TabViewModule, TabView, TabPanel, TableModule, Table], styles: ["\n\n.shell[_ngcontent-%COMP%] {\n  width: min(1200px, 100vw - 32px);\n  margin: 32px auto 48px;\n  display: grid;\n  gap: 24px;\n}\n.hero[_ngcontent-%COMP%] {\n  padding: 28px;\n  display: grid;\n  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);\n  gap: 20px;\n  align-items: end;\n}\n.eyebrow[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.82rem;\n  font-weight: 700;\n  letter-spacing: 0.14em;\n  text-transform: uppercase;\n  color: var(--accent-strong);\n}\nh1[_ngcontent-%COMP%], \nh2[_ngcontent-%COMP%], \np[_ngcontent-%COMP%] {\n  margin: 0;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: clamp(2rem, 4vw, 3.6rem);\n  line-height: 1.02;\n  max-width: 12ch;\n}\n.lead[_ngcontent-%COMP%] {\n  margin-top: 14px;\n  max-width: 60ch;\n  color: var(--text-muted);\n  font-size: 1.02rem;\n  line-height: 1.7;\n}\n.hero-stats[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 12px;\n}\n.hero-stats[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n  padding: 16px;\n  border-radius: 18px;\n  background: var(--surface-strong);\n  border: 1px solid var(--border);\n}\n.hero-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n  color: var(--text-muted);\n  font-size: 0.86rem;\n}\n.hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-top: 8px;\n  font-size: 1.6rem;\n}\n.content[_ngcontent-%COMP%] {\n  padding: 14px 18px 18px;\n}\n.table-scroll[_ngcontent-%COMP%] {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.state[_ngcontent-%COMP%] {\n  padding: 26px 10px;\n  color: var(--text-muted);\n}\n.state.error[_ngcontent-%COMP%] {\n  color: #b91c1c;\n}\n.participant-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 18px;\n}\n.participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.6rem;\n}\n.selection-chip[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-panel[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin-bottom: 18px;\n}\n.admin-section[_ngcontent-%COMP%] {\n  margin-top: 18px;\n}\n.admin-header-tight[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n.admin-text-input[_ngcontent-%COMP%], \n.admin-number-input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  color: var(--text-main);\n  padding: 0.55rem 0.7rem;\n  font: inherit;\n}\n.admin-color-input[_ngcontent-%COMP%] {\n  width: 100%;\n  min-width: 56px;\n  height: 38px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  padding: 0.2rem;\n}\n.admin-number-input[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.admin-text-input[_ngcontent-%COMP%]:focus, \n.admin-number-input[_ngcontent-%COMP%]:focus, \n.admin-color-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid color-mix(in srgb, var(--accent-strong) 30%, transparent);\n  outline-offset: 1px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .team-cell[_ngcontent-%COMP%] {\n  min-width: 150px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   td[_ngcontent-%COMP%] {\n  vertical-align: middle;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%], \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  padding: 0.42rem 0.45rem;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .numeric[_ngcontent-%COMP%] {\n  min-width: 60px;\n}\n.summary-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, minmax(0, 1fr));\n  gap: 12px;\n}\n.group-card[_ngcontent-%COMP%] {\n  border: 1px solid var(--border);\n  border-radius: 16px;\n  background: var(--surface-strong);\n  padding: 12px;\n}\n.group-card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 12px;\n  margin-bottom: 10px;\n  flex-wrap: wrap;\n}\n.group-badge[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  color: var(--accent-strong);\n}\n.group-count[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--text-muted);\n}\n.group-teams-preview[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 8px;\n}\n.group-team-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 0.35rem 0.6rem;\n  border-radius: 999px;\n  background: var(--surface);\n  border: 1px solid var(--border);\n  font-size: 0.76rem;\n  color: var(--text-main);\n  white-space: nowrap;\n}\n.group-team-chip[_ngcontent-%COMP%]   .flag-img[_ngcontent-%COMP%] {\n  width: 18px;\n  height: 12px;\n  object-fit: cover;\n  border-radius: 2px;\n}\n.group-teams[_ngcontent-%COMP%] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: grid;\n  gap: 8px;\n}\n.group-teams[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.group-owner[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n}\n.group-standings-wrap[_ngcontent-%COMP%] {\n  margin-top: 12px;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td {\n  padding: 0.36rem 0.42rem;\n  font-size: 0.76rem;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n  white-space: nowrap;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child {\n  width: 2.2rem;\n  text-align: center;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n  min-width: 148px;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(1), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(1) {\n  min-width: 2.6rem;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.numeric, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th.numeric {\n  text-align: right;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.strong {\n  font-weight: 700;\n}\n.admin-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.admin-note[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.admin-note[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-weight: 700;\n  color: var(--text-main);\n}\n.admin-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n}\n.admin-login[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  align-items: flex-end;\n  flex-wrap: wrap;\n}\n.admin-field[_ngcontent-%COMP%] {\n  flex: 1 1 260px;\n}\n.admin-field[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 6px;\n  font-size: 0.85rem;\n  font-weight: 700;\n  color: var(--text-muted);\n}\n.admin-field[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 14px;\n  padding: 0.85rem 0.95rem;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n.admin-button[_ngcontent-%COMP%] {\n  border: 0;\n  border-radius: 14px;\n  padding: 0.85rem 1rem;\n  font: inherit;\n  font-weight: 700;\n  background: var(--accent-strong);\n  color: #fff;\n  cursor: pointer;\n}\n.admin-button.secondary[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-button[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.admin-success[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  color: var(--accent-strong);\n  font-size: 0.9rem;\n  font-weight: 700;\n}\n.admin-table-wrap[_ngcontent-%COMP%] {\n  margin-top: 8px;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%] {\n  text-align: center;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] {\n  width: 1rem;\n  height: 1rem;\n  accent-color: var(--accent-strong);\n}\n.admin-group-wins[_ngcontent-%COMP%] {\n  width: 3.2rem;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  padding: 0.25rem 0.35rem;\n  text-align: center;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top > td, \n[_nghost-%COMP%]     .admin-standings-table .p-datatable-tbody > tr.highlight-top > td, \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr.highlight-top[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  background-color: rgba(15, 23, 42, 0.03);\n  transition: background-color 120ms ease-in-out;\n}\n.summary-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.4rem;\n  margin-top: 2px;\n}\n.summary-hint[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.player-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n[_nghost-%COMP%]     .summary-table .player-cell {\n  gap: 8px;\n}\n.player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n}\n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.86rem;\n  margin-top: 2px;\n}\n.player-dot[_ngcontent-%COMP%] {\n  width: 0.9rem;\n  height: 0.9rem;\n  border-radius: 50%;\n  flex: 0 0 auto;\n  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.04);\n}\n.participant-metrics[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n[_nghost-%COMP%]     .p-tabview-nav {\n  border: 0;\n  margin-bottom: 12px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container {\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 8px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar-thumb, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: rgba(15, 23, 42, 0.18);\n  border-radius: 999px;\n}\n[_nghost-%COMP%]     .p-tabview-panels {\n  padding: 0;\n}\n[_nghost-%COMP%]     .p-tabview-nav li {\n  flex: 0 0 auto;\n}\n[_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n  border: 0;\n  border-radius: 999px;\n  margin-right: 8px;\n  background: transparent;\n  color: var(--text-muted);\n  padding-inline: 18px;\n}\n[_nghost-%COMP%]     .p-tabview-nav li.p-highlight .p-tabview-nav-link {\n  background: var(--accent-strong);\n  color: white;\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th {\n  background: transparent;\n  color: var(--text-muted);\n  border-color: var(--border);\n  padding: 0.55rem 0.65rem;\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n  border-color: var(--border);\n  padding: 0.55rem 0.65rem;\n}\n.team-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.flag[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 50%;\n  display: grid;\n  place-items: center;\n  background: var(--accent-soft);\n  font-size: 1rem;\n}\n.flag-img[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 6px;\n  object-fit: cover;\n  display: inline-block;\n}\n.numeric[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.strong[_ngcontent-%COMP%] {\n  font-weight: 700;\n}\n@media (max-width: 900px) {\n  .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .hero-stats[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .participant-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .summary-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n}\n@media (max-width: 640px) {\n  .shell[_ngcontent-%COMP%] {\n    width: min(100vw - 16px, 1200px);\n    margin: 12px auto 24px;\n    gap: 16px;\n  }\n  .hero[_ngcontent-%COMP%], \n   .content[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: clamp(1.6rem, 8vw, 2.4rem);\n    max-width: 14ch;\n  }\n  .lead[_ngcontent-%COMP%] {\n    font-size: 0.95rem;\n    line-height: 1.6;\n  }\n  .hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n    font-size: 1.35rem;\n  }\n  .hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n    padding: 14px;\n    border-radius: 16px;\n  }\n  .participant-metrics[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n    font-size: 1.2rem;\n  }\n  .participant-header[_ngcontent-%COMP%], \n   .summary-header[_ngcontent-%COMP%] {\n    gap: 10px;\n    margin-bottom: 12px;\n  }\n  .player-cell[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n    margin-top: 0;\n  }\n  [_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n    padding-inline: 14px;\n    font-size: 0.92rem;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav-container {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 8px;\n    margin-bottom: 10px;\n    padding-bottom: 2px;\n    scroll-snap-type: x proximity;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li {\n    flex: 0 0 calc((100% - 16px) / 10);\n    min-width: calc((100% - 16px) / 10);\n    scroll-snap-align: start;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li .p-tabview-nav-link {\n    width: 100%;\n    margin-right: 0;\n    justify-content: center;\n    text-align: center;\n    padding: 0.5rem 0.12rem;\n    font-size: 0.7rem;\n    line-height: 1.1;\n    white-space: nowrap;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav-container {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 8px;\n    margin-bottom: 10px;\n    padding-bottom: 2px;\n    scroll-snap-type: x proximity;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li {\n    flex: 0 0 calc((100% - 16px) / 10);\n    min-width: calc((100% - 16px) / 10);\n    scroll-snap-align: start;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li .p-tabview-nav-link {\n    width: 100%;\n    margin-right: 0;\n    justify-content: center;\n    text-align: center;\n    padding: 0.5rem 0.12rem;\n    font-size: 0.7rem;\n    line-height: 1.15;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n  [_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n    padding: 0.3rem 0.18rem;\n    font-size: 0.7rem;\n  }\n  .admin-table-wrap[_ngcontent-%COMP%] {\n    overflow-x: auto;\n  }\n  [_nghost-%COMP%]     .admin-table .p-datatable-table {\n    width: 740px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-wrapper, \n   [_nghost-%COMP%]     .selection-table .p-datatable-wrapper, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-wrapper {\n    overflow: visible;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table, \n   [_nghost-%COMP%]     .selection-table .p-datatable-table, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-table {\n    width: 100%;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead {\n    display: none;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table {\n    width: max-content;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-table {\n    width: max-content;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-table {\n    width: max-content;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.24rem 0.14rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.2rem 0.14rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.22rem 0.16rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:first-child {\n    text-align: left;\n    width: auto;\n    min-width: 64px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:not(:first-child), \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:not(:first-child) {\n    width: auto;\n    min-width: 50px;\n  }\n  [_nghost-%COMP%]     .summary-table .player-cell {\n    gap: 6px;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n    text-align: left;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child {\n    min-width: 1.8rem;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n    min-width: 82px;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(n+3), \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(n+3) {\n    min-width: 24px;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th:first-child {\n    text-align: left;\n    min-width: 92px;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:nth-child(n+2), \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th:nth-child(n+2) {\n    min-width: 34px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th {\n    white-space: normal;\n    font-size: 0.62rem;\n    line-height: 1.05;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n    white-space: nowrap;\n    font-size: 0.62rem;\n    line-height: 1.05;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th {\n    white-space: nowrap;\n    font-size: 0.62rem;\n    line-height: 1.05;\n  }\n  .player-cell[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%] {\n    min-width: 0;\n    gap: 3px;\n  }\n  .player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:last-child {\n    display: block;\n    min-width: 0;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n  }\n  .flag-img[_ngcontent-%COMP%] {\n    width: 1rem;\n    height: 1rem;\n    border-radius: 3px;\n  }\n  .player-dot[_ngcontent-%COMP%] {\n    width: 0.58rem;\n    height: 0.58rem;\n    box-shadow: none;\n  }\n  .admin-header[_ngcontent-%COMP%], \n   .admin-login[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .admin-login[_ngcontent-%COMP%] {\n    gap: 8px;\n  }\n  .admin-field[_ngcontent-%COMP%] {\n    flex: none;\n    width: 100%;\n  }\n  .admin-actions[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  .admin-panel[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .admin-button[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .group-owner[_ngcontent-%COMP%] {\n    font-size: 0.72rem;\n  }\n  .group-teams-preview[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top {\n    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);\n  }\n}\n@media (max-width: 420px) {\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li {\n    flex-basis: calc((100% - 12px) / 5);\n    min-width: calc((100% - 12px) / 5);\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li {\n    flex-basis: calc((100% - 12px) / 5);\n    min-width: calc((100% - 12px) / 5);\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 161 });

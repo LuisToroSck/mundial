@@ -696,8 +696,8 @@ h1 {
 
   :host ::ng-deep .p-datatable .p-datatable-thead > tr > th,
   :host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
-    padding: 0.5rem 0.38rem;
-    font-size: 0.76rem;
+    padding: 0.3rem 0.18rem;
+    font-size: 0.7rem;
   }
 
   .admin-table-wrap {
@@ -705,7 +705,7 @@ h1 {
   }
 
   :host ::ng-deep .admin-table .p-datatable-table {
-    width: 820px;
+    width: 740px;
   }
 
   :host ::ng-deep .summary-table .p-datatable-wrapper,
@@ -743,17 +743,20 @@ h1 {
   }
 
   :host ::ng-deep .summary-table .p-datatable-table {
-    min-width: 100%;
-    table-layout: fixed;
+    width: max-content;
+    min-width: 0 !important;
+    table-layout: auto;
   }
 
   :host ::ng-deep .selection-table .p-datatable-table {
-    min-width: 560px !important;
+    width: max-content;
+    min-width: 0 !important;
     table-layout: auto;
   }
 
   :host ::ng-deep .group-standings-table .p-datatable-table {
-    min-width: 560px !important;
+    width: max-content;
+    min-width: 0 !important;
     table-layout: auto;
   }
 
@@ -809,7 +812,7 @@ h1 {
   :host ::ng-deep .summary-table .p-datatable-thead > tr > th {
     display: table-cell;
     width: auto;
-    padding: 0.42rem 0.32rem;
+    padding: 0.24rem 0.14rem;
     border: 0;
     text-align: right;
     vertical-align: middle;
@@ -819,7 +822,7 @@ h1 {
   :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th {
     display: table-cell;
     width: auto;
-    padding: 0.32rem 0.28rem;
+    padding: 0.2rem 0.14rem;
     border: 0;
     text-align: right;
     vertical-align: middle;
@@ -829,7 +832,7 @@ h1 {
   :host ::ng-deep .selection-table .p-datatable-thead > tr > th {
     display: table-cell;
     width: auto;
-    padding: 0.38rem 0.34rem;
+    padding: 0.22rem 0.16rem;
     border: 0;
     text-align: right;
     vertical-align: middle;
@@ -838,13 +841,14 @@ h1 {
   :host ::ng-deep .summary-table .p-datatable-tbody > tr > td:first-child,
   :host ::ng-deep .summary-table .p-datatable-thead > tr > th:first-child {
     text-align: left;
-    width: 28%;
-    min-width: 92px;
+    width: auto;
+    min-width: 64px;
   }
 
   :host ::ng-deep .summary-table .p-datatable-tbody > tr > td:not(:first-child),
   :host ::ng-deep .summary-table .p-datatable-thead > tr > th:not(:first-child) {
-    width: 24%;
+    width: auto;
+    min-width: 50px;
   }
 
   :host ::ng-deep .summary-table .player-cell {
@@ -858,10 +862,30 @@ h1 {
     text-align: left;
   }
 
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td:first-child,
+  :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th:first-child {
+    min-width: 1.8rem;
+  }
+
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td:nth-child(2),
+  :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {
+    min-width: 82px;
+  }
+
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td:nth-child(n + 3),
+  :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th:nth-child(n + 3) {
+    min-width: 24px;
+  }
+
   :host ::ng-deep .selection-table .p-datatable-tbody > tr > td:first-child,
   :host ::ng-deep .selection-table .p-datatable-thead > tr > th:first-child {
     text-align: left;
-    min-width: 180px;
+    min-width: 92px;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td:nth-child(n + 2),
+  :host ::ng-deep .selection-table .p-datatable-thead > tr > th:nth-child(n + 2) {
+    min-width: 34px;
   }
 
   :host ::ng-deep .summary-table .p-datatable-tbody > tr > td::before {
@@ -878,26 +902,26 @@ h1 {
 
   :host ::ng-deep .summary-table .p-datatable-thead > tr > th {
     white-space: normal;
-    font-size: 0.7rem;
-    line-height: 1.15;
+    font-size: 0.62rem;
+    line-height: 1.05;
   }
 
   :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th {
     white-space: nowrap;
-    font-size: 0.68rem;
-    line-height: 1.1;
+    font-size: 0.62rem;
+    line-height: 1.05;
   }
 
   :host ::ng-deep .selection-table .p-datatable-thead > tr > th {
     white-space: nowrap;
-    font-size: 0.68rem;
-    line-height: 1.1;
+    font-size: 0.62rem;
+    line-height: 1.05;
   }
 
   .player-cell,
   .team-cell {
     min-width: 0;
-    gap: 6px;
+    gap: 3px;
   }
 
   .player-cell strong,
@@ -910,20 +934,27 @@ h1 {
   }
 
   .flag-img {
-    width: 1.35rem;
-    height: 1.35rem;
-    border-radius: 4px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 3px;
   }
 
   .player-dot {
-    width: 0.7rem;
-    height: 0.7rem;
+    width: 0.58rem;
+    height: 0.58rem;
     box-shadow: none;
   }
   .admin-header,
   .admin-login {
     align-items: flex-start;
     flex-direction: column;
+  }
+  .admin-login {
+    gap: 8px;
+  }
+  .admin-field {
+    flex: none;
+    width: 100%;
   }
   .admin-actions {
     justify-content: flex-start;

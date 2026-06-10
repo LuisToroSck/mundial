@@ -13,7 +13,7 @@
           </div>
         </div>
 
-        <div class="table">
+        <div class="table-scroll">
           <p-table
             styleClass="summary-table"
             [value]="summaries"
@@ -22,7 +22,7 @@
             <ng-template pTemplate="header">
               <tr>
                 <th>Jugador</th>
-                <th class="numeric strong">Total puntos</th>
+                <th class="numeric strong">Puntos totales</th>
                 <th class="numeric">Puntos de Selección</th>
                 <th class="numeric">Puntos de predicciones</th>
               </tr>
@@ -55,6 +55,8 @@
         </div>
       </div>
 
+      <p-divider />
+      
       <section class="groups-block">
         <div class="summary-header">
           <div>
@@ -96,20 +98,20 @@
                     styleClass="group-standings-table"
                     [value]="group.predictions"
                     [responsiveLayout]="'scroll'"
-                    [tableStyle]="{ 'min-width': '560px' }"
+                    [tableStyle]="{ 'min-width': '500px' }"
                   >
                     <ng-template pTemplate="header">
                       <tr>
                         <th>Pos</th>
                         <th>Jugador</th>
+                        <th class="numeric">PTS</th>
+                        <th class="numeric">PJ</th>
                         <th class="numeric">G</th>
                         <th class="numeric">E</th>
                         <th class="numeric">P</th>
                         <th class="numeric">GF</th>
                         <th class="numeric">GC</th>
                         <th class="numeric">DG</th>
-                        <th class="numeric">PTS</th>
-                        <th class="numeric">PJ</th>
                       </tr>
                     </ng-template>
                     <ng-template
@@ -130,14 +132,14 @@
                             </div>
                           </div>
                         </td>
+                        <td data-label="PTS" class="numeric strong">{{ row.PTS }}</td>
+                        <td data-label="PJ" class="numeric">{{ row.PJ }}</td>
                         <td data-label="G" class="numeric">{{ row.G }}</td>
                         <td data-label="E" class="numeric">{{ row.E }}</td>
                         <td data-label="P" class="numeric">{{ row.P }}</td>
                         <td data-label="GF" class="numeric">{{ row.GF }}</td>
                         <td data-label="GC" class="numeric">{{ row.GC }}</td>
                         <td data-label="DG" class="numeric">{{ row.DG }}</td>
-                        <td data-label="PTS" class="numeric strong">{{ row.PTS }}</td>
-                        <td data-label="PJ" class="numeric">{{ row.PJ }}</td>
                       </tr>
                     </ng-template>
                   </p-table>
@@ -245,10 +247,6 @@
         <div class="admin-header">
           <div>
             <p class="eyebrow">Administrador</p>
-            <h2>Editar standings y predicciones</h2>
-            <p class="admin-note">
-              La contraseña se define en <span>src/app/admin-config.ts</span>.
-            </p>
           </div>
 
           <div class="admin-actions">
@@ -375,7 +373,7 @@
                         styleClass="admin-standings-table"
                         [value]="getStandingsForGroup(groupKey)"
                         [responsiveLayout]="'scroll'"
-                        [tableStyle]="{ 'min-width': '1040px' }"
+                        [tableStyle]="{ 'min-width': '920px' }"
                       >
                         <ng-template pTemplate="header">
                           <tr>
@@ -547,7 +545,7 @@
                 styleClass="admin-table"
                 [value]="editableResults"
                 [responsiveLayout]="'scroll'"
-                [tableStyle]="{ 'min-width': '820px' }"
+                [tableStyle]="{ 'min-width': '740px' }"
               >
                 <ng-template pTemplate="header">
                   <tr>
