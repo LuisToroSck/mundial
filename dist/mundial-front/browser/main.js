@@ -72325,56 +72325,17 @@ var TableModule = class _TableModule {
 // src/app/admin-config.ts
 var ADMIN_PASSWORD = "Shikamaru17";
 
-// src/assets/data/group-standings.json
-var group_standings_default = [
-  { group: "A", team: "Corea del sur", flag: "KOR", playerName: "Sergio", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "A", team: "M\xE9xico", flag: "MEX", playerName: "Tom\xE1s", playerColor: "#ef4444", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "A", team: "Rep\xFAblica Checa", flag: "CZE", playerName: "Pablo", playerColor: "#14b8a6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "A", team: "Sudafrica", flag: "RSA", playerName: "Joaqu\xEDn", playerColor: "#f97316", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "B", team: "Bosnia", flag: "BIH", playerName: "Mart\xEDn", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "B", team: "Canad\xE1", flag: "CAN", playerName: "Lennis", playerColor: "#f97316", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "B", team: "Qatar", flag: "QAT", playerName: "Pablo", playerColor: "#14b8a6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "B", team: "Suiza", flag: "SUI", playerName: "Sergio", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "C", team: "Brasil", flag: "BRA", playerName: "Tom\xE1s", playerColor: "#ef4444", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "C", team: "Escocia", flag: "SCO", playerName: "Luis", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "C", team: "Hait\xED", flag: "HAI", playerName: "Luis", playerColor: "#f97316", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "C", team: "Marruecos", flag: "MAR", playerName: "Pablo", playerColor: "#22c55e", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "D", team: "Australia", flag: "AUS", playerName: "Joaqu\xEDn", playerColor: "#14b8a6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "D", team: "Estados Unidos", flag: "USA", playerName: "Mart\xEDn", playerColor: "#2563eb", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "D", team: "Paraguay", flag: "PAR", playerName: "Marcelo", playerColor: "#f97316", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "D", team: "Turqu\xEDa", flag: "TUR", playerName: "Pablo", playerColor: "#ef4444", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "E", team: "Alemania", flag: "GER", playerName: "Luis", playerColor: "#14b8a6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "E", team: "Costa de Marf\xEDl", flag: "CIV", playerName: "Mart\xEDn", playerColor: "#2563eb", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "E", team: "Curazao", flag: "CUW", playerName: "Lennis", playerColor: "#ef4444", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "E", team: "Ecuador", flag: "ECU", playerName: "Bayron", playerColor: "#22c55e", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "F", team: "Holanda", flag: "NED", playerName: "Marcelo", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "F", team: "Jap\xF3n", flag: "JPN", playerName: "Lennis", playerColor: "#14b8a6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "F", team: "Suecia", flag: "SWE", playerName: "Joaqu\xEDn", playerColor: "#8b5cf6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "F", team: "Tunez", flag: "TUN", playerName: "Tom\xE1s", playerColor: "#22c55e", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "G", team: "B\xE9lgica", flag: "BEL", playerName: "Luis", playerColor: "#2563eb", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "G", team: "Egipto", flag: "EGY", playerName: "Mart\xEDn", playerColor: "#ef4444", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "G", team: "Ir\xE1n", flag: "IRN", playerName: "Tom\xE1s", playerColor: "#f97316", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "G", team: "Nueva Zelanda", flag: "NZL", playerName: "Bayron", playerColor: "#8b5cf6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "H", team: "Arabia Saudita", flag: "KSA", playerName: "Luis", playerColor: "#ef4444", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "H", team: "Cabo Verde", flag: "CPV", playerName: "Sergio", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "H", team: "Espa\xF1a", flag: "ESP", playerName: "Lennis", playerColor: "#2563eb", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "H", team: "Uruguay", flag: "URU", playerName: "Bayron", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "I", team: "Francia", flag: "FRA", playerName: "Mart\xEDn", playerColor: "#14b8a6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "I", team: "Irak", flag: "IRQ", playerName: "Marcelo", playerColor: "#8b5cf6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "I", team: "Noruega", flag: "NOR", playerName: "Lennis", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "I", team: "Senegal", flag: "SEN", playerName: "Joaqu\xEDn", playerColor: "#22c55e", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "J", team: "Argelia", flag: "ALG", playerName: "Sergio", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "J", team: "Argentina", flag: "ARG", playerName: "Bayron", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "J", team: "Austria", flag: "AUT", playerName: "Marcelo", playerColor: "#2563eb", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "J", team: "Jordania", flag: "JOR", playerName: "Tom\xE1s", playerColor: "#22c55e", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "K", team: "Colombia", flag: "COL", playerName: "Pablo", playerColor: "#8b5cf6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "K", team: "Congo", flag: "COD", playerName: "Sergio", playerColor: "#0ea5e9", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "K", team: "Portugal", flag: "POR", playerName: "Joaqu\xEDn", playerColor: "#f97316", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "K", team: "Uzbekistan", flag: "UZB", playerName: "Bayron", playerColor: "#2563eb", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "L", team: "Croacia", flag: "CRO", playerName: "Marcelo", playerColor: "#f97316", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "L", team: "Ghana", flag: "GHA", playerName: "Lennis", playerColor: "#2563eb", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "L", team: "Inglaterra", flag: "ENG", playerName: "Bayron", playerColor: "#8b5cf6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
-  { group: "L", team: "Panam\xE1", flag: "PAN", playerName: "Luis", playerColor: "#22c55e", G: 0, E: 0, P: 0, GF: 0, GC: 0 }
+// src/assets/data/player-colors.json
+var player_colors_default = [
+  { name: "Bayron", color: "#22c55e" },
+  { name: "Joaqu\xEDn", color: "#f97316" },
+  { name: "Lennis", color: "#ec4899" },
+  { name: "Luis", color: "#2563eb" },
+  { name: "Marcelo", color: "#eab308" },
+  { name: "Mart\xEDn", color: "#14b8a6" },
+  { name: "Pablo", color: "#8b5cf6" },
+  { name: "Sergio", color: "#0ea5e9" },
+  { name: "Tom\xE1s", color: "#ef4444" }
 ];
 
 // src/assets/data/scoring-rules.json
@@ -72387,61 +72348,9 @@ var scoring_rules_default = {
     { key: "quarterFinal", label: "Pasar a 4tos", points: 5 },
     { key: "semiFinal", label: "Pasar a semifinal", points: 6 },
     { key: "final", label: "Pasar a final", points: 7 },
-    { key: "champion", label: "Campe\xF3n", points: 8 }
+    { key: "champion", label: "Campeon", points: 8 }
   ]
 };
-
-// src/assets/data/team-results.json
-var team_results_default = [
-  { team: "Argentina", flag: "ARG", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Holanda", flag: "NED", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Uruguay", flag: "URU", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Corea del sur", flag: "KOR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Noruega", flag: "NOR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Escocia", flag: "SCO", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Bosnia", flag: "BIH", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Espa\xF1a", flag: "ESP", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "B\xE9lgica", flag: "BEL", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Estados Unidos", flag: "USA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Austria", flag: "AUT", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Costa de Marf\xEDl", flag: "CIV", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Uzbekistan", flag: "UZB", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Ghana", flag: "GHA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Francia", flag: "FRA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Alemania", flag: "GER", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Jap\xF3n", flag: "JPN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Australia", flag: "AUS", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Rep\xFAblica Checa", flag: "CZE", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Qatar", flag: "QAT", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Cabo Verde", flag: "CPV", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Portugal", flag: "POR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Croacia", flag: "CRO", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Ir\xE1n", flag: "IRN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Canad\xE1", flag: "CAN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Paraguay", flag: "PAR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Sudafrica", flag: "RSA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Hait\xED", flag: "HAI", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Inglaterra", flag: "ENG", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Colombia", flag: "COL", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Suiza", flag: "SUI", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Argelia", flag: "ALG", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Suecia", flag: "SWE", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Irak", flag: "IRQ", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Nueva Zelanda", flag: "NZL", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Brasil", flag: "BRA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "M\xE9xico", flag: "MEX", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Turqu\xEDa", flag: "TUR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Egipto", flag: "EGY", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Congo", flag: "COD", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Arabia Saudita", flag: "KSA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Curazao", flag: "CUW", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Marruecos", flag: "MAR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Senegal", flag: "SEN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Ecuador", flag: "ECU", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Panam\xE1", flag: "PAN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Tunez", flag: "TUN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
-  { team: "Jordania", flag: "JOR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } }
-];
 
 // node_modules/@firebase/util/dist/postinstall.mjs
 var getDefaultsFromPostinstall = () => void 0;
@@ -77475,9 +77384,6 @@ function __PRIVATE_cast(e, t) {
   }
   return e;
 }
-function __PRIVATE_validatePositiveNumber(e, t) {
-  if (t <= 0) throw new FirestoreError(D.INVALID_ARGUMENT, `Function ${e}() requires a positive number, but it was: ${t}.`);
-}
 function property(e, t) {
   const n = {
     typeString: e
@@ -78721,11 +78627,6 @@ function __PRIVATE_estimateByteSize(e) {
       });
   }
 }
-function __PRIVATE_refValue(e, t) {
-  return {
-    referenceValue: `projects/${e.projectId}/databases/${e.database}/documents/${t.path.canonicalString()}`
-  };
-}
 function isInteger(e) {
   return !!e && "integerValue" in e;
 }
@@ -79348,10 +79249,6 @@ function __PRIVATE__queryToTarget(e, t) {
     const n = e.endAt ? new Bound(e.endAt.position, e.endAt.inclusive) : null, r = e.startAt ? new Bound(e.startAt.position, e.startAt.inclusive) : null;
     return __PRIVATE_newTarget(e.path, e.collectionGroup, t, e.filters, e.limit, n, r);
   }
-}
-function __PRIVATE_queryWithAddedFilter(e, t) {
-  const n = e.filters.concat([t]);
-  return new __PRIVATE_QueryImpl(e.path, e.collectionGroup, e.explicitOrderBy.slice(), n, e.limit, e.limitType, e.startAt, e.endAt);
 }
 function __PRIVATE_queryWithLimit(e, t, n) {
   return new __PRIVATE_QueryImpl(e.path, e.collectionGroup, e.explicitOrderBy.slice(), e.filters.slice(), t, n, e.startAt, e.endAt);
@@ -86189,9 +86086,6 @@ function __PRIVATE_parseUpdateVarargs(e, t, n, r, i, s) {
   const l = new FieldMask(u2);
   return new ParsedUpdateData(c, l, o.fieldTransforms);
 }
-function __PRIVATE_parseQueryValue(e, t, n, r = false) {
-  return __PRIVATE_parseData(n, e.V(r ? 4 : 3, t));
-}
 function __PRIVATE_parseData(e, t) {
   if (__PRIVATE_looksLikeJsonObject(
     // Unwrap the API type from the Compat SDK. This will return the API type
@@ -86570,160 +86464,6 @@ var QueryDocumentSnapshot$1 = class extends DocumentSnapshot$1 {
 function __PRIVATE_validateHasExplicitOrderByForLimitToLast(t) {
   if ("L" === t.limitType && 0 === t.explicitOrderBy.length) throw new FirestoreError(D.UNIMPLEMENTED, "limitToLast() queries require specifying at least one orderBy() clause");
 }
-var AppliableConstraint = class {
-};
-var QueryConstraint = class extends AppliableConstraint {
-};
-function query(t, e, ...n) {
-  let r = [];
-  e instanceof AppliableConstraint && r.push(e), r = r.concat(n), function __PRIVATE_validateQueryConstraintArray(t2) {
-    const e2 = t2.filter((t3) => t3 instanceof QueryCompositeFilterConstraint).length, n2 = t2.filter((t3) => t3 instanceof QueryFieldFilterConstraint).length;
-    if (e2 > 1 || e2 > 0 && n2 > 0) throw new FirestoreError(D.INVALID_ARGUMENT, "InvalidQuery. When using composite filters, you cannot use more than one filter at the top level. Consider nesting the multiple filters within an `and(...)` statement. For example: change `query(query, where(...), or(...))` to `query(query, and(where(...), or(...)))`.");
-  }(r);
-  for (const e2 of r) t = e2._apply(t);
-  return t;
-}
-var QueryFieldFilterConstraint = class _QueryFieldFilterConstraint extends QueryConstraint {
-  /**
-   * @internal
-   */
-  constructor(t, e, n) {
-    super(), this._field = t, this._op = e, this._value = n, /** The type of this query constraint */
-    this.type = "where";
-  }
-  static _create(t, e, n) {
-    return new _QueryFieldFilterConstraint(t, e, n);
-  }
-  _apply(t) {
-    const e = this._parse(t);
-    return __PRIVATE_validateNewFieldFilter(t._query, e), new Query2(t.firestore, t.converter, __PRIVATE_queryWithAddedFilter(t._query, e));
-  }
-  _parse(t) {
-    const e = __PRIVATE_newUserDataReader(t.firestore), n = function __PRIVATE_newQueryFilter(t2, e2, n2, r, s, a, o) {
-      let i;
-      if (s.isKeyField()) {
-        if ("array-contains" === a || "array-contains-any" === a) throw new FirestoreError(D.INVALID_ARGUMENT, `Invalid Query. You can't perform '${a}' queries on documentId().`);
-        if ("in" === a || "not-in" === a) {
-          __PRIVATE_validateDisjunctiveFilterElements(o, a);
-          const e3 = [];
-          for (const n3 of o) e3.push(__PRIVATE_parseDocumentIdValue(r, t2, n3));
-          i = {
-            arrayValue: {
-              values: e3
-            }
-          };
-        } else i = __PRIVATE_parseDocumentIdValue(r, t2, o);
-      } else "in" !== a && "not-in" !== a && "array-contains-any" !== a || __PRIVATE_validateDisjunctiveFilterElements(o, a), i = __PRIVATE_parseQueryValue(
-        n2,
-        e2,
-        o,
-        /* allowArrays= */
-        "in" === a || "not-in" === a
-      );
-      const c = FieldFilter.create(s, a, i);
-      return c;
-    }(t._query, "where", e, t.firestore._databaseId, this._field, this._op, this._value);
-    return n;
-  }
-};
-var QueryCompositeFilterConstraint = class _QueryCompositeFilterConstraint extends AppliableConstraint {
-  /**
-   * @internal
-   */
-  constructor(t, e) {
-    super(), this.type = t, this._queryConstraints = e;
-  }
-  static _create(t, e) {
-    return new _QueryCompositeFilterConstraint(t, e);
-  }
-  _parse(t) {
-    const e = this._queryConstraints.map((e2) => e2._parse(t)).filter((t2) => t2.getFilters().length > 0);
-    return 1 === e.length ? e[0] : CompositeFilter.create(e, this._getOperator());
-  }
-  _apply(t) {
-    const e = this._parse(t);
-    return 0 === e.getFilters().length ? t : (function __PRIVATE_validateNewFilter(t2, e2) {
-      let n = t2;
-      const r = e2.getFlattenedFilters();
-      for (const t3 of r) __PRIVATE_validateNewFieldFilter(n, t3), n = __PRIVATE_queryWithAddedFilter(n, t3);
-    }(t._query, e), new Query2(t.firestore, t.converter, __PRIVATE_queryWithAddedFilter(t._query, e)));
-  }
-  _getQueryConstraints() {
-    return this._queryConstraints;
-  }
-  _getOperator() {
-    return "and" === this.type ? "and" : "or";
-  }
-};
-var QueryLimitConstraint = class _QueryLimitConstraint extends QueryConstraint {
-  /**
-   * @internal
-   */
-  constructor(t, e, n) {
-    super(), this.type = t, this._limit = e, this._limitType = n;
-  }
-  static _create(t, e, n) {
-    return new _QueryLimitConstraint(t, e, n);
-  }
-  _apply(t) {
-    return new Query2(t.firestore, t.converter, __PRIVATE_queryWithLimit(t._query, this._limit, this._limitType));
-  }
-};
-function limit(t) {
-  return __PRIVATE_validatePositiveNumber("limit", t), QueryLimitConstraint._create(
-    "limit",
-    t,
-    "F"
-    /* LimitType.First */
-  );
-}
-function __PRIVATE_parseDocumentIdValue(t, e, n) {
-  if ("string" == typeof (n = getModularInstance(n))) {
-    if ("" === n) throw new FirestoreError(D.INVALID_ARGUMENT, "Invalid query. When querying with documentId(), you must provide a valid document ID, but it was an empty string.");
-    if (!__PRIVATE_isCollectionGroupQuery(e) && -1 !== n.indexOf("/")) throw new FirestoreError(D.INVALID_ARGUMENT, `Invalid query. When querying a collection by documentId(), you must provide a plain document ID, but '${n}' contains a '/' character.`);
-    const r = e.path.child(ResourcePath.fromString(n));
-    if (!DocumentKey.isDocumentKey(r)) throw new FirestoreError(D.INVALID_ARGUMENT, `Invalid query. When querying a collection group by documentId(), the value provided must result in a valid document path, but '${r}' is not because it has an odd number of segments (${r.length}).`);
-    return __PRIVATE_refValue(t, new DocumentKey(r));
-  }
-  if (n instanceof DocumentReference) return __PRIVATE_refValue(t, n._key);
-  throw new FirestoreError(D.INVALID_ARGUMENT, `Invalid query. When querying with documentId(), you must provide a valid string or a DocumentReference, but it was: ${__PRIVATE_valueDescription(n)}.`);
-}
-function __PRIVATE_validateDisjunctiveFilterElements(t, e) {
-  if (!Array.isArray(t) || 0 === t.length) throw new FirestoreError(D.INVALID_ARGUMENT, `Invalid Query. A non-empty array is required for '${e.toString()}' filters.`);
-}
-function __PRIVATE_validateNewFieldFilter(t, e) {
-  const n = function __PRIVATE_findOpInsideFilters(t2, e2) {
-    for (const n2 of t2) for (const t3 of n2.getFlattenedFilters()) if (e2.indexOf(t3.op) >= 0) return t3.op;
-    return null;
-  }(t.filters, function __PRIVATE_conflictingOps(t2) {
-    switch (t2) {
-      case "!=":
-        return [
-          "!=",
-          "not-in"
-          /* Operator.NOT_IN */
-        ];
-      case "array-contains-any":
-      case "in":
-        return [
-          "not-in"
-          /* Operator.NOT_IN */
-        ];
-      case "not-in":
-        return [
-          "array-contains-any",
-          "in",
-          "not-in",
-          "!="
-          /* Operator.NOT_EQUAL */
-        ];
-      default:
-        return [];
-    }
-  }(e.op));
-  if (null !== n)
-    throw n === e.op ? new FirestoreError(D.INVALID_ARGUMENT, `Invalid query. You cannot use more than one '${e.op.toString()}' filter.`) : new FirestoreError(D.INVALID_ARGUMENT, `Invalid query. You cannot use '${e.op.toString()}' filters with '${n.toString()}' filters.`);
-}
 function __PRIVATE_applyFirestoreDataConverter(t, e, n) {
   let r;
   return r = t ? n && (n.merge || n.mergeFields) ? t.toFirestore(e, n) : t.toFirestore(e) : e, r;
@@ -87057,34 +86797,6 @@ var firebaseConfig = {
 };
 var app = initializeApp(firebaseConfig);
 var db = getFirestore(app);
-function seedCollectionIfEmpty(collectionName, items, getDocumentId) {
-  return __async(this, null, function* () {
-    const collectionRef = collection(db, collectionName);
-    const existingDocs = yield getDocs(query(collectionRef, limit(1)));
-    if (!existingDocs.empty) {
-      return {
-        inserted: 0,
-        skipped: true
-      };
-    }
-    const batch = writeBatch(db);
-    for (const item of items) {
-      const documentId2 = getDocumentId(item);
-      batch.set(doc(db, collectionName, documentId2), item);
-    }
-    yield batch.commit();
-    return {
-      inserted: items.length,
-      skipped: false
-    };
-  });
-}
-function seedGroupStandingsIfEmpty(items) {
-  return seedCollectionIfEmpty("groupStandings", items, (item) => `${item.group}-${item.flag}`);
-}
-function seedTeamResultsIfEmpty(items) {
-  return seedCollectionIfEmpty("teamResults", items, (item) => item.flag);
-}
 function seedDocumentIfMissing(collectionName, documentId2, data) {
   return __async(this, null, function* () {
     const documentRef = doc(db, collectionName, documentId2);
@@ -87137,6 +86849,33 @@ function saveGroupStanding(data) {
 function saveTeamResult(data) {
   return saveDocument("teamResults", data.flag, data);
 }
+function replaceCollectionDocuments(collectionName, items, getDocumentId) {
+  return __async(this, null, function* () {
+    const collectionRef = collection(db, collectionName);
+    const snapshot = yield getDocs(collectionRef);
+    const batch = writeBatch(db);
+    const nextDocumentIds = new Set(items.map((item) => getDocumentId(item)));
+    let deleted = 0;
+    snapshot.docs.forEach((documentSnapshot) => {
+      if (!nextDocumentIds.has(documentSnapshot.id)) {
+        batch.delete(documentSnapshot.ref);
+        deleted += 1;
+      }
+    });
+    items.forEach((item) => {
+      const documentId2 = getDocumentId(item);
+      batch.set(doc(db, collectionName, documentId2), item);
+    });
+    yield batch.commit();
+    return {
+      upserted: items.length,
+      deleted
+    };
+  });
+}
+function replaceGroupStandings(items) {
+  return replaceCollectionDocuments("groupStandings", items, (item) => `${item.group}-${item.flag}`);
+}
 
 // src/app/app.component.ts
 var _forTrack0 = ($index, $item) => $item.team;
@@ -87147,14 +86886,14 @@ var _c211 = () => ({ "min-width": "900px" });
 var _c38 = () => ({ "min-width": "1200px" });
 function AppComponent_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p", 3);
+    \u0275\u0275elementStart(0, "p", 4);
     \u0275\u0275text(1, "Cargando datos...");
     \u0275\u0275elementEnd();
   }
 }
 function AppComponent_Conditional_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p", 4);
+    \u0275\u0275elementStart(0, "p", 5);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -87164,12 +86903,59 @@ function AppComponent_Conditional_3_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r0.error);
   }
 }
-function AppComponent_Conditional_4_For_8_For_10_Template(rf, ctx) {
+function AppComponent_Conditional_4_ng_template_7_Template(rf, ctx) {
   if (rf & 1) {
-    const _r2 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span", 24)(1, "img", 27);
-    \u0275\u0275listener("error", function AppComponent_Conditional_4_For_8_For_10_Template_img_error_1_listener($event) {
-      \u0275\u0275restoreView(_r2);
+    \u0275\u0275elementStart(0, "tr")(1, "th");
+    \u0275\u0275text(2, "Jugador");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "th", 22);
+    \u0275\u0275text(4, "Puntos de Selecci\xF3n");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(5, "th", 22);
+    \u0275\u0275text(6, "Puntos de predicciones");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(7, "th", 22);
+    \u0275\u0275text(8, "Total puntos");
+    \u0275\u0275elementEnd()();
+  }
+}
+function AppComponent_Conditional_4_ng_template_8_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "tr")(1, "td", 23)(2, "div", 24);
+    \u0275\u0275element(3, "span", 25);
+    \u0275\u0275elementStart(4, "div")(5, "strong");
+    \u0275\u0275text(6);
+    \u0275\u0275elementEnd()()()();
+    \u0275\u0275elementStart(7, "td", 26);
+    \u0275\u0275text(8);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(9, "td", 27);
+    \u0275\u0275text(10);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(11, "td", 28);
+    \u0275\u0275text(12);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const summary_r2 = ctx.$implicit;
+    \u0275\u0275advance(3);
+    \u0275\u0275styleProp("background", summary_r2.color);
+    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate(summary_r2.name);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1(" ", summary_r2.totalPoints, " ");
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1(" ", summary_r2.predictionPoints, " ");
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1(" ", summary_r2.totalPoints + summary_r2.predictionPoints, " ");
+  }
+}
+function AppComponent_Conditional_4_For_16_For_10_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r3 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span", 34)(1, "img", 37);
+    \u0275\u0275listener("error", function AppComponent_Conditional_4_For_16_For_10_Template_img_error_1_listener($event) {
+      \u0275\u0275restoreView(_r3);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.imgError($event));
     });
@@ -87179,15 +86965,15 @@ function AppComponent_Conditional_4_For_8_For_10_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const team_r3 = ctx.$implicit;
+    const team_r4 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275propertyInterpolate("alt", team_r3.team);
-    \u0275\u0275property("src", "assets/banderas/Banderas/" + team_r3.flag + ".png", \u0275\u0275sanitizeUrl);
+    \u0275\u0275propertyInterpolate("alt", team_r4.team);
+    \u0275\u0275property("src", "assets/banderas/Banderas/" + team_r4.flag + ".png", \u0275\u0275sanitizeUrl);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(team_r3.team);
+    \u0275\u0275textInterpolate(team_r4.flag);
   }
 }
-function AppComponent_Conditional_4_For_8_ng_template_13_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_16_ng_template_13_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "th");
     \u0275\u0275text(2, "Pos");
@@ -87195,191 +86981,144 @@ function AppComponent_Conditional_4_For_8_ng_template_13_Template(rf, ctx) {
     \u0275\u0275elementStart(3, "th");
     \u0275\u0275text(4, "Jugador");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "th", 28);
+    \u0275\u0275elementStart(5, "th", 22);
     \u0275\u0275text(6, "G");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "th", 28);
+    \u0275\u0275elementStart(7, "th", 22);
     \u0275\u0275text(8, "E");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(9, "th", 28);
+    \u0275\u0275elementStart(9, "th", 22);
     \u0275\u0275text(10, "P");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(11, "th", 28);
+    \u0275\u0275elementStart(11, "th", 22);
     \u0275\u0275text(12, "GF");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "th", 28);
+    \u0275\u0275elementStart(13, "th", 22);
     \u0275\u0275text(14, "GC");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "th", 28);
+    \u0275\u0275elementStart(15, "th", 22);
     \u0275\u0275text(16, "DG");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(17, "th", 28);
+    \u0275\u0275elementStart(17, "th", 22);
     \u0275\u0275text(18, "PTS");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(19, "th", 28);
+    \u0275\u0275elementStart(19, "th", 22);
     \u0275\u0275text(20, "PJ");
     \u0275\u0275elementEnd()();
   }
 }
-function AppComponent_Conditional_4_For_8_ng_template_14_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_16_ng_template_14_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "tr")(1, "td");
+    \u0275\u0275elementStart(0, "tr")(1, "td", 38);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "td")(4, "div", 29);
-    \u0275\u0275element(5, "span", 30);
+    \u0275\u0275elementStart(3, "td", 23)(4, "div", 24);
+    \u0275\u0275element(5, "span", 25);
     \u0275\u0275elementStart(6, "div")(7, "strong");
     \u0275\u0275text(8);
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(9, "td", 28);
+    \u0275\u0275elementStart(9, "td", 39);
     \u0275\u0275text(10);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(11, "td", 28);
+    \u0275\u0275elementStart(11, "td", 40);
     \u0275\u0275text(12);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "td", 28);
+    \u0275\u0275elementStart(13, "td", 41);
     \u0275\u0275text(14);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "td", 28);
+    \u0275\u0275elementStart(15, "td", 42);
     \u0275\u0275text(16);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(17, "td", 28);
+    \u0275\u0275elementStart(17, "td", 43);
     \u0275\u0275text(18);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(19, "td", 28);
+    \u0275\u0275elementStart(19, "td", 44);
     \u0275\u0275text(20);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(21, "td", 31);
+    \u0275\u0275elementStart(21, "td", 45);
     \u0275\u0275text(22);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(23, "td", 28);
+    \u0275\u0275elementStart(23, "td", 46);
     \u0275\u0275text(24);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const row_r4 = ctx.$implicit;
-    const rowIndex_r5 = ctx.rowIndex;
-    \u0275\u0275classProp("highlight-top", rowIndex_r5 < 2);
+    const row_r5 = ctx.$implicit;
+    const rowIndex_r6 = ctx.rowIndex;
+    \u0275\u0275classProp("highlight-top", rowIndex_r6 < 2);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(rowIndex_r5 + 1);
+    \u0275\u0275textInterpolate(rowIndex_r6 + 1);
     \u0275\u0275advance(3);
-    \u0275\u0275styleProp("background", row_r4.participantColor);
+    \u0275\u0275styleProp("background", row_r5.participantColor);
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(row_r4.participantName);
+    \u0275\u0275textInterpolate(row_r5.participantName);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(row_r4.G);
+    \u0275\u0275textInterpolate(row_r5.G);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(row_r4.E);
+    \u0275\u0275textInterpolate(row_r5.E);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(row_r4.P);
+    \u0275\u0275textInterpolate(row_r5.P);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(row_r4.GF);
+    \u0275\u0275textInterpolate(row_r5.GF);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(row_r4.GC);
+    \u0275\u0275textInterpolate(row_r5.GC);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(row_r4.DG);
+    \u0275\u0275textInterpolate(row_r5.DG);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(row_r4.PTS);
+    \u0275\u0275textInterpolate(row_r5.PTS);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(row_r4.PJ);
+    \u0275\u0275textInterpolate(row_r5.PJ);
   }
 }
-function AppComponent_Conditional_4_For_8_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_16_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p-tabPanel", 7)(1, "article", 19)(2, "header", 20)(3, "div")(4, "span", 21);
+    \u0275\u0275elementStart(0, "p-tabPanel", 14)(1, "article", 29)(2, "header", 30)(3, "div")(4, "span", 31);
     \u0275\u0275text(5);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "div", 22);
+    \u0275\u0275elementStart(6, "div", 32);
     \u0275\u0275text(7);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "div", 23);
-    \u0275\u0275repeaterCreate(9, AppComponent_Conditional_4_For_8_For_10_Template, 4, 3, "span", 24, _forTrack0);
+    \u0275\u0275elementStart(8, "div", 33);
+    \u0275\u0275repeaterCreate(9, AppComponent_Conditional_4_For_16_For_10_Template, 4, 3, "span", 34, _forTrack0);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(11, "div", 25)(12, "p-table", 26);
-    \u0275\u0275template(13, AppComponent_Conditional_4_For_8_ng_template_13_Template, 21, 0, "ng-template", 11)(14, AppComponent_Conditional_4_For_8_ng_template_14_Template, 25, 14, "ng-template", 12);
+    \u0275\u0275elementStart(11, "div", 35)(12, "p-table", 36);
+    \u0275\u0275template(13, AppComponent_Conditional_4_For_16_ng_template_13_Template, 21, 0, "ng-template", 10)(14, AppComponent_Conditional_4_For_16_ng_template_14_Template, 25, 14, "ng-template", 11);
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
-    const group_r6 = ctx.$implicit;
-    \u0275\u0275property("header", "Grupo " + group_r6.group);
+    const group_r7 = ctx.$implicit;
+    \u0275\u0275property("header", group_r7.group);
     \u0275\u0275advance(5);
-    \u0275\u0275textInterpolate1("Grupo ", group_r6.group, "");
+    \u0275\u0275textInterpolate1("Grupo ", group_r7.group, "");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1("", group_r6.teams.length, " selecciones");
+    \u0275\u0275textInterpolate1(" ", group_r7.teams.length, " selecciones ");
     \u0275\u0275advance(2);
-    \u0275\u0275repeater(group_r6.teams);
+    \u0275\u0275repeater(group_r7.teams);
     \u0275\u0275advance(3);
-    \u0275\u0275property("value", group_r6.predictions)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(6, _c117));
+    \u0275\u0275property("value", group_r7.predictions)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(6, _c117));
   }
 }
-function AppComponent_Conditional_4_ng_template_17_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "tr")(1, "th");
-    \u0275\u0275text(2, "Jugador");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "th", 28);
-    \u0275\u0275text(4, "Puntos de Selecci\xF3n");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "th", 28);
-    \u0275\u0275text(6, "Puntos de predicciones");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "th", 28);
-    \u0275\u0275text(8, "Total puntos");
-    \u0275\u0275elementEnd()();
-  }
-}
-function AppComponent_Conditional_4_ng_template_18_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "tr")(1, "td", 32)(2, "div", 29);
-    \u0275\u0275element(3, "span", 30);
-    \u0275\u0275elementStart(4, "div")(5, "strong");
-    \u0275\u0275text(6);
-    \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(7, "td", 33);
-    \u0275\u0275text(8);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(9, "td", 34);
-    \u0275\u0275text(10);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(11, "td", 35);
-    \u0275\u0275text(12);
-    \u0275\u0275elementEnd()();
-  }
-  if (rf & 2) {
-    const summary_r7 = ctx.$implicit;
-    \u0275\u0275advance(3);
-    \u0275\u0275styleProp("background", summary_r7.color);
-    \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(summary_r7.name);
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(summary_r7.totalPoints);
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(summary_r7.predictionPoints);
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(summary_r7.totalPoints + summary_r7.predictionPoints);
-  }
-}
-function AppComponent_Conditional_4_For_22_ng_template_25_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_25_ng_template_25_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "th");
     \u0275\u0275text(2, "Selecci\xF3n");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "th", 28);
+    \u0275\u0275elementStart(3, "th", 22);
     \u0275\u0275text(4, "Victoria en grupo");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "th", 28);
+    \u0275\u0275elementStart(5, "th", 22);
     \u0275\u0275text(6, "Avance de ronda");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "th", 28);
+    \u0275\u0275elementStart(7, "th", 22);
     \u0275\u0275text(8, "Puntos de Selecci\xF3n");
     \u0275\u0275elementEnd()();
   }
 }
-function AppComponent_Conditional_4_For_22_ng_template_26_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_25_ng_template_26_Template(rf, ctx) {
   if (rf & 1) {
     const _r8 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "tr")(1, "td", 40)(2, "div", 41)(3, "img", 27);
-    \u0275\u0275listener("error", function AppComponent_Conditional_4_For_22_ng_template_26_Template_img_error_3_listener($event) {
+    \u0275\u0275elementStart(0, "tr")(1, "td", 52)(2, "div", 53)(3, "img", 37);
+    \u0275\u0275listener("error", function AppComponent_Conditional_4_For_25_ng_template_26_Template_img_error_3_listener($event) {
       \u0275\u0275restoreView(_r8);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.imgError($event));
@@ -87388,13 +87127,13 @@ function AppComponent_Conditional_4_For_22_ng_template_26_Template(rf, ctx) {
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(6, "td", 42);
+    \u0275\u0275elementStart(6, "td", 54);
     \u0275\u0275text(7);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(8, "td", 43);
+    \u0275\u0275elementStart(8, "td", 55);
     \u0275\u0275text(9);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(10, "td", 33);
+    \u0275\u0275elementStart(10, "td", 26);
     \u0275\u0275text(11);
     \u0275\u0275elementEnd()();
   }
@@ -87406,21 +87145,21 @@ function AppComponent_Conditional_4_For_22_ng_template_26_Template(rf, ctx) {
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(selection_r9.team);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(selection_r9.wins);
+    \u0275\u0275textInterpolate1(" ", selection_r9.wins, " ");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(selection_r9.roundsAdvanced);
+    \u0275\u0275textInterpolate1(" ", selection_r9.roundsAdvanced, " ");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(selection_r9.points);
+    \u0275\u0275textInterpolate1(" ", selection_r9.points, " ");
   }
 }
-function AppComponent_Conditional_4_For_22_Template(rf, ctx) {
+function AppComponent_Conditional_4_For_25_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p-tabPanel", 7)(1, "div", 36)(2, "div")(3, "h2");
+    \u0275\u0275elementStart(0, "p-tabPanel", 14)(1, "div", 47)(2, "div")(3, "h2");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd()();
-    \u0275\u0275element(5, "p-chip", 37);
+    \u0275\u0275element(5, "p-chip", 48);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "div", 38)(7, "article")(8, "span");
+    \u0275\u0275elementStart(6, "div", 49)(7, "article")(8, "span");
     \u0275\u0275text(9, "Puntos de Selecci\xF3n");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(10, "strong");
@@ -87439,8 +87178,8 @@ function AppComponent_Conditional_4_For_22_Template(rf, ctx) {
     \u0275\u0275text(21);
     \u0275\u0275elementEnd()()();
     \u0275\u0275element(22, "p-divider");
-    \u0275\u0275elementStart(23, "div", 9)(24, "p-table", 39);
-    \u0275\u0275template(25, AppComponent_Conditional_4_For_22_ng_template_25_Template, 9, 0, "ng-template", 11)(26, AppComponent_Conditional_4_For_22_ng_template_26_Template, 12, 6, "ng-template", 12);
+    \u0275\u0275elementStart(23, "div", 50)(24, "p-table", 51);
+    \u0275\u0275template(25, AppComponent_Conditional_4_For_25_ng_template_25_Template, 9, 0, "ng-template", 10)(26, AppComponent_Conditional_4_For_25_ng_template_26_Template, 12, 6, "ng-template", 11);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -87460,64 +87199,64 @@ function AppComponent_Conditional_4_For_22_Template(rf, ctx) {
     \u0275\u0275property("value", summary_r10.selections)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(10, _c017));
   }
 }
-function AppComponent_Conditional_4_Conditional_37_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_40_Template(rf, ctx) {
   if (rf & 1) {
     const _r11 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 44);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_37_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_40_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r11);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.downloadGroupStandings());
     });
-    \u0275\u0275text(1, "Descargar standings");
+    \u0275\u0275text(1, " Respaldar standings ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "button", 44);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_37_Template_button_click_2_listener() {
+    \u0275\u0275elementStart(2, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_40_Template_button_click_2_listener() {
       \u0275\u0275restoreView(_r11);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.downloadEditableResults());
     });
-    \u0275\u0275text(3, "Descargar JSON");
+    \u0275\u0275text(3, " Descargar JSON ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "button", 44);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_37_Template_button_click_4_listener() {
+    \u0275\u0275elementStart(4, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_40_Template_button_click_4_listener() {
       \u0275\u0275restoreView(_r11);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.closeAdminPanel());
     });
-    \u0275\u0275text(5, "Cerrar vista");
+    \u0275\u0275text(5, " Cerrar vista ");
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_Conditional_4_Conditional_38_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_41_Template(rf, ctx) {
   if (rf & 1) {
     const _r12 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 44);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_38_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_41_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r12);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.closeAdminPanel());
     });
-    \u0275\u0275text(1, "Cerrar vista");
+    \u0275\u0275text(1, " Cerrar vista ");
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_Conditional_4_Conditional_39_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_42_Template(rf, ctx) {
   if (rf & 1) {
     const _r13 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 44);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_39_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_42_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r13);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.toggleAdminPanel());
     });
-    \u0275\u0275text(1, "Abrir administrador");
+    \u0275\u0275text(1, " Abrir administrador ");
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Conditional_0_Conditional_8_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Conditional_0_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p", 4);
+    \u0275\u0275elementStart(0, "p", 5);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -87527,29 +87266,29 @@ function AppComponent_Conditional_4_Conditional_40_Conditional_0_Conditional_8_T
     \u0275\u0275textInterpolate(ctx_r0.adminError);
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Conditional_0_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
     const _r14 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 45)(1, "div", 46)(2, "label", 47);
+    \u0275\u0275elementStart(0, "div", 57)(1, "div", 58)(2, "label", 59);
     \u0275\u0275text(3, "Contrase\xF1a");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "input", 48, 0);
-    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_40_Conditional_0_Template_input_input_4_listener() {
+    \u0275\u0275elementStart(4, "input", 60, 0);
+    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_43_Conditional_0_Template_input_input_4_listener() {
       \u0275\u0275restoreView(_r14);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.resetAdminPasswordFeedback());
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(6, "button", 49);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_40_Conditional_0_Template_button_click_6_listener() {
+    \u0275\u0275elementStart(6, "button", 61);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_43_Conditional_0_Template_button_click_6_listener() {
       \u0275\u0275restoreView(_r14);
       const adminPasswordInput_r15 = \u0275\u0275reference(5);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.unlockAdmin(adminPasswordInput_r15.value));
     });
-    \u0275\u0275text(7, "Entrar");
+    \u0275\u0275text(7, " Entrar ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(8, AppComponent_Conditional_4_Conditional_40_Conditional_0_Conditional_8_Template, 2, 1, "p", 4);
+    \u0275\u0275template(8, AppComponent_Conditional_4_Conditional_43_Conditional_0_Conditional_8_Template, 2, 1, "p", 5);
   }
   if (rf & 2) {
     const ctx_r0 = \u0275\u0275nextContext(3);
@@ -87557,7 +87296,7 @@ function AppComponent_Conditional_4_Conditional_40_Conditional_0_Template(rf, ct
     \u0275\u0275conditional(ctx_r0.adminError ? 8 : -1);
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_3_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_3_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "th");
     \u0275\u0275text(2, "Equipo");
@@ -87568,38 +87307,38 @@ function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_templ
     \u0275\u0275elementStart(5, "th");
     \u0275\u0275text(6, "Color");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "th", 28);
+    \u0275\u0275elementStart(7, "th", 22);
     \u0275\u0275text(8, "G");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(9, "th", 28);
+    \u0275\u0275elementStart(9, "th", 22);
     \u0275\u0275text(10, "E");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(11, "th", 28);
+    \u0275\u0275elementStart(11, "th", 22);
     \u0275\u0275text(12, "P");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "th", 28);
+    \u0275\u0275elementStart(13, "th", 22);
     \u0275\u0275text(14, "GF");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "th", 28);
+    \u0275\u0275elementStart(15, "th", 22);
     \u0275\u0275text(16, "GC");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(17, "th", 28);
+    \u0275\u0275elementStart(17, "th", 22);
     \u0275\u0275text(18, "DG");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(19, "th", 28);
+    \u0275\u0275elementStart(19, "th", 22);
     \u0275\u0275text(20, "PTS");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(21, "th", 28);
+    \u0275\u0275elementStart(21, "th", 22);
     \u0275\u0275text(22, "PJ");
     \u0275\u0275elementEnd()();
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template(rf, ctx) {
   if (rf & 1) {
-    const _r17 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "tr")(1, "td")(2, "div", 41)(3, "img", 27);
-    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_img_error_3_listener($event) {
-      \u0275\u0275restoreView(_r17);
+    const _r18 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "tr")(1, "td")(2, "div", 53)(3, "img", 37);
+    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_img_error_3_listener($event) {
+      \u0275\u0275restoreView(_r18);
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.imgError($event));
     });
@@ -87607,129 +87346,129 @@ function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_templ
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(6, "td")(7, "input", 56);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_7_listener($event) {
-      const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
+    \u0275\u0275elementStart(6, "td")(7, "input", 70);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_7_listener($event) {
+      const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r18.group, standing_r18.team, "playerName", $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r19.group, standing_r19.team, "playerName", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "td")(9, "input", 57);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_9_listener($event) {
-      const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
+    \u0275\u0275elementStart(8, "td")(9, "input", 71);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_9_listener($event) {
+      const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r18.group, standing_r18.team, "playerColor", $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r19.group, standing_r19.team, "playerColor", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "td", 28)(11, "input", 58);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_11_listener($event) {
-      const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
+    \u0275\u0275elementStart(10, "td", 22)(11, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_11_listener($event) {
+      const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "G", $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "G", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(12, "td", 28)(13, "input", 58);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_13_listener($event) {
-      const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
+    \u0275\u0275elementStart(12, "td", 22)(13, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_13_listener($event) {
+      const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "E", $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "E", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(14, "td", 28)(15, "input", 58);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_15_listener($event) {
-      const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
+    \u0275\u0275elementStart(14, "td", 22)(15, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_15_listener($event) {
+      const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "P", $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "P", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(16, "td", 28)(17, "input", 58);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_17_listener($event) {
-      const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
+    \u0275\u0275elementStart(16, "td", 22)(17, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_17_listener($event) {
+      const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "GF", $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "GF", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(18, "td", 28)(19, "input", 58);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_19_listener($event) {
-      const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
+    \u0275\u0275elementStart(18, "td", 22)(19, "input", 72);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template_input_change_19_listener($event) {
+      const standing_r19 = \u0275\u0275restoreView(_r18).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "GC", $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r19.group, standing_r19.team, "GC", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(20, "td", 31);
+    \u0275\u0275elementStart(20, "td", 73);
     \u0275\u0275text(21);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(22, "td", 31);
+    \u0275\u0275elementStart(22, "td", 73);
     \u0275\u0275text(23);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(24, "td", 31);
+    \u0275\u0275elementStart(24, "td", 73);
     \u0275\u0275text(25);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const standing_r18 = ctx.$implicit;
-    const groupKey_r19 = \u0275\u0275nextContext().$implicit;
+    const standing_r19 = ctx.$implicit;
+    const groupKey_r20 = \u0275\u0275nextContext().$implicit;
     const ctx_r0 = \u0275\u0275nextContext(4);
-    \u0275\u0275classProp("highlight-top", ctx_r0.getTopTeamsForGroup(groupKey_r19).has(standing_r18.team));
+    \u0275\u0275classProp("highlight-top", ctx_r0.getTopTeamsForGroup(groupKey_r20).has(standing_r19.team));
     \u0275\u0275advance(3);
-    \u0275\u0275propertyInterpolate("alt", standing_r18.team);
-    \u0275\u0275property("src", "assets/banderas/Banderas/" + standing_r18.flag + ".png", \u0275\u0275sanitizeUrl);
+    \u0275\u0275propertyInterpolate("alt", standing_r19.team);
+    \u0275\u0275property("src", "assets/banderas/Banderas/" + standing_r19.flag + ".png", \u0275\u0275sanitizeUrl);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(standing_r18.team);
+    \u0275\u0275textInterpolate(standing_r19.team);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", standing_r18.playerName);
+    \u0275\u0275property("value", standing_r19.playerName);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", standing_r18.playerColor);
+    \u0275\u0275property("value", standing_r19.playerColor);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", standing_r18.G);
+    \u0275\u0275property("value", standing_r19.G);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", standing_r18.E);
+    \u0275\u0275property("value", standing_r19.E);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", standing_r18.P);
+    \u0275\u0275property("value", standing_r19.P);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", standing_r18.GF);
+    \u0275\u0275property("value", standing_r19.GF);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", standing_r18.GC);
+    \u0275\u0275property("value", standing_r19.GC);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(standing_r18.DG);
+    \u0275\u0275textInterpolate(standing_r19.DG);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(standing_r18.PTS);
+    \u0275\u0275textInterpolate(standing_r19.PTS);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(standing_r18.PJ);
+    \u0275\u0275textInterpolate(standing_r19.PJ);
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p-tabPanel", 7)(1, "div", 53)(2, "p-table", 55);
-    \u0275\u0275template(3, AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_3_Template, 23, 0, "ng-template", 11)(4, AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template, 26, 15, "ng-template", 12);
+    \u0275\u0275elementStart(0, "p-tabPanel", 14)(1, "div", 67)(2, "p-table", 69);
+    \u0275\u0275template(3, AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_3_Template, 23, 0, "ng-template", 10)(4, AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_ng_template_4_Template, 26, 15, "ng-template", 11);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const groupKey_r19 = ctx.$implicit;
+    const groupKey_r20 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(4);
-    \u0275\u0275property("header", "Grupo " + groupKey_r19);
+    \u0275\u0275property("header", groupKey_r20);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", ctx_r0.getStandingsForGroup(groupKey_r19))("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(4, _c38));
+    \u0275\u0275property("value", ctx_r0.getStandingsForGroup(groupKey_r20))("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(4, _c38));
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_22_For_4_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_For_4_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "th", 28);
+    \u0275\u0275elementStart(0, "th", 22);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const stage_r20 = ctx.$implicit;
+    const stage_r21 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(stage_r20.label);
+    \u0275\u0275textInterpolate(stage_r21.label);
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_22_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "th");
     \u0275\u0275text(2, "Selecci\xF3n");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(3, AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_22_For_4_Template, 2, 1, "th", 28, _forTrack1);
+    \u0275\u0275repeaterCreate(3, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_For_4_Template, 2, 1, "th", 22, _forTrack1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -87738,60 +87477,60 @@ function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_22_
     \u0275\u0275repeater(ctx_r0.stageDefinitions);
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_For_7_Conditional_1_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_1_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r23 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 77);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_1_Template_input_change_0_listener($event) {
+      \u0275\u0275restoreView(_r23);
+      const result_r24 = \u0275\u0275nextContext(2).$implicit;
+      const ctx_r0 = \u0275\u0275nextContext(4);
+      return \u0275\u0275resetView(ctx_r0.setGroupWins(result_r24.team, $event.target.value));
+    });
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const result_r24 = \u0275\u0275nextContext(2).$implicit;
+    \u0275\u0275property("value", result_r24.milestones.groupWin);
+  }
+}
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_2_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r25 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 78);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_2_Template_input_change_0_listener($event) {
+      \u0275\u0275restoreView(_r25);
+      const stage_r26 = \u0275\u0275nextContext().$implicit;
+      const result_r24 = \u0275\u0275nextContext().$implicit;
+      const ctx_r0 = \u0275\u0275nextContext(4);
+      return \u0275\u0275resetView(ctx_r0.setMilestone(result_r24.team, stage_r26.key, $event.target.checked));
+    });
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const stage_r26 = \u0275\u0275nextContext().$implicit;
+    const result_r24 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275property("checked", result_r24.milestones[stage_r26.key] > 0);
+  }
+}
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "td", 74);
+    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_1_Template, 1, 1, "input", 75)(2, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Conditional_2_Template, 1, 1, "input", 76);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const stage_r26 = ctx.$implicit;
+    \u0275\u0275advance();
+    \u0275\u0275conditional(stage_r26.key === "groupWin" ? 1 : 2);
+  }
+}
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_Template(rf, ctx) {
   if (rf & 1) {
     const _r22 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 62);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_For_7_Conditional_1_Template_input_change_0_listener($event) {
+    \u0275\u0275elementStart(0, "tr")(1, "td", 52)(2, "div", 53)(3, "img", 37);
+    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_Template_img_error_3_listener($event) {
       \u0275\u0275restoreView(_r22);
-      const result_r23 = \u0275\u0275nextContext(2).$implicit;
-      const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.setGroupWins(result_r23.team, $event.target.value));
-    });
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const result_r23 = \u0275\u0275nextContext(2).$implicit;
-    \u0275\u0275property("value", result_r23.milestones.groupWin);
-  }
-}
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_For_7_Conditional_2_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r24 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 63);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_For_7_Conditional_2_Template_input_change_0_listener($event) {
-      \u0275\u0275restoreView(_r24);
-      const stage_r25 = \u0275\u0275nextContext().$implicit;
-      const result_r23 = \u0275\u0275nextContext().$implicit;
-      const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.setMilestone(result_r23.team, stage_r25.key, $event.target.checked));
-    });
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const stage_r25 = \u0275\u0275nextContext().$implicit;
-    const result_r23 = \u0275\u0275nextContext().$implicit;
-    \u0275\u0275property("checked", result_r23.milestones[stage_r25.key] > 0);
-  }
-}
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_For_7_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "td", 59);
-    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_For_7_Conditional_1_Template, 1, 1, "input", 60)(2, AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_For_7_Conditional_2_Template, 1, 1, "input", 61);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const stage_r25 = ctx.$implicit;
-    \u0275\u0275advance();
-    \u0275\u0275conditional(stage_r25.key === "groupWin" ? 1 : 2);
-  }
-}
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r21 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "tr")(1, "td", 40)(2, "div", 41)(3, "img", 27);
-    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_Template_img_error_3_listener($event) {
-      \u0275\u0275restoreView(_r21);
       const ctx_r0 = \u0275\u0275nextContext(4);
       return \u0275\u0275resetView(ctx_r0.imgError($event));
     });
@@ -87799,73 +87538,88 @@ function AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275repeaterCreate(6, AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_For_7_Template, 3, 1, "td", 59, _forTrack1);
+    \u0275\u0275repeaterCreate(6, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_For_7_Template, 3, 1, "td", 74, _forTrack1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const result_r23 = ctx.$implicit;
+    const result_r24 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(4);
     \u0275\u0275advance(3);
-    \u0275\u0275propertyInterpolate("alt", result_r23.team);
-    \u0275\u0275property("src", "assets/banderas/Banderas/" + result_r23.flag + ".png", \u0275\u0275sanitizeUrl);
+    \u0275\u0275propertyInterpolate("alt", result_r24.team);
+    \u0275\u0275property("src", "assets/banderas/Banderas/" + result_r24.flag + ".png", \u0275\u0275sanitizeUrl);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(result_r23.team);
+    \u0275\u0275textInterpolate(result_r24.team);
     \u0275\u0275advance();
     \u0275\u0275repeater(ctx_r0.stageDefinitions);
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Conditional_1_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r16 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 50);
+    \u0275\u0275elementStart(0, "div", 62);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "div", 51)(3, "div", 52)(4, "div")(5, "p", 15);
+    \u0275\u0275elementStart(2, "div", 63)(3, "div", 64)(4, "div")(5, "p", 18);
     \u0275\u0275text(6, "Group standings");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(7, "h2");
     \u0275\u0275text(8, "Editar grupo por grupo");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(9, "p", 16);
-    \u0275\u0275text(10, "Los campos `DG`, `PTS` y `PJ` se calculan autom\xE1ticamente en el front.");
+    \u0275\u0275elementStart(9, "p", 19);
+    \u0275\u0275text(10, " Los campos `DG`, `PTS` y `PJ` se calculan autom\xE1ticamente en el front. ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(11, "div", 17)(12, "button", 44);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_40_Conditional_1_Template_button_click_12_listener() {
+    \u0275\u0275elementStart(11, "div", 20)(12, "input", 65, 1);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template_input_change_12_listener($event) {
+      \u0275\u0275restoreView(_r16);
+      const ctx_r0 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r0.uploadGroupStandingsFile($event));
+    });
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(14, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template_button_click_14_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.downloadGroupStandings());
     });
-    \u0275\u0275text(13, "Descargar standings");
+    \u0275\u0275text(15, " Respaldar standings ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(14, "button", 44);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_40_Conditional_1_Template_button_click_14_listener() {
+    \u0275\u0275elementStart(16, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template_button_click_16_listener() {
+      \u0275\u0275restoreView(_r16);
+      const groupStandingsUpload_r17 = \u0275\u0275reference(13);
+      return \u0275\u0275resetView(groupStandingsUpload_r17.click());
+    });
+    \u0275\u0275text(17, " Cargar respaldo ");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(18, "button", 56);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_43_Conditional_1_Template_button_click_18_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.restoreOriginalGroupStandings());
     });
-    \u0275\u0275text(15, "Restaurar standings");
+    \u0275\u0275text(19, " Restaurar standings ");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(16, "p-tabView");
-    \u0275\u0275repeaterCreate(17, AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_Template, 5, 5, "p-tabPanel", 7, \u0275\u0275componentInstance().trackByStandingGroup, true);
+    \u0275\u0275elementStart(20, "p-tabView", 66);
+    \u0275\u0275repeaterCreate(21, AppComponent_Conditional_4_Conditional_43_Conditional_1_For_22_Template, 5, 5, "p-tabPanel", 14, \u0275\u0275componentInstance().trackByStandingGroup, true);
     \u0275\u0275elementEnd()();
-    \u0275\u0275element(19, "p-divider");
-    \u0275\u0275elementStart(20, "div", 53)(21, "p-table", 54);
-    \u0275\u0275template(22, AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_22_Template, 5, 0, "ng-template", 11)(23, AppComponent_Conditional_4_Conditional_40_Conditional_1_ng_template_23_Template, 8, 3, "ng-template", 12);
+    \u0275\u0275element(23, "p-divider");
+    \u0275\u0275elementStart(24, "div", 67)(25, "p-table", 68);
+    \u0275\u0275template(26, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_26_Template, 5, 0, "ng-template", 10)(27, AppComponent_Conditional_4_Conditional_43_Conditional_1_ng_template_27_Template, 8, 3, "ng-template", 11);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
     const ctx_r0 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
     \u0275\u0275textInterpolate(ctx_r0.statusMessage);
-    \u0275\u0275advance(16);
+    \u0275\u0275advance(20);
     \u0275\u0275repeater(ctx_r0.standingsGroups);
     \u0275\u0275advance(4);
     \u0275\u0275property("value", ctx_r0.editableResults)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(4, _c211));
   }
 }
-function AppComponent_Conditional_4_Conditional_40_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_43_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, AppComponent_Conditional_4_Conditional_40_Conditional_0_Template, 9, 1)(1, AppComponent_Conditional_4_Conditional_40_Conditional_1_Template, 24, 5);
+    \u0275\u0275template(0, AppComponent_Conditional_4_Conditional_43_Conditional_0_Template, 9, 1)(1, AppComponent_Conditional_4_Conditional_43_Conditional_1_Template, 28, 5);
   }
   if (rf & 2) {
     const ctx_r0 = \u0275\u0275nextContext(2);
@@ -87874,56 +87628,57 @@ function AppComponent_Conditional_4_Conditional_40_Template(rf, ctx) {
 }
 function AppComponent_Conditional_4_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "p-divider");
-    \u0275\u0275elementStart(1, "section", 5)(2, "div", 6)(3, "div")(4, "h2");
-    \u0275\u0275text(5, "Tabla posiciones predicciones Mundial 2026");
+    \u0275\u0275elementStart(0, "div", 6)(1, "div", 7)(2, "div")(3, "h2");
+    \u0275\u0275text(4, "Tabla general Mundial 2026");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(6, "p-tabView");
-    \u0275\u0275repeaterCreate(7, AppComponent_Conditional_4_For_8_Template, 15, 7, "p-tabPanel", 7, \u0275\u0275componentInstance().trackByGroup, true);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275element(9, "p-divider");
-    \u0275\u0275elementStart(10, "div", 8)(11, "div", 6)(12, "div")(13, "h2");
-    \u0275\u0275text(14, "Tabla general Mundial 2026");
+    \u0275\u0275elementStart(5, "div", 8)(6, "p-table", 9);
+    \u0275\u0275template(7, AppComponent_Conditional_4_ng_template_7_Template, 9, 0, "ng-template", 10)(8, AppComponent_Conditional_4_ng_template_8_Template, 13, 6, "ng-template", 11);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(15, "div", 9)(16, "p-table", 10);
-    \u0275\u0275template(17, AppComponent_Conditional_4_ng_template_17_Template, 9, 0, "ng-template", 11)(18, AppComponent_Conditional_4_ng_template_18_Template, 13, 6, "ng-template", 12);
+    \u0275\u0275elementStart(9, "section", 12)(10, "div", 7)(11, "div")(12, "h2");
+    \u0275\u0275text(13, "Tabla posiciones predicciones Mundial 2026");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275element(19, "p-divider");
-    \u0275\u0275elementStart(20, "p-tabView");
-    \u0275\u0275repeaterCreate(21, AppComponent_Conditional_4_For_22_Template, 27, 11, "p-tabPanel", 7, \u0275\u0275componentInstance().trackByName, true);
-    \u0275\u0275elementEnd();
-    \u0275\u0275element(23, "p-divider");
-    \u0275\u0275elementStart(24, "section", 13)(25, "div", 14)(26, "div")(27, "p", 15);
-    \u0275\u0275text(28, "Administrador");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(29, "h2");
-    \u0275\u0275text(30, "Editar standings y predicciones");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(31, "p", 16);
-    \u0275\u0275text(32, "La contrase\xF1a se define en ");
-    \u0275\u0275elementStart(33, "span");
-    \u0275\u0275text(34, "src/app/admin-config.ts");
-    \u0275\u0275elementEnd();
-    \u0275\u0275text(35, ".");
+    \u0275\u0275elementStart(14, "p-tabView", 13);
+    \u0275\u0275repeaterCreate(15, AppComponent_Conditional_4_For_16_Template, 15, 7, "p-tabPanel", 14, \u0275\u0275componentInstance().trackByGroup, true);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(36, "div", 17);
-    \u0275\u0275template(37, AppComponent_Conditional_4_Conditional_37_Template, 6, 0)(38, AppComponent_Conditional_4_Conditional_38_Template, 2, 0, "button", 18)(39, AppComponent_Conditional_4_Conditional_39_Template, 2, 0, "button", 18);
+    \u0275\u0275element(17, "p-divider");
+    \u0275\u0275elementStart(18, "section")(19, "div", 7)(20, "div")(21, "h2");
+    \u0275\u0275text(22, "Puntos de Selecci\xF3n");
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(23, "p-tabView", 15);
+    \u0275\u0275repeaterCreate(24, AppComponent_Conditional_4_For_25_Template, 27, 11, "p-tabPanel", 14, \u0275\u0275componentInstance().trackByName, true);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(40, AppComponent_Conditional_4_Conditional_40_Template, 2, 1);
+    \u0275\u0275element(26, "p-divider");
+    \u0275\u0275elementStart(27, "section", 16)(28, "div", 17)(29, "div")(30, "p", 18);
+    \u0275\u0275text(31, "Administrador");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(32, "h2");
+    \u0275\u0275text(33, "Editar standings y predicciones");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(34, "p", 19);
+    \u0275\u0275text(35, " La contrase\xF1a se define en ");
+    \u0275\u0275elementStart(36, "span");
+    \u0275\u0275text(37, "src/app/admin-config.ts");
+    \u0275\u0275elementEnd();
+    \u0275\u0275text(38, ". ");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(39, "div", 20);
+    \u0275\u0275template(40, AppComponent_Conditional_4_Conditional_40_Template, 6, 0)(41, AppComponent_Conditional_4_Conditional_41_Template, 2, 0, "button", 21)(42, AppComponent_Conditional_4_Conditional_42_Template, 2, 0, "button", 21);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275template(43, AppComponent_Conditional_4_Conditional_43_Template, 2, 1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275advance(7);
+    \u0275\u0275advance(6);
+    \u0275\u0275property("value", ctx_r0.summaries)("tableStyle", \u0275\u0275pureFunction0(4, _c017));
+    \u0275\u0275advance(9);
     \u0275\u0275repeater(ctx_r0.worldCupGroups);
     \u0275\u0275advance(9);
-    \u0275\u0275property("value", ctx_r0.summaries)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(5, _c017));
-    \u0275\u0275advance(5);
     \u0275\u0275repeater(ctx_r0.summaries);
     \u0275\u0275advance(16);
-    \u0275\u0275conditional(ctx_r0.adminPanelOpen && ctx_r0.adminUnlocked ? 37 : ctx_r0.adminPanelOpen ? 38 : 39);
+    \u0275\u0275conditional(ctx_r0.adminPanelOpen && ctx_r0.adminUnlocked ? 40 : ctx_r0.adminPanelOpen ? 41 : 42);
     \u0275\u0275advance(3);
-    \u0275\u0275conditional(ctx_r0.adminPanelOpen ? 40 : -1);
+    \u0275\u0275conditional(ctx_r0.adminPanelOpen ? 43 : -1);
   }
 }
 var STAGE_ORDER = [
@@ -87936,6 +87691,8 @@ var STAGE_ORDER = [
   "final",
   "champion"
 ];
+var MAX_COUNTED_SELECTIONS = 5;
+var DEFAULT_PLAYER_COLOR = "#64748b";
 var EMPTY_MILESTONES = {
   groupWin: 0,
   round32: 0,
@@ -87947,6 +87704,7 @@ var EMPTY_MILESTONES = {
   champion: 0
 };
 var AppComponent = class _AppComponent {
+  playerColorMap = this.createPlayerColorMap(player_colors_default);
   loading = true;
   error = "";
   summaries = [];
@@ -88051,24 +87809,41 @@ var AppComponent = class _AppComponent {
     void this.persistTeamResult(team);
   }
   downloadEditableResults() {
-    const blob = new Blob([JSON.stringify(this.editableResults, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "team-results.json";
-    anchor.click();
-    URL.revokeObjectURL(url);
+    this.downloadJsonFile("team-results.json", this.editableResults);
     this.statusMessage = "JSON listo para descargar.";
   }
   downloadGroupStandings() {
-    const blob = new Blob([JSON.stringify(this.serializeGroupStandings(this.groupStandings), null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "group-standings.json";
-    anchor.click();
-    URL.revokeObjectURL(url);
-    this.statusMessage = "Group standings listo para descargar.";
+    return __async(this, null, function* () {
+      try {
+        const standings = yield this.loadFirebaseGroupStandings();
+        this.downloadJsonFile("group-standings.json", this.serializeGroupStandings(this.normalizeStandings(standings)));
+        this.statusMessage = "Respaldo de groupStandings descargado desde Firebase.";
+      } catch (error) {
+        console.error("Error descargando groupStandings desde Firebase:", error);
+        this.statusMessage = "No se pudo descargar el respaldo de groupStandings.";
+      }
+    });
+  }
+  uploadGroupStandingsFile(event2) {
+    return __async(this, null, function* () {
+      const input2 = event2.target;
+      const file = input2.files?.[0];
+      if (!file) {
+        return;
+      }
+      try {
+        const rawContent = yield file.text();
+        const standings = this.parseImportedGroupStandings(rawContent);
+        const result = yield replaceGroupStandings(standings);
+        yield this.reloadOriginalGroupStandings();
+        this.statusMessage = `Firebase actualizada con ${result.upserted} standings. ${result.deleted} registros antiguos eliminados.`;
+      } catch (error) {
+        console.error("Error cargando respaldo de groupStandings:", error);
+        this.statusMessage = error instanceof Error ? error.message : "No se pudo cargar el archivo de groupStandings.";
+      } finally {
+        input2.value = "";
+      }
+    });
   }
   restoreOriginalResults() {
     if (!this.scoringRules) {
@@ -88125,10 +87900,7 @@ var AppComponent = class _AppComponent {
   reloadOriginalGroupStandings() {
     return __async(this, null, function* () {
       const standings = yield this.loadFirebaseGroupStandings();
-      this.groupStandings = this.normalizeStandings(standings);
-      this.standingsGroups = this.getStandingGroups(this.groupStandings);
-      this.participants = this.buildParticipantsFromStandings(this.groupStandings);
-      this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
+      this.applyGroupStandingsState(standings);
       this.recalculateSummaries();
       this.statusMessage = "Se recargo el standings desde Firebase.";
     });
@@ -88162,7 +87934,8 @@ var AppComponent = class _AppComponent {
           points
         });
       }).sort((left, right) => right.points - left.points || right.roundsAdvanced - left.roundsAdvanced || right.wins - left.wins || left.team.localeCompare(right.team, "es"));
-      const totalPoints = selections.reduce((sum, selection) => sum + selection.points, 0);
+      const countedSelections = selections.slice(0, MAX_COUNTED_SELECTIONS);
+      const totalPoints = countedSelections.reduce((sum, selection) => sum + selection.points, 0);
       const standingByTeam = new Map(this.groupStandings.map((s) => [s.team, s]));
       const predictionPoints = participant.selections.reduce((sum, sel) => {
         const s = standingByTeam.get(sel.team);
@@ -88217,6 +87990,12 @@ var AppComponent = class _AppComponent {
       GF: standing.GF,
       GC: standing.GC
     }));
+  }
+  applyGroupStandingsState(standings) {
+    this.groupStandings = this.normalizeStandings(standings);
+    this.standingsGroups = this.getStandingGroups(this.groupStandings);
+    this.participants = this.buildParticipantsFromStandings(this.groupStandings);
+    this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
   }
   getStandingGroups(standings) {
     return Array.from(new Set(standings.map((standing) => standing.group))).sort((left, right) => left.localeCompare(right, "es"));
@@ -88275,12 +88054,65 @@ var AppComponent = class _AppComponent {
       }
     });
   }
+  parseImportedGroupStandings(rawContent) {
+    let parsed;
+    try {
+      parsed = JSON.parse(rawContent);
+    } catch {
+      throw new Error("El archivo no es un JSON valido.");
+    }
+    const importedStandings = Array.isArray(parsed) ? parsed : typeof parsed === "object" && parsed !== null && Array.isArray(parsed.groupStandings) ? parsed.groupStandings : null;
+    if (!importedStandings) {
+      throw new Error("El archivo debe contener un arreglo de standings.");
+    }
+    const normalizedStandings = importedStandings.map((standing, index) => this.normalizeImportedStanding(standing, index));
+    const documentIds = /* @__PURE__ */ new Set();
+    normalizedStandings.forEach((standing) => {
+      const documentId2 = `${standing.group}-${standing.flag}`;
+      if (documentIds.has(documentId2)) {
+        throw new Error(`El archivo tiene un registro duplicado para ${documentId2}.`);
+      }
+      documentIds.add(documentId2);
+    });
+    return normalizedStandings;
+  }
+  normalizeImportedStanding(standing, index) {
+    if (!standing || typeof standing !== "object") {
+      throw new Error(`El registro ${index + 1} no tiene un formato valido.`);
+    }
+    const candidate = standing;
+    const group = String(candidate.group ?? "").trim().toUpperCase();
+    const team = String(candidate.team ?? "").trim();
+    const flag = String(candidate.flag ?? "").trim().toUpperCase();
+    if (!group || !team || !flag) {
+      throw new Error(`El registro ${index + 1} debe incluir group, team y flag.`);
+    }
+    return {
+      group,
+      team,
+      flag,
+      playerName: typeof candidate.playerName === "string" ? candidate.playerName.trim() : "",
+      playerColor: typeof candidate.playerColor === "string" && candidate.playerColor.trim() ? candidate.playerColor.trim() : DEFAULT_PLAYER_COLOR,
+      G: this.toNonNegativeInteger(candidate.G),
+      E: this.toNonNegativeInteger(candidate.E),
+      P: this.toNonNegativeInteger(candidate.P),
+      GF: this.toNonNegativeInteger(candidate.GF),
+      GC: this.toNonNegativeInteger(candidate.GC)
+    };
+  }
+  toNonNegativeInteger(value) {
+    const parsed = Number(value);
+    if (Number.isNaN(parsed)) {
+      return 0;
+    }
+    return Math.max(0, Math.trunc(parsed));
+  }
   buildParticipantsFromStandings(standings) {
     const participantMap = /* @__PURE__ */ new Map();
     standings.forEach((standing) => {
       const participantName = standing.playerName || "Sin nombre";
-      const participantColor = standing.playerColor || "#64748b";
-      const key = `${participantName}__${participantColor}`;
+      const participantColor = this.getPlayerColor(participantName);
+      const key = participantName;
       if (!participantMap.has(key)) {
         participantMap.set(key, {
           name: participantName,
@@ -88305,25 +88137,27 @@ var AppComponent = class _AppComponent {
     const groupMap = /* @__PURE__ */ new Map();
     standings.forEach((standing) => {
       const groupKey = standing.group.toUpperCase();
+      const participantName = standing.playerName || "Sin nombre";
       if (!groupMap.has(groupKey)) {
         groupMap.set(groupKey, []);
       }
       groupMap.get(groupKey).push({
         team: standing.team,
         flag: standing.flag,
-        participantName: standing.playerName || "Sin nombre",
-        participantColor: standing.playerColor || "#64748b"
+        participantName,
+        participantColor: this.getPlayerColor(participantName)
       });
     });
     const predictionsByGroup = /* @__PURE__ */ new Map();
     standings.forEach((standing) => {
       const key = standing.group.toUpperCase();
+      const participantName = standing.playerName || "Sin nombre";
       if (!predictionsByGroup.has(key)) {
         predictionsByGroup.set(key, []);
       }
       predictionsByGroup.get(key).push({
-        participantName: standing.playerName || "Sin nombre",
-        participantColor: standing.playerColor || "#64748b",
+        participantName,
+        participantColor: this.getPlayerColor(participantName),
         G: standing.G,
         E: standing.E,
         P: standing.P,
@@ -88364,12 +88198,30 @@ var AppComponent = class _AppComponent {
     }
     return Math.min(3, Math.max(0, Math.trunc(value)));
   }
+  createPlayerColorMap(players) {
+    return new Map(players.map((player) => [this.normalizePlayerName(player.name), player.color]));
+  }
+  getPlayerColor(playerName) {
+    return this.playerColorMap.get(this.normalizePlayerName(playerName)) ?? DEFAULT_PLAYER_COLOR;
+  }
+  normalizePlayerName(name3) {
+    return name3.trim().toLocaleLowerCase("es").normalize("NFD").replace(new RegExp("\\p{Diacritic}", "gu"), "");
+  }
+  downloadJsonFile(filename, data) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = filename;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }
   seedFirebaseData() {
     return __async(this, null, function* () {
       try {
         yield Promise.all([
-          seedGroupStandingsIfEmpty(group_standings_default),
-          seedTeamResultsIfEmpty(team_results_default),
+          //seedGroupStandingsIfEmpty(groupStandings),
+          //seedTeamResultsIfEmpty(teamResultsData),
           seedScoringRulesIfMissing(scoring_rules_default)
         ]);
         this.statusMessage = "Firebase inicializado correctamente.";
@@ -88382,20 +88234,20 @@ var AppComponent = class _AppComponent {
   static \u0275fac = function AppComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _AppComponent)();
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 5, vars: 1, consts: [["adminPasswordInput", ""], [1, "shell"], [1, "content", "surface-card"], [1, "state"], [1, "state", "error"], [1, "groups-block"], [1, "summary-header"], [3, "header"], [1, "summary-block"], [1, "table-scroll"], ["styleClass", "summary-table", 3, "value", "responsiveLayout", "tableStyle"], ["pTemplate", "header"], ["pTemplate", "body"], [1, "admin-panel", "surface-card"], [1, "admin-header"], [1, "eyebrow"], [1, "admin-note"], [1, "admin-actions"], ["type", "button", 1, "admin-button", "secondary"], [1, "group-card"], [1, "group-card-header"], [1, "group-badge"], [1, "group-count"], [1, "group-teams-preview"], [1, "group-team-chip"], [1, "group-standings-wrap"], ["styleClass", "group-standings-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "flag-img", 3, "error", "src", "alt"], [1, "numeric"], [1, "player-cell"], [1, "player-dot"], [1, "numeric", "strong"], ["data-label", "Jugador"], ["data-label", "Puntos de Selecci\xF3n", 1, "numeric", "strong"], ["data-label", "Puntos de predicciones", 1, "numeric", "strong"], ["data-label", "Total puntos", 1, "numeric", "strong"], [1, "participant-header"], [3, "label", "styleClass"], [1, "participant-metrics"], ["styleClass", "selection-table", 3, "value", "responsiveLayout", "tableStyle"], ["data-label", "Selecci\xF3n"], [1, "team-cell"], ["data-label", "Victorias", 1, "numeric"], ["data-label", "Rondas", 1, "numeric"], ["type", "button", 1, "admin-button", "secondary", 3, "click"], [1, "admin-login"], [1, "admin-field"], ["for", "adminPassword"], ["id", "adminPassword", "type", "password", "placeholder", "Ingresa la clave", 3, "input"], ["type", "button", 1, "admin-button", 3, "click"], [1, "admin-success"], [1, "admin-section"], [1, "admin-header", "admin-header-tight"], [1, "table-scroll", "admin-table-wrap"], ["styleClass", "admin-table", 3, "value", "responsiveLayout", "tableStyle"], ["styleClass", "admin-standings-table", 3, "value", "responsiveLayout", "tableStyle"], ["type", "text", 1, "admin-text-input", 3, "change", "value"], ["type", "color", 1, "admin-color-input", 3, "change", "value"], ["type", "number", "min", "0", "step", "1", 1, "admin-number-input", 3, "change", "value"], [1, "numeric", "admin-checkbox-cell"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "value"], ["type", "checkbox", 3, "checked"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "change", "value"], ["type", "checkbox", 3, "change", "checked"]], template: function AppComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 5, vars: 1, consts: [["adminPasswordInput", ""], ["groupStandingsUpload", ""], [1, "shell"], [1, "content", "surface-card"], [1, "state"], [1, "state", "error"], [1, "summary-block"], [1, "summary-header"], [1, "table"], ["styleClass", "summary-table", 3, "value", "tableStyle"], ["pTemplate", "header"], ["pTemplate", "body"], [1, "groups-block"], ["styleClass", "group-tabview"], [3, "header"], ["styleClass", "participant-tabview"], [1, "admin-panel", "surface-card"], [1, "admin-header"], [1, "eyebrow"], [1, "admin-note"], [1, "admin-actions"], ["type", "button", 1, "admin-button", "secondary"], [1, "numeric"], ["data-label", "Jugador"], [1, "player-cell"], [1, "player-dot"], ["data-label", "Puntos de Selecci\xF3n", 1, "numeric", "strong"], ["data-label", "Puntos de predicciones", 1, "numeric", "strong"], ["data-label", "Total puntos", 1, "numeric", "strong"], [1, "group-card"], [1, "group-card-header"], [1, "group-badge"], [1, "group-count"], [1, "group-teams-preview"], [1, "group-team-chip"], [1, "group-standings-wrap"], ["styleClass", "group-standings-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "flag-img", 3, "error", "src", "alt"], ["data-label", "Pos"], ["data-label", "G", 1, "numeric"], ["data-label", "E", 1, "numeric"], ["data-label", "P", 1, "numeric"], ["data-label", "GF", 1, "numeric"], ["data-label", "GC", 1, "numeric"], ["data-label", "DG", 1, "numeric"], ["data-label", "PTS", 1, "numeric", "strong"], ["data-label", "PJ", 1, "numeric"], [1, "participant-header"], [3, "label", "styleClass"], [1, "participant-metrics"], [1, "table-scroll"], ["styleClass", "selection-table", 3, "value", "responsiveLayout", "tableStyle"], ["data-label", "Selecci\xF3n"], [1, "team-cell"], ["data-label", "Victorias", 1, "numeric"], ["data-label", "Rondas", 1, "numeric"], ["type", "button", 1, "admin-button", "secondary", 3, "click"], [1, "admin-login"], [1, "admin-field"], ["for", "adminPassword"], ["id", "adminPassword", "type", "password", "placeholder", "Ingresa la clave", 3, "input"], ["type", "button", 1, "admin-button", 3, "click"], [1, "admin-success"], [1, "admin-section"], [1, "admin-header", "admin-header-tight"], ["type", "file", "accept", ".json,application/json", "hidden", "", 3, "change"], ["styleClass", "group-tabview admin-group-tabview"], [1, "table-scroll", "admin-table-wrap"], ["styleClass", "admin-table", 3, "value", "responsiveLayout", "tableStyle"], ["styleClass", "admin-standings-table", 3, "value", "responsiveLayout", "tableStyle"], ["type", "text", 1, "admin-text-input", 3, "change", "value"], ["type", "color", 1, "admin-color-input", 3, "change", "value"], ["type", "number", "min", "0", "step", "1", 1, "admin-number-input", 3, "change", "value"], [1, "numeric", "strong"], [1, "numeric", "admin-checkbox-cell"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "value"], ["type", "checkbox", 3, "checked"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "change", "value"], ["type", "checkbox", 3, "change", "checked"]], template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
-      \u0275\u0275elementStart(0, "main", 1)(1, "section", 2);
-      \u0275\u0275template(2, AppComponent_Conditional_2_Template, 2, 0, "p", 3)(3, AppComponent_Conditional_3_Template, 2, 1, "p", 4)(4, AppComponent_Conditional_4_Template, 41, 6);
+      \u0275\u0275elementStart(0, "main", 2)(1, "section", 3);
+      \u0275\u0275template(2, AppComponent_Conditional_2_Template, 2, 0, "p", 4)(3, AppComponent_Conditional_3_Template, 2, 1, "p", 5)(4, AppComponent_Conditional_4_Template, 44, 5);
       \u0275\u0275elementEnd()();
     }
     if (rf & 2) {
       \u0275\u0275advance(2);
       \u0275\u0275conditional(ctx.loading ? 2 : ctx.error ? 3 : 4);
     }
-  }, dependencies: [CommonModule, CardModule, PrimeTemplate, ChipModule, Chip, DividerModule, Divider, TabViewModule, TabView, TabPanel, TableModule, Table], styles: ["\n\n.shell[_ngcontent-%COMP%] {\n  width: min(1200px, 100vw - 32px);\n  margin: 32px auto 48px;\n  display: grid;\n  gap: 24px;\n}\n.hero[_ngcontent-%COMP%] {\n  padding: 28px;\n  display: grid;\n  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);\n  gap: 20px;\n  align-items: end;\n}\n.eyebrow[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.82rem;\n  font-weight: 700;\n  letter-spacing: 0.14em;\n  text-transform: uppercase;\n  color: var(--accent-strong);\n}\nh1[_ngcontent-%COMP%], \nh2[_ngcontent-%COMP%], \np[_ngcontent-%COMP%] {\n  margin: 0;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: clamp(2rem, 4vw, 3.6rem);\n  line-height: 1.02;\n  max-width: 12ch;\n}\n.lead[_ngcontent-%COMP%] {\n  margin-top: 14px;\n  max-width: 60ch;\n  color: var(--text-muted);\n  font-size: 1.02rem;\n  line-height: 1.7;\n}\n.hero-stats[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 12px;\n}\n.hero-stats[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n  padding: 16px;\n  border-radius: 18px;\n  background: var(--surface-strong);\n  border: 1px solid var(--border);\n}\n.hero-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n  color: var(--text-muted);\n  font-size: 0.86rem;\n}\n.hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-top: 8px;\n  font-size: 1.6rem;\n}\n.content[_ngcontent-%COMP%] {\n  padding: 14px 18px 18px;\n}\n.table-scroll[_ngcontent-%COMP%] {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.state[_ngcontent-%COMP%] {\n  padding: 26px 10px;\n  color: var(--text-muted);\n}\n.state.error[_ngcontent-%COMP%] {\n  color: #b91c1c;\n}\n.participant-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 18px;\n}\n.participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.6rem;\n}\n.selection-chip[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-panel[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin-bottom: 18px;\n}\n.admin-section[_ngcontent-%COMP%] {\n  margin-top: 18px;\n}\n.admin-header-tight[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n.admin-text-input[_ngcontent-%COMP%], \n.admin-number-input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  color: var(--text-main);\n  padding: 0.55rem 0.7rem;\n  font: inherit;\n}\n.admin-color-input[_ngcontent-%COMP%] {\n  width: 100%;\n  min-width: 56px;\n  height: 38px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  padding: 0.2rem;\n}\n.admin-number-input[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.admin-text-input[_ngcontent-%COMP%]:focus, \n.admin-number-input[_ngcontent-%COMP%]:focus, \n.admin-color-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid color-mix(in srgb, var(--accent-strong) 30%, transparent);\n  outline-offset: 1px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .team-cell[_ngcontent-%COMP%] {\n  min-width: 180px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   td[_ngcontent-%COMP%] {\n  vertical-align: middle;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%], \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  padding: 0.5rem 0.55rem;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .numeric[_ngcontent-%COMP%] {\n  min-width: 72px;\n}\n.summary-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, minmax(0, 1fr));\n  gap: 12px;\n}\n.group-card[_ngcontent-%COMP%] {\n  border: 1px solid var(--border);\n  border-radius: 16px;\n  background: var(--surface-strong);\n  padding: 12px;\n}\n.group-card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 12px;\n  margin-bottom: 10px;\n  flex-wrap: wrap;\n}\n.group-badge[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  color: var(--accent-strong);\n}\n.group-count[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--text-muted);\n}\n.group-teams-preview[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 8px;\n}\n.group-team-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 0.35rem 0.6rem;\n  border-radius: 999px;\n  background: var(--surface);\n  border: 1px solid var(--border);\n  font-size: 0.76rem;\n  color: var(--text-main);\n  white-space: nowrap;\n}\n.group-team-chip[_ngcontent-%COMP%]   .flag-img[_ngcontent-%COMP%] {\n  width: 18px;\n  height: 12px;\n  object-fit: cover;\n  border-radius: 2px;\n}\n.group-teams[_ngcontent-%COMP%] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: grid;\n  gap: 8px;\n}\n.group-teams[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.group-owner[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n}\n.group-standings-wrap[_ngcontent-%COMP%] {\n  margin-top: 12px;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td {\n  padding: 0.45rem 0.55rem;\n  font-size: 0.76rem;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n  white-space: nowrap;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child {\n  width: 2.2rem;\n  text-align: center;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n  min-width: 180px;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(1), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(1) {\n  min-width: 180px;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.numeric, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th.numeric {\n  text-align: right;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.strong {\n  font-weight: 700;\n}\n.admin-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.admin-note[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.admin-note[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-weight: 700;\n  color: var(--text-main);\n}\n.admin-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n}\n.admin-login[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  align-items: flex-end;\n  flex-wrap: wrap;\n}\n.admin-field[_ngcontent-%COMP%] {\n  flex: 1 1 260px;\n}\n.admin-field[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 6px;\n  font-size: 0.85rem;\n  font-weight: 700;\n  color: var(--text-muted);\n}\n.admin-field[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 14px;\n  padding: 0.85rem 0.95rem;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n.admin-button[_ngcontent-%COMP%] {\n  border: 0;\n  border-radius: 14px;\n  padding: 0.85rem 1rem;\n  font: inherit;\n  font-weight: 700;\n  background: var(--accent-strong);\n  color: #fff;\n  cursor: pointer;\n}\n.admin-button.secondary[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-button[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.admin-success[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  color: var(--accent-strong);\n  font-size: 0.9rem;\n  font-weight: 700;\n}\n.admin-table-wrap[_ngcontent-%COMP%] {\n  margin-top: 8px;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%] {\n  text-align: center;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] {\n  width: 1rem;\n  height: 1rem;\n  accent-color: var(--accent-strong);\n}\n.admin-group-wins[_ngcontent-%COMP%] {\n  width: 3.2rem;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  padding: 0.25rem 0.35rem;\n  text-align: center;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top > td, \n[_nghost-%COMP%]     .admin-standings-table .p-datatable-tbody > tr.highlight-top > td, \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr.highlight-top[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  background-color: rgba(15, 23, 42, 0.03);\n  transition: background-color 120ms ease-in-out;\n}\n.summary-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.4rem;\n  margin-top: 2px;\n}\n.summary-hint[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.player-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n}\n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.86rem;\n  margin-top: 2px;\n}\n.player-dot[_ngcontent-%COMP%] {\n  width: 0.9rem;\n  height: 0.9rem;\n  border-radius: 50%;\n  flex: 0 0 auto;\n  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.04);\n}\n.participant-metrics[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n[_nghost-%COMP%]     .p-tabview-nav {\n  border: 0;\n  margin-bottom: 12px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container {\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 8px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar-thumb, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: rgba(15, 23, 42, 0.18);\n  border-radius: 999px;\n}\n[_nghost-%COMP%]     .p-tabview-panels {\n  padding: 0;\n}\n[_nghost-%COMP%]     .p-tabview-nav li {\n  flex: 0 0 auto;\n}\n[_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n  border: 0;\n  border-radius: 999px;\n  margin-right: 8px;\n  background: transparent;\n  color: var(--text-muted);\n  padding-inline: 18px;\n}\n[_nghost-%COMP%]     .p-tabview-nav li.p-highlight .p-tabview-nav-link {\n  background: var(--accent-strong);\n  color: white;\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th {\n  background: transparent;\n  color: var(--text-muted);\n  border-color: var(--border);\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n  border-color: var(--border);\n}\n.team-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.flag[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 50%;\n  display: grid;\n  place-items: center;\n  background: var(--accent-soft);\n  font-size: 1rem;\n}\n.flag-img[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 6px;\n  object-fit: cover;\n  display: inline-block;\n}\n.numeric[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.strong[_ngcontent-%COMP%] {\n  font-weight: 700;\n}\n@media (max-width: 900px) {\n  .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .hero-stats[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .participant-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .summary-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n}\n@media (max-width: 640px) {\n  .shell[_ngcontent-%COMP%] {\n    width: min(100vw - 16px, 1200px);\n    margin: 12px auto 24px;\n    gap: 16px;\n  }\n  .hero[_ngcontent-%COMP%], \n   .content[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: clamp(1.6rem, 8vw, 2.4rem);\n    max-width: 14ch;\n  }\n  .lead[_ngcontent-%COMP%] {\n    font-size: 0.95rem;\n    line-height: 1.6;\n  }\n  .hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n    font-size: 1.35rem;\n  }\n  .hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n    padding: 14px;\n    border-radius: 16px;\n  }\n  .participant-metrics[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n    font-size: 1.2rem;\n  }\n  .participant-header[_ngcontent-%COMP%], \n   .summary-header[_ngcontent-%COMP%] {\n    gap: 10px;\n    margin-bottom: 12px;\n  }\n  .player-cell[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n    margin-top: 0;\n  }\n  [_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n    padding-inline: 14px;\n    font-size: 0.92rem;\n  }\n  [_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n    padding: 0.5rem 0.38rem;\n    font-size: 0.76rem;\n  }\n  .table-scroll[_ngcontent-%COMP%] {\n    overflow-x: hidden;\n  }\n  .admin-table-wrap[_ngcontent-%COMP%] {\n    overflow-x: auto;\n  }\n  [_nghost-%COMP%]     .admin-table .p-datatable-table {\n    width: 900px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table, \n   [_nghost-%COMP%]     .selection-table .p-datatable-table {\n    width: 100%;\n    table-layout: fixed;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:nth-child(1), \n   [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:nth-child(1) {\n    width: 36%;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:nth-child(n+2), \n   [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:nth-child(n+2) {\n    width: 16%;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th:nth-child(1), \n   [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:nth-child(1) {\n    width: 52%;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th:nth-child(n+2), \n   [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:nth-child(n+2) {\n    width: 16%;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    font-size: 0.72rem;\n    letter-spacing: 0;\n  }\n  .player-cell[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%] {\n    min-width: 0;\n    gap: 6px;\n  }\n  .player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:last-child {\n    display: block;\n    min-width: 0;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n  }\n  .flag-img[_ngcontent-%COMP%] {\n    width: 1.35rem;\n    height: 1.35rem;\n    border-radius: 4px;\n  }\n  .player-dot[_ngcontent-%COMP%] {\n    width: 0.7rem;\n    height: 0.7rem;\n    box-shadow: none;\n  }\n  .admin-header[_ngcontent-%COMP%], \n   .admin-login[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .admin-actions[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  .admin-panel[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .admin-button[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .group-owner[_ngcontent-%COMP%] {\n    font-size: 0.72rem;\n  }\n  .group-teams-preview[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td {\n    padding: 0.38rem 0.45rem;\n    font-size: 0.7rem;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+  }, dependencies: [CommonModule, CardModule, PrimeTemplate, ChipModule, Chip, DividerModule, Divider, TabViewModule, TabView, TabPanel, TableModule, Table], styles: ["\n\n.shell[_ngcontent-%COMP%] {\n  width: min(1200px, 100vw - 32px);\n  margin: 32px auto 48px;\n  display: grid;\n  gap: 24px;\n}\n.hero[_ngcontent-%COMP%] {\n  padding: 28px;\n  display: grid;\n  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);\n  gap: 20px;\n  align-items: end;\n}\n.eyebrow[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.82rem;\n  font-weight: 700;\n  letter-spacing: 0.14em;\n  text-transform: uppercase;\n  color: var(--accent-strong);\n}\nh1[_ngcontent-%COMP%], \nh2[_ngcontent-%COMP%], \np[_ngcontent-%COMP%] {\n  margin: 0;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: clamp(2rem, 4vw, 3.6rem);\n  line-height: 1.02;\n  max-width: 12ch;\n}\n.lead[_ngcontent-%COMP%] {\n  margin-top: 14px;\n  max-width: 60ch;\n  color: var(--text-muted);\n  font-size: 1.02rem;\n  line-height: 1.7;\n}\n.hero-stats[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 12px;\n}\n.hero-stats[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n  padding: 16px;\n  border-radius: 18px;\n  background: var(--surface-strong);\n  border: 1px solid var(--border);\n}\n.hero-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n  color: var(--text-muted);\n  font-size: 0.86rem;\n}\n.hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-top: 8px;\n  font-size: 1.6rem;\n}\n.content[_ngcontent-%COMP%] {\n  padding: 14px 18px 18px;\n}\n.table-scroll[_ngcontent-%COMP%] {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.state[_ngcontent-%COMP%] {\n  padding: 26px 10px;\n  color: var(--text-muted);\n}\n.state.error[_ngcontent-%COMP%] {\n  color: #b91c1c;\n}\n.participant-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 18px;\n}\n.participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.6rem;\n}\n.selection-chip[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-panel[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin-bottom: 18px;\n}\n.admin-section[_ngcontent-%COMP%] {\n  margin-top: 18px;\n}\n.admin-header-tight[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n.admin-text-input[_ngcontent-%COMP%], \n.admin-number-input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  color: var(--text-main);\n  padding: 0.55rem 0.7rem;\n  font: inherit;\n}\n.admin-color-input[_ngcontent-%COMP%] {\n  width: 100%;\n  min-width: 56px;\n  height: 38px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  padding: 0.2rem;\n}\n.admin-number-input[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.admin-text-input[_ngcontent-%COMP%]:focus, \n.admin-number-input[_ngcontent-%COMP%]:focus, \n.admin-color-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid color-mix(in srgb, var(--accent-strong) 30%, transparent);\n  outline-offset: 1px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .team-cell[_ngcontent-%COMP%] {\n  min-width: 180px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   td[_ngcontent-%COMP%] {\n  vertical-align: middle;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%], \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  padding: 0.5rem 0.55rem;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .numeric[_ngcontent-%COMP%] {\n  min-width: 72px;\n}\n.summary-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, minmax(0, 1fr));\n  gap: 12px;\n}\n.group-card[_ngcontent-%COMP%] {\n  border: 1px solid var(--border);\n  border-radius: 16px;\n  background: var(--surface-strong);\n  padding: 12px;\n}\n.group-card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 12px;\n  margin-bottom: 10px;\n  flex-wrap: wrap;\n}\n.group-badge[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  color: var(--accent-strong);\n}\n.group-count[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--text-muted);\n}\n.group-teams-preview[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 8px;\n}\n.group-team-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 0.35rem 0.6rem;\n  border-radius: 999px;\n  background: var(--surface);\n  border: 1px solid var(--border);\n  font-size: 0.76rem;\n  color: var(--text-main);\n  white-space: nowrap;\n}\n.group-team-chip[_ngcontent-%COMP%]   .flag-img[_ngcontent-%COMP%] {\n  width: 18px;\n  height: 12px;\n  object-fit: cover;\n  border-radius: 2px;\n}\n.group-teams[_ngcontent-%COMP%] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: grid;\n  gap: 8px;\n}\n.group-teams[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.group-owner[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n}\n.group-standings-wrap[_ngcontent-%COMP%] {\n  margin-top: 12px;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td {\n  padding: 0.45rem 0.55rem;\n  font-size: 0.76rem;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n  white-space: nowrap;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child {\n  width: 2.2rem;\n  text-align: center;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n  min-width: 180px;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(1), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(1) {\n  min-width: 180px;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.numeric, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th.numeric {\n  text-align: right;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.strong {\n  font-weight: 700;\n}\n.admin-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.admin-note[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.admin-note[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-weight: 700;\n  color: var(--text-main);\n}\n.admin-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n}\n.admin-login[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  align-items: flex-end;\n  flex-wrap: wrap;\n}\n.admin-field[_ngcontent-%COMP%] {\n  flex: 1 1 260px;\n}\n.admin-field[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 6px;\n  font-size: 0.85rem;\n  font-weight: 700;\n  color: var(--text-muted);\n}\n.admin-field[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 14px;\n  padding: 0.85rem 0.95rem;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n.admin-button[_ngcontent-%COMP%] {\n  border: 0;\n  border-radius: 14px;\n  padding: 0.85rem 1rem;\n  font: inherit;\n  font-weight: 700;\n  background: var(--accent-strong);\n  color: #fff;\n  cursor: pointer;\n}\n.admin-button.secondary[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-button[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.admin-success[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  color: var(--accent-strong);\n  font-size: 0.9rem;\n  font-weight: 700;\n}\n.admin-table-wrap[_ngcontent-%COMP%] {\n  margin-top: 8px;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%] {\n  text-align: center;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] {\n  width: 1rem;\n  height: 1rem;\n  accent-color: var(--accent-strong);\n}\n.admin-group-wins[_ngcontent-%COMP%] {\n  width: 3.2rem;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  padding: 0.25rem 0.35rem;\n  text-align: center;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top > td, \n[_nghost-%COMP%]     .admin-standings-table .p-datatable-tbody > tr.highlight-top > td, \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr.highlight-top[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  background-color: rgba(15, 23, 42, 0.03);\n  transition: background-color 120ms ease-in-out;\n}\n.summary-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.4rem;\n  margin-top: 2px;\n}\n.summary-hint[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.player-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n}\n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.86rem;\n  margin-top: 2px;\n}\n.player-dot[_ngcontent-%COMP%] {\n  width: 0.9rem;\n  height: 0.9rem;\n  border-radius: 50%;\n  flex: 0 0 auto;\n  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.04);\n}\n.participant-metrics[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n[_nghost-%COMP%]     .p-tabview-nav {\n  border: 0;\n  margin-bottom: 12px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container {\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 8px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar-thumb, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: rgba(15, 23, 42, 0.18);\n  border-radius: 999px;\n}\n[_nghost-%COMP%]     .p-tabview-panels {\n  padding: 0;\n}\n[_nghost-%COMP%]     .p-tabview-nav li {\n  flex: 0 0 auto;\n}\n[_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n  border: 0;\n  border-radius: 999px;\n  margin-right: 8px;\n  background: transparent;\n  color: var(--text-muted);\n  padding-inline: 18px;\n}\n[_nghost-%COMP%]     .p-tabview-nav li.p-highlight .p-tabview-nav-link {\n  background: var(--accent-strong);\n  color: white;\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th {\n  background: transparent;\n  color: var(--text-muted);\n  border-color: var(--border);\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n  border-color: var(--border);\n}\n.team-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.flag[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 50%;\n  display: grid;\n  place-items: center;\n  background: var(--accent-soft);\n  font-size: 1rem;\n}\n.flag-img[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 6px;\n  object-fit: cover;\n  display: inline-block;\n}\n.numeric[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.strong[_ngcontent-%COMP%] {\n  font-weight: 700;\n}\n@media (max-width: 900px) {\n  .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .hero-stats[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .participant-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .summary-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n}\n@media (max-width: 640px) {\n  .shell[_ngcontent-%COMP%] {\n    width: min(100vw - 16px, 1200px);\n    margin: 12px auto 24px;\n    gap: 16px;\n  }\n  .hero[_ngcontent-%COMP%], \n   .content[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: clamp(1.6rem, 8vw, 2.4rem);\n    max-width: 14ch;\n  }\n  .lead[_ngcontent-%COMP%] {\n    font-size: 0.95rem;\n    line-height: 1.6;\n  }\n  .hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n    font-size: 1.35rem;\n  }\n  .hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n    padding: 14px;\n    border-radius: 16px;\n  }\n  .participant-metrics[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n    font-size: 1.2rem;\n  }\n  .participant-header[_ngcontent-%COMP%], \n   .summary-header[_ngcontent-%COMP%] {\n    gap: 10px;\n    margin-bottom: 12px;\n  }\n  .player-cell[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n    margin-top: 0;\n  }\n  [_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n    padding-inline: 14px;\n    font-size: 0.92rem;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav-container {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 8px;\n    margin-bottom: 10px;\n    padding-bottom: 2px;\n    scroll-snap-type: x proximity;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li {\n    flex: 0 0 calc((100% - 24px) / 4);\n    min-width: calc((100% - 24px) / 4);\n    scroll-snap-align: start;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li .p-tabview-nav-link {\n    width: 100%;\n    margin-right: 0;\n    justify-content: center;\n    text-align: center;\n    padding: 0.68rem 0.5rem;\n    font-size: 0.8rem;\n    line-height: 1.1;\n    white-space: nowrap;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav-container {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 8px;\n    margin-bottom: 10px;\n    padding-bottom: 2px;\n    scroll-snap-type: x proximity;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li {\n    flex: 0 0 calc((100% - 24px) / 4);\n    min-width: calc((100% - 24px) / 4);\n    scroll-snap-align: start;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li .p-tabview-nav-link {\n    width: 100%;\n    margin-right: 0;\n    justify-content: center;\n    text-align: center;\n    padding: 0.7rem 0.35rem;\n    font-size: 0.8rem;\n    line-height: 1.15;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n  [_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n    padding: 0.5rem 0.38rem;\n    font-size: 0.76rem;\n  }\n  .admin-table-wrap[_ngcontent-%COMP%] {\n    overflow-x: auto;\n  }\n  [_nghost-%COMP%]     .admin-table .p-datatable-table {\n    width: 900px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-wrapper, \n   [_nghost-%COMP%]     .selection-table .p-datatable-wrapper, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-wrapper {\n    overflow: visible;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table, \n   [_nghost-%COMP%]     .selection-table .p-datatable-table, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-table {\n    width: 100%;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead, \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead {\n    display: none;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table {\n    min-width: 100%;\n    table-layout: fixed;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-table {\n    min-width: 620px !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.5rem 0.4rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.38rem 0.34rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:first-child {\n    text-align: left;\n    width: 40%;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n    text-align: left;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th {\n    white-space: normal;\n    font-size: 0.7rem;\n    line-height: 1.15;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n    white-space: nowrap;\n    font-size: 0.68rem;\n    line-height: 1.1;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody {\n    display: grid;\n    gap: 10px;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr {\n    display: block;\n    border: 1px solid var(--border);\n    border-radius: 16px;\n    background: var(--surface-strong);\n    padding: 0.35rem 0.8rem;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td {\n    display: grid;\n    grid-template-columns: minmax(96px, 42%) minmax(0, 1fr);\n    align-items: center;\n    gap: 10px;\n    width: 100%;\n    padding: 0.55rem 0;\n    border: 0;\n    text-align: left;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td::before {\n    content: attr(data-label);\n    color: var(--text-muted);\n    font-size: 0.72rem;\n    font-weight: 700;\n    letter-spacing: 0.04em;\n    text-transform: uppercase;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:first-child {\n    padding-top: 0.35rem;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:last-child {\n    padding-bottom: 0.35rem;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td.numeric {\n    text-align: left;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td .team-cell {\n    justify-self: start;\n  }\n  .player-cell[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%] {\n    min-width: 0;\n    gap: 6px;\n  }\n  .player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:last-child {\n    display: block;\n    min-width: 0;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n  }\n  .flag-img[_ngcontent-%COMP%] {\n    width: 1.35rem;\n    height: 1.35rem;\n    border-radius: 4px;\n  }\n  .player-dot[_ngcontent-%COMP%] {\n    width: 0.7rem;\n    height: 0.7rem;\n    box-shadow: none;\n  }\n  .admin-header[_ngcontent-%COMP%], \n   .admin-login[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .admin-actions[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  .admin-panel[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .admin-button[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .group-owner[_ngcontent-%COMP%] {\n    font-size: 0.72rem;\n  }\n  .group-teams-preview[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top {\n    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);\n  }\n}\n@media (max-width: 420px) {\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li {\n    flex-basis: calc((100% - 12px) / 2.5);\n    min-width: calc((100% - 12px) / 2.5);\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li {\n    flex-basis: calc((100% - 12px) / 2.5);\n    min-width: calc((100% - 12px) / 2.5);\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 149 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 161 });
 })();
 
 // src/main.ts
@@ -89123,9 +88975,27 @@ firebase/app/dist/esm/index.esm.js:
    * See the License for the specific language governing permissions and
    * limitations under the License.
    *)
+
+@firebase/firestore/dist/common-b3e8012f.esm.js:
   (**
    * @license
    * Copyright 2025 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   *)
+  (**
+   * @license
+   * Copyright 2017 Google LLC
    *
    * Licensed under the Apache License, Version 2.0 (the "License");
    * you may not use this file except in compliance with the License.

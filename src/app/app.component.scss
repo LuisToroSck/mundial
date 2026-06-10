@@ -624,14 +624,74 @@ h1 {
     font-size: 0.92rem;
   }
 
+  :host ::ng-deep .group-tabview .p-tabview-nav-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :host ::ng-deep .group-tabview .p-tabview-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    scroll-snap-type: x proximity;
+  }
+
+  :host ::ng-deep .group-tabview .p-tabview-nav li {
+    flex: 0 0 calc((100% - 24px) / 4);
+    min-width: calc((100% - 24px) / 4);
+    scroll-snap-align: start;
+  }
+
+  :host ::ng-deep .group-tabview .p-tabview-nav li .p-tabview-nav-link {
+    width: 100%;
+    margin-right: 0;
+    justify-content: center;
+    text-align: center;
+    padding: 0.68rem 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  :host ::ng-deep .participant-tabview .p-tabview-nav-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :host ::ng-deep .participant-tabview .p-tabview-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    scroll-snap-type: x proximity;
+  }
+
+  :host ::ng-deep .participant-tabview .p-tabview-nav li {
+    flex: 0 0 calc((100% - 24px) / 4);
+    min-width: calc((100% - 24px) / 4);
+    scroll-snap-align: start;
+  }
+
+  :host ::ng-deep .participant-tabview .p-tabview-nav li .p-tabview-nav-link {
+    width: 100%;
+    margin-right: 0;
+    justify-content: center;
+    text-align: center;
+    padding: 0.7rem 0.35rem;
+    font-size: 0.8rem;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   :host ::ng-deep .p-datatable .p-datatable-thead > tr > th,
   :host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
     padding: 0.5rem 0.38rem;
     font-size: 0.76rem;
-  }
-
-  .table-scroll {
-    overflow-x: hidden;
   }
 
   .admin-table-wrap {
@@ -642,39 +702,178 @@ h1 {
     width: 900px;
   }
 
+  :host ::ng-deep .summary-table .p-datatable-wrapper,
+  :host ::ng-deep .selection-table .p-datatable-wrapper,
+  :host ::ng-deep .group-standings-table .p-datatable-wrapper {
+    overflow: visible;
+  }
+
   :host ::ng-deep .summary-table .p-datatable-table,
-  :host ::ng-deep .selection-table .p-datatable-table {
+  :host ::ng-deep .selection-table .p-datatable-table,
+  :host ::ng-deep .group-standings-table .p-datatable-table {
     width: 100%;
+    min-width: 0 !important;
+    table-layout: auto;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-thead,
+  :host ::ng-deep .selection-table .p-datatable-thead,
+  :host ::ng-deep .group-standings-table .p-datatable-thead {
+    display: none;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :host ::ng-deep .group-standings-table .p-datatable-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-table {
+    min-width: 100%;
     table-layout: fixed;
   }
 
-  :host ::ng-deep .summary-table .p-datatable-thead > tr > th:nth-child(1),
-  :host ::ng-deep .summary-table .p-datatable-tbody > tr > td:nth-child(1) {
-    width: 36%;
+  :host ::ng-deep .group-standings-table .p-datatable-table {
+    min-width: 620px !important;
+    table-layout: auto;
   }
 
-  :host ::ng-deep .summary-table .p-datatable-thead > tr > th:nth-child(n + 2),
-  :host ::ng-deep .summary-table .p-datatable-tbody > tr > td:nth-child(n + 2) {
-    width: 16%;
+  :host ::ng-deep .summary-table .p-datatable-thead {
+    display: table-header-group;
   }
 
-  :host ::ng-deep .selection-table .p-datatable-thead > tr > th:nth-child(1),
-  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td:nth-child(1) {
-    width: 52%;
+  :host ::ng-deep .group-standings-table .p-datatable-thead {
+    display: table-header-group;
   }
 
-  :host ::ng-deep .selection-table .p-datatable-thead > tr > th:nth-child(n + 2),
-  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td:nth-child(n + 2) {
-    width: 16%;
+  :host ::ng-deep .summary-table .p-datatable-tbody {
+    display: table-row-group;
   }
 
-  :host ::ng-deep .summary-table .p-datatable-thead > tr > th,
-  :host ::ng-deep .selection-table .p-datatable-thead > tr > th {
+  :host ::ng-deep .group-standings-table .p-datatable-tbody {
+    display: table-row-group;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-tbody > tr {
+    display: table-row;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr {
+    display: table-row;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-tbody > tr > td,
+  :host ::ng-deep .summary-table .p-datatable-thead > tr > th {
+    display: table-cell;
+    width: auto;
+    padding: 0.5rem 0.4rem;
+    border: 0;
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td,
+  :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th {
+    display: table-cell;
+    width: auto;
+    padding: 0.38rem 0.34rem;
+    border: 0;
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-tbody > tr > td:first-child,
+  :host ::ng-deep .summary-table .p-datatable-thead > tr > th:first-child {
+    text-align: left;
+    width: 40%;
+  }
+
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td:first-child,
+  :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th:first-child,
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td:nth-child(2),
+  :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {
+    text-align: left;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-tbody > tr > td::before {
+    content: none;
+  }
+
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td::before {
+    content: none;
+  }
+
+  :host ::ng-deep .summary-table .p-datatable-thead > tr > th {
+    white-space: normal;
+    font-size: 0.7rem;
+    line-height: 1.15;
+  }
+
+  :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th {
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 0.68rem;
+    line-height: 1.1;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-tbody {
+    display: grid;
+    gap: 10px;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr {
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface-strong);
+    padding: 0.35rem 0.8rem;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td {
+    display: grid;
+    grid-template-columns: minmax(96px, 42%) minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0.55rem 0;
+    border: 0;
+    text-align: left;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td::before {
+    content: attr(data-label);
+    color: var(--text-muted);
     font-size: 0.72rem;
-    letter-spacing: 0;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td:first-child {
+    padding-top: 0.35rem;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td:last-child {
+    padding-bottom: 0.35rem;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td.numeric {
+    text-align: left;
+  }
+
+  :host ::ng-deep .selection-table .p-datatable-tbody > tr > td .team-cell {
+    justify-self: start;
   }
 
   .player-cell,
@@ -730,9 +929,19 @@ h1 {
     justify-content: flex-start;
   }
 
-  :host ::ng-deep .group-standings-table .p-datatable-thead > tr > th,
-  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr > td {
-    padding: 0.38rem 0.45rem;
-    font-size: 0.7rem;
+  :host ::ng-deep .group-standings-table .p-datatable-tbody > tr.highlight-top {
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+  }
+}
+
+@media (max-width: 420px) {
+  :host ::ng-deep .group-tabview .p-tabview-nav li {
+    flex-basis: calc((100% - 12px) / 2.5);
+    min-width: calc((100% - 12px) / 2.5);
+  }
+
+  :host ::ng-deep .participant-tabview .p-tabview-nav li {
+    flex-basis: calc((100% - 12px) / 2.5);
+    min-width: calc((100% - 12px) / 2.5);
   }
 }

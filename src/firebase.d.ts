@@ -54,3 +54,19 @@ export function saveDocument<T>(collectionName: string, documentId: string, data
 export function saveGroupStanding<T extends { group: string; flag: string }>(data: T): Promise<void>;
 
 export function saveTeamResult<T extends { flag: string }>(data: T): Promise<void>;
+
+export function replaceCollectionDocuments<T>(
+  collectionName: string,
+  items: T[],
+  getDocumentId: (item: T) => string
+): Promise<{
+  upserted: number;
+  deleted: number;
+}>;
+
+export function replaceGroupStandings<T extends { group: string; flag: string }>(
+  items: T[]
+): Promise<{
+  upserted: number;
+  deleted: number;
+}>;

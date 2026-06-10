@@ -107,3 +107,35 @@ export function saveGroupStanding(data) {
 export function saveTeamResult(data) {
   return saveDocument('teamResults', data.flag, data);
 }
+
+export async function replaceCollectionDocuments(collectionName, items, getDocumentId) {
+  const collectionRef = collection(db, collectionName);
+  const snapshot = await getDocs(collectionRef);
+  const batch = writeBatch(db);
+  const nextDocumentIds = new Set(items.map((item) => getDocumentId(item)));
+
+  let deleted = 0;
+
+  snapshot.docs.forEach((documentSnapshot) => {
+    if (!nextDocumentIds.has(documentSnapshot.id)) {
+      batch.delete(documentSnapshot.ref);
+      deleted += 1;
+    }
+  });
+
+  items.forEach((item) => {
+    const documentId = getDocumentId(item);
+    batch.set(doc(db, collectionName, documentId), item);
+  });
+
+  await batch.commit();
+
+  return {
+    upserted: items.length,
+    deleted
+  };
+}
+
+export function replaceGroupStandings(items) {
+  return replaceCollectionDocuments('groupStandings', items, (item) => `${item.group}-${item.flag}`);
+}

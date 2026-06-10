@@ -6,13 +6,15 @@ import { DividerModule } from 'primeng/divider';
 import { TabViewModule } from 'primeng/tabview';
 import { TableModule } from 'primeng/table';
 import { ADMIN_PASSWORD } from './admin-config';
-import groupStandings from '../assets/data/group-standings.json';
+//import groupStandings from '../assets/data/group-standings.json';
+import playerColorsData from '../assets/data/player-colors.json';
 import scoringRulesData from '../assets/data/scoring-rules.json';
-import teamResultsData from '../assets/data/team-results.json';
+//import teamResultsData from '../assets/data/team-results.json';
 import {
   getGroupStandings,
   getScoringRules,
   getTeamResults,
+  replaceGroupStandings,
   saveGroupStanding,
   saveTeamResult,
   seedGroupStandingsIfEmpty,
@@ -48,10 +50,17 @@ type GroupStanding = {
   PJ: number;
 };
 
+type EditableGroupStanding = Omit<GroupStanding, 'DG' | 'PTS' | 'PJ'>;
+
 type Participant = {
   name: string;
   color: string;
   selections: TeamSelection[];
+};
+
+type PlayerColor = {
+  name: string;
+  color: string;
 };
 
 type ProgressKey =
@@ -90,6 +99,9 @@ const STAGE_ORDER: ProgressKey[] = [
   'final',
   'champion'
 ];
+
+const MAX_COUNTED_SELECTIONS = 5;
+const DEFAULT_PLAYER_COLOR = '#64748b';
 
 type ParticipantSummary = {
   name: string;
@@ -147,6 +159,8 @@ const EMPTY_MILESTONES: Record<ProgressKey, number> = {
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+  private readonly playerColorMap = this.createPlayerColorMap(playerColorsData as PlayerColor[]);
+
   loading = true;
   error = '';
   summaries: ParticipantSummary[] = [];
@@ -276,25 +290,43 @@ export class AppComponent implements OnInit {
   }
 
   downloadEditableResults(): void {
-    const blob = new Blob([JSON.stringify(this.editableResults, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = 'team-results.json';
-    anchor.click();
-    URL.revokeObjectURL(url);
+    this.downloadJsonFile('team-results.json', this.editableResults);
     this.statusMessage = 'JSON listo para descargar.';
   }
 
-  downloadGroupStandings(): void {
-    const blob = new Blob([JSON.stringify(this.serializeGroupStandings(this.groupStandings), null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = 'group-standings.json';
-    anchor.click();
-    URL.revokeObjectURL(url);
-    this.statusMessage = 'Group standings listo para descargar.';
+  async downloadGroupStandings(): Promise<void> {
+    try {
+      const standings = await this.loadFirebaseGroupStandings();
+      this.downloadJsonFile('group-standings.json', this.serializeGroupStandings(this.normalizeStandings(standings)));
+      this.statusMessage = 'Respaldo de groupStandings descargado desde Firebase.';
+    } catch (error) {
+      console.error('Error descargando groupStandings desde Firebase:', error);
+      this.statusMessage = 'No se pudo descargar el respaldo de groupStandings.';
+    }
+  }
+
+  async uploadGroupStandingsFile(event: Event): Promise<void> {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    try {
+      const rawContent = await file.text();
+      const standings = this.parseImportedGroupStandings(rawContent);
+      const result = await replaceGroupStandings(standings);
+      await this.reloadOriginalGroupStandings();
+      this.statusMessage = `Firebase actualizada con ${result.upserted} standings. ${result.deleted} registros antiguos eliminados.`;
+    } catch (error) {
+      console.error('Error cargando respaldo de groupStandings:', error);
+      this.statusMessage = error instanceof Error
+        ? error.message
+        : 'No se pudo cargar el archivo de groupStandings.';
+    } finally {
+      input.value = '';
+    }
   }
 
   restoreOriginalResults(): void {
@@ -369,10 +401,7 @@ export class AppComponent implements OnInit {
 
   private async reloadOriginalGroupStandings(): Promise<void> {
     const standings = await this.loadFirebaseGroupStandings();
-    this.groupStandings = this.normalizeStandings(standings);
-    this.standingsGroups = this.getStandingGroups(this.groupStandings);
-    this.participants = this.buildParticipantsFromStandings(this.groupStandings);
-    this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
+    this.applyGroupStandingsState(standings);
     this.recalculateSummaries();
     this.statusMessage = 'Se recargo el standings desde Firebase.';
   }
@@ -422,7 +451,8 @@ export class AppComponent implements OnInit {
         left.team.localeCompare(right.team, 'es')
       );
 
-      const totalPoints = selections.reduce((sum, selection) => sum + selection.points, 0);
+      const countedSelections = selections.slice(0, MAX_COUNTED_SELECTIONS);
+      const totalPoints = countedSelections.reduce((sum, selection) => sum + selection.points, 0);
 
       // predictionPoints: sum of PTS from groupStandings for teams this participant selected
       const standingByTeam = new Map(this.groupStandings.map((s) => [s.team, s]));
@@ -470,7 +500,7 @@ export class AppComponent implements OnInit {
     }));
   }
 
-  private serializeGroupStandings(standings: GroupStanding[]): Array<Omit<GroupStanding, 'DG' | 'PTS' | 'PJ'>> {
+  private serializeGroupStandings(standings: GroupStanding[]): EditableGroupStanding[] {
     return standings.map((standing) => ({
       group: standing.group,
       team: standing.team,
@@ -483,6 +513,13 @@ export class AppComponent implements OnInit {
       GF: standing.GF,
       GC: standing.GC
     }));
+  }
+
+  private applyGroupStandingsState(standings: GroupStanding[]): void {
+    this.groupStandings = this.normalizeStandings(standings);
+    this.standingsGroups = this.getStandingGroups(this.groupStandings);
+    this.participants = this.buildParticipantsFromStandings(this.groupStandings);
+    this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
   }
 
   private getStandingGroups(standings: GroupStanding[]): string[] {
@@ -551,13 +588,88 @@ export class AppComponent implements OnInit {
     }
   }
 
+  private parseImportedGroupStandings(rawContent: string): EditableGroupStanding[] {
+    let parsed: unknown;
+
+    try {
+      parsed = JSON.parse(rawContent);
+    } catch {
+      throw new Error('El archivo no es un JSON valido.');
+    }
+
+    const importedStandings = Array.isArray(parsed)
+      ? parsed
+      : (typeof parsed === 'object' && parsed !== null && Array.isArray((parsed as { groupStandings?: unknown[] }).groupStandings)
+        ? (parsed as { groupStandings: unknown[] }).groupStandings
+        : null);
+
+    if (!importedStandings) {
+      throw new Error('El archivo debe contener un arreglo de standings.');
+    }
+
+    const normalizedStandings = importedStandings.map((standing, index) => this.normalizeImportedStanding(standing, index));
+    const documentIds = new Set<string>();
+
+    normalizedStandings.forEach((standing) => {
+      const documentId = `${standing.group}-${standing.flag}`;
+
+      if (documentIds.has(documentId)) {
+        throw new Error(`El archivo tiene un registro duplicado para ${documentId}.`);
+      }
+
+      documentIds.add(documentId);
+    });
+
+    return normalizedStandings;
+  }
+
+  private normalizeImportedStanding(standing: unknown, index: number): EditableGroupStanding {
+    if (!standing || typeof standing !== 'object') {
+      throw new Error(`El registro ${index + 1} no tiene un formato valido.`);
+    }
+
+    const candidate = standing as Partial<GroupStanding>;
+    const group = String(candidate.group ?? '').trim().toUpperCase();
+    const team = String(candidate.team ?? '').trim();
+    const flag = String(candidate.flag ?? '').trim().toUpperCase();
+
+    if (!group || !team || !flag) {
+      throw new Error(`El registro ${index + 1} debe incluir group, team y flag.`);
+    }
+
+    return {
+      group,
+      team,
+      flag,
+      playerName: typeof candidate.playerName === 'string' ? candidate.playerName.trim() : '',
+      playerColor: typeof candidate.playerColor === 'string' && candidate.playerColor.trim()
+        ? candidate.playerColor.trim()
+        : DEFAULT_PLAYER_COLOR,
+      G: this.toNonNegativeInteger(candidate.G),
+      E: this.toNonNegativeInteger(candidate.E),
+      P: this.toNonNegativeInteger(candidate.P),
+      GF: this.toNonNegativeInteger(candidate.GF),
+      GC: this.toNonNegativeInteger(candidate.GC)
+    };
+  }
+
+  private toNonNegativeInteger(value: unknown): number {
+    const parsed = Number(value);
+
+    if (Number.isNaN(parsed)) {
+      return 0;
+    }
+
+    return Math.max(0, Math.trunc(parsed));
+  }
+
   private buildParticipantsFromStandings(standings: GroupStanding[]): Participant[] {
     const participantMap = new Map<string, Participant>();
 
     standings.forEach((standing) => {
       const participantName = standing.playerName || 'Sin nombre';
-      const participantColor = standing.playerColor || '#64748b';
-      const key = `${participantName}__${participantColor}`;
+      const participantColor = this.getPlayerColor(participantName);
+      const key = participantName;
 
       if (!participantMap.has(key)) {
         participantMap.set(key, {
@@ -590,6 +702,7 @@ export class AppComponent implements OnInit {
 
     standings.forEach((standing) => {
       const groupKey = standing.group.toUpperCase();
+      const participantName = standing.playerName || 'Sin nombre';
       if (!groupMap.has(groupKey)) {
         groupMap.set(groupKey, []);
       }
@@ -597,22 +710,23 @@ export class AppComponent implements OnInit {
       groupMap.get(groupKey)!.push({
         team: standing.team,
         flag: standing.flag,
-        participantName: standing.playerName || 'Sin nombre',
-        participantColor: standing.playerColor || '#64748b'
+        participantName,
+        participantColor: this.getPlayerColor(participantName)
       });
     });
 
     const predictionsByGroup = new Map<string, GroupPrediction[]>();
     standings.forEach((standing) => {
       const key = standing.group.toUpperCase();
+      const participantName = standing.playerName || 'Sin nombre';
 
       if (!predictionsByGroup.has(key)) {
         predictionsByGroup.set(key, []);
       }
 
       predictionsByGroup.get(key)!.push({
-        participantName: standing.playerName || 'Sin nombre',
-        participantColor: standing.playerColor || '#64748b',
+        participantName,
+        participantColor: this.getPlayerColor(participantName),
         G: standing.G,
         E: standing.E,
         P: standing.P,
@@ -664,11 +778,37 @@ export class AppComponent implements OnInit {
     return Math.min(3, Math.max(0, Math.trunc(value)));
   }
 
+  private createPlayerColorMap(players: PlayerColor[]): Map<string, string> {
+    return new Map(players.map((player) => [this.normalizePlayerName(player.name), player.color]));
+  }
+
+  private getPlayerColor(playerName: string): string {
+    return this.playerColorMap.get(this.normalizePlayerName(playerName)) ?? DEFAULT_PLAYER_COLOR;
+  }
+
+  private normalizePlayerName(name: string): string {
+    return name
+      .trim()
+      .toLocaleLowerCase('es')
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '');
+  }
+
+  private downloadJsonFile(filename: string, data: unknown): void {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = filename;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }
+
   private async seedFirebaseData(): Promise<void> {
     try {
       await Promise.all([
-        seedGroupStandingsIfEmpty(groupStandings),
-        seedTeamResultsIfEmpty(teamResultsData),
+        //seedGroupStandingsIfEmpty(groupStandings),
+        //seedTeamResultsIfEmpty(teamResultsData),
         seedScoringRulesIfMissing(scoringRulesData)
       ]);
       this.statusMessage = 'Firebase inicializado correctamente.';

@@ -7,6 +7,6 @@
     { "key": "quarterFinal", "label": "Pasar a 4tos", "points": 5 },
     { "key": "semiFinal", "label": "Pasar a semifinal", "points": 6 },
     { "key": "final", "label": "Pasar a final", "points": 7 },
-    { "key": "champion", "label": "Campeón", "points": 8 }
+    { "key": "champion", "label": "Campeon", "points": 8 }
   ]
 }
