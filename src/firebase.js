@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { collection, doc, getDocs, getFirestore, limit, query, writeBatch } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, getFirestore, limit, query, setDoc, writeBatch } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -47,11 +47,63 @@ export function seedGroupStandingsIfEmpty(items) {
   return seedCollectionIfEmpty('groupStandings', items, (item) => `${item.group}-${item.flag}`);
 }
 
+export function seedTeamResultsIfEmpty(items) {
+  return seedCollectionIfEmpty('teamResults', items, (item) => item.flag);
+}
+
+export async function seedDocumentIfMissing(collectionName, documentId, data) {
+  const documentRef = doc(db, collectionName, documentId);
+  const snapshot = await getDoc(documentRef);
+
+  if (snapshot.exists()) {
+    return {
+      inserted: false,
+      skipped: true
+    };
+  }
+
+  await setDoc(documentRef, data);
+
+  return {
+    inserted: true,
+    skipped: false
+  };
+}
+
+export function seedScoringRulesIfMissing(data) {
+  return seedDocumentIfMissing('appConfig', 'scoringRules', data);
+}
+
 export async function getCollectionDocuments(collectionName) {
   const snapshot = await getDocs(collection(db, collectionName));
   return snapshot.docs.map((item) => item.data());
 }
 
+export async function getDocumentData(collectionName, documentId) {
+  const snapshot = await getDoc(doc(db, collectionName, documentId));
+  return snapshot.exists() ? snapshot.data() : null;
+}
+
 export function getGroupStandings() {
   return getCollectionDocuments('groupStandings');
+}
+
+export function getTeamResults() {
+  return getCollectionDocuments('teamResults');
+}
+
+export function getScoringRules() {
+  return getDocumentData('appConfig', 'scoringRules');
+}
+
+export async function saveDocument(collectionName, documentId, data) {
+  await setDoc(doc(db, collectionName, documentId), data);
+}
+
+export function saveGroupStanding(data) {
+  return saveDocument('groupStandings', `${data.group}-${data.flag}`, data);
+}
+
+export function saveTeamResult(data) {
+  return saveDocument('teamResults', data.flag, data);
 }

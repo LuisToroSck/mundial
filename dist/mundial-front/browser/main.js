@@ -72324,8 +72324,6 @@ var TableModule = class _TableModule {
 
 // src/app/admin-config.ts
 var ADMIN_PASSWORD = "Shikamaru17";
-var TEAM_RESULTS_STORAGE_KEY = "mundial.team-results.draft";
-var SEED_FIREBASE_GROUP_STANDINGS_ON_STARTUP = true;
 
 // src/assets/data/group-standings.json
 var group_standings_default = [
@@ -72377,6 +72375,72 @@ var group_standings_default = [
   { group: "L", team: "Ghana", flag: "GHA", playerName: "Lennis", playerColor: "#2563eb", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
   { group: "L", team: "Inglaterra", flag: "ENG", playerName: "Bayron", playerColor: "#8b5cf6", G: 0, E: 0, P: 0, GF: 0, GC: 0 },
   { group: "L", team: "Panam\xE1", flag: "PAN", playerName: "Luis", playerColor: "#22c55e", G: 0, E: 0, P: 0, GF: 0, GC: 0 }
+];
+
+// src/assets/data/scoring-rules.json
+var scoring_rules_default = {
+  stages: [
+    { key: "groupWin", label: "Victoria en grupo", points: 1 },
+    { key: "round32", label: "Pasar a 32vos", points: 2 },
+    { key: "round16", label: "Pasar a 16vos", points: 3 },
+    { key: "round8", label: "Pasar a 8vos", points: 4 },
+    { key: "quarterFinal", label: "Pasar a 4tos", points: 5 },
+    { key: "semiFinal", label: "Pasar a semifinal", points: 6 },
+    { key: "final", label: "Pasar a final", points: 7 },
+    { key: "champion", label: "Campe\xF3n", points: 8 }
+  ]
+};
+
+// src/assets/data/team-results.json
+var team_results_default = [
+  { team: "Argentina", flag: "ARG", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Holanda", flag: "NED", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Uruguay", flag: "URU", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Corea del sur", flag: "KOR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Noruega", flag: "NOR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Escocia", flag: "SCO", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Bosnia", flag: "BIH", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Espa\xF1a", flag: "ESP", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "B\xE9lgica", flag: "BEL", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Estados Unidos", flag: "USA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Austria", flag: "AUT", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Costa de Marf\xEDl", flag: "CIV", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Uzbekistan", flag: "UZB", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Ghana", flag: "GHA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Francia", flag: "FRA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Alemania", flag: "GER", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Jap\xF3n", flag: "JPN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Australia", flag: "AUS", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Rep\xFAblica Checa", flag: "CZE", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Qatar", flag: "QAT", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Cabo Verde", flag: "CPV", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Portugal", flag: "POR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Croacia", flag: "CRO", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Ir\xE1n", flag: "IRN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Canad\xE1", flag: "CAN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Paraguay", flag: "PAR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Sudafrica", flag: "RSA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Hait\xED", flag: "HAI", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Inglaterra", flag: "ENG", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Colombia", flag: "COL", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Suiza", flag: "SUI", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Argelia", flag: "ALG", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Suecia", flag: "SWE", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Irak", flag: "IRQ", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Nueva Zelanda", flag: "NZL", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Brasil", flag: "BRA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "M\xE9xico", flag: "MEX", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Turqu\xEDa", flag: "TUR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Egipto", flag: "EGY", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Congo", flag: "COD", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Arabia Saudita", flag: "KSA", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Curazao", flag: "CUW", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Marruecos", flag: "MAR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Senegal", flag: "SEN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Ecuador", flag: "ECU", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Panam\xE1", flag: "PAN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Tunez", flag: "TUN", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } },
+  { team: "Jordania", flag: "JOR", milestones: { groupWin: 0, round32: 0, round16: 0, round8: 0, quarterFinal: 0, semiFinal: 0, final: 0, champion: 0 } }
 ];
 
 // node_modules/@firebase/util/dist/postinstall.mjs
@@ -85177,6 +85241,34 @@ function __PRIVATE_getEventManager(e) {
     return n.onListen = __PRIVATE_syncEngineListen.bind(null, t.syncEngine), n.onUnlisten = __PRIVATE_syncEngineUnlisten.bind(null, t.syncEngine), n.onFirstRemoteStoreListen = __PRIVATE_triggerRemoteStoreListen.bind(null, t.syncEngine), n.onLastRemoteStoreUnlisten = __PRIVATE_triggerRemoteStoreUnlisten.bind(null, t.syncEngine), n;
   });
 }
+function __PRIVATE_firestoreClientGetDocumentViaSnapshotListener(e, t, n = {}) {
+  const r = new __PRIVATE_Deferred();
+  return e.asyncQueue.enqueueAndForget(() => __async(this, null, function* () {
+    return function __PRIVATE_readDocumentViaSnapshotListener(e2, t2, n2, r2, i) {
+      const s = new __PRIVATE_AsyncObserver({
+        next: (_) => {
+          s.ku(), t2.enqueueAndForget(() => __PRIVATE_eventManagerUnlisten(e2, o));
+          const a = _.docs.has(n2);
+          !a && _.fromCache ? (
+            // TODO(dimond): If we're online and the document doesn't
+            // exist then we resolve with a doc.exists set to false. If
+            // we're offline however, we reject the Promise in this
+            // case. Two options: 1) Cache the negative response from
+            // the server so we can deliver that even when you're
+            // offline 2) Actually reject the Promise in the online case
+            // if the document doesn't exist.
+            i.reject(new FirestoreError(D.UNAVAILABLE, "Failed to get document because the client is offline."))
+          ) : a && _.fromCache && r2 && "server" === r2.source ? i.reject(new FirestoreError(D.UNAVAILABLE, 'Failed to get document from server. (However, this document does exist in the local cache. Run again without setting source to "server" to retrieve the cached document.)')) : i.resolve(_);
+        },
+        error: (e3) => i.reject(e3)
+      }), o = new __PRIVATE_QueryListener(__PRIVATE_newQueryForPath(n2.path), s, {
+        includeMetadataChanges: true,
+        $a: true
+      });
+      return __PRIVATE_eventManagerListen(e2, o);
+    }(yield __PRIVATE_getEventManager(e), e.asyncQueue, t, n, r);
+  })), r.promise;
+}
 function __PRIVATE_firestoreClientGetDocumentsViaSnapshotListener(e, t, n = {}) {
   const r = new __PRIVATE_Deferred();
   return e.asyncQueue.enqueueAndForget(() => __async(this, null, function* () {
@@ -86913,14 +87005,28 @@ function __PRIVATE_validateReference(t, e) {
   if ((t = getModularInstance(t)).firestore !== e) throw new FirestoreError(D.INVALID_ARGUMENT, "Provided document reference is from a different Firestore instance.");
   return t;
 }
+function getDoc(t) {
+  t = __PRIVATE_cast(t, DocumentReference);
+  const e = __PRIVATE_cast(t.firestore, Firestore), n = ensureFirestoreConfigured(e);
+  return __PRIVATE_firestoreClientGetDocumentViaSnapshotListener(n, t._key).then((n2) => __PRIVATE_convertToDocSnapshot(e, t, n2));
+}
 function getDocs(t) {
   t = __PRIVATE_cast(t, Query2);
   const e = __PRIVATE_cast(t.firestore, Firestore), n = ensureFirestoreConfigured(e), r = new __PRIVATE_ExpUserDataWriter(e);
   return __PRIVATE_validateHasExplicitOrderByForLimitToLast(t._query), __PRIVATE_firestoreClientGetDocumentsViaSnapshotListener(n, t._query).then((n2) => new QuerySnapshot(e, r, t, n2));
 }
+function setDoc(t, e, n) {
+  t = __PRIVATE_cast(t, DocumentReference);
+  const r = __PRIVATE_cast(t.firestore, Firestore), s = __PRIVATE_applyFirestoreDataConverter(t.converter, e, n), o = __PRIVATE_newUserDataReader(r);
+  return executeWrite(r, [__PRIVATE_parseSetData(o, "setDoc", t._key, s, null !== t.converter, n).toMutation(t._key, Precondition.none())]);
+}
 function executeWrite(t, e) {
   const n = ensureFirestoreConfigured(t);
   return __PRIVATE_firestoreClientWrite(n, e);
+}
+function __PRIVATE_convertToDocSnapshot(t, e, n) {
+  const r = n.docs.get(e._key), s = new __PRIVATE_ExpUserDataWriter(t);
+  return new DocumentSnapshot(t, s, e._key, r, new SnapshotMetadata(n.hasPendingWrites, n.fromCache), e.converter);
 }
 function writeBatch(t) {
   return t = __PRIVATE_cast(t, Firestore), ensureFirestoreConfigured(t), new WriteBatch(t, (e) => executeWrite(t, e));
@@ -86976,14 +87082,60 @@ function seedCollectionIfEmpty(collectionName, items, getDocumentId) {
 function seedGroupStandingsIfEmpty(items) {
   return seedCollectionIfEmpty("groupStandings", items, (item) => `${item.group}-${item.flag}`);
 }
+function seedTeamResultsIfEmpty(items) {
+  return seedCollectionIfEmpty("teamResults", items, (item) => item.flag);
+}
+function seedDocumentIfMissing(collectionName, documentId2, data) {
+  return __async(this, null, function* () {
+    const documentRef = doc(db, collectionName, documentId2);
+    const snapshot = yield getDoc(documentRef);
+    if (snapshot.exists()) {
+      return {
+        inserted: false,
+        skipped: true
+      };
+    }
+    yield setDoc(documentRef, data);
+    return {
+      inserted: true,
+      skipped: false
+    };
+  });
+}
+function seedScoringRulesIfMissing(data) {
+  return seedDocumentIfMissing("appConfig", "scoringRules", data);
+}
 function getCollectionDocuments(collectionName) {
   return __async(this, null, function* () {
     const snapshot = yield getDocs(collection(db, collectionName));
     return snapshot.docs.map((item) => item.data());
   });
 }
+function getDocumentData(collectionName, documentId2) {
+  return __async(this, null, function* () {
+    const snapshot = yield getDoc(doc(db, collectionName, documentId2));
+    return snapshot.exists() ? snapshot.data() : null;
+  });
+}
 function getGroupStandings() {
   return getCollectionDocuments("groupStandings");
+}
+function getTeamResults() {
+  return getCollectionDocuments("teamResults");
+}
+function getScoringRules() {
+  return getDocumentData("appConfig", "scoringRules");
+}
+function saveDocument(collectionName, documentId2, data) {
+  return __async(this, null, function* () {
+    yield setDoc(doc(db, collectionName, documentId2), data);
+  });
+}
+function saveGroupStanding(data) {
+  return saveDocument("groupStandings", `${data.group}-${data.flag}`, data);
+}
+function saveTeamResult(data) {
+  return saveDocument("teamResults", data.flag, data);
 }
 
 // src/app/app.component.ts
@@ -86996,7 +87148,7 @@ var _c38 = () => ({ "min-width": "1200px" });
 function AppComponent_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "p", 3);
-    \u0275\u0275text(1, "Cargando datos locales...");
+    \u0275\u0275text(1, "Cargando datos...");
     \u0275\u0275elementEnd();
   }
 }
@@ -87456,49 +87608,49 @@ function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_templ
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(6, "td")(7, "input", 56);
-    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_input_7_listener($event) {
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_7_listener($event) {
       const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r18.group, standing_r18.team, "playerName", $event.target.value));
     });
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(8, "td")(9, "input", 57);
-    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_input_9_listener($event) {
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_9_listener($event) {
       const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r18.group, standing_r18.team, "playerColor", $event.target.value));
     });
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(10, "td", 28)(11, "input", 58);
-    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_input_11_listener($event) {
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_11_listener($event) {
       const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "G", $event.target.value));
     });
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(12, "td", 28)(13, "input", 58);
-    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_input_13_listener($event) {
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_13_listener($event) {
       const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "E", $event.target.value));
     });
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(14, "td", 28)(15, "input", 58);
-    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_input_15_listener($event) {
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_15_listener($event) {
       const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "P", $event.target.value));
     });
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(16, "td", 28)(17, "input", 58);
-    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_input_17_listener($event) {
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_17_listener($event) {
       const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "GF", $event.target.value));
     });
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(18, "td", 28)(19, "input", 58);
-    \u0275\u0275listener("input", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_input_19_listener($event) {
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_40_Conditional_1_For_18_ng_template_4_Template_input_change_19_listener($event) {
       const standing_r18 = \u0275\u0275restoreView(_r17).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r18.group, standing_r18.team, "GC", $event.target.value));
@@ -87816,23 +87968,19 @@ var AppComponent = class _AppComponent {
   ngOnInit() {
     return __async(this, null, function* () {
       try {
-        if (SEED_FIREBASE_GROUP_STANDINGS_ON_STARTUP) {
-          yield this.seedFirebaseGroupStandings();
-        }
-        const [resultsResponse, scoringResponse, standings] = yield Promise.all([
-          fetch("assets/data/team-results.json"),
-          fetch("assets/data/scoring-rules.json"),
+        yield this.seedFirebaseData();
+        const [results, scoring, standings] = yield Promise.all([
+          this.loadFirebaseTeamResults(),
+          this.loadFirebaseScoringRules(),
           this.loadFirebaseGroupStandings()
         ]);
-        const results = yield resultsResponse.json();
-        const scoring = yield scoringResponse.json();
         this.groupStandings = this.normalizeStandings(standings);
         this.standingsGroups = this.getStandingGroups(this.groupStandings);
         this.participants = this.buildParticipantsFromStandings(this.groupStandings);
         this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
         this.scoringRules = scoring;
         this.stageDefinitions = scoring.stages;
-        this.editableResults = this.loadStoredResults(results);
+        this.editableResults = this.normalizeResults(results);
         this.recalculateSummaries();
         this.loading = false;
       } catch (error) {
@@ -87862,6 +88010,7 @@ var AppComponent = class _AppComponent {
     this.updateStanding(group, team, (standing) => __spreadProps(__spreadValues({}, standing), {
       [field]: value
     }));
+    void this.persistStanding(group, team);
   }
   setStandingNumber(group, team, field, rawValue) {
     const parsed = Number(rawValue);
@@ -87869,6 +88018,7 @@ var AppComponent = class _AppComponent {
     this.updateStanding(group, team, (standing) => __spreadProps(__spreadValues({}, standing), {
       [field]: nextValue
     }));
+    void this.persistStanding(group, team);
   }
   setMilestone(team, stageKey, enabled) {
     this.editableResults = this.editableResults.map((result) => {
@@ -87881,8 +88031,8 @@ var AppComponent = class _AppComponent {
         })
       });
     });
-    this.persistEditableResults();
     this.recalculateSummaries();
+    void this.persistTeamResult(team);
   }
   setGroupWins(team, rawValue) {
     const parsed = Number(rawValue);
@@ -87897,8 +88047,8 @@ var AppComponent = class _AppComponent {
         })
       });
     });
-    this.persistEditableResults();
     this.recalculateSummaries();
+    void this.persistTeamResult(team);
   }
   downloadEditableResults() {
     const blob = new Blob([JSON.stringify(this.editableResults, null, 2)], { type: "application/json" });
@@ -87966,12 +88116,10 @@ var AppComponent = class _AppComponent {
   }
   reloadOriginalResults() {
     return __async(this, null, function* () {
-      const response = yield fetch("assets/data/team-results.json");
-      const results = yield response.json();
+      const results = yield this.loadFirebaseTeamResults();
       this.editableResults = this.normalizeResults(results);
-      this.persistEditableResults();
       this.recalculateSummaries();
-      this.statusMessage = "Se restaur\xF3 el JSON original.";
+      this.statusMessage = "Se recargo teamResults desde Firebase.";
     });
   }
   reloadOriginalGroupStandings() {
@@ -87982,31 +88130,13 @@ var AppComponent = class _AppComponent {
       this.participants = this.buildParticipantsFromStandings(this.groupStandings);
       this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
       this.recalculateSummaries();
-      this.statusMessage = "Se restaur\xF3 el standings original.";
+      this.statusMessage = "Se recargo el standings desde Firebase.";
     });
   }
   normalizeResults(results) {
     return results.map((result) => __spreadProps(__spreadValues({}, result), {
       milestones: __spreadValues(__spreadValues({}, EMPTY_MILESTONES), this.normalizeMilestones(result.milestones))
     }));
-  }
-  loadStoredResults(defaultResults) {
-    const storedValue = window.localStorage.getItem(TEAM_RESULTS_STORAGE_KEY);
-    if (!storedValue) {
-      return this.normalizeResults(defaultResults);
-    }
-    try {
-      const parsed = JSON.parse(storedValue);
-      if (!Array.isArray(parsed)) {
-        return this.normalizeResults(defaultResults);
-      }
-      return this.normalizeResults(parsed);
-    } catch {
-      return this.normalizeResults(defaultResults);
-    }
-  }
-  persistEditableResults() {
-    window.localStorage.setItem(TEAM_RESULTS_STORAGE_KEY, JSON.stringify(this.editableResults));
   }
   recalculateSummaries() {
     if (!this.participants.length || !this.scoringRules) {
@@ -88103,6 +88233,48 @@ var AppComponent = class _AppComponent {
       return yield getGroupStandings();
     });
   }
+  loadFirebaseTeamResults() {
+    return __async(this, null, function* () {
+      return yield getTeamResults();
+    });
+  }
+  loadFirebaseScoringRules() {
+    return __async(this, null, function* () {
+      const rules = yield getScoringRules();
+      if (!rules) {
+        throw new Error("No se encontraron scoringRules en Firebase.");
+      }
+      return rules;
+    });
+  }
+  persistStanding(group, team) {
+    return __async(this, null, function* () {
+      const standing = this.groupStandings.find((item) => item.group === group && item.team === team);
+      if (!standing) {
+        return;
+      }
+      try {
+        yield saveGroupStanding(this.serializeGroupStandings([standing])[0]);
+      } catch (error) {
+        console.error("Error guardando standing en Firebase:", error);
+        this.statusMessage = "Fallo el guardado del standings en Firebase.";
+      }
+    });
+  }
+  persistTeamResult(team) {
+    return __async(this, null, function* () {
+      const result = this.editableResults.find((item) => item.team === team);
+      if (!result) {
+        return;
+      }
+      try {
+        yield saveTeamResult(result);
+      } catch (error) {
+        console.error("Error guardando teamResults en Firebase:", error);
+        this.statusMessage = "Fallo el guardado de teamResults en Firebase.";
+      }
+    });
+  }
   buildParticipantsFromStandings(standings) {
     const participantMap = /* @__PURE__ */ new Map();
     standings.forEach((standing) => {
@@ -88192,21 +88364,25 @@ var AppComponent = class _AppComponent {
     }
     return Math.min(3, Math.max(0, Math.trunc(value)));
   }
-  seedFirebaseGroupStandings() {
+  seedFirebaseData() {
     return __async(this, null, function* () {
       try {
-        const result = yield seedGroupStandingsIfEmpty(group_standings_default);
-        this.statusMessage = result.skipped ? "Firebase ya ten\xEDa datos en groupStandings." : `Firebase inicializado con ${result.inserted} documentos en groupStandings.`;
+        yield Promise.all([
+          seedGroupStandingsIfEmpty(group_standings_default),
+          seedTeamResultsIfEmpty(team_results_default),
+          seedScoringRulesIfMissing(scoring_rules_default)
+        ]);
+        this.statusMessage = "Firebase inicializado correctamente.";
       } catch (error) {
-        console.error("Error cargando groupStandings en Firebase:", error);
-        this.statusMessage = "Fall\xF3 la carga inicial de groupStandings en Firebase.";
+        console.error("Error cargando datos iniciales en Firebase:", error);
+        this.statusMessage = "Fallo la carga inicial en Firebase.";
       }
     });
   }
   static \u0275fac = function AppComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _AppComponent)();
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 5, vars: 1, consts: [["adminPasswordInput", ""], [1, "shell"], [1, "content", "surface-card"], [1, "state"], [1, "state", "error"], [1, "groups-block"], [1, "summary-header"], [3, "header"], [1, "summary-block"], [1, "table-scroll"], ["styleClass", "summary-table", 3, "value", "responsiveLayout", "tableStyle"], ["pTemplate", "header"], ["pTemplate", "body"], [1, "admin-panel", "surface-card"], [1, "admin-header"], [1, "eyebrow"], [1, "admin-note"], [1, "admin-actions"], ["type", "button", 1, "admin-button", "secondary"], [1, "group-card"], [1, "group-card-header"], [1, "group-badge"], [1, "group-count"], [1, "group-teams-preview"], [1, "group-team-chip"], [1, "group-standings-wrap"], ["styleClass", "group-standings-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "flag-img", 3, "error", "src", "alt"], [1, "numeric"], [1, "player-cell"], [1, "player-dot"], [1, "numeric", "strong"], ["data-label", "Jugador"], ["data-label", "Puntos de Selecci\xF3n", 1, "numeric", "strong"], ["data-label", "Puntos de predicciones", 1, "numeric", "strong"], ["data-label", "Total puntos", 1, "numeric", "strong"], [1, "participant-header"], [3, "label", "styleClass"], [1, "participant-metrics"], ["styleClass", "selection-table", 3, "value", "responsiveLayout", "tableStyle"], ["data-label", "Selecci\xF3n"], [1, "team-cell"], ["data-label", "Victorias", 1, "numeric"], ["data-label", "Rondas", 1, "numeric"], ["type", "button", 1, "admin-button", "secondary", 3, "click"], [1, "admin-login"], [1, "admin-field"], ["for", "adminPassword"], ["id", "adminPassword", "type", "password", "placeholder", "Ingresa la clave", 3, "input"], ["type", "button", 1, "admin-button", 3, "click"], [1, "admin-success"], [1, "admin-section"], [1, "admin-header", "admin-header-tight"], [1, "table-scroll", "admin-table-wrap"], ["styleClass", "admin-table", 3, "value", "responsiveLayout", "tableStyle"], ["styleClass", "admin-standings-table", 3, "value", "responsiveLayout", "tableStyle"], ["type", "text", 1, "admin-text-input", 3, "input", "value"], ["type", "color", 1, "admin-color-input", 3, "input", "value"], ["type", "number", "min", "0", "step", "1", 1, "admin-number-input", 3, "input", "value"], [1, "numeric", "admin-checkbox-cell"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "value"], ["type", "checkbox", 3, "checked"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "change", "value"], ["type", "checkbox", 3, "change", "checked"]], template: function AppComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 5, vars: 1, consts: [["adminPasswordInput", ""], [1, "shell"], [1, "content", "surface-card"], [1, "state"], [1, "state", "error"], [1, "groups-block"], [1, "summary-header"], [3, "header"], [1, "summary-block"], [1, "table-scroll"], ["styleClass", "summary-table", 3, "value", "responsiveLayout", "tableStyle"], ["pTemplate", "header"], ["pTemplate", "body"], [1, "admin-panel", "surface-card"], [1, "admin-header"], [1, "eyebrow"], [1, "admin-note"], [1, "admin-actions"], ["type", "button", 1, "admin-button", "secondary"], [1, "group-card"], [1, "group-card-header"], [1, "group-badge"], [1, "group-count"], [1, "group-teams-preview"], [1, "group-team-chip"], [1, "group-standings-wrap"], ["styleClass", "group-standings-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "flag-img", 3, "error", "src", "alt"], [1, "numeric"], [1, "player-cell"], [1, "player-dot"], [1, "numeric", "strong"], ["data-label", "Jugador"], ["data-label", "Puntos de Selecci\xF3n", 1, "numeric", "strong"], ["data-label", "Puntos de predicciones", 1, "numeric", "strong"], ["data-label", "Total puntos", 1, "numeric", "strong"], [1, "participant-header"], [3, "label", "styleClass"], [1, "participant-metrics"], ["styleClass", "selection-table", 3, "value", "responsiveLayout", "tableStyle"], ["data-label", "Selecci\xF3n"], [1, "team-cell"], ["data-label", "Victorias", 1, "numeric"], ["data-label", "Rondas", 1, "numeric"], ["type", "button", 1, "admin-button", "secondary", 3, "click"], [1, "admin-login"], [1, "admin-field"], ["for", "adminPassword"], ["id", "adminPassword", "type", "password", "placeholder", "Ingresa la clave", 3, "input"], ["type", "button", 1, "admin-button", 3, "click"], [1, "admin-success"], [1, "admin-section"], [1, "admin-header", "admin-header-tight"], [1, "table-scroll", "admin-table-wrap"], ["styleClass", "admin-table", 3, "value", "responsiveLayout", "tableStyle"], ["styleClass", "admin-standings-table", 3, "value", "responsiveLayout", "tableStyle"], ["type", "text", 1, "admin-text-input", 3, "change", "value"], ["type", "color", 1, "admin-color-input", 3, "change", "value"], ["type", "number", "min", "0", "step", "1", 1, "admin-number-input", 3, "change", "value"], [1, "numeric", "admin-checkbox-cell"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "value"], ["type", "checkbox", 3, "checked"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "change", "value"], ["type", "checkbox", 3, "change", "checked"]], template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275elementStart(0, "main", 1)(1, "section", 2);
       \u0275\u0275template(2, AppComponent_Conditional_2_Template, 2, 0, "p", 3)(3, AppComponent_Conditional_3_Template, 2, 1, "p", 4)(4, AppComponent_Conditional_4_Template, 41, 6);
@@ -88219,7 +88395,7 @@ var AppComponent = class _AppComponent {
   }, dependencies: [CommonModule, CardModule, PrimeTemplate, ChipModule, Chip, DividerModule, Divider, TabViewModule, TabView, TabPanel, TableModule, Table], styles: ["\n\n.shell[_ngcontent-%COMP%] {\n  width: min(1200px, 100vw - 32px);\n  margin: 32px auto 48px;\n  display: grid;\n  gap: 24px;\n}\n.hero[_ngcontent-%COMP%] {\n  padding: 28px;\n  display: grid;\n  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);\n  gap: 20px;\n  align-items: end;\n}\n.eyebrow[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.82rem;\n  font-weight: 700;\n  letter-spacing: 0.14em;\n  text-transform: uppercase;\n  color: var(--accent-strong);\n}\nh1[_ngcontent-%COMP%], \nh2[_ngcontent-%COMP%], \np[_ngcontent-%COMP%] {\n  margin: 0;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: clamp(2rem, 4vw, 3.6rem);\n  line-height: 1.02;\n  max-width: 12ch;\n}\n.lead[_ngcontent-%COMP%] {\n  margin-top: 14px;\n  max-width: 60ch;\n  color: var(--text-muted);\n  font-size: 1.02rem;\n  line-height: 1.7;\n}\n.hero-stats[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 12px;\n}\n.hero-stats[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n  padding: 16px;\n  border-radius: 18px;\n  background: var(--surface-strong);\n  border: 1px solid var(--border);\n}\n.hero-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n  color: var(--text-muted);\n  font-size: 0.86rem;\n}\n.hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-top: 8px;\n  font-size: 1.6rem;\n}\n.content[_ngcontent-%COMP%] {\n  padding: 14px 18px 18px;\n}\n.table-scroll[_ngcontent-%COMP%] {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.state[_ngcontent-%COMP%] {\n  padding: 26px 10px;\n  color: var(--text-muted);\n}\n.state.error[_ngcontent-%COMP%] {\n  color: #b91c1c;\n}\n.participant-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 18px;\n}\n.participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.6rem;\n}\n.selection-chip[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-panel[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin-bottom: 18px;\n}\n.admin-section[_ngcontent-%COMP%] {\n  margin-top: 18px;\n}\n.admin-header-tight[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n.admin-text-input[_ngcontent-%COMP%], \n.admin-number-input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  color: var(--text-main);\n  padding: 0.55rem 0.7rem;\n  font: inherit;\n}\n.admin-color-input[_ngcontent-%COMP%] {\n  width: 100%;\n  min-width: 56px;\n  height: 38px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  padding: 0.2rem;\n}\n.admin-number-input[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.admin-text-input[_ngcontent-%COMP%]:focus, \n.admin-number-input[_ngcontent-%COMP%]:focus, \n.admin-color-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid color-mix(in srgb, var(--accent-strong) 30%, transparent);\n  outline-offset: 1px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .team-cell[_ngcontent-%COMP%] {\n  min-width: 180px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   td[_ngcontent-%COMP%] {\n  vertical-align: middle;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%], \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  padding: 0.5rem 0.55rem;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .numeric[_ngcontent-%COMP%] {\n  min-width: 72px;\n}\n.summary-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, minmax(0, 1fr));\n  gap: 12px;\n}\n.group-card[_ngcontent-%COMP%] {\n  border: 1px solid var(--border);\n  border-radius: 16px;\n  background: var(--surface-strong);\n  padding: 12px;\n}\n.group-card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 12px;\n  margin-bottom: 10px;\n  flex-wrap: wrap;\n}\n.group-badge[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  color: var(--accent-strong);\n}\n.group-count[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--text-muted);\n}\n.group-teams-preview[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 8px;\n}\n.group-team-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 0.35rem 0.6rem;\n  border-radius: 999px;\n  background: var(--surface);\n  border: 1px solid var(--border);\n  font-size: 0.76rem;\n  color: var(--text-main);\n  white-space: nowrap;\n}\n.group-team-chip[_ngcontent-%COMP%]   .flag-img[_ngcontent-%COMP%] {\n  width: 18px;\n  height: 12px;\n  object-fit: cover;\n  border-radius: 2px;\n}\n.group-teams[_ngcontent-%COMP%] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: grid;\n  gap: 8px;\n}\n.group-teams[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.group-owner[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n}\n.group-standings-wrap[_ngcontent-%COMP%] {\n  margin-top: 12px;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td {\n  padding: 0.45rem 0.55rem;\n  font-size: 0.76rem;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n  white-space: nowrap;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child {\n  width: 2.2rem;\n  text-align: center;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n  min-width: 180px;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(1), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(1) {\n  min-width: 180px;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.numeric, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th.numeric {\n  text-align: right;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.strong {\n  font-weight: 700;\n}\n.admin-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.admin-note[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.admin-note[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-weight: 700;\n  color: var(--text-main);\n}\n.admin-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n}\n.admin-login[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  align-items: flex-end;\n  flex-wrap: wrap;\n}\n.admin-field[_ngcontent-%COMP%] {\n  flex: 1 1 260px;\n}\n.admin-field[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 6px;\n  font-size: 0.85rem;\n  font-weight: 700;\n  color: var(--text-muted);\n}\n.admin-field[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 14px;\n  padding: 0.85rem 0.95rem;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n.admin-button[_ngcontent-%COMP%] {\n  border: 0;\n  border-radius: 14px;\n  padding: 0.85rem 1rem;\n  font: inherit;\n  font-weight: 700;\n  background: var(--accent-strong);\n  color: #fff;\n  cursor: pointer;\n}\n.admin-button.secondary[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-button[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.admin-success[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  color: var(--accent-strong);\n  font-size: 0.9rem;\n  font-weight: 700;\n}\n.admin-table-wrap[_ngcontent-%COMP%] {\n  margin-top: 8px;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%] {\n  text-align: center;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] {\n  width: 1rem;\n  height: 1rem;\n  accent-color: var(--accent-strong);\n}\n.admin-group-wins[_ngcontent-%COMP%] {\n  width: 3.2rem;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  padding: 0.25rem 0.35rem;\n  text-align: center;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top > td, \n[_nghost-%COMP%]     .admin-standings-table .p-datatable-tbody > tr.highlight-top > td, \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr.highlight-top[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  background-color: rgba(15, 23, 42, 0.03);\n  transition: background-color 120ms ease-in-out;\n}\n.summary-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.4rem;\n  margin-top: 2px;\n}\n.summary-hint[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.player-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n}\n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.86rem;\n  margin-top: 2px;\n}\n.player-dot[_ngcontent-%COMP%] {\n  width: 0.9rem;\n  height: 0.9rem;\n  border-radius: 50%;\n  flex: 0 0 auto;\n  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.04);\n}\n.participant-metrics[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n[_nghost-%COMP%]     .p-tabview-nav {\n  border: 0;\n  margin-bottom: 12px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container {\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 8px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar-thumb, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: rgba(15, 23, 42, 0.18);\n  border-radius: 999px;\n}\n[_nghost-%COMP%]     .p-tabview-panels {\n  padding: 0;\n}\n[_nghost-%COMP%]     .p-tabview-nav li {\n  flex: 0 0 auto;\n}\n[_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n  border: 0;\n  border-radius: 999px;\n  margin-right: 8px;\n  background: transparent;\n  color: var(--text-muted);\n  padding-inline: 18px;\n}\n[_nghost-%COMP%]     .p-tabview-nav li.p-highlight .p-tabview-nav-link {\n  background: var(--accent-strong);\n  color: white;\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th {\n  background: transparent;\n  color: var(--text-muted);\n  border-color: var(--border);\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n  border-color: var(--border);\n}\n.team-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.flag[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 50%;\n  display: grid;\n  place-items: center;\n  background: var(--accent-soft);\n  font-size: 1rem;\n}\n.flag-img[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 6px;\n  object-fit: cover;\n  display: inline-block;\n}\n.numeric[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.strong[_ngcontent-%COMP%] {\n  font-weight: 700;\n}\n@media (max-width: 900px) {\n  .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .hero-stats[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .participant-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .summary-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n}\n@media (max-width: 640px) {\n  .shell[_ngcontent-%COMP%] {\n    width: min(100vw - 16px, 1200px);\n    margin: 12px auto 24px;\n    gap: 16px;\n  }\n  .hero[_ngcontent-%COMP%], \n   .content[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: clamp(1.6rem, 8vw, 2.4rem);\n    max-width: 14ch;\n  }\n  .lead[_ngcontent-%COMP%] {\n    font-size: 0.95rem;\n    line-height: 1.6;\n  }\n  .hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n    font-size: 1.35rem;\n  }\n  .hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n    padding: 14px;\n    border-radius: 16px;\n  }\n  .participant-metrics[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n    font-size: 1.2rem;\n  }\n  .participant-header[_ngcontent-%COMP%], \n   .summary-header[_ngcontent-%COMP%] {\n    gap: 10px;\n    margin-bottom: 12px;\n  }\n  .player-cell[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n    margin-top: 0;\n  }\n  [_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n    padding-inline: 14px;\n    font-size: 0.92rem;\n  }\n  [_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n    padding: 0.5rem 0.38rem;\n    font-size: 0.76rem;\n  }\n  .table-scroll[_ngcontent-%COMP%] {\n    overflow-x: hidden;\n  }\n  .admin-table-wrap[_ngcontent-%COMP%] {\n    overflow-x: auto;\n  }\n  [_nghost-%COMP%]     .admin-table .p-datatable-table {\n    width: 900px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table, \n   [_nghost-%COMP%]     .selection-table .p-datatable-table {\n    width: 100%;\n    table-layout: fixed;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:nth-child(1), \n   [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:nth-child(1) {\n    width: 36%;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:nth-child(n+2), \n   [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:nth-child(n+2) {\n    width: 16%;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th:nth-child(1), \n   [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:nth-child(1) {\n    width: 52%;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th:nth-child(n+2), \n   [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:nth-child(n+2) {\n    width: 16%;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    font-size: 0.72rem;\n    letter-spacing: 0;\n  }\n  .player-cell[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%] {\n    min-width: 0;\n    gap: 6px;\n  }\n  .player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:last-child {\n    display: block;\n    min-width: 0;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n  }\n  .flag-img[_ngcontent-%COMP%] {\n    width: 1.35rem;\n    height: 1.35rem;\n    border-radius: 4px;\n  }\n  .player-dot[_ngcontent-%COMP%] {\n    width: 0.7rem;\n    height: 0.7rem;\n    box-shadow: none;\n  }\n  .admin-header[_ngcontent-%COMP%], \n   .admin-login[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .admin-actions[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  .admin-panel[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .admin-button[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .group-owner[_ngcontent-%COMP%] {\n    font-size: 0.72rem;\n  }\n  .group-teams-preview[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td {\n    padding: 0.38rem 0.45rem;\n    font-size: 0.7rem;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 142 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 149 });
 })();
 
 // src/main.ts

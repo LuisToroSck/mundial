@@ -5,13 +5,20 @@ import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { TabViewModule } from 'primeng/tabview';
 import { TableModule } from 'primeng/table';
-import {
-  ADMIN_PASSWORD,
-  SEED_FIREBASE_GROUP_STANDINGS_ON_STARTUP,
-  TEAM_RESULTS_STORAGE_KEY
-} from './admin-config';
+import { ADMIN_PASSWORD } from './admin-config';
 import groupStandings from '../assets/data/group-standings.json';
-import { getGroupStandings, seedGroupStandingsIfEmpty } from '../firebase.js';
+import scoringRulesData from '../assets/data/scoring-rules.json';
+import teamResultsData from '../assets/data/team-results.json';
+import {
+  getGroupStandings,
+  getScoringRules,
+  getTeamResults,
+  saveGroupStanding,
+  saveTeamResult,
+  seedGroupStandingsIfEmpty,
+  seedScoringRulesIfMissing,
+  seedTeamResultsIfEmpty
+} from '../firebase.js';
 
 type TeamResult = {
   team: string;
@@ -162,17 +169,13 @@ export class AppComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     try {
-      if (SEED_FIREBASE_GROUP_STANDINGS_ON_STARTUP) {
-        await this.seedFirebaseGroupStandings();
-      }
+      await this.seedFirebaseData();
 
-      const [resultsResponse, scoringResponse, standings] = await Promise.all([
-        fetch('assets/data/team-results.json'),
-        fetch('assets/data/scoring-rules.json'),
+      const [results, scoring, standings] = await Promise.all([
+        this.loadFirebaseTeamResults(),
+        this.loadFirebaseScoringRules(),
         this.loadFirebaseGroupStandings()
       ]);
-      const results = (await resultsResponse.json()) as TeamResult[];
-      const scoring = (await scoringResponse.json()) as ScoringRules;
 
       this.groupStandings = this.normalizeStandings(standings);
       this.standingsGroups = this.getStandingGroups(this.groupStandings);
@@ -180,7 +183,7 @@ export class AppComponent implements OnInit {
       this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
       this.scoringRules = scoring;
       this.stageDefinitions = scoring.stages;
-      this.editableResults = this.loadStoredResults(results);
+      this.editableResults = this.normalizeResults(results);
       this.recalculateSummaries();
       this.loading = false;
     } catch (error) {
@@ -215,6 +218,7 @@ export class AppComponent implements OnInit {
       ...standing,
       [field]: value
     }));
+    void this.persistStanding(group, team);
   }
 
   setStandingNumber(group: string, team: string, field: 'G' | 'E' | 'P' | 'GF' | 'GC', rawValue: string | number): void {
@@ -225,6 +229,7 @@ export class AppComponent implements OnInit {
       ...standing,
       [field]: nextValue
     }));
+    void this.persistStanding(group, team);
   }
 
   setMilestone(team: string, stageKey: ProgressKey, enabled: boolean): void {
@@ -244,8 +249,8 @@ export class AppComponent implements OnInit {
       };
     });
 
-    this.persistEditableResults();
     this.recalculateSummaries();
+    void this.persistTeamResult(team);
   }
 
   setGroupWins(team: string, rawValue: string | number): void {
@@ -266,8 +271,8 @@ export class AppComponent implements OnInit {
       };
     });
 
-    this.persistEditableResults();
     this.recalculateSummaries();
+    void this.persistTeamResult(team);
   }
 
   downloadEditableResults(): void {
@@ -356,12 +361,10 @@ export class AppComponent implements OnInit {
   }
 
   private async reloadOriginalResults(): Promise<void> {
-    const response = await fetch('assets/data/team-results.json');
-    const results = (await response.json()) as TeamResult[];
+    const results = await this.loadFirebaseTeamResults();
     this.editableResults = this.normalizeResults(results);
-    this.persistEditableResults();
     this.recalculateSummaries();
-    this.statusMessage = 'Se restauró el JSON original.';
+    this.statusMessage = 'Se recargo teamResults desde Firebase.';
   }
 
   private async reloadOriginalGroupStandings(): Promise<void> {
@@ -371,7 +374,7 @@ export class AppComponent implements OnInit {
     this.participants = this.buildParticipantsFromStandings(this.groupStandings);
     this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
     this.recalculateSummaries();
-    this.statusMessage = 'Se restauró el standings original.';
+    this.statusMessage = 'Se recargo el standings desde Firebase.';
   }
 
   private normalizeResults(results: TeamResult[]): TeamResult[] {
@@ -382,29 +385,6 @@ export class AppComponent implements OnInit {
         ...this.normalizeMilestones(result.milestones)
       }
     }));
-  }
-
-  private loadStoredResults(defaultResults: TeamResult[]): TeamResult[] {
-    const storedValue = window.localStorage.getItem(TEAM_RESULTS_STORAGE_KEY);
-
-    if (!storedValue) {
-      return this.normalizeResults(defaultResults);
-    }
-
-    try {
-      const parsed = JSON.parse(storedValue) as TeamResult[];
-      if (!Array.isArray(parsed)) {
-        return this.normalizeResults(defaultResults);
-      }
-
-      return this.normalizeResults(parsed);
-    } catch {
-      return this.normalizeResults(defaultResults);
-    }
-  }
-
-  private persistEditableResults(): void {
-    window.localStorage.setItem(TEAM_RESULTS_STORAGE_KEY, JSON.stringify(this.editableResults));
   }
 
   private recalculateSummaries(): void {
@@ -527,6 +507,50 @@ export class AppComponent implements OnInit {
     return await getGroupStandings<GroupStanding>();
   }
 
+  private async loadFirebaseTeamResults(): Promise<TeamResult[]> {
+    return await getTeamResults<TeamResult>();
+  }
+
+  private async loadFirebaseScoringRules(): Promise<ScoringRules> {
+    const rules = await getScoringRules<ScoringRules>();
+
+    if (!rules) {
+      throw new Error('No se encontraron scoringRules en Firebase.');
+    }
+
+    return rules;
+  }
+
+  private async persistStanding(group: string, team: string): Promise<void> {
+    const standing = this.groupStandings.find((item) => item.group === group && item.team === team);
+
+    if (!standing) {
+      return;
+    }
+
+    try {
+      await saveGroupStanding(this.serializeGroupStandings([standing])[0]);
+    } catch (error) {
+      console.error('Error guardando standing en Firebase:', error);
+      this.statusMessage = 'Fallo el guardado del standings en Firebase.';
+    }
+  }
+
+  private async persistTeamResult(team: string): Promise<void> {
+    const result = this.editableResults.find((item) => item.team === team);
+
+    if (!result) {
+      return;
+    }
+
+    try {
+      await saveTeamResult(result);
+    } catch (error) {
+      console.error('Error guardando teamResults en Firebase:', error);
+      this.statusMessage = 'Fallo el guardado de teamResults en Firebase.';
+    }
+  }
+
   private buildParticipantsFromStandings(standings: GroupStanding[]): Participant[] {
     const participantMap = new Map<string, Participant>();
 
@@ -640,15 +664,18 @@ export class AppComponent implements OnInit {
     return Math.min(3, Math.max(0, Math.trunc(value)));
   }
 
-  private async seedFirebaseGroupStandings(): Promise<void> {
+  private async seedFirebaseData(): Promise<void> {
     try {
-      const result = await seedGroupStandingsIfEmpty(groupStandings);
-      this.statusMessage = result.skipped
-        ? 'Firebase ya tenía datos en groupStandings.'
-        : `Firebase inicializado con ${result.inserted} documentos en groupStandings.`;
+      await Promise.all([
+        seedGroupStandingsIfEmpty(groupStandings),
+        seedTeamResultsIfEmpty(teamResultsData),
+        seedScoringRulesIfMissing(scoringRulesData)
+      ]);
+      this.statusMessage = 'Firebase inicializado correctamente.';
     } catch (error) {
-      console.error('Error cargando groupStandings en Firebase:', error);
-      this.statusMessage = 'Falló la carga inicial de groupStandings en Firebase.';
+      console.error('Error cargando datos iniciales en Firebase:', error);
+      this.statusMessage = 'Fallo la carga inicial en Firebase.';
     }
   }
 }
+

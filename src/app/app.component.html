@@ -2,7 +2,7 @@
 
   <section class="content surface-card">
     @if (loading) {
-      <p class="state">Cargando datos locales...</p>
+      <p class="state">Cargando datos...</p>
     } @else if (error) {
       <p class="state error">{{ error }}</p>
     } @else {
@@ -257,25 +257,25 @@
                               </div>
                             </td>
                             <td>
-                              <input class="admin-text-input" type="text" [value]="standing.playerName" (input)="setStandingText(standing.group, standing.team, 'playerName', $any($event.target).value)" />
+                              <input class="admin-text-input" type="text" [value]="standing.playerName" (change)="setStandingText(standing.group, standing.team, 'playerName', $any($event.target).value)" />
                             </td>
                             <td>
-                              <input class="admin-color-input" type="color" [value]="standing.playerColor" (input)="setStandingText(standing.group, standing.team, 'playerColor', $any($event.target).value)" />
+                              <input class="admin-color-input" type="color" [value]="standing.playerColor" (change)="setStandingText(standing.group, standing.team, 'playerColor', $any($event.target).value)" />
                             </td>
                             <td class="numeric">
-                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.G" (input)="setStandingNumber(standing.group, standing.team, 'G', $any($event.target).value)" />
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.G" (change)="setStandingNumber(standing.group, standing.team, 'G', $any($event.target).value)" />
                             </td>
                             <td class="numeric">
-                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.E" (input)="setStandingNumber(standing.group, standing.team, 'E', $any($event.target).value)" />
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.E" (change)="setStandingNumber(standing.group, standing.team, 'E', $any($event.target).value)" />
                             </td>
                             <td class="numeric">
-                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.P" (input)="setStandingNumber(standing.group, standing.team, 'P', $any($event.target).value)" />
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.P" (change)="setStandingNumber(standing.group, standing.team, 'P', $any($event.target).value)" />
                             </td>
                             <td class="numeric">
-                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.GF" (input)="setStandingNumber(standing.group, standing.team, 'GF', $any($event.target).value)" />
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.GF" (change)="setStandingNumber(standing.group, standing.team, 'GF', $any($event.target).value)" />
                             </td>
                             <td class="numeric">
-                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.GC" (input)="setStandingNumber(standing.group, standing.team, 'GC', $any($event.target).value)" />
+                              <input class="admin-number-input" type="number" min="0" step="1" [value]="standing.GC" (change)="setStandingNumber(standing.group, standing.team, 'GC', $any($event.target).value)" />
                             </td>
                             <td class="numeric strong">{{ standing.DG }}</td>
                             <td class="numeric strong">{{ standing.PTS }}</td>
