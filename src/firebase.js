@@ -96,6 +96,10 @@ export function getScoringRules() {
   return getDocumentData('appConfig', 'scoringRules');
 }
 
+export function getKnockoutBracketConfig() {
+  return getDocumentData('appConfig', 'knockoutBracket');
+}
+
 export async function saveDocument(collectionName, documentId, data) {
   await setDoc(doc(db, collectionName, documentId), data);
 }
@@ -106,6 +110,10 @@ export function saveGroupStanding(data) {
 
 export function saveTeamResult(data) {
   return saveDocument('teamResults', data.flag, data);
+}
+
+export function saveKnockoutBracketConfig(data) {
+  return saveDocument('appConfig', 'knockoutBracket', data);
 }
 
 export async function replaceCollectionDocuments(collectionName, items, getDocumentId) {
