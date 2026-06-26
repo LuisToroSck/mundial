@@ -12,10 +12,12 @@ import scoringRulesData from '../assets/data/scoring-rules.json';
 //import teamResultsData from '../assets/data/team-results.json';
 import {
   getGroupStandings,
+  getKnockoutBracketConfig,
   getScoringRules,
   getTeamResults,
   replaceGroupStandings,
   saveGroupStanding,
+  saveKnockoutBracketConfig,
   saveTeamResult,
   seedGroupStandingsIfEmpty,
   seedScoringRulesIfMissing,
@@ -140,6 +142,88 @@ type WorldCupGroup = {
   predictions: GroupPrediction[];
 };
 
+type ThirdPlaceRow = GroupPrediction & {
+  group: string;
+};
+
+type BracketSide = 'left' | 'right';
+
+type BracketSlot = {
+  seed: string;
+  label: string;
+  teamId: string | null;
+  color: string | null;
+};
+
+type BracketMatch = {
+  id: string;
+  title: string;
+  slots: [BracketSlot, BracketSlot];
+};
+
+type KnockoutTeamOption = {
+  id: string;
+  name: string;
+  color: string;
+  group: string;
+  position: number;
+  seed: string;
+};
+
+type EditableBracketMatch = {
+  id: string;
+  title: string;
+  slotTeamIds: [string | null, string | null];
+  winnerTeamId: string | null;
+};
+
+type EditableBracketRound = {
+  key: string;
+  label: string;
+  side: BracketSide;
+  offset: number;
+  gap: number;
+  matches: EditableBracketMatch[];
+};
+
+type EditableFinalRound = {
+  label: string;
+  match: EditableBracketMatch;
+};
+
+type EditableKnockoutBracket = {
+  leftRounds: EditableBracketRound[];
+  rightRounds: EditableBracketRound[];
+  finalRound: EditableFinalRound;
+};
+
+type BracketRound = {
+  key: string;
+  label: string;
+  side: BracketSide;
+  offset: number;
+  gap: number;
+  matches: BracketMatch[];
+};
+
+type FinalRound = {
+  label: string;
+  match: BracketMatch;
+};
+
+type KnockoutBracket = {
+  leftRounds: BracketRound[];
+  rightRounds: BracketRound[];
+  finalRound: FinalRound;
+};
+
+type BracketSlide = {
+  key: string;
+  label: string;
+  matches: BracketMatch[];
+  final?: boolean;
+};
+
 const EMPTY_MILESTONES: Record<ProgressKey, number> = {
   groupWin: 0,
   round32: 0,
@@ -150,6 +234,143 @@ const EMPTY_MILESTONES: Record<ProgressKey, number> = {
   final: 0,
   champion: 0
 };
+
+const BRACKET_LAYOUT = [
+  { key: 'round32', label: '16vos', matchCount: 8, offset: 0, gap: 16 },
+  { key: 'round16', label: '8vos', matchCount: 4, offset: 60, gap: 64 },
+  { key: 'quarterfinals', label: '4tos', matchCount: 2, offset: 152, gap: 188 },
+  { key: 'semifinals', label: 'Semis', matchCount: 1, offset: 396, gap: 0 }
+] as const;
+
+const EMPTY_KNOCKOUT_BRACKET = createEmptyEditableKnockoutBracket();
+const EMPTY_RENDERED_KNOCKOUT = createRenderedKnockoutBracket(EMPTY_KNOCKOUT_BRACKET, []);
+
+function createEditableBracketSide(side: BracketSide): EditableBracketRound[] {
+  const sideCode = side === 'left' ? 'I' : 'D';
+
+  return BRACKET_LAYOUT.map((roundConfig) => {
+    const matches = Array.from({ length: roundConfig.matchCount }, (_, matchIndex): EditableBracketMatch => {
+      const title = `${sideCode}${matchIndex + 1}`;
+
+      return {
+        id: `${side}-${roundConfig.key}-${matchIndex + 1}`,
+        title,
+        slotTeamIds: [null, null],
+        winnerTeamId: null
+      };
+    });
+
+    return {
+      ...roundConfig,
+      side,
+      matches
+    };
+  });
+}
+
+function createEmptyEditableKnockoutBracket(): EditableKnockoutBracket {
+  const leftRounds = createEditableBracketSide('left');
+  const rightRounds = createEditableBracketSide('right');
+
+  return {
+    leftRounds,
+    rightRounds,
+    finalRound: {
+      label: 'Final',
+      match: {
+        id: 'final',
+        title: 'Partido final',
+        slotTeamIds: [null, null],
+        winnerTeamId: null
+      }
+    }
+  };
+}
+
+function createRenderedKnockoutBracket(
+  bracket: EditableKnockoutBracket,
+  teamOptions: KnockoutTeamOption[]
+): KnockoutBracket {
+  const teamMap = new Map(teamOptions.map((team) => [team.id, team]));
+
+  const createSlot = (teamId: string | null, fallbackLabel: string): BracketSlot => {
+    const team = teamId ? teamMap.get(teamId) : null;
+
+    return {
+      seed: team?.seed ?? '',
+      label: team?.name ?? fallbackLabel,
+      teamId: team?.id ?? null,
+      color: team?.color ?? null
+    };
+  };
+
+  const mapRounds = (rounds: EditableBracketRound[]): BracketRound[] =>
+    rounds.map((round, roundIndex) => ({
+      key: round.key,
+      label: round.label,
+      side: round.side,
+      offset: round.offset,
+      gap: round.gap,
+      matches: round.matches.map((match, matchIndex) => {
+        const fallbackLabels = roundIndex === 0
+          ? ['Por definir', 'Por definir']
+          : [
+            `Ganador ${rounds[roundIndex - 1].matches[matchIndex * 2].title}`,
+            `Ganador ${rounds[roundIndex - 1].matches[(matchIndex * 2) + 1].title}`
+          ];
+
+        return {
+          id: match.id,
+          title: match.title,
+          slots: [
+            createSlot(match.slotTeamIds[0], fallbackLabels[0]),
+            createSlot(match.slotTeamIds[1], fallbackLabels[1])
+          ]
+        };
+      })
+    }));
+
+  const leftRounds = mapRounds(bracket.leftRounds);
+  const rightBaseRounds = mapRounds(bracket.rightRounds);
+
+  return {
+    leftRounds,
+    rightRounds: [...rightBaseRounds].reverse(),
+    finalRound: {
+      label: bracket.finalRound.label,
+      match: {
+        id: bracket.finalRound.match.id,
+        title: bracket.finalRound.match.title,
+        slots: [
+          createSlot(
+            bracket.finalRound.match.slotTeamIds[0],
+            `Ganador ${bracket.leftRounds[bracket.leftRounds.length - 1].matches[0].title}`
+          ),
+          createSlot(
+            bracket.finalRound.match.slotTeamIds[1],
+            `Ganador ${bracket.rightRounds[bracket.rightRounds.length - 1].matches[0].title}`
+          )
+        ]
+      }
+    }
+  };
+}
+
+function createMobileBracketSlides(bracket: KnockoutBracket): BracketSlide[] {
+  return [
+    ...bracket.leftRounds.map((round) => ({
+      key: round.key,
+      label: round.label,
+      matches: round.matches
+    })),
+    {
+      key: 'final',
+      label: bracket.finalRound.label,
+      matches: [bracket.finalRound.match],
+      final: true
+    }
+  ];
+}
 
 @Component({
   selector: 'app-root',
@@ -171,6 +392,13 @@ export class AppComponent implements OnInit {
   groupStandings: GroupStanding[] = [];
   standingsGroups: string[] = [];
   worldCupGroups: WorldCupGroup[] = [];
+  thirdPlaceRows: ThirdPlaceRow[] = [];
+  knockoutQualifiedTeams: KnockoutTeamOption[] = [];
+  knockoutTeamOptions: KnockoutTeamOption[] = [];
+  editableKnockoutBracket: EditableKnockoutBracket = EMPTY_KNOCKOUT_BRACKET;
+  knockoutBracket: KnockoutBracket = EMPTY_RENDERED_KNOCKOUT;
+  mobileBracketSlides: BracketSlide[] = createMobileBracketSlides(EMPTY_RENDERED_KNOCKOUT);
+  showKnockoutBracket = false;
   adminPassword = '';
   adminError = '';
   adminUnlocked = false;
@@ -185,19 +413,18 @@ export class AppComponent implements OnInit {
     try {
       await this.seedFirebaseData();
 
-      const [results, scoring, standings] = await Promise.all([
+      const [results, scoring, standings, knockoutConfig] = await Promise.all([
         this.loadFirebaseTeamResults(),
         this.loadFirebaseScoringRules(),
-        this.loadFirebaseGroupStandings()
+        this.loadFirebaseGroupStandings(),
+        this.loadFirebaseKnockoutBracket()
       ]);
 
-      this.groupStandings = this.normalizeStandings(standings);
-      this.standingsGroups = this.getStandingGroups(this.groupStandings);
-      this.participants = this.buildParticipantsFromStandings(this.groupStandings);
-      this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
+      this.applyGroupStandingsState(standings);
       this.scoringRules = scoring;
       this.stageDefinitions = scoring.stages;
       this.editableResults = this.normalizeResults(results);
+      this.applyKnockoutState(knockoutConfig);
       this.recalculateSummaries();
       this.loading = false;
     } catch (error) {
@@ -392,6 +619,104 @@ export class AppComponent implements OnInit {
     return new Set(list.slice(0, 2).map((s) => s.team));
   }
 
+  getRenderedRound(side: BracketSide, roundKey: string): BracketRound | undefined {
+    const rounds = side === 'left' ? this.knockoutBracket.leftRounds : this.knockoutBracket.rightRounds;
+    return rounds.find((round) => round.key === roundKey);
+  }
+
+  getRenderedMatch(side: BracketSide, roundKey: string, matchId: string): BracketMatch | undefined {
+    return this.getRenderedRound(side, roundKey)?.matches.find((match) => match.id === matchId);
+  }
+
+  isKnockoutWinner(match: EditableBracketMatch, slotIndex: 0 | 1): boolean {
+    return match.winnerTeamId !== null && match.winnerTeamId === match.slotTeamIds[slotIndex];
+  }
+
+  isKnockoutTeamTaken(teamId: string, matchId: string, slotIndex: 0 | 1): boolean {
+    const openingMatches = [
+      ...this.editableKnockoutBracket.leftRounds[0].matches,
+      ...this.editableKnockoutBracket.rightRounds[0].matches
+    ];
+
+    return openingMatches.some((match) =>
+      match.slotTeamIds.some((assignedTeamId, currentSlotIndex) =>
+        assignedTeamId === teamId && !(match.id === matchId && currentSlotIndex === slotIndex)
+      )
+    );
+  }
+
+  setKnockoutOpeningTeam(side: BracketSide, matchId: string, slotIndex: 0 | 1, rawTeamId: string): void {
+    const nextTeamId = rawTeamId || null;
+    const nextBracket = this.cloneEditableKnockoutBracket(this.editableKnockoutBracket);
+    const targetMatch = this.getEditableRoundCollection(nextBracket, side)[0].matches.find((match) => match.id === matchId);
+
+    if (!targetMatch) {
+      return;
+    }
+
+    this.clearAssignedOpeningTeam(nextBracket, nextTeamId, matchId, slotIndex);
+    targetMatch.slotTeamIds[slotIndex] = nextTeamId;
+
+    if (nextTeamId && targetMatch.slotTeamIds[slotIndex === 0 ? 1 : 0] === nextTeamId) {
+      targetMatch.slotTeamIds[slotIndex === 0 ? 1 : 0] = null;
+    }
+
+    this.applyKnockoutState(this.recomputeEditableKnockoutBracket(nextBracket));
+    void this.persistKnockoutBracket();
+  }
+
+  toggleKnockoutWinner(side: BracketSide | 'final', roundKey: string, matchId: string, slotIndex: 0 | 1): void {
+    const nextBracket = this.cloneEditableKnockoutBracket(this.editableKnockoutBracket);
+    const targetMatch = side === 'final'
+      ? nextBracket.finalRound.match
+      : this.getEditableRoundCollection(nextBracket, side)
+        .find((round) => round.key === roundKey)
+        ?.matches.find((match) => match.id === matchId);
+
+    if (!targetMatch) {
+      return;
+    }
+
+    const selectedTeamId = targetMatch.slotTeamIds[slotIndex];
+
+    if (!selectedTeamId) {
+      return;
+    }
+
+    targetMatch.winnerTeamId = targetMatch.winnerTeamId === selectedTeamId ? null : selectedTeamId;
+
+    this.applyKnockoutState(this.recomputeEditableKnockoutBracket(nextBracket));
+    void this.persistKnockoutBracket();
+  }
+
+  resetKnockoutBracketFromStandings(): void {
+    this.applyKnockoutState(null);
+    this.statusMessage = 'Cuadro final rearmado desde los top 2 de cada grupo.';
+    void this.persistKnockoutBracket();
+  }
+
+  clearKnockoutWinners(): void {
+    const nextBracket = this.cloneEditableKnockoutBracket(this.editableKnockoutBracket);
+
+    nextBracket.leftRounds.forEach((round) => {
+      round.matches.forEach((match) => {
+        match.winnerTeamId = null;
+      });
+    });
+
+    nextBracket.rightRounds.forEach((round) => {
+      round.matches.forEach((match) => {
+        match.winnerTeamId = null;
+      });
+    });
+
+    nextBracket.finalRound.match.winnerTeamId = null;
+
+    this.applyKnockoutState(this.recomputeEditableKnockoutBracket(nextBracket));
+    this.statusMessage = 'Ganadores del cuadro limpiados.';
+    void this.persistKnockoutBracket();
+  }
+
   private async reloadOriginalResults(): Promise<void> {
     const results = await this.loadFirebaseTeamResults();
     this.editableResults = this.normalizeResults(results);
@@ -520,6 +845,8 @@ export class AppComponent implements OnInit {
     this.standingsGroups = this.getStandingGroups(this.groupStandings);
     this.participants = this.buildParticipantsFromStandings(this.groupStandings);
     this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
+    this.thirdPlaceRows = this.buildThirdPlaceRows(this.worldCupGroups);
+    this.applyKnockoutState(this.editableKnockoutBracket);
   }
 
   private getStandingGroups(standings: GroupStanding[]): string[] {
@@ -558,6 +885,10 @@ export class AppComponent implements OnInit {
     return rules;
   }
 
+  private async loadFirebaseKnockoutBracket(): Promise<EditableKnockoutBracket | null> {
+    return await getKnockoutBracketConfig<EditableKnockoutBracket>();
+  }
+
   private async persistStanding(group: string, team: string): Promise<void> {
     const standing = this.groupStandings.find((item) => item.group === group && item.team === team);
 
@@ -586,6 +917,299 @@ export class AppComponent implements OnInit {
       console.error('Error guardando teamResults en Firebase:', error);
       this.statusMessage = 'Fallo el guardado de teamResults en Firebase.';
     }
+  }
+
+  private async persistKnockoutBracket(): Promise<void> {
+    try {
+      await saveKnockoutBracketConfig(this.editableKnockoutBracket);
+      this.statusMessage = 'Cuadro final guardado en Firebase.';
+    } catch (error) {
+      console.error('Error guardando knockoutBracket en Firebase:', error);
+      this.statusMessage = 'Fallo el guardado del cuadro final en Firebase.';
+    }
+  }
+
+  private applyKnockoutState(savedBracket: EditableKnockoutBracket | null): void {
+    const teamOptions = this.buildKnockoutTeamOptions(savedBracket);
+    const qualifiedTeams = this.buildKnockoutQualifiedTeams();
+    const nextBracket = this.normalizeEditableKnockoutBracket(savedBracket, qualifiedTeams, teamOptions);
+
+    this.knockoutQualifiedTeams = qualifiedTeams;
+    this.knockoutTeamOptions = teamOptions;
+    this.editableKnockoutBracket = nextBracket;
+    this.knockoutBracket = createRenderedKnockoutBracket(nextBracket, teamOptions);
+    this.mobileBracketSlides = createMobileBracketSlides(this.knockoutBracket);
+  }
+
+  private buildKnockoutQualifiedTeams(): KnockoutTeamOption[] {
+    return this.standingsGroups.flatMap((group) => {
+      const sortedGroupStandings = this.groupStandings
+        .filter((standing) => standing.group === group)
+        .slice()
+        .sort((left, right) =>
+          right.PTS - left.PTS ||
+          right.DG - left.DG ||
+          right.GF - left.GF ||
+          (left.playerName || 'Sin nombre').localeCompare(right.playerName || 'Sin nombre', 'es')
+        );
+
+      return sortedGroupStandings.slice(0, 2).map((standing, index) => ({
+        id: `${standing.group}-${index + 1}-${this.normalizePlayerName(standing.playerName || 'Sin nombre')}`,
+        name: standing.playerName || 'Sin nombre',
+        color: standing.playerColor || this.getPlayerColor(standing.playerName || 'Sin nombre'),
+        group: standing.group,
+        position: index + 1,
+        seed: `${standing.group}${index + 1}`
+      }));
+    });
+  }
+
+  private buildKnockoutTeamOptions(savedBracket: EditableKnockoutBracket | null): KnockoutTeamOption[] {
+    const qualifiedTeams = this.buildKnockoutQualifiedTeams();
+    return qualifiedTeams.slice().sort((left, right) =>
+      left.group.localeCompare(right.group, 'es') ||
+      left.position - right.position ||
+      left.name.localeCompare(right.name, 'es')
+    );
+  }
+
+  private normalizeEditableKnockoutBracket(
+    savedBracket: EditableKnockoutBracket | null,
+    qualifiedTeams: KnockoutTeamOption[],
+    teamOptions: KnockoutTeamOption[]
+  ): EditableKnockoutBracket {
+    const defaultBracket = this.createDefaultEditableKnockoutBracket(qualifiedTeams);
+
+    if (!savedBracket) {
+      return defaultBracket;
+    }
+
+    const nextBracket = this.cloneEditableKnockoutBracket(defaultBracket);
+    const validTeamIds = new Set(teamOptions.map((team) => team.id));
+
+    this.copySavedOpeningRound(nextBracket.leftRounds[0], savedBracket.leftRounds?.[0], validTeamIds);
+    this.copySavedOpeningRound(nextBracket.rightRounds[0], savedBracket.rightRounds?.[0], validTeamIds);
+
+    this.copySavedWinners(nextBracket.leftRounds, savedBracket.leftRounds, validTeamIds);
+    this.copySavedWinners(nextBracket.rightRounds, savedBracket.rightRounds, validTeamIds);
+
+    if (savedBracket.finalRound?.match?.winnerTeamId && validTeamIds.has(savedBracket.finalRound.match.winnerTeamId)) {
+      nextBracket.finalRound.match.winnerTeamId = savedBracket.finalRound.match.winnerTeamId;
+    }
+
+    return this.recomputeEditableKnockoutBracket(nextBracket);
+  }
+
+  private copySavedOpeningRound(
+    targetRound: EditableBracketRound,
+    savedRound: EditableBracketRound | undefined,
+    validTeamIds: Set<string>
+  ): void {
+    if (!savedRound) {
+      return;
+    }
+
+    targetRound.matches.forEach((match, index) => {
+      const savedMatch = savedRound.matches?.[index];
+
+      if (!savedMatch) {
+        return;
+      }
+
+      match.slotTeamIds = [
+        savedMatch.slotTeamIds?.[0] && validTeamIds.has(savedMatch.slotTeamIds[0]) ? savedMatch.slotTeamIds[0] : match.slotTeamIds[0],
+        savedMatch.slotTeamIds?.[1] && validTeamIds.has(savedMatch.slotTeamIds[1]) ? savedMatch.slotTeamIds[1] : match.slotTeamIds[1]
+      ];
+    });
+  }
+
+  private copySavedWinners(
+    targetRounds: EditableBracketRound[],
+    savedRounds: EditableBracketRound[] | undefined,
+    validTeamIds: Set<string>
+  ): void {
+    targetRounds.forEach((round, roundIndex) => {
+      const savedRound = savedRounds?.[roundIndex];
+
+      if (!savedRound) {
+        return;
+      }
+
+      round.matches.forEach((match, matchIndex) => {
+        const savedMatch = savedRound.matches?.[matchIndex];
+
+        if (savedMatch?.winnerTeamId && validTeamIds.has(savedMatch.winnerTeamId)) {
+          match.winnerTeamId = savedMatch.winnerTeamId;
+        }
+      });
+    });
+  }
+
+  private createDefaultEditableKnockoutBracket(qualifiedTeams: KnockoutTeamOption[]): EditableKnockoutBracket {
+    const bracket = this.cloneEditableKnockoutBracket(EMPTY_KNOCKOUT_BRACKET);
+    const groupedTeams = qualifiedTeams.reduce<Map<string, KnockoutTeamOption[]>>((map, team) => {
+      if (!map.has(team.group)) {
+        map.set(team.group, []);
+      }
+
+      map.get(team.group)!.push(team);
+      return map;
+    }, new Map<string, KnockoutTeamOption[]>());
+
+    const orderedGroups = Array.from(groupedTeams.keys()).sort((left, right) => left.localeCompare(right, 'es'));
+    const leftOpeningMatches = bracket.leftRounds[0].matches;
+    const rightOpeningMatches = bracket.rightRounds[0].matches;
+
+    orderedGroups.forEach((group, index) => {
+      if (index % 2 !== 0) {
+        return;
+      }
+
+      const pairedGroup = orderedGroups[index + 1];
+
+      if (!pairedGroup) {
+        return;
+      }
+
+      const firstGroup = groupedTeams.get(group) ?? [];
+      const secondGroup = groupedTeams.get(pairedGroup) ?? [];
+      const pairIndex = index / 2;
+      const leftMatch = leftOpeningMatches[pairIndex];
+      const rightMatch = rightOpeningMatches[pairIndex];
+
+      if (leftMatch) {
+        leftMatch.slotTeamIds = [firstGroup[0]?.id ?? null, secondGroup[1]?.id ?? null];
+      }
+
+      if (rightMatch) {
+        rightMatch.slotTeamIds = [secondGroup[0]?.id ?? null, firstGroup[1]?.id ?? null];
+      }
+    });
+
+    return this.recomputeEditableKnockoutBracket(bracket);
+  }
+
+  private recomputeEditableKnockoutBracket(bracket: EditableKnockoutBracket): EditableKnockoutBracket {
+    const nextBracket = this.cloneEditableKnockoutBracket(bracket);
+    const usedTeams = new Set<string>();
+    const openingMatches = [...nextBracket.leftRounds[0].matches, ...nextBracket.rightRounds[0].matches];
+
+    openingMatches.forEach((match) => {
+      match.slotTeamIds = match.slotTeamIds.map((teamId, slotIndex) => {
+        if (!teamId) {
+          return null;
+        }
+
+        if (usedTeams.has(teamId) || (slotIndex === 1 && match.slotTeamIds[0] === teamId)) {
+          return null;
+        }
+
+        usedTeams.add(teamId);
+        return teamId;
+      }) as [string | null, string | null];
+
+      if (!match.slotTeamIds.includes(match.winnerTeamId)) {
+        match.winnerTeamId = null;
+      }
+    });
+
+    this.populateNextRounds(nextBracket.leftRounds);
+    this.populateNextRounds(nextBracket.rightRounds);
+
+    nextBracket.finalRound.match.slotTeamIds = [
+      nextBracket.leftRounds[nextBracket.leftRounds.length - 1].matches[0].winnerTeamId,
+      nextBracket.rightRounds[nextBracket.rightRounds.length - 1].matches[0].winnerTeamId
+    ];
+
+    if (!nextBracket.finalRound.match.slotTeamIds.includes(nextBracket.finalRound.match.winnerTeamId)) {
+      nextBracket.finalRound.match.winnerTeamId = null;
+    }
+
+    return nextBracket;
+  }
+
+  private populateNextRounds(rounds: EditableBracketRound[]): void {
+    for (let roundIndex = 1; roundIndex < rounds.length; roundIndex += 1) {
+      const previousRound = rounds[roundIndex - 1];
+      const currentRound = rounds[roundIndex];
+
+      currentRound.matches.forEach((match, matchIndex) => {
+        const firstSource = previousRound.matches[matchIndex * 2];
+        const secondSource = previousRound.matches[(matchIndex * 2) + 1];
+
+        match.slotTeamIds = [
+          firstSource?.winnerTeamId ?? null,
+          secondSource?.winnerTeamId ?? null
+        ];
+
+        if (!match.slotTeamIds.includes(match.winnerTeamId)) {
+          match.winnerTeamId = null;
+        }
+      });
+    }
+  }
+
+  private cloneEditableKnockoutBracket(bracket: EditableKnockoutBracket): EditableKnockoutBracket {
+    return {
+      leftRounds: bracket.leftRounds.map((round) => ({
+        ...round,
+        matches: round.matches.map((match) => ({
+          ...match,
+          slotTeamIds: [...match.slotTeamIds] as [string | null, string | null]
+        }))
+      })),
+      rightRounds: bracket.rightRounds.map((round) => ({
+        ...round,
+        matches: round.matches.map((match) => ({
+          ...match,
+          slotTeamIds: [...match.slotTeamIds] as [string | null, string | null]
+        }))
+      })),
+      finalRound: {
+        ...bracket.finalRound,
+        match: {
+          ...bracket.finalRound.match,
+          slotTeamIds: [...bracket.finalRound.match.slotTeamIds] as [string | null, string | null]
+        }
+      }
+    };
+  }
+
+  private clearAssignedOpeningTeam(
+    bracket: EditableKnockoutBracket,
+    teamId: string | null,
+    matchId: string,
+    slotIndex: 0 | 1
+  ): void {
+    if (!teamId) {
+      return;
+    }
+
+    [...bracket.leftRounds[0].matches, ...bracket.rightRounds[0].matches].forEach((match) => {
+      match.slotTeamIds = match.slotTeamIds.map((assignedTeamId, currentSlotIndex) => {
+        if (assignedTeamId !== teamId) {
+          return assignedTeamId;
+        }
+
+        if (match.id === matchId && currentSlotIndex === slotIndex) {
+          return assignedTeamId;
+        }
+
+        return null;
+      }) as [string | null, string | null];
+    });
+  }
+
+  private getEditableRoundCollection(bracket: EditableKnockoutBracket, side: BracketSide): EditableBracketRound[] {
+    return side === 'left' ? bracket.leftRounds : bracket.rightRounds;
+  }
+
+  private extractAssignedTeamIds(bracket: EditableKnockoutBracket): string[] {
+    return [
+      ...bracket.leftRounds.flatMap((round) => round.matches.flatMap((match) => match.slotTeamIds)),
+      ...bracket.rightRounds.flatMap((round) => round.matches.flatMap((match) => match.slotTeamIds)),
+      ...bracket.finalRound.match.slotTeamIds
+    ].filter((teamId): teamId is string => Boolean(teamId));
   }
 
   private parseImportedGroupStandings(rawContent: string): EditableGroupStanding[] {
@@ -751,6 +1375,30 @@ export class AppComponent implements OnInit {
         predictions: predictionsByGroup.get(group) ?? []
       }))
       .sort((a, b) => a.group.localeCompare(b.group, 'es'));
+  }
+
+  private buildThirdPlaceRows(groups: WorldCupGroup[]): ThirdPlaceRow[] {
+    return groups
+      .map((group) => {
+        const thirdPlace = group.predictions[2];
+
+        if (!thirdPlace) {
+          return null;
+        }
+
+        return {
+          group: group.group,
+          ...thirdPlace
+        } satisfies ThirdPlaceRow;
+      })
+      .filter((row): row is ThirdPlaceRow => Boolean(row))
+      .sort((left, right) =>
+        right.PTS - left.PTS ||
+        right.DG - left.DG ||
+        right.GF - left.GF ||
+        left.GC - right.GC ||
+        left.participantName.localeCompare(right.participantName, 'es')
+      );
   }
 
   private normalizeMilestones(milestones?: Partial<Record<ProgressKey, number>>): Record<ProgressKey, number> {

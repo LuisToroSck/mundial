@@ -152,6 +152,266 @@
 
       <p-divider />
 
+      <section class="third-places-block">
+        <div class="summary-header">
+          <div>
+            <h2>Mejores terceros</h2>
+            <p class="summary-hint">
+              Terceros lugares de cada grupo ordenados por PTS, DG y GF.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-scroll">
+          <p-table
+            styleClass="third-places-table"
+            [value]="thirdPlaceRows"
+            [responsiveLayout]="'scroll'"
+            [tableStyle]="{ 'min-width': '720px' }"
+          >
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Pos</th>
+                <th>Grupo</th>
+                <th>Jugador</th>
+                <th class="numeric">PTS</th>
+                <th class="numeric">PJ</th>
+                <th class="numeric">G</th>
+                <th class="numeric">E</th>
+                <th class="numeric">P</th>
+                <th class="numeric">GF</th>
+                <th class="numeric">GC</th>
+                <th class="numeric">DG</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+              <tr [class.highlight-third-qualified]="rowIndex < 8">
+                <td data-label="Pos">{{ rowIndex + 1 }}</td>
+                <td data-label="Grupo">
+                  <span class="group-badge">Grupo {{ row.group }}</span>
+                </td>
+                <td data-label="Jugador">
+                  <div class="player-cell">
+                    <span
+                      class="player-dot"
+                      [style.background]="row.participantColor"
+                    ></span>
+                    <div>
+                      <strong>{{ row.participantName }}</strong>
+                    </div>
+                  </div>
+                </td>
+                <td data-label="PTS" class="numeric strong">{{ row.PTS }}</td>
+                <td data-label="PJ" class="numeric">{{ row.PJ }}</td>
+                <td data-label="G" class="numeric">{{ row.G }}</td>
+                <td data-label="E" class="numeric">{{ row.E }}</td>
+                <td data-label="P" class="numeric">{{ row.P }}</td>
+                <td data-label="GF" class="numeric">{{ row.GF }}</td>
+                <td data-label="GC" class="numeric">{{ row.GC }}</td>
+                <td data-label="DG" class="numeric">{{ row.DG }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </section>
+
+      <p-divider />
+
+      <section class="knockout-block">
+        <div class="summary-header">
+          <div>
+            <h2>Fase final</h2>
+            <p class="summary-hint">
+              Activa el cuadro cuando lo quieras revisar.
+            </p>
+          </div>
+
+          <div class="bracket-toggle-actions">
+            @if (!showKnockoutBracket) {
+              <button
+                type="button"
+                class="bracket-toggle-button"
+                (click)="showKnockoutBracket = true"
+              >
+                Ver cuadro
+              </button>
+            } @else {
+              <button
+                type="button"
+                class="bracket-toggle-button secondary"
+                (click)="showKnockoutBracket = false"
+              >
+                Ocultar cuadro
+              </button>
+            }
+          </div>
+        </div>
+
+        @if (showKnockoutBracket) {
+          <div class="bracket-panel">
+            <p class="bracket-mobile-hint">
+              En teléfono, desliza horizontalmente para ir ronda por ronda.
+            </p>
+
+            <div class="bracket-desktop">
+              <div class="bracket-scroll">
+                <div class="knockout-bracket">
+                  <div class="bracket-side bracket-side-left">
+                    @for (round of knockoutBracket.leftRounds; track round.key) {
+                      <section
+                        class="bracket-round bracket-round-left"
+                        [style.padding-top.px]="round.offset"
+                      >
+                        <div class="bracket-round-header">{{ round.label }}</div>
+
+                        <div
+                          class="bracket-round-matches"
+                          [style.gap.px]="round.gap"
+                        >
+                          @for (match of round.matches; track match.id) {
+                            <article class="bracket-match">
+                              <span class="bracket-match-title">{{ match.title }}</span>
+
+                              @for (slot of match.slots; track $index) {
+                                <div class="bracket-slot">
+                                  @if (slot.seed) {
+                                    <span class="bracket-seed">{{ slot.seed }}</span>
+                                  }
+                                  @if (slot.color) {
+                                    <span
+                                      class="player-dot"
+                                      [style.background]="slot.color"
+                                    ></span>
+                                  }
+                                  <span class="bracket-slot-name">{{ slot.label }}</span>
+                                </div>
+                              }
+                            </article>
+                          }
+                        </div>
+                      </section>
+                    }
+                  </div>
+
+                  <div class="bracket-center">
+                    <section class="bracket-round bracket-round-final">
+                      <div class="bracket-round-header">
+                        {{ knockoutBracket.finalRound.label }}
+                      </div>
+
+                      <article class="bracket-match bracket-match-final">
+                        <span class="bracket-match-title">
+                          {{ knockoutBracket.finalRound.match.title }}
+                        </span>
+
+                        @for (
+                          slot of knockoutBracket.finalRound.match.slots;
+                          track $index
+                        ) {
+                          <div class="bracket-slot">
+                            @if (slot.seed) {
+                              <span class="bracket-seed">{{ slot.seed }}</span>
+                            }
+                            @if (slot.color) {
+                              <span
+                                class="player-dot"
+                                [style.background]="slot.color"
+                              ></span>
+                            }
+                            <span class="bracket-slot-name">{{ slot.label }}</span>
+                          </div>
+                        }
+                      </article>
+                    </section>
+                  </div>
+
+                  <div class="bracket-side bracket-side-right">
+                    @for (
+                      round of knockoutBracket.rightRounds;
+                      track round.key
+                    ) {
+                      <section
+                        class="bracket-round bracket-round-right"
+                        [style.padding-top.px]="round.offset"
+                      >
+                        <div class="bracket-round-header">{{ round.label }}</div>
+
+                        <div
+                          class="bracket-round-matches"
+                          [style.gap.px]="round.gap"
+                        >
+                          @for (match of round.matches; track match.id) {
+                            <article class="bracket-match">
+                              <span class="bracket-match-title">{{ match.title }}</span>
+
+                              @for (slot of match.slots; track $index) {
+                                <div class="bracket-slot">
+                                  @if (slot.seed) {
+                                    <span class="bracket-seed">{{ slot.seed }}</span>
+                                  }
+                                  @if (slot.color) {
+                                    <span
+                                      class="player-dot"
+                                      [style.background]="slot.color"
+                                    ></span>
+                                  }
+                                  <span class="bracket-slot-name">{{ slot.label }}</span>
+                                </div>
+                              }
+                            </article>
+                          }
+                        </div>
+                      </section>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bracket-mobile">
+              <div class="bracket-mobile-slider">
+                @for (slide of mobileBracketSlides; track slide.key) {
+                  <section
+                    class="bracket-mobile-slide"
+                    [class.bracket-mobile-slide-final]="slide.final"
+                  >
+                    <div class="bracket-round-header">{{ slide.label }}</div>
+
+                    <div class="bracket-mobile-matches">
+                      @for (match of slide.matches; track match.id) {
+                        <article
+                          class="bracket-match"
+                          [class.bracket-match-final]="slide.final"
+                        >
+                          <span class="bracket-match-title">{{ match.title }}</span>
+
+                          @for (slot of match.slots; track $index) {
+                            <div class="bracket-slot">
+                              @if (slot.seed) {
+                                <span class="bracket-seed">{{ slot.seed }}</span>
+                              }
+                              @if (slot.color) {
+                                <span
+                                  class="player-dot"
+                                  [style.background]="slot.color"
+                                ></span>
+                              }
+                              <span class="bracket-slot-name">{{ slot.label }}</span>
+                            </div>
+                          }
+                        </article>
+                      }
+                    </div>
+                  </section>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </section>
+
+      <p-divider />
+
       <section>
         <div class="summary-header">
           <div>
@@ -540,7 +800,339 @@
 
             <p-divider />
 
+            <div class="admin-section">
+              <div class="admin-header admin-header-tight">
+                <div>
+                  <p class="eyebrow">Fase final</p>
+                  <h2>Editar llaves</h2>
+                  <p class="admin-note">
+                    Los cupos del cuadro se toman desde A1, A2, B1, B2 y así
+                    sucesivamente, según la posición de cada jugador en las
+                    tablas de grupos. Luego puedes elegir ganadores para avanzar
+                    automÃ¡ticamente.
+                  </p>
+                </div>
+
+                <div class="admin-actions">
+                  <button
+                    type="button"
+                    class="admin-button secondary"
+                    (click)="resetKnockoutBracketFromStandings()"
+                  >
+                    Rearmar desde grupos
+                  </button>
+                  <button
+                    type="button"
+                    class="admin-button secondary"
+                    (click)="clearKnockoutWinners()"
+                  >
+                    Limpiar ganadores
+                  </button>
+                </div>
+              </div>
+
+              <div class="admin-qualifiers">
+                @for (team of knockoutQualifiedTeams; track team.id) {
+                  <div class="admin-qualifier-chip">
+                    <span class="admin-qualifier-seed">{{ team.seed }}</span>
+                    <span
+                      class="player-dot"
+                      [style.background]="team.color"
+                    ></span>
+                    <span>{{ team.name }}</span>
+                  </div>
+                }
+              </div>
+
+              <p-tabView styleClass="participant-tabview admin-bracket-tabview">
+                <p-tabPanel header="Lado izquierdo">
+                  @for (round of editableKnockoutBracket.leftRounds; track round.key) {
+                    <section class="admin-bracket-stage">
+                      <div class="admin-bracket-stage-header">
+                        <h3>{{ round.label }}</h3>
+                      </div>
+
+                      <div class="admin-bracket-matches">
+                        @for (match of round.matches; track match.id) {
+                          <article class="admin-bracket-match">
+                            <div class="admin-bracket-match-header">
+                              <strong>{{ match.title }}</strong>
+                            </div>
+
+                            @if (round.key === 'round32') {
+                              <div class="admin-bracket-selects">
+                                <select
+                                  class="admin-bracket-select"
+                                  [value]="match.slotTeamIds[0] ?? ''"
+                                  (change)="
+                                    setKnockoutOpeningTeam(
+                                      'left',
+                                      match.id,
+                                      0,
+                                      $any($event.target).value
+                                    )
+                                  "
+                                >
+                                  <option value="">Sin asignar</option>
+                                  @for (team of knockoutTeamOptions; track team.id) {
+                                    <option
+                                      [value]="team.id"
+                                      [disabled]="
+                                        isKnockoutTeamTaken(team.id, match.id, 0)
+                                      "
+                                    >
+                                      {{ team.seed }} · {{ team.name }}
+                                    </option>
+                                  }
+                                </select>
+
+                                <select
+                                  class="admin-bracket-select"
+                                  [value]="match.slotTeamIds[1] ?? ''"
+                                  (change)="
+                                    setKnockoutOpeningTeam(
+                                      'left',
+                                      match.id,
+                                      1,
+                                      $any($event.target).value
+                                    )
+                                  "
+                                >
+                                  <option value="">Sin asignar</option>
+                                  @for (team of knockoutTeamOptions; track team.id) {
+                                    <option
+                                      [value]="team.id"
+                                      [disabled]="
+                                        isKnockoutTeamTaken(team.id, match.id, 1)
+                                      "
+                                    >
+                                      {{ team.seed }} · {{ team.name }}
+                                    </option>
+                                  }
+                                </select>
+                              </div>
+                            }
+
+                            @if (
+                              getRenderedMatch('left', round.key, match.id);
+                              as renderedMatch
+                            ) {
+                              <div class="admin-winner-buttons">
+                                @for (
+                                  slot of renderedMatch.slots;
+                                  track $index;
+                                  let slotIndex = $index
+                                ) {
+                                  <button
+                                    type="button"
+                                    class="admin-winner-button"
+                                    [class.active]="
+                                      isKnockoutWinner(match, $any(slotIndex))
+                                    "
+                                    [disabled]="!slot.teamId"
+                                    (click)="
+                                      toggleKnockoutWinner(
+                                        'left',
+                                        round.key,
+                                        match.id,
+                                        $any(slotIndex)
+                                      )
+                                    "
+                                  >
+                                    @if (slot.color) {
+                                      <span
+                                        class="player-dot"
+                                        [style.background]="slot.color"
+                                      ></span>
+                                    }
+                                    <span>{{ slot.label }}</span>
+                                  </button>
+                                }
+                              </div>
+                            }
+                          </article>
+                        }
+                      </div>
+                    </section>
+                  }
+                </p-tabPanel>
+
+                <p-tabPanel header="Lado derecho">
+                  @for (
+                    round of editableKnockoutBracket.rightRounds;
+                    track round.key
+                  ) {
+                    <section class="admin-bracket-stage">
+                      <div class="admin-bracket-stage-header">
+                        <h3>{{ round.label }}</h3>
+                      </div>
+
+                      <div class="admin-bracket-matches">
+                        @for (match of round.matches; track match.id) {
+                          <article class="admin-bracket-match">
+                            <div class="admin-bracket-match-header">
+                              <strong>{{ match.title }}</strong>
+                            </div>
+
+                            @if (round.key === 'round32') {
+                              <div class="admin-bracket-selects">
+                                <select
+                                  class="admin-bracket-select"
+                                  [value]="match.slotTeamIds[0] ?? ''"
+                                  (change)="
+                                    setKnockoutOpeningTeam(
+                                      'right',
+                                      match.id,
+                                      0,
+                                      $any($event.target).value
+                                    )
+                                  "
+                                >
+                                  <option value="">Sin asignar</option>
+                                  @for (team of knockoutTeamOptions; track team.id) {
+                                    <option
+                                      [value]="team.id"
+                                      [disabled]="
+                                        isKnockoutTeamTaken(team.id, match.id, 0)
+                                      "
+                                    >
+                                      {{ team.seed }} · {{ team.name }}
+                                    </option>
+                                  }
+                                </select>
+
+                                <select
+                                  class="admin-bracket-select"
+                                  [value]="match.slotTeamIds[1] ?? ''"
+                                  (change)="
+                                    setKnockoutOpeningTeam(
+                                      'right',
+                                      match.id,
+                                      1,
+                                      $any($event.target).value
+                                    )
+                                  "
+                                >
+                                  <option value="">Sin asignar</option>
+                                  @for (team of knockoutTeamOptions; track team.id) {
+                                    <option
+                                      [value]="team.id"
+                                      [disabled]="
+                                        isKnockoutTeamTaken(team.id, match.id, 1)
+                                      "
+                                    >
+                                      {{ team.seed }} · {{ team.name }}
+                                    </option>
+                                  }
+                                </select>
+                              </div>
+                            }
+
+                            @if (
+                              getRenderedMatch('right', round.key, match.id);
+                              as renderedMatch
+                            ) {
+                              <div class="admin-winner-buttons">
+                                @for (
+                                  slot of renderedMatch.slots;
+                                  track $index;
+                                  let slotIndex = $index
+                                ) {
+                                  <button
+                                    type="button"
+                                    class="admin-winner-button"
+                                    [class.active]="
+                                      isKnockoutWinner(match, $any(slotIndex))
+                                    "
+                                    [disabled]="!slot.teamId"
+                                    (click)="
+                                      toggleKnockoutWinner(
+                                        'right',
+                                        round.key,
+                                        match.id,
+                                        $any(slotIndex)
+                                      )
+                                    "
+                                  >
+                                    @if (slot.color) {
+                                      <span
+                                        class="player-dot"
+                                        [style.background]="slot.color"
+                                      ></span>
+                                    }
+                                    <span>{{ slot.label }}</span>
+                                  </button>
+                                }
+                              </div>
+                            }
+                          </article>
+                        }
+                      </div>
+                    </section>
+                  }
+                </p-tabPanel>
+
+                <p-tabPanel header="Final">
+                  <section class="admin-bracket-stage">
+                    <div class="admin-bracket-stage-header">
+                      <h3>{{ editableKnockoutBracket.finalRound.label }}</h3>
+                    </div>
+
+                    <article class="admin-bracket-match admin-bracket-match-final">
+                      <div class="admin-bracket-match-header">
+                        <strong>{{
+                          editableKnockoutBracket.finalRound.match.title
+                        }}</strong>
+                      </div>
+
+                      <div class="admin-winner-buttons">
+                        @for (
+                          slot of knockoutBracket.finalRound.match.slots;
+                          track $index;
+                          let slotIndex = $index
+                        ) {
+                          <button
+                            type="button"
+                            class="admin-winner-button"
+                            [class.active]="
+                              isKnockoutWinner(
+                                editableKnockoutBracket.finalRound.match,
+                                $any(slotIndex)
+                              )
+                            "
+                            [disabled]="!slot.teamId"
+                            (click)="
+                              toggleKnockoutWinner(
+                                'final',
+                                'final',
+                                editableKnockoutBracket.finalRound.match.id,
+                                $any(slotIndex)
+                              )
+                            "
+                          >
+                            @if (slot.color) {
+                              <span
+                                class="player-dot"
+                                [style.background]="slot.color"
+                              ></span>
+                            }
+                            <span>{{ slot.label }}</span>
+                          </button>
+                        }
+                      </div>
+                    </article>
+                  </section>
+                </p-tabPanel>
+              </p-tabView>
+            </div>
+
+            <p-divider />
+
             <div class="table-scroll admin-table-wrap">
+              <p class="admin-note admin-note-tight">
+                La tabla de abajo sigue siendo la ediciÃ³n manual de puntajes por
+                etapa. El cuadro administra solo las llaves visuales por ahora.
+              </p>
               <p-table
                 styleClass="admin-table"
                 [value]="editableResults"
