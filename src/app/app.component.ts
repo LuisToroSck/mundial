@@ -148,6 +148,15 @@ type ThirdPlaceRow = GroupPrediction & {
 
 type BracketSide = 'left' | 'right';
 
+type KnockoutPosition = 1 | 2 | 3;
+
+type OpeningSlotRule = {
+  seed: string;
+  position: KnockoutPosition;
+  group?: string;
+  allowedThirdGroups?: string[];
+};
+
 type BracketSlot = {
   seed: string;
   label: string;
@@ -242,6 +251,77 @@ const BRACKET_LAYOUT = [
   { key: 'semifinals', label: 'Semis', matchCount: 1, offset: 396, gap: 0 }
 ] as const;
 
+const OPENING_MATCH_RULES: Record<BracketSide, [OpeningSlotRule, OpeningSlotRule][]> = {
+  left: [
+    [
+      { seed: '1E', group: 'E', position: 1 },
+      { seed: '3ABCDF', position: 3, allowedThirdGroups: ['A', 'B', 'C', 'D', 'F'] }
+    ],
+    [
+      { seed: '1I', group: 'I', position: 1 },
+      { seed: '3CDFGH', position: 3, allowedThirdGroups: ['C', 'D', 'F', 'G', 'H'] }
+    ],
+    [
+      { seed: '2A', group: 'A', position: 2 },
+      { seed: '2B', group: 'B', position: 2 }
+    ],
+    [
+      { seed: '1F', group: 'F', position: 1 },
+      { seed: '2C', group: 'C', position: 2 }
+    ],
+    [
+      { seed: '2K', group: 'K', position: 2 },
+      { seed: '2L', group: 'L', position: 2 }
+    ],
+    [
+      { seed: '1H', group: 'H', position: 1 },
+      { seed: '2J', group: 'J', position: 2 }
+    ],
+    [
+      { seed: '1D', group: 'D', position: 1 },
+      { seed: '3BEFIJ', position: 3, allowedThirdGroups: ['B', 'E', 'F', 'I', 'J'] }
+    ],
+    [
+      { seed: '1G', group: 'G', position: 1 },
+      { seed: '3AEHIJ', position: 3, allowedThirdGroups: ['A', 'E', 'H', 'I', 'J'] }
+    ]
+  ],
+  right: [
+    [
+      { seed: '1C', group: 'C', position: 1 },
+      { seed: '2F', group: 'F', position: 2 }
+    ],
+    [
+      { seed: '2E', group: 'E', position: 2 },
+      { seed: '2I', group: 'I', position: 2 }
+    ],
+    [
+      { seed: '1A', group: 'A', position: 1 },
+      { seed: '3CEFHI', position: 3, allowedThirdGroups: ['C', 'E', 'F', 'H', 'I'] }
+    ],
+    [
+      { seed: '1L', group: 'L', position: 1 },
+      { seed: '3EHIJK', position: 3, allowedThirdGroups: ['E', 'H', 'I', 'J', 'K'] }
+    ],
+    [
+      { seed: '1J', group: 'J', position: 1 },
+      { seed: '2H', group: 'H', position: 2 }
+    ],
+    [
+      { seed: '2D', group: 'D', position: 2 },
+      { seed: '2G', group: 'G', position: 2 }
+    ],
+    [
+      { seed: '1B', group: 'B', position: 1 },
+      { seed: '3EFGIJ', position: 3, allowedThirdGroups: ['E', 'F', 'G', 'I', 'J'] }
+    ],
+    [
+      { seed: '1K', group: 'K', position: 1 },
+      { seed: '3DEIJL', position: 3, allowedThirdGroups: ['D', 'E', 'I', 'J', 'L'] }
+    ]
+  ]
+};
+
 const EMPTY_KNOCKOUT_BRACKET = createEmptyEditableKnockoutBracket();
 const EMPTY_RENDERED_KNOCKOUT = createRenderedKnockoutBracket(EMPTY_KNOCKOUT_BRACKET, []);
 
@@ -293,11 +373,11 @@ function createRenderedKnockoutBracket(
 ): KnockoutBracket {
   const teamMap = new Map(teamOptions.map((team) => [team.id, team]));
 
-  const createSlot = (teamId: string | null, fallbackLabel: string): BracketSlot => {
+  const createSlot = (teamId: string | null, fallbackLabel: string, fallbackSeed = ''): BracketSlot => {
     const team = teamId ? teamMap.get(teamId) : null;
 
     return {
-      seed: team?.seed ?? '',
+      seed: team?.seed ?? fallbackSeed,
       label: team?.name ?? fallbackLabel,
       teamId: team?.id ?? null,
       color: team?.color ?? null
@@ -318,13 +398,16 @@ function createRenderedKnockoutBracket(
             `Ganador ${rounds[roundIndex - 1].matches[matchIndex * 2].title}`,
             `Ganador ${rounds[roundIndex - 1].matches[(matchIndex * 2) + 1].title}`
           ];
+        const fallbackSeeds = roundIndex === 0
+          ? OPENING_MATCH_RULES[round.side][matchIndex].map((rule) => rule.seed)
+          : ['', ''];
 
         return {
           id: match.id,
           title: match.title,
           slots: [
-            createSlot(match.slotTeamIds[0], fallbackLabels[0]),
-            createSlot(match.slotTeamIds[1], fallbackLabels[1])
+            createSlot(match.slotTeamIds[0], fallbackLabels[0], fallbackSeeds[0]),
+            createSlot(match.slotTeamIds[1], fallbackLabels[1], fallbackSeeds[1])
           ]
         };
       })
@@ -626,6 +709,52 @@ export class AppComponent implements OnInit {
 
   getRenderedMatch(side: BracketSide, roundKey: string, matchId: string): BracketMatch | undefined {
     return this.getRenderedRound(side, roundKey)?.matches.find((match) => match.id === matchId);
+  }
+
+  getKnockoutOpeningRule(side: BracketSide, matchId: string, slotIndex: 0 | 1): OpeningSlotRule | null {
+    const matchIndex = this.getOpeningMatchIndex(side, matchId);
+
+    if (matchIndex < 0) {
+      return null;
+    }
+
+    return OPENING_MATCH_RULES[side][matchIndex][slotIndex];
+  }
+
+  isEditableKnockoutOpeningSlot(side: BracketSide, matchId: string, slotIndex: 0 | 1): boolean {
+    const rule = this.getKnockoutOpeningRule(side, matchId, slotIndex);
+    return Boolean(rule?.allowedThirdGroups?.length);
+  }
+
+  getKnockoutOpeningOptions(side: BracketSide, matchId: string, slotIndex: 0 | 1): KnockoutTeamOption[] {
+    const rule = this.getKnockoutOpeningRule(side, matchId, slotIndex);
+
+    if (!rule?.allowedThirdGroups?.length) {
+      return [];
+    }
+
+    return this.knockoutTeamOptions.filter((team) =>
+      team.position === 3 && rule.allowedThirdGroups!.includes(team.group)
+    );
+  }
+
+  getKnockoutOpeningSelectOptions(side: BracketSide, matchId: string, slotIndex: 0 | 1): KnockoutTeamOption[] {
+    const rule = this.getKnockoutOpeningRule(side, matchId, slotIndex);
+
+    if (!rule) {
+      return [];
+    }
+
+    if (rule.allowedThirdGroups?.length) {
+      return this.getKnockoutOpeningOptions(side, matchId, slotIndex);
+    }
+
+    return this.knockoutTeamOptions.filter((team) => team.seed === rule.seed);
+  }
+
+  getRenderedOpeningSlot(side: BracketSide, matchId: string, slotIndex: 0 | 1): BracketSlot | null {
+    const renderedMatch = this.getRenderedMatch(side, 'round32', matchId);
+    return renderedMatch?.slots[slotIndex] ?? null;
   }
 
   isKnockoutWinner(match: EditableBracketMatch, slotIndex: 0 | 1): boolean {
@@ -930,7 +1059,7 @@ export class AppComponent implements OnInit {
   }
 
   private applyKnockoutState(savedBracket: EditableKnockoutBracket | null): void {
-    const teamOptions = this.buildKnockoutTeamOptions(savedBracket);
+    const teamOptions = this.buildKnockoutTeamOptions();
     const qualifiedTeams = this.buildKnockoutQualifiedTeams();
     const nextBracket = this.normalizeEditableKnockoutBracket(savedBracket, qualifiedTeams, teamOptions);
 
@@ -942,7 +1071,7 @@ export class AppComponent implements OnInit {
   }
 
   private buildKnockoutQualifiedTeams(): KnockoutTeamOption[] {
-    return this.standingsGroups.flatMap((group) => {
+    const topTwoByGroup = this.standingsGroups.flatMap((group) => {
       const sortedGroupStandings = this.groupStandings
         .filter((standing) => standing.group === group)
         .slice()
@@ -959,16 +1088,27 @@ export class AppComponent implements OnInit {
         color: standing.playerColor || this.getPlayerColor(standing.playerName || 'Sin nombre'),
         group: standing.group,
         position: index + 1,
-        seed: `${standing.group}${index + 1}`
+        seed: `${index + 1}${standing.group}`
       }));
     });
+
+    const bestThirds = this.thirdPlaceRows.slice(0, 8).map((row) => ({
+      id: `${row.group}-3-${this.normalizePlayerName(row.participantName)}`,
+      name: row.participantName,
+      color: row.participantColor || this.getPlayerColor(row.participantName),
+      group: row.group,
+      position: 3 as KnockoutPosition,
+      seed: `3${row.group}`
+    }));
+
+    return [...topTwoByGroup, ...bestThirds];
   }
 
-  private buildKnockoutTeamOptions(savedBracket: EditableKnockoutBracket | null): KnockoutTeamOption[] {
+  private buildKnockoutTeamOptions(): KnockoutTeamOption[] {
     const qualifiedTeams = this.buildKnockoutQualifiedTeams();
     return qualifiedTeams.slice().sort((left, right) =>
-      left.group.localeCompare(right.group, 'es') ||
       left.position - right.position ||
+      left.group.localeCompare(right.group, 'es') ||
       left.name.localeCompare(right.name, 'es')
     );
   }
@@ -987,8 +1127,8 @@ export class AppComponent implements OnInit {
     const nextBracket = this.cloneEditableKnockoutBracket(defaultBracket);
     const validTeamIds = new Set(teamOptions.map((team) => team.id));
 
-    this.copySavedOpeningRound(nextBracket.leftRounds[0], savedBracket.leftRounds?.[0], validTeamIds);
-    this.copySavedOpeningRound(nextBracket.rightRounds[0], savedBracket.rightRounds?.[0], validTeamIds);
+    this.copySavedOpeningRound('left', nextBracket.leftRounds[0], savedBracket.leftRounds?.[0], validTeamIds, teamOptions);
+    this.copySavedOpeningRound('right', nextBracket.rightRounds[0], savedBracket.rightRounds?.[0], validTeamIds, teamOptions);
 
     this.copySavedWinners(nextBracket.leftRounds, savedBracket.leftRounds, validTeamIds);
     this.copySavedWinners(nextBracket.rightRounds, savedBracket.rightRounds, validTeamIds);
@@ -1001,9 +1141,11 @@ export class AppComponent implements OnInit {
   }
 
   private copySavedOpeningRound(
+    side: BracketSide,
     targetRound: EditableBracketRound,
     savedRound: EditableBracketRound | undefined,
-    validTeamIds: Set<string>
+    validTeamIds: Set<string>,
+    teamOptions: KnockoutTeamOption[]
   ): void {
     if (!savedRound) {
       return;
@@ -1016,10 +1158,28 @@ export class AppComponent implements OnInit {
         return;
       }
 
-      match.slotTeamIds = [
-        savedMatch.slotTeamIds?.[0] && validTeamIds.has(savedMatch.slotTeamIds[0]) ? savedMatch.slotTeamIds[0] : match.slotTeamIds[0],
-        savedMatch.slotTeamIds?.[1] && validTeamIds.has(savedMatch.slotTeamIds[1]) ? savedMatch.slotTeamIds[1] : match.slotTeamIds[1]
-      ];
+      match.slotTeamIds = [0, 1].map((slotIndex) => {
+        const typedSlotIndex = slotIndex as 0 | 1;
+        const savedTeamId = savedMatch.slotTeamIds?.[typedSlotIndex];
+
+        if (!savedTeamId || !validTeamIds.has(savedTeamId)) {
+          return match.slotTeamIds[typedSlotIndex];
+        }
+
+        const rule = OPENING_MATCH_RULES[side][index][typedSlotIndex];
+
+        if (!rule.allowedThirdGroups?.length) {
+          return match.slotTeamIds[typedSlotIndex];
+        }
+
+        const team = teamOptions.find((option) => option.id === savedTeamId);
+
+        if (!team || team.position !== 3 || !rule.allowedThirdGroups.includes(team.group)) {
+          return match.slotTeamIds[typedSlotIndex];
+        }
+
+        return savedTeamId;
+      }) as [string | null, string | null];
     });
   }
 
@@ -1047,43 +1207,18 @@ export class AppComponent implements OnInit {
 
   private createDefaultEditableKnockoutBracket(qualifiedTeams: KnockoutTeamOption[]): EditableKnockoutBracket {
     const bracket = this.cloneEditableKnockoutBracket(EMPTY_KNOCKOUT_BRACKET);
-    const groupedTeams = qualifiedTeams.reduce<Map<string, KnockoutTeamOption[]>>((map, team) => {
-      if (!map.has(team.group)) {
-        map.set(team.group, []);
-      }
+    const seedMap = new Map(qualifiedTeams.map((team) => [team.seed, team.id]));
 
-      map.get(team.group)!.push(team);
-      return map;
-    }, new Map<string, KnockoutTeamOption[]>());
+    (['left', 'right'] as const).forEach((side) => {
+      const openingMatches = side === 'left' ? bracket.leftRounds[0].matches : bracket.rightRounds[0].matches;
 
-    const orderedGroups = Array.from(groupedTeams.keys()).sort((left, right) => left.localeCompare(right, 'es'));
-    const leftOpeningMatches = bracket.leftRounds[0].matches;
-    const rightOpeningMatches = bracket.rightRounds[0].matches;
+      openingMatches.forEach((match, matchIndex) => {
+        const rules = OPENING_MATCH_RULES[side][matchIndex];
 
-    orderedGroups.forEach((group, index) => {
-      if (index % 2 !== 0) {
-        return;
-      }
-
-      const pairedGroup = orderedGroups[index + 1];
-
-      if (!pairedGroup) {
-        return;
-      }
-
-      const firstGroup = groupedTeams.get(group) ?? [];
-      const secondGroup = groupedTeams.get(pairedGroup) ?? [];
-      const pairIndex = index / 2;
-      const leftMatch = leftOpeningMatches[pairIndex];
-      const rightMatch = rightOpeningMatches[pairIndex];
-
-      if (leftMatch) {
-        leftMatch.slotTeamIds = [firstGroup[0]?.id ?? null, secondGroup[1]?.id ?? null];
-      }
-
-      if (rightMatch) {
-        rightMatch.slotTeamIds = [secondGroup[0]?.id ?? null, firstGroup[1]?.id ?? null];
-      }
+        match.slotTeamIds = rules.map((rule) => (
+          rule.allowedThirdGroups?.length ? null : (seedMap.get(rule.seed) ?? null)
+        )) as [string | null, string | null];
+      });
     });
 
     return this.recomputeEditableKnockoutBracket(bracket);
@@ -1204,12 +1339,9 @@ export class AppComponent implements OnInit {
     return side === 'left' ? bracket.leftRounds : bracket.rightRounds;
   }
 
-  private extractAssignedTeamIds(bracket: EditableKnockoutBracket): string[] {
-    return [
-      ...bracket.leftRounds.flatMap((round) => round.matches.flatMap((match) => match.slotTeamIds)),
-      ...bracket.rightRounds.flatMap((round) => round.matches.flatMap((match) => match.slotTeamIds)),
-      ...bracket.finalRound.match.slotTeamIds
-    ].filter((teamId): teamId is string => Boolean(teamId));
+  private getOpeningMatchIndex(side: BracketSide, matchId: string): number {
+    const matches = side === 'left' ? this.editableKnockoutBracket.leftRounds[0].matches : this.editableKnockoutBracket.rightRounds[0].matches;
+    return matches.findIndex((match) => match.id === matchId);
   }
 
   private parseImportedGroupStandings(rawContent: string): EditableGroupStanding[] {

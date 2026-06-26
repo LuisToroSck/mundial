@@ -167,7 +167,7 @@
             styleClass="third-places-table"
             [value]="thirdPlaceRows"
             [responsiveLayout]="'scroll'"
-            [tableStyle]="{ 'min-width': '720px' }"
+            [tableStyle]="{ 'min-width': '500px' }"
           >
             <ng-template pTemplate="header">
               <tr>
@@ -863,6 +863,20 @@
                               <div class="admin-bracket-selects">
                                 <select
                                   class="admin-bracket-select"
+                                  [class.admin-bracket-select-fixed]="
+                                    !isEditableKnockoutOpeningSlot(
+                                      'left',
+                                      match.id,
+                                      0
+                                    )
+                                  "
+                                  [disabled]="
+                                    !isEditableKnockoutOpeningSlot(
+                                      'left',
+                                      match.id,
+                                      0
+                                    )
+                                  "
                                   [value]="match.slotTeamIds[0] ?? ''"
                                   (change)="
                                     setKnockoutOpeningTeam(
@@ -873,11 +887,32 @@
                                     )
                                   "
                                 >
-                                  <option value="">Sin asignar</option>
-                                  @for (team of knockoutTeamOptions; track team.id) {
+                                  <option value="">
+                                    {{
+                                      getKnockoutOpeningRule(
+                                        'left',
+                                        match.id,
+                                        0
+                                      )?.seed
+                                    }}
+                                    · Sin asignar
+                                  </option>
+                                  @for (
+                                    team of getKnockoutOpeningSelectOptions(
+                                      'left',
+                                      match.id,
+                                      0
+                                    );
+                                    track team.id
+                                  ) {
                                     <option
                                       [value]="team.id"
                                       [disabled]="
+                                        isEditableKnockoutOpeningSlot(
+                                          'left',
+                                          match.id,
+                                          0
+                                        ) &&
                                         isKnockoutTeamTaken(team.id, match.id, 0)
                                       "
                                     >
@@ -888,6 +923,20 @@
 
                                 <select
                                   class="admin-bracket-select"
+                                  [class.admin-bracket-select-fixed]="
+                                    !isEditableKnockoutOpeningSlot(
+                                      'left',
+                                      match.id,
+                                      1
+                                    )
+                                  "
+                                  [disabled]="
+                                    !isEditableKnockoutOpeningSlot(
+                                      'left',
+                                      match.id,
+                                      1
+                                    )
+                                  "
                                   [value]="match.slotTeamIds[1] ?? ''"
                                   (change)="
                                     setKnockoutOpeningTeam(
@@ -898,11 +947,32 @@
                                     )
                                   "
                                 >
-                                  <option value="">Sin asignar</option>
-                                  @for (team of knockoutTeamOptions; track team.id) {
+                                  <option value="">
+                                    {{
+                                      getKnockoutOpeningRule(
+                                        'left',
+                                        match.id,
+                                        1
+                                      )?.seed
+                                    }}
+                                    · Sin asignar
+                                  </option>
+                                  @for (
+                                    team of getKnockoutOpeningSelectOptions(
+                                      'left',
+                                      match.id,
+                                      1
+                                    );
+                                    track team.id
+                                  ) {
                                     <option
                                       [value]="team.id"
                                       [disabled]="
+                                        isEditableKnockoutOpeningSlot(
+                                          'left',
+                                          match.id,
+                                          1
+                                        ) &&
                                         isKnockoutTeamTaken(team.id, match.id, 1)
                                       "
                                     >
@@ -978,6 +1048,20 @@
                               <div class="admin-bracket-selects">
                                 <select
                                   class="admin-bracket-select"
+                                  [class.admin-bracket-select-fixed]="
+                                    !isEditableKnockoutOpeningSlot(
+                                      'right',
+                                      match.id,
+                                      0
+                                    )
+                                  "
+                                  [disabled]="
+                                    !isEditableKnockoutOpeningSlot(
+                                      'right',
+                                      match.id,
+                                      0
+                                    )
+                                  "
                                   [value]="match.slotTeamIds[0] ?? ''"
                                   (change)="
                                     setKnockoutOpeningTeam(
@@ -988,11 +1072,32 @@
                                     )
                                   "
                                 >
-                                  <option value="">Sin asignar</option>
-                                  @for (team of knockoutTeamOptions; track team.id) {
+                                  <option value="">
+                                    {{
+                                      getKnockoutOpeningRule(
+                                        'right',
+                                        match.id,
+                                        0
+                                      )?.seed
+                                    }}
+                                    · Sin asignar
+                                  </option>
+                                  @for (
+                                    team of getKnockoutOpeningSelectOptions(
+                                      'right',
+                                      match.id,
+                                      0
+                                    );
+                                    track team.id
+                                  ) {
                                     <option
                                       [value]="team.id"
                                       [disabled]="
+                                        isEditableKnockoutOpeningSlot(
+                                          'right',
+                                          match.id,
+                                          0
+                                        ) &&
                                         isKnockoutTeamTaken(team.id, match.id, 0)
                                       "
                                     >
@@ -1003,6 +1108,20 @@
 
                                 <select
                                   class="admin-bracket-select"
+                                  [class.admin-bracket-select-fixed]="
+                                    !isEditableKnockoutOpeningSlot(
+                                      'right',
+                                      match.id,
+                                      1
+                                    )
+                                  "
+                                  [disabled]="
+                                    !isEditableKnockoutOpeningSlot(
+                                      'right',
+                                      match.id,
+                                      1
+                                    )
+                                  "
                                   [value]="match.slotTeamIds[1] ?? ''"
                                   (change)="
                                     setKnockoutOpeningTeam(
@@ -1013,11 +1132,32 @@
                                     )
                                   "
                                 >
-                                  <option value="">Sin asignar</option>
-                                  @for (team of knockoutTeamOptions; track team.id) {
+                                  <option value="">
+                                    {{
+                                      getKnockoutOpeningRule(
+                                        'right',
+                                        match.id,
+                                        1
+                                      )?.seed
+                                    }}
+                                    · Sin asignar
+                                  </option>
+                                  @for (
+                                    team of getKnockoutOpeningSelectOptions(
+                                      'right',
+                                      match.id,
+                                      1
+                                    );
+                                    track team.id
+                                  ) {
                                     <option
                                       [value]="team.id"
                                       [disabled]="
+                                        isEditableKnockoutOpeningSlot(
+                                          'right',
+                                          match.id,
+                                          1
+                                        ) &&
                                         isKnockoutTeamTaken(team.id, match.id, 1)
                                       "
                                     >
