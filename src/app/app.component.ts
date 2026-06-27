@@ -168,6 +168,7 @@ type BracketMatch = {
   id: string;
   title: string;
   slots: [BracketSlot, BracketSlot];
+  fixtureTeams: [FixtureTeamOption | null, FixtureTeamOption | null];
 };
 
 type KnockoutTeamOption = {
@@ -179,10 +180,18 @@ type KnockoutTeamOption = {
   seed: string;
 };
 
+type FixtureTeamOption = {
+  id: string;
+  team: string;
+  flag: string;
+  group: string;
+};
+
 type EditableBracketMatch = {
   id: string;
   title: string;
   slotTeamIds: [string | null, string | null];
+  fixtureTeamIds: [string | null, string | null];
   winnerTeamId: string | null;
 };
 
@@ -231,6 +240,7 @@ type BracketSlide = {
   label: string;
   matches: BracketMatch[];
   final?: boolean;
+  sideLabel?: string;
 };
 
 const EMPTY_MILESTONES: Record<ProgressKey, number> = {
@@ -323,7 +333,7 @@ const OPENING_MATCH_RULES: Record<BracketSide, [OpeningSlotRule, OpeningSlotRule
 };
 
 const EMPTY_KNOCKOUT_BRACKET = createEmptyEditableKnockoutBracket();
-const EMPTY_RENDERED_KNOCKOUT = createRenderedKnockoutBracket(EMPTY_KNOCKOUT_BRACKET, []);
+const EMPTY_RENDERED_KNOCKOUT = createRenderedKnockoutBracket(EMPTY_KNOCKOUT_BRACKET, [], []);
 
 function createEditableBracketSide(side: BracketSide): EditableBracketRound[] {
   const sideCode = side === 'left' ? 'I' : 'D';
@@ -336,6 +346,7 @@ function createEditableBracketSide(side: BracketSide): EditableBracketRound[] {
         id: `${side}-${roundConfig.key}-${matchIndex + 1}`,
         title,
         slotTeamIds: [null, null],
+        fixtureTeamIds: [null, null],
         winnerTeamId: null
       };
     });
@@ -361,6 +372,7 @@ function createEmptyEditableKnockoutBracket(): EditableKnockoutBracket {
         id: 'final',
         title: 'Partido final',
         slotTeamIds: [null, null],
+        fixtureTeamIds: [null, null],
         winnerTeamId: null
       }
     }
@@ -369,9 +381,11 @@ function createEmptyEditableKnockoutBracket(): EditableKnockoutBracket {
 
 function createRenderedKnockoutBracket(
   bracket: EditableKnockoutBracket,
-  teamOptions: KnockoutTeamOption[]
+  teamOptions: KnockoutTeamOption[],
+  fixtureOptions: FixtureTeamOption[]
 ): KnockoutBracket {
   const teamMap = new Map(teamOptions.map((team) => [team.id, team]));
+  const fixtureMap = new Map(fixtureOptions.map((team) => [team.id, team]));
 
   const createSlot = (teamId: string | null, fallbackLabel: string, fallbackSeed = ''): BracketSlot => {
     const team = teamId ? teamMap.get(teamId) : null;
@@ -408,6 +422,10 @@ function createRenderedKnockoutBracket(
           slots: [
             createSlot(match.slotTeamIds[0], fallbackLabels[0], fallbackSeeds[0]),
             createSlot(match.slotTeamIds[1], fallbackLabels[1], fallbackSeeds[1])
+          ],
+          fixtureTeams: [
+            fixtureMap.get(match.fixtureTeamIds[0] ?? '') ?? null,
+            fixtureMap.get(match.fixtureTeamIds[1] ?? '') ?? null
           ]
         };
       })
@@ -433,6 +451,10 @@ function createRenderedKnockoutBracket(
             bracket.finalRound.match.slotTeamIds[1],
             `Ganador ${bracket.rightRounds[bracket.rightRounds.length - 1].matches[0].title}`
           )
+        ],
+        fixtureTeams: [
+          fixtureMap.get(bracket.finalRound.match.fixtureTeamIds[0] ?? '') ?? null,
+          fixtureMap.get(bracket.finalRound.match.fixtureTeamIds[1] ?? '') ?? null
         ]
       }
     }
@@ -442,16 +464,23 @@ function createRenderedKnockoutBracket(
 function createMobileBracketSlides(bracket: KnockoutBracket): BracketSlide[] {
   return [
     ...bracket.leftRounds.map((round) => ({
-      key: round.key,
+      key: `left-${round.key}`,
       label: round.label,
-      matches: round.matches
+      matches: round.matches,
+      sideLabel: 'Lado izquierdo'
     })),
     {
       key: 'final',
       label: bracket.finalRound.label,
       matches: [bracket.finalRound.match],
       final: true
-    }
+    },
+    ...bracket.rightRounds.map((round) => ({
+      key: `right-${round.key}`,
+      label: round.label,
+      matches: round.matches,
+      sideLabel: 'Lado derecho'
+    }))
   ];
 }
 
@@ -478,6 +507,7 @@ export class AppComponent implements OnInit {
   thirdPlaceRows: ThirdPlaceRow[] = [];
   knockoutQualifiedTeams: KnockoutTeamOption[] = [];
   knockoutTeamOptions: KnockoutTeamOption[] = [];
+  fixtureTeamOptions: FixtureTeamOption[] = [];
   editableKnockoutBracket: EditableKnockoutBracket = EMPTY_KNOCKOUT_BRACKET;
   knockoutBracket: KnockoutBracket = EMPTY_RENDERED_KNOCKOUT;
   mobileBracketSlides: BracketSlide[] = createMobileBracketSlides(EMPTY_RENDERED_KNOCKOUT);
@@ -818,6 +848,29 @@ export class AppComponent implements OnInit {
     void this.persistKnockoutBracket();
   }
 
+  setKnockoutFixtureTeam(side: BracketSide | 'final', roundKey: string, matchId: string, slotIndex: 0 | 1, rawTeamId: string): void {
+    const nextBracket = this.cloneEditableKnockoutBracket(this.editableKnockoutBracket);
+    const nextTeamId = rawTeamId || null;
+    const targetMatch = side === 'final'
+      ? nextBracket.finalRound.match
+      : this.getEditableRoundCollection(nextBracket, side)
+        .find((round) => round.key === roundKey)
+        ?.matches.find((match) => match.id === matchId);
+
+    if (!targetMatch) {
+      return;
+    }
+
+    targetMatch.fixtureTeamIds[slotIndex] = nextTeamId;
+
+    if (nextTeamId && targetMatch.fixtureTeamIds[slotIndex === 0 ? 1 : 0] === nextTeamId) {
+      targetMatch.fixtureTeamIds[slotIndex === 0 ? 1 : 0] = null;
+    }
+
+    this.applyKnockoutState(nextBracket);
+    void this.persistKnockoutBracket();
+  }
+
   resetKnockoutBracketFromStandings(): void {
     this.applyKnockoutState(null);
     this.statusMessage = 'Cuadro final rearmado desde los top 2 de cada grupo.';
@@ -1061,12 +1114,14 @@ export class AppComponent implements OnInit {
   private applyKnockoutState(savedBracket: EditableKnockoutBracket | null): void {
     const teamOptions = this.buildKnockoutTeamOptions();
     const qualifiedTeams = this.buildKnockoutQualifiedTeams();
-    const nextBracket = this.normalizeEditableKnockoutBracket(savedBracket, qualifiedTeams, teamOptions);
+    const fixtureOptions = this.buildFixtureTeamOptions();
+    const nextBracket = this.normalizeEditableKnockoutBracket(savedBracket, qualifiedTeams, teamOptions, fixtureOptions);
 
     this.knockoutQualifiedTeams = qualifiedTeams;
     this.knockoutTeamOptions = teamOptions;
+    this.fixtureTeamOptions = fixtureOptions;
     this.editableKnockoutBracket = nextBracket;
-    this.knockoutBracket = createRenderedKnockoutBracket(nextBracket, teamOptions);
+    this.knockoutBracket = createRenderedKnockoutBracket(nextBracket, teamOptions, fixtureOptions);
     this.mobileBracketSlides = createMobileBracketSlides(this.knockoutBracket);
   }
 
@@ -1113,10 +1168,26 @@ export class AppComponent implements OnInit {
     );
   }
 
+  private buildFixtureTeamOptions(): FixtureTeamOption[] {
+    return this.groupStandings
+      .slice()
+      .sort((left, right) =>
+        left.group.localeCompare(right.group, 'es') ||
+        left.team.localeCompare(right.team, 'es')
+      )
+      .map((standing) => ({
+        id: `${standing.group}-${standing.flag}`,
+        team: standing.team,
+        flag: standing.flag,
+        group: standing.group
+      }));
+  }
+
   private normalizeEditableKnockoutBracket(
     savedBracket: EditableKnockoutBracket | null,
     qualifiedTeams: KnockoutTeamOption[],
-    teamOptions: KnockoutTeamOption[]
+    teamOptions: KnockoutTeamOption[],
+    fixtureOptions: FixtureTeamOption[]
   ): EditableKnockoutBracket {
     const defaultBracket = this.createDefaultEditableKnockoutBracket(qualifiedTeams);
 
@@ -1126,15 +1197,29 @@ export class AppComponent implements OnInit {
 
     const nextBracket = this.cloneEditableKnockoutBracket(defaultBracket);
     const validTeamIds = new Set(teamOptions.map((team) => team.id));
+    const validFixtureIds = new Set(fixtureOptions.map((team) => team.id));
 
     this.copySavedOpeningRound('left', nextBracket.leftRounds[0], savedBracket.leftRounds?.[0], validTeamIds, teamOptions);
     this.copySavedOpeningRound('right', nextBracket.rightRounds[0], savedBracket.rightRounds?.[0], validTeamIds, teamOptions);
 
     this.copySavedWinners(nextBracket.leftRounds, savedBracket.leftRounds, validTeamIds);
     this.copySavedWinners(nextBracket.rightRounds, savedBracket.rightRounds, validTeamIds);
+    this.copySavedFixtures(nextBracket.leftRounds, savedBracket.leftRounds, validFixtureIds);
+    this.copySavedFixtures(nextBracket.rightRounds, savedBracket.rightRounds, validFixtureIds);
 
     if (savedBracket.finalRound?.match?.winnerTeamId && validTeamIds.has(savedBracket.finalRound.match.winnerTeamId)) {
       nextBracket.finalRound.match.winnerTeamId = savedBracket.finalRound.match.winnerTeamId;
+    }
+
+    if (savedBracket.finalRound?.match?.fixtureTeamIds) {
+      nextBracket.finalRound.match.fixtureTeamIds = [
+        savedBracket.finalRound.match.fixtureTeamIds[0] && validFixtureIds.has(savedBracket.finalRound.match.fixtureTeamIds[0])
+          ? savedBracket.finalRound.match.fixtureTeamIds[0]
+          : null,
+        savedBracket.finalRound.match.fixtureTeamIds[1] && validFixtureIds.has(savedBracket.finalRound.match.fixtureTeamIds[1])
+          ? savedBracket.finalRound.match.fixtureTeamIds[1]
+          : null
+      ];
     }
 
     return this.recomputeEditableKnockoutBracket(nextBracket);
@@ -1201,6 +1286,33 @@ export class AppComponent implements OnInit {
         if (savedMatch?.winnerTeamId && validTeamIds.has(savedMatch.winnerTeamId)) {
           match.winnerTeamId = savedMatch.winnerTeamId;
         }
+      });
+    });
+  }
+
+  private copySavedFixtures(
+    targetRounds: EditableBracketRound[],
+    savedRounds: EditableBracketRound[] | undefined,
+    validFixtureIds: Set<string>
+  ): void {
+    targetRounds.forEach((round, roundIndex) => {
+      const savedRound = savedRounds?.[roundIndex];
+
+      if (!savedRound) {
+        return;
+      }
+
+      round.matches.forEach((match, matchIndex) => {
+        const savedMatch = savedRound.matches?.[matchIndex];
+
+        if (!savedMatch?.fixtureTeamIds) {
+          return;
+        }
+
+        match.fixtureTeamIds = [
+          savedMatch.fixtureTeamIds[0] && validFixtureIds.has(savedMatch.fixtureTeamIds[0]) ? savedMatch.fixtureTeamIds[0] : null,
+          savedMatch.fixtureTeamIds[1] && validFixtureIds.has(savedMatch.fixtureTeamIds[1]) ? savedMatch.fixtureTeamIds[1] : null
+        ];
       });
     });
   }
@@ -1290,21 +1402,24 @@ export class AppComponent implements OnInit {
         ...round,
         matches: round.matches.map((match) => ({
           ...match,
-          slotTeamIds: [...match.slotTeamIds] as [string | null, string | null]
+          slotTeamIds: [...match.slotTeamIds] as [string | null, string | null],
+          fixtureTeamIds: [...match.fixtureTeamIds] as [string | null, string | null]
         }))
       })),
       rightRounds: bracket.rightRounds.map((round) => ({
         ...round,
         matches: round.matches.map((match) => ({
           ...match,
-          slotTeamIds: [...match.slotTeamIds] as [string | null, string | null]
+          slotTeamIds: [...match.slotTeamIds] as [string | null, string | null],
+          fixtureTeamIds: [...match.fixtureTeamIds] as [string | null, string | null]
         }))
       })),
       finalRound: {
         ...bracket.finalRound,
         match: {
           ...bracket.finalRound.match,
-          slotTeamIds: [...bracket.finalRound.match.slotTeamIds] as [string | null, string | null]
+          slotTeamIds: [...bracket.finalRound.match.slotTeamIds] as [string | null, string | null],
+          fixtureTeamIds: [...bracket.finalRound.match.fixtureTeamIds] as [string | null, string | null]
         }
       }
     };

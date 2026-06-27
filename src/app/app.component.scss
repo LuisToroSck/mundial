@@ -343,6 +343,35 @@ h1 {
   color: var(--text-muted);
 }
 
+.bracket-match-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.bracket-fixture-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fixture-flag {
+  width: 16px;
+  height: 11px;
+  border-radius: 3px;
+  object-fit: cover;
+  display: inline-block;
+}
+
+.fixture-vs {
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .bracket-slot {
   display: flex;
   align-items: center;
@@ -395,6 +424,15 @@ h1 {
 
 .bracket-mobile-slide {
   scroll-snap-align: start;
+}
+
+.bracket-mobile-side-label {
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .bracket-mobile-matches {
@@ -692,6 +730,10 @@ h1 {
   display: grid;
   gap: 8px;
   margin-bottom: 10px;
+}
+
+.admin-fixture-selects {
+  margin-bottom: 12px;
 }
 
 .admin-bracket-select {

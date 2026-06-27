@@ -22,9 +22,9 @@
             <ng-template pTemplate="header">
               <tr>
                 <th>Jugador</th>
-                <th class="numeric strong">Puntos totales</th>
-                <th class="numeric">Puntos de Selección</th>
-                <th class="numeric">Puntos de predicciones</th>
+                <th class="numeric strong">PTS totales</th>
+                <th class="numeric">PTS de Selección</th>
+                <th class="numeric">PTS de Predicción</th>
               </tr>
             </ng-template>
             <ng-template pTemplate="body" let-summary>
@@ -156,9 +156,6 @@
         <div class="summary-header">
           <div>
             <h2>Mejores terceros</h2>
-            <p class="summary-hint">
-              Terceros lugares de cada grupo ordenados por PTS, DG y GF.
-            </p>
           </div>
         </div>
 
@@ -270,7 +267,28 @@
                         >
                           @for (match of round.matches; track match.id) {
                             <article class="bracket-match">
-                              <span class="bracket-match-title">{{ match.title }}</span>
+                              <div class="bracket-match-topline">
+                                <span class="bracket-match-title">{{ match.title }}</span>
+                                <div class="bracket-fixture-mini">
+                                  @for (fixture of match.fixtureTeams; track $index) {
+                                    @if (fixture) {
+                                      <img
+                                        class="fixture-flag"
+                                        [src]="
+                                          'assets/banderas/Banderas/' +
+                                          fixture.flag +
+                                          '.png'
+                                        "
+                                        (error)="imgError($event)"
+                                        alt="{{ fixture.team }}"
+                                      />
+                                    }
+                                    @if ($index === 0) {
+                                      <span class="fixture-vs">vs</span>
+                                    }
+                                  }
+                                </div>
+                              </div>
 
                               @for (slot of match.slots; track $index) {
                                 <div class="bracket-slot">
@@ -300,9 +318,33 @@
                       </div>
 
                       <article class="bracket-match bracket-match-final">
-                        <span class="bracket-match-title">
-                          {{ knockoutBracket.finalRound.match.title }}
-                        </span>
+                        <div class="bracket-match-topline">
+                          <span class="bracket-match-title">
+                            {{ knockoutBracket.finalRound.match.title }}
+                          </span>
+                          <div class="bracket-fixture-mini">
+                            @for (
+                              fixture of knockoutBracket.finalRound.match.fixtureTeams;
+                              track $index
+                            ) {
+                              @if (fixture) {
+                                <img
+                                  class="fixture-flag"
+                                  [src]="
+                                    'assets/banderas/Banderas/' +
+                                    fixture.flag +
+                                    '.png'
+                                  "
+                                  (error)="imgError($event)"
+                                  alt="{{ fixture.team }}"
+                                />
+                              }
+                              @if ($index === 0) {
+                                <span class="fixture-vs">vs</span>
+                              }
+                            }
+                          </div>
+                        </div>
 
                         @for (
                           slot of knockoutBracket.finalRound.match.slots;
@@ -342,7 +384,28 @@
                         >
                           @for (match of round.matches; track match.id) {
                             <article class="bracket-match">
-                              <span class="bracket-match-title">{{ match.title }}</span>
+                              <div class="bracket-match-topline">
+                                <span class="bracket-match-title">{{ match.title }}</span>
+                                <div class="bracket-fixture-mini">
+                                  @for (fixture of match.fixtureTeams; track $index) {
+                                    @if (fixture) {
+                                      <img
+                                        class="fixture-flag"
+                                        [src]="
+                                          'assets/banderas/Banderas/' +
+                                          fixture.flag +
+                                          '.png'
+                                        "
+                                        (error)="imgError($event)"
+                                        alt="{{ fixture.team }}"
+                                      />
+                                    }
+                                    @if ($index === 0) {
+                                      <span class="fixture-vs">vs</span>
+                                    }
+                                  }
+                                </div>
+                              </div>
 
                               @for (slot of match.slots; track $index) {
                                 <div class="bracket-slot">
@@ -375,6 +438,11 @@
                     class="bracket-mobile-slide"
                     [class.bracket-mobile-slide-final]="slide.final"
                   >
+                    @if (slide.sideLabel) {
+                      <div class="bracket-mobile-side-label">
+                        {{ slide.sideLabel }}
+                      </div>
+                    }
                     <div class="bracket-round-header">{{ slide.label }}</div>
 
                     <div class="bracket-mobile-matches">
@@ -383,7 +451,28 @@
                           class="bracket-match"
                           [class.bracket-match-final]="slide.final"
                         >
-                          <span class="bracket-match-title">{{ match.title }}</span>
+                          <div class="bracket-match-topline">
+                            <span class="bracket-match-title">{{ match.title }}</span>
+                            <div class="bracket-fixture-mini">
+                              @for (fixture of match.fixtureTeams; track $index) {
+                                @if (fixture) {
+                                  <img
+                                    class="fixture-flag"
+                                    [src]="
+                                      'assets/banderas/Banderas/' +
+                                      fixture.flag +
+                                      '.png'
+                                    "
+                                    (error)="imgError($event)"
+                                    alt="{{ fixture.team }}"
+                                  />
+                                }
+                                @if ($index === 0) {
+                                  <span class="fixture-vs">vs</span>
+                                }
+                              }
+                            </div>
+                          </div>
 
                           @for (slot of match.slots; track $index) {
                             <div class="bracket-slot">
@@ -859,6 +948,50 @@
                               <strong>{{ match.title }}</strong>
                             </div>
 
+                            <div class="admin-bracket-selects admin-fixture-selects">
+                              <select
+                                class="admin-bracket-select"
+                                [value]="match.fixtureTeamIds[0] ?? ''"
+                                (change)="
+                                  setKnockoutFixtureTeam(
+                                    'left',
+                                    round.key,
+                                    match.id,
+                                    0,
+                                    $any($event.target).value
+                                  )
+                                "
+                              >
+                                <option value="">Selección local</option>
+                                @for (team of fixtureTeamOptions; track team.id) {
+                                  <option [value]="team.id">
+                                    {{ team.group }} · {{ team.team }}
+                                  </option>
+                                }
+                              </select>
+
+                              <select
+                                class="admin-bracket-select"
+                                [value]="match.fixtureTeamIds[1] ?? ''"
+                                (change)="
+                                  setKnockoutFixtureTeam(
+                                    'left',
+                                    round.key,
+                                    match.id,
+                                    1,
+                                    $any($event.target).value
+                                  )
+                                "
+                              >
+                                <option value="">Selección visita</option>
+                                @for (team of fixtureTeamOptions; track team.id) {
+                                  <option [value]="team.id">
+                                    {{ team.group }} · {{ team.team }}
+                                  </option>
+                                }
+                              </select>
+                            </div>
+
                             @if (round.key === 'round32') {
                               <div class="admin-bracket-selects">
                                 <select
@@ -1044,6 +1177,50 @@
                               <strong>{{ match.title }}</strong>
                             </div>
 
+                            <div class="admin-bracket-selects admin-fixture-selects">
+                              <select
+                                class="admin-bracket-select"
+                                [value]="match.fixtureTeamIds[0] ?? ''"
+                                (change)="
+                                  setKnockoutFixtureTeam(
+                                    'right',
+                                    round.key,
+                                    match.id,
+                                    0,
+                                    $any($event.target).value
+                                  )
+                                "
+                              >
+                                <option value="">Selección local</option>
+                                @for (team of fixtureTeamOptions; track team.id) {
+                                  <option [value]="team.id">
+                                    {{ team.group }} · {{ team.team }}
+                                  </option>
+                                }
+                              </select>
+
+                              <select
+                                class="admin-bracket-select"
+                                [value]="match.fixtureTeamIds[1] ?? ''"
+                                (change)="
+                                  setKnockoutFixtureTeam(
+                                    'right',
+                                    round.key,
+                                    match.id,
+                                    1,
+                                    $any($event.target).value
+                                  )
+                                "
+                              >
+                                <option value="">Selección visita</option>
+                                @for (team of fixtureTeamOptions; track team.id) {
+                                  <option [value]="team.id">
+                                    {{ team.group }} · {{ team.team }}
+                                  </option>
+                                }
+                              </select>
+                            </div>
+
                             @if (round.key === 'round32') {
                               <div class="admin-bracket-selects">
                                 <select
@@ -1223,6 +1400,54 @@
                         <strong>{{
                           editableKnockoutBracket.finalRound.match.title
                         }}</strong>
+                      </div>
+
+                      <div class="admin-bracket-selects admin-fixture-selects">
+                        <select
+                          class="admin-bracket-select"
+                          [value]="
+                            editableKnockoutBracket.finalRound.match.fixtureTeamIds[0] ?? ''
+                          "
+                          (change)="
+                            setKnockoutFixtureTeam(
+                              'final',
+                              'final',
+                              editableKnockoutBracket.finalRound.match.id,
+                              0,
+                              $any($event.target).value
+                            )
+                          "
+                        >
+                          <option value="">Selección local</option>
+                          @for (team of fixtureTeamOptions; track team.id) {
+                            <option [value]="team.id">
+                              {{ team.group }} · {{ team.team }}
+                            </option>
+                          }
+                        </select>
+
+                        <select
+                          class="admin-bracket-select"
+                          [value]="
+                            editableKnockoutBracket.finalRound.match.fixtureTeamIds[1] ?? ''
+                          "
+                          (change)="
+                            setKnockoutFixtureTeam(
+                              'final',
+                              'final',
+                              editableKnockoutBracket.finalRound.match.id,
+                              1,
+                              $any($event.target).value
+                            )
+                          "
+                        >
+                          <option value="">Selección visita</option>
+                          @for (team of fixtureTeamOptions; track team.id) {
+                            <option [value]="team.id">
+                              {{ team.group }} · {{ team.team }}
+                            </option>
+                          }
+                        </select>
                       </div>
 
                       <div class="admin-winner-buttons">
