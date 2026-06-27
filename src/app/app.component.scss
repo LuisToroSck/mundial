@@ -405,7 +405,7 @@ h1 {
 .bracket-mobile-slider {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 100%;
+  grid-auto-columns: minmax(0, 100%);
   gap: 12px;
   overflow-x: auto;
   padding-bottom: 8px;
@@ -1443,11 +1443,14 @@ h1 {
   }
 
   .bracket-panel {
-    padding: 14px;
+    padding: 10px;
   }
 
   .bracket-mobile-hint {
     display: block;
+    margin-bottom: 8px;
+    font-size: 0.76rem;
+    line-height: 1.35;
   }
 
   .bracket-desktop {
@@ -1458,18 +1461,39 @@ h1 {
     display: block;
   }
 
+  .bracket-mobile-slider {
+    grid-auto-columns: min(54vw, 188px);
+    gap: 8px;
+    padding-inline: 2px;
+    scroll-padding-inline: 2px;
+  }
+
+  .bracket-mobile-slide {
+    width: min(54vw, 188px);
+  }
+
+  .bracket-mobile-side-label {
+    margin-bottom: 4px;
+    font-size: 0.6rem;
+  }
+
+  .bracket-mobile-matches {
+    gap: 8px;
+  }
+
   .bracket-round-header {
-    margin-bottom: 10px;
-    padding: 0.38rem 0.55rem;
-    font-size: 0.66rem;
+    margin-bottom: 8px;
+    padding: 0.28rem 0.42rem;
+    font-size: 0.58rem;
   }
 
   .bracket-match,
   .bracket-match-final {
     min-width: 0;
     width: 100%;
-    padding: 7px;
-    border-radius: 12px;
+    max-width: min(54vw, 188px);
+    padding: 6px;
+    border-radius: 10px;
   }
 
   .bracket-match::before,
@@ -1480,22 +1504,42 @@ h1 {
   }
 
   .bracket-slot {
-    min-height: 34px;
-    gap: 6px;
-    padding: 0.5rem 0.58rem;
+    min-height: 28px;
+    gap: 4px;
+    padding: 0.38rem 0.44rem;
+    border-radius: 8px;
   }
 
   .bracket-slot-name {
-    font-size: 0.74rem;
+    font-size: 0.64rem;
   }
 
   .bracket-seed {
-    min-width: 2rem;
-    font-size: 0.68rem;
+    min-width: 1.55rem;
+    padding: 0.14rem 0.28rem;
+    font-size: 0.54rem;
   }
 
   .bracket-match-title {
-    font-size: 0.58rem;
+    font-size: 0.5rem;
+  }
+
+  .bracket-match-topline {
+    gap: 5px;
+  }
+
+  .bracket-fixture-mini {
+    gap: 3px;
+  }
+
+  .fixture-flag {
+    width: 12px;
+    height: 8px;
+    border-radius: 2px;
+  }
+
+  .fixture-vs {
+    font-size: 0.48rem;
   }
 
   :host ::ng-deep .group-standings-table .p-datatable-tbody > tr.highlight-top {
