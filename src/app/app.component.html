@@ -892,6 +892,88 @@
             <div class="admin-section">
               <div class="admin-header admin-header-tight">
                 <div>
+                  <p class="eyebrow">Predicciones</p>
+                  <h2>Puntaje fase final</h2>
+                  <p class="admin-note">
+                    Cada victoria suma 3 puntos y cada empate suma 1 punto.
+                    Estos puntos se agregan a la columna `PTS de Predicción` de
+                    la tabla general.
+                  </p>
+                </div>
+              </div>
+
+              <div class="table-scroll admin-table-wrap">
+                <p-table
+                  styleClass="admin-table admin-prediction-table"
+                  [value]="predictionScoreEntries"
+                  [responsiveLayout]="'scroll'"
+                  [tableStyle]="{ 'min-width': '640px' }"
+                >
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th>Jugador</th>
+                      <th class="numeric">Victorias</th>
+                      <th class="numeric">Empates</th>
+                      <th class="numeric">Puntos</th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-entry>
+                    <tr>
+                      <td data-label="Jugador">
+                        <div class="player-cell">
+                          <span
+                            class="player-dot"
+                            [style.background]="getPlayerColor(entry.name)"
+                          ></span>
+                          <strong>{{ entry.name }}</strong>
+                        </div>
+                      </td>
+                      <td class="numeric">
+                        <input
+                          class="admin-number-input"
+                          type="number"
+                          min="0"
+                          step="1"
+                          [value]="entry.wins"
+                          (change)="
+                            setPredictionScoreEntry(
+                              entry.name,
+                              'wins',
+                              $any($event.target).value
+                            )
+                          "
+                        />
+                      </td>
+                      <td class="numeric">
+                        <input
+                          class="admin-number-input"
+                          type="number"
+                          min="0"
+                          step="1"
+                          [value]="entry.draws"
+                          (change)="
+                            setPredictionScoreEntry(
+                              entry.name,
+                              'draws',
+                              $any($event.target).value
+                            )
+                          "
+                        />
+                      </td>
+                      <td class="numeric strong">
+                        {{ (entry.wins * 3) + entry.draws }}
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+            </div>
+
+            <p-divider />
+
+            <div class="admin-section">
+              <div class="admin-header admin-header-tight">
+                <div>
                   <p class="eyebrow">Fase final</p>
                   <h2>Editar llaves</h2>
                   <p class="admin-note">

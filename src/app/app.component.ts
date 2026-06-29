@@ -13,11 +13,13 @@ import scoringRulesData from '../assets/data/scoring-rules.json';
 import {
   getGroupStandings,
   getKnockoutBracketConfig,
+  getPredictionScoresConfig,
   getScoringRules,
   getTeamResults,
   replaceGroupStandings,
   saveGroupStanding,
   saveKnockoutBracketConfig,
+  savePredictionScoresConfig,
   saveTeamResult,
   seedGroupStandingsIfEmpty,
   seedScoringRulesIfMissing,
@@ -144,6 +146,12 @@ type WorldCupGroup = {
 
 type ThirdPlaceRow = GroupPrediction & {
   group: string;
+};
+
+type PredictionScoreEntry = {
+  name: string;
+  wins: number;
+  draws: number;
 };
 
 type BracketSide = 'left' | 'right';
@@ -505,6 +513,7 @@ export class AppComponent implements OnInit {
   standingsGroups: string[] = [];
   worldCupGroups: WorldCupGroup[] = [];
   thirdPlaceRows: ThirdPlaceRow[] = [];
+  predictionScoreEntries: PredictionScoreEntry[] = [];
   knockoutQualifiedTeams: KnockoutTeamOption[] = [];
   knockoutTeamOptions: KnockoutTeamOption[] = [];
   fixtureTeamOptions: FixtureTeamOption[] = [];
@@ -526,14 +535,16 @@ export class AppComponent implements OnInit {
     try {
       await this.seedFirebaseData();
 
-      const [results, scoring, standings, knockoutConfig] = await Promise.all([
+      const [results, scoring, standings, knockoutConfig, predictionScores] = await Promise.all([
         this.loadFirebaseTeamResults(),
         this.loadFirebaseScoringRules(),
         this.loadFirebaseGroupStandings(),
-        this.loadFirebaseKnockoutBracket()
+        this.loadFirebaseKnockoutBracket(),
+        this.loadFirebasePredictionScores()
       ]);
 
       this.applyGroupStandingsState(standings);
+      this.predictionScoreEntries = this.normalizePredictionScoreEntries(predictionScores);
       this.scoringRules = scoring;
       this.stageDefinitions = scoring.stages;
       this.editableResults = this.normalizeResults(results);
@@ -899,6 +910,22 @@ export class AppComponent implements OnInit {
     void this.persistKnockoutBracket();
   }
 
+  setPredictionScoreEntry(name: string, field: 'wins' | 'draws', rawValue: string | number): void {
+    const parsed = Number(rawValue);
+    const nextValue = Number.isNaN(parsed) ? 0 : Math.max(0, Math.trunc(parsed));
+
+    this.predictionScoreEntries = this.normalizePredictionScoreEntries(
+      this.predictionScoreEntries.map((entry) =>
+        this.normalizePlayerName(entry.name) === this.normalizePlayerName(name)
+          ? { ...entry, [field]: nextValue }
+          : entry
+      )
+    );
+
+    this.recalculateSummaries();
+    void this.persistPredictionScores();
+  }
+
   private async reloadOriginalResults(): Promise<void> {
     const results = await this.loadFirebaseTeamResults();
     this.editableResults = this.normalizeResults(results);
@@ -930,6 +957,12 @@ export class AppComponent implements OnInit {
 
     const resultByTeam = new Map(this.editableResults.map((result) => [result.team, result]));
     const stagePoints = new Map(this.scoringRules.stages.map((stage) => [stage.key, stage.points]));
+    const predictionScoreMap = new Map(
+      this.predictionScoreEntries.map((entry) => [
+        this.normalizePlayerName(entry.name),
+        (entry.wins * 3) + entry.draws
+      ])
+    );
 
     this.summaries = this.participants.map((participant) => {
       const selections = participant.selections.map((selection) => {
@@ -963,10 +996,12 @@ export class AppComponent implements OnInit {
 
       // predictionPoints: sum of PTS from groupStandings for teams this participant selected
       const standingByTeam = new Map(this.groupStandings.map((s) => [s.team, s]));
-      const predictionPoints = participant.selections.reduce((sum, sel) => {
+      const groupPredictionPoints = participant.selections.reduce((sum, sel) => {
         const s = standingByTeam.get(sel.team);
         return sum + (s?.PTS ?? 0);
       }, 0);
+      const finalStagePredictionPoints = predictionScoreMap.get(this.normalizePlayerName(participant.name)) ?? 0;
+      const predictionPoints = groupPredictionPoints + finalStagePredictionPoints;
 
       return {
         name: participant.name,
@@ -1028,6 +1063,7 @@ export class AppComponent implements OnInit {
     this.participants = this.buildParticipantsFromStandings(this.groupStandings);
     this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
     this.thirdPlaceRows = this.buildThirdPlaceRows(this.worldCupGroups);
+    this.predictionScoreEntries = this.normalizePredictionScoreEntries(this.predictionScoreEntries);
     this.applyKnockoutState(this.editableKnockoutBracket);
   }
 
@@ -1071,6 +1107,11 @@ export class AppComponent implements OnInit {
     return await getKnockoutBracketConfig<EditableKnockoutBracket>();
   }
 
+  private async loadFirebasePredictionScores(): Promise<PredictionScoreEntry[] | null> {
+    const data = await getPredictionScoresConfig<{ players?: PredictionScoreEntry[] }>();
+    return data?.players ?? null;
+  }
+
   private async persistStanding(group: string, team: string): Promise<void> {
     const standing = this.groupStandings.find((item) => item.group === group && item.team === team);
 
@@ -1108,6 +1149,16 @@ export class AppComponent implements OnInit {
     } catch (error) {
       console.error('Error guardando knockoutBracket en Firebase:', error);
       this.statusMessage = 'Fallo el guardado del cuadro final en Firebase.';
+    }
+  }
+
+  private async persistPredictionScores(): Promise<void> {
+    try {
+      await savePredictionScoresConfig({ players: this.predictionScoreEntries });
+      this.statusMessage = 'Puntajes de predicción guardados en Firebase.';
+    } catch (error) {
+      console.error('Error guardando predictionScores en Firebase:', error);
+      this.statusMessage = 'Fallo el guardado de puntajes de predicción.';
     }
   }
 
@@ -1648,6 +1699,33 @@ export class AppComponent implements OnInit {
       );
   }
 
+  private normalizePredictionScoreEntries(
+    entries: PredictionScoreEntry[] | null | undefined
+  ): PredictionScoreEntry[] {
+    const entryMap = new Map(
+      (entries ?? []).map((entry) => [
+        this.normalizePlayerName(entry.name),
+        {
+          name: entry.name,
+          wins: this.toNonNegativeInteger(entry.wins),
+          draws: this.toNonNegativeInteger(entry.draws)
+        }
+      ])
+    );
+
+    return this.participants
+      .map((participant) => {
+        const existing = entryMap.get(this.normalizePlayerName(participant.name));
+
+        return {
+          name: participant.name,
+          wins: existing?.wins ?? 0,
+          draws: existing?.draws ?? 0
+        } satisfies PredictionScoreEntry;
+      })
+      .sort((left, right) => left.name.localeCompare(right.name, 'es'));
+  }
+
   private normalizeMilestones(milestones?: Partial<Record<ProgressKey, number>>): Record<ProgressKey, number> {
     return {
       groupWin: this.clampGroupWins(milestones?.groupWin ?? 0),
@@ -1677,7 +1755,7 @@ export class AppComponent implements OnInit {
     return new Map(players.map((player) => [this.normalizePlayerName(player.name), player.color]));
   }
 
-  private getPlayerColor(playerName: string): string {
+  getPlayerColor(playerName: string): string {
     return this.playerColorMap.get(this.normalizePlayerName(playerName)) ?? DEFAULT_PLAYER_COLOR;
   }
 

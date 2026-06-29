@@ -100,6 +100,10 @@ export function getKnockoutBracketConfig() {
   return getDocumentData('appConfig', 'knockoutBracket');
 }
 
+export function getPredictionScoresConfig() {
+  return getDocumentData('appConfig', 'predictionScores');
+}
+
 export async function saveDocument(collectionName, documentId, data) {
   await setDoc(doc(db, collectionName, documentId), data);
 }
@@ -114,6 +118,10 @@ export function saveTeamResult(data) {
 
 export function saveKnockoutBracketConfig(data) {
   return saveDocument('appConfig', 'knockoutBracket', data);
+}
+
+export function savePredictionScoresConfig(data) {
+  return saveDocument('appConfig', 'predictionScores', data);
 }
 
 export async function replaceCollectionDocuments(collectionName, items, getDocumentId) {

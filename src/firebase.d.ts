@@ -51,6 +51,8 @@ export function getScoringRules<T>(): Promise<T | null>;
 
 export function getKnockoutBracketConfig<T>(): Promise<T | null>;
 
+export function getPredictionScoresConfig<T>(): Promise<T | null>;
+
 export function saveDocument<T>(collectionName: string, documentId: string, data: T): Promise<void>;
 
 export function saveGroupStanding<T extends { group: string; flag: string }>(data: T): Promise<void>;
@@ -58,6 +60,8 @@ export function saveGroupStanding<T extends { group: string; flag: string }>(dat
 export function saveTeamResult<T extends { flag: string }>(data: T): Promise<void>;
 
 export function saveKnockoutBracketConfig<T>(data: T): Promise<void>;
+
+export function savePredictionScoresConfig<T>(data: T): Promise<void>;
 
 export function replaceCollectionDocuments<T>(
   collectionName: string,

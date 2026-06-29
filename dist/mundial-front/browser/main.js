@@ -86841,6 +86841,9 @@ function getScoringRules() {
 function getKnockoutBracketConfig() {
   return getDocumentData("appConfig", "knockoutBracket");
 }
+function getPredictionScoresConfig() {
+  return getDocumentData("appConfig", "predictionScores");
+}
 function saveDocument(collectionName, documentId2, data) {
   return __async(this, null, function* () {
     yield setDoc(doc(db, collectionName, documentId2), data);
@@ -86854,6 +86857,9 @@ function saveTeamResult(data) {
 }
 function saveKnockoutBracketConfig(data) {
   return saveDocument("appConfig", "knockoutBracket", data);
+}
+function savePredictionScoresConfig(data) {
+  return saveDocument("appConfig", "predictionScores", data);
 }
 function replaceCollectionDocuments(collectionName, items, getDocumentId) {
   return __async(this, null, function* () {
@@ -86889,8 +86895,9 @@ var _forTrack1 = ($index, $item) => $item.key;
 var _forTrack2 = ($index, $item) => $item.id;
 var _c017 = () => ({ "min-width": "100%" });
 var _c117 = () => ({ "min-width": "500px" });
-var _c211 = () => ({ "min-width": "740px" });
-var _c38 = () => ({ "min-width": "920px" });
+var _c211 = () => ({ "min-width": "640px" });
+var _c38 = () => ({ "min-width": "740px" });
+var _c47 = () => ({ "min-width": "920px" });
 function AppComponent_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "p", 4);
@@ -87967,49 +87974,49 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_templ
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(6, "td")(7, "input", 131);
+    \u0275\u0275elementStart(6, "td")(7, "input", 132);
     \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_template_4_Template_input_change_7_listener($event) {
       const standing_r45 = \u0275\u0275restoreView(_r44).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r45.group, standing_r45.team, "playerName", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "td")(9, "input", 132);
+    \u0275\u0275elementStart(8, "td")(9, "input", 133);
     \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_template_4_Template_input_change_9_listener($event) {
       const standing_r45 = \u0275\u0275restoreView(_r44).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingText(standing_r45.group, standing_r45.team, "playerColor", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "td", 30)(11, "input", 133);
+    \u0275\u0275elementStart(10, "td", 30)(11, "input", 134);
     \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_template_4_Template_input_change_11_listener($event) {
       const standing_r45 = \u0275\u0275restoreView(_r44).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r45.group, standing_r45.team, "G", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(12, "td", 30)(13, "input", 133);
+    \u0275\u0275elementStart(12, "td", 30)(13, "input", 134);
     \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_template_4_Template_input_change_13_listener($event) {
       const standing_r45 = \u0275\u0275restoreView(_r44).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r45.group, standing_r45.team, "E", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(14, "td", 30)(15, "input", 133);
+    \u0275\u0275elementStart(14, "td", 30)(15, "input", 134);
     \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_template_4_Template_input_change_15_listener($event) {
       const standing_r45 = \u0275\u0275restoreView(_r44).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r45.group, standing_r45.team, "P", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(16, "td", 30)(17, "input", 133);
+    \u0275\u0275elementStart(16, "td", 30)(17, "input", 134);
     \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_template_4_Template_input_change_17_listener($event) {
       const standing_r45 = \u0275\u0275restoreView(_r44).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
       return \u0275\u0275resetView(ctx_r0.setStandingNumber(standing_r45.group, standing_r45.team, "GF", $event.target.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(18, "td", 30)(19, "input", 133);
+    \u0275\u0275elementStart(18, "td", 30)(19, "input", 134);
     \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_template_4_Template_input_change_19_listener($event) {
       const standing_r45 = \u0275\u0275restoreView(_r44).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
@@ -88060,7 +88067,7 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_templ
 }
 function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p-tabPanel", 14)(1, "div", 127)(2, "p-table", 130);
+    \u0275\u0275elementStart(0, "p-tabPanel", 14)(1, "div", 111)(2, "p-table", 131);
     \u0275\u0275template(3, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_template_3_Template, 23, 0, "ng-template", 10)(4, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_ng_template_4_Template, 26, 15, "ng-template", 11);
     \u0275\u0275elementEnd()()();
   }
@@ -88069,12 +88076,69 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_22_Template
     const ctx_r0 = \u0275\u0275nextContext(4);
     \u0275\u0275property("header", groupKey_r46);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", ctx_r0.getStandingsForGroup(groupKey_r46))("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(4, _c38));
+    \u0275\u0275property("value", ctx_r0.getStandingsForGroup(groupKey_r46))("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(4, _c47));
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_40_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_35_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 112)(1, "span", 134);
+    \u0275\u0275elementStart(0, "tr")(1, "th");
+    \u0275\u0275text(2, "Jugador");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "th", 30);
+    \u0275\u0275text(4, "Victorias");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(5, "th", 30);
+    \u0275\u0275text(6, "Empates");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(7, "th", 30);
+    \u0275\u0275text(8, "Puntos");
+    \u0275\u0275elementEnd()();
+  }
+}
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_36_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r47 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "tr")(1, "td", 31)(2, "div", 32);
+    \u0275\u0275element(3, "span", 33);
+    \u0275\u0275elementStart(4, "strong");
+    \u0275\u0275text(5);
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(6, "td", 30)(7, "input", 134);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_36_Template_input_change_7_listener($event) {
+      const entry_r48 = \u0275\u0275restoreView(_r47).$implicit;
+      const ctx_r0 = \u0275\u0275nextContext(4);
+      return \u0275\u0275resetView(ctx_r0.setPredictionScoreEntry(entry_r48.name, "wins", $event.target.value));
+    });
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(8, "td", 30)(9, "input", 134);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_36_Template_input_change_9_listener($event) {
+      const entry_r48 = \u0275\u0275restoreView(_r47).$implicit;
+      const ctx_r0 = \u0275\u0275nextContext(4);
+      return \u0275\u0275resetView(ctx_r0.setPredictionScoreEntry(entry_r48.name, "draws", $event.target.value));
+    });
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(10, "td", 29);
+    \u0275\u0275text(11);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const entry_r48 = ctx.$implicit;
+    const ctx_r0 = \u0275\u0275nextContext(4);
+    \u0275\u0275advance(3);
+    \u0275\u0275styleProp("background", ctx_r0.getPlayerColor(entry_r48.name));
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(entry_r48.name);
+    \u0275\u0275advance(2);
+    \u0275\u0275property("value", entry_r48.wins);
+    \u0275\u0275advance(2);
+    \u0275\u0275property("value", entry_r48.draws);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1(" ", entry_r48.wins * 3 + entry_r48.draws, " ");
+  }
+}
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_54_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 114)(1, "span", 135);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
     \u0275\u0275element(3, "span", 33);
@@ -88083,97 +88147,97 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_40_Template
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const team_r47 = ctx.$implicit;
+    const team_r49 = ctx.$implicit;
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(team_r47.seed);
+    \u0275\u0275textInterpolate(team_r49.seed);
     \u0275\u0275advance();
-    \u0275\u0275styleProp("background", team_r47.color);
+    \u0275\u0275styleProp("background", team_r49.color);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(team_r47.name);
+    \u0275\u0275textInterpolate(team_r49.name);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_For_9_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_For_9_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 124);
+    \u0275\u0275elementStart(0, "option", 126);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const team_r51 = ctx.$implicit;
-    \u0275\u0275property("value", team_r51.id);
+    const team_r53 = ctx.$implicit;
+    \u0275\u0275property("value", team_r53.id);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r51.group, " \xB7 ", team_r51.team, " ");
+    \u0275\u0275textInterpolate2(" ", team_r53.group, " \xB7 ", team_r53.team, " ");
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_For_14_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_For_14_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 124);
-    \u0275\u0275text(1);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const team_r52 = ctx.$implicit;
-    \u0275\u0275property("value", team_r52.id);
-    \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r52.group, " \xB7 ", team_r52.team, " ");
-  }
-}
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_15_For_5_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 139);
+    \u0275\u0275elementStart(0, "option", 126);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     const team_r54 = ctx.$implicit;
-    const match_r49 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(5);
-    \u0275\u0275property("value", team_r54.id)("disabled", ctx_r0.isEditableKnockoutOpeningSlot("left", match_r49.id, 0) && ctx_r0.isKnockoutTeamTaken(team_r54.id, match_r49.id, 0));
+    \u0275\u0275property("value", team_r54.id);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r54.seed, " \xB7 ", team_r54.name, " ");
+    \u0275\u0275textInterpolate2(" ", team_r54.group, " \xB7 ", team_r54.team, " ");
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_15_For_10_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_15_For_5_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 139);
+    \u0275\u0275elementStart(0, "option", 140);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const team_r55 = ctx.$implicit;
-    const match_r49 = \u0275\u0275nextContext(2).$implicit;
+    const team_r56 = ctx.$implicit;
+    const match_r51 = \u0275\u0275nextContext(2).$implicit;
     const ctx_r0 = \u0275\u0275nextContext(5);
-    \u0275\u0275property("value", team_r55.id)("disabled", ctx_r0.isEditableKnockoutOpeningSlot("left", match_r49.id, 1) && ctx_r0.isKnockoutTeamTaken(team_r55.id, match_r49.id, 1));
+    \u0275\u0275property("value", team_r56.id)("disabled", ctx_r0.isEditableKnockoutOpeningSlot("left", match_r51.id, 0) && ctx_r0.isKnockoutTeamTaken(team_r56.id, match_r51.id, 0));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r55.seed, " \xB7 ", team_r55.name, " ");
+    \u0275\u0275textInterpolate2(" ", team_r56.seed, " \xB7 ", team_r56.name, " ");
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_15_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_15_For_10_Template(rf, ctx) {
   if (rf & 1) {
-    const _r53 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 137)(1, "select", 138);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_15_Template_select_change_1_listener($event) {
-      \u0275\u0275restoreView(_r53);
-      const match_r49 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275elementStart(0, "option", 140);
+    \u0275\u0275text(1);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const team_r57 = ctx.$implicit;
+    const match_r51 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r0 = \u0275\u0275nextContext(5);
+    \u0275\u0275property("value", team_r57.id)("disabled", ctx_r0.isEditableKnockoutOpeningSlot("left", match_r51.id, 1) && ctx_r0.isKnockoutTeamTaken(team_r57.id, match_r51.id, 1));
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate2(" ", team_r57.seed, " \xB7 ", team_r57.name, " ");
+  }
+}
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_15_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r55 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 138)(1, "select", 139);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_15_Template_select_change_1_listener($event) {
+      \u0275\u0275restoreView(_r55);
+      const match_r51 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setKnockoutOpeningTeam("left", match_r49.id, 0, $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setKnockoutOpeningTeam("left", match_r51.id, 0, $event.target.value));
     });
-    \u0275\u0275elementStart(2, "option", 123);
+    \u0275\u0275elementStart(2, "option", 125);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(4, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_15_For_5_Template, 2, 4, "option", 139, _forTrack2);
+    \u0275\u0275repeaterCreate(4, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_15_For_5_Template, 2, 4, "option", 140, _forTrack2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "select", 138);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_15_Template_select_change_6_listener($event) {
-      \u0275\u0275restoreView(_r53);
-      const match_r49 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275elementStart(6, "select", 139);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_15_Template_select_change_6_listener($event) {
+      \u0275\u0275restoreView(_r55);
+      const match_r51 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setKnockoutOpeningTeam("left", match_r49.id, 1, $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setKnockoutOpeningTeam("left", match_r51.id, 1, $event.target.value));
     });
-    \u0275\u0275elementStart(7, "option", 123);
+    \u0275\u0275elementStart(7, "option", 125);
     \u0275\u0275text(8);
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(9, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_15_For_10_Template, 2, 4, "option", 139, _forTrack2);
+    \u0275\u0275repeaterCreate(9, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_15_For_10_Template, 2, 4, "option", 140, _forTrack2);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -88181,66 +88245,66 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Co
     let tmp_28_0;
     let tmp_32_0;
     let tmp_33_0;
-    const match_r49 = \u0275\u0275nextContext().$implicit;
+    const match_r51 = \u0275\u0275nextContext().$implicit;
     const ctx_r0 = \u0275\u0275nextContext(5);
     \u0275\u0275advance();
-    \u0275\u0275classProp("admin-bracket-select-fixed", !ctx_r0.isEditableKnockoutOpeningSlot("left", match_r49.id, 0));
-    \u0275\u0275property("disabled", !ctx_r0.isEditableKnockoutOpeningSlot("left", match_r49.id, 0))("value", (tmp_27_0 = match_r49.slotTeamIds[0]) !== null && tmp_27_0 !== void 0 ? tmp_27_0 : "");
+    \u0275\u0275classProp("admin-bracket-select-fixed", !ctx_r0.isEditableKnockoutOpeningSlot("left", match_r51.id, 0));
+    \u0275\u0275property("disabled", !ctx_r0.isEditableKnockoutOpeningSlot("left", match_r51.id, 0))("value", (tmp_27_0 = match_r51.slotTeamIds[0]) !== null && tmp_27_0 !== void 0 ? tmp_27_0 : "");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1(" ", (tmp_28_0 = ctx_r0.getKnockoutOpeningRule("left", match_r49.id, 0)) == null ? null : tmp_28_0.seed, " \xB7 Sin asignar ");
+    \u0275\u0275textInterpolate1(" ", (tmp_28_0 = ctx_r0.getKnockoutOpeningRule("left", match_r51.id, 0)) == null ? null : tmp_28_0.seed, " \xB7 Sin asignar ");
     \u0275\u0275advance();
-    \u0275\u0275repeater(ctx_r0.getKnockoutOpeningSelectOptions("left", match_r49.id, 0));
+    \u0275\u0275repeater(ctx_r0.getKnockoutOpeningSelectOptions("left", match_r51.id, 0));
     \u0275\u0275advance(2);
-    \u0275\u0275classProp("admin-bracket-select-fixed", !ctx_r0.isEditableKnockoutOpeningSlot("left", match_r49.id, 1));
-    \u0275\u0275property("disabled", !ctx_r0.isEditableKnockoutOpeningSlot("left", match_r49.id, 1))("value", (tmp_32_0 = match_r49.slotTeamIds[1]) !== null && tmp_32_0 !== void 0 ? tmp_32_0 : "");
+    \u0275\u0275classProp("admin-bracket-select-fixed", !ctx_r0.isEditableKnockoutOpeningSlot("left", match_r51.id, 1));
+    \u0275\u0275property("disabled", !ctx_r0.isEditableKnockoutOpeningSlot("left", match_r51.id, 1))("value", (tmp_32_0 = match_r51.slotTeamIds[1]) !== null && tmp_32_0 !== void 0 ? tmp_32_0 : "");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1(" ", (tmp_33_0 = ctx_r0.getKnockoutOpeningRule("left", match_r49.id, 1)) == null ? null : tmp_33_0.seed, " \xB7 Sin asignar ");
+    \u0275\u0275textInterpolate1(" ", (tmp_33_0 = ctx_r0.getKnockoutOpeningRule("left", match_r51.id, 1)) == null ? null : tmp_33_0.seed, " \xB7 Sin asignar ");
     \u0275\u0275advance();
-    \u0275\u0275repeater(ctx_r0.getKnockoutOpeningSelectOptions("left", match_r49.id, 1));
+    \u0275\u0275repeater(ctx_r0.getKnockoutOpeningSelectOptions("left", match_r51.id, 1));
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_16_For_2_Conditional_1_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_16_For_2_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "span", 33);
   }
   if (rf & 2) {
-    const slot_r58 = \u0275\u0275nextContext().$implicit;
-    \u0275\u0275styleProp("background", slot_r58.color);
+    const slot_r60 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275styleProp("background", slot_r60.color);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_16_For_2_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_16_For_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r56 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 140);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_16_For_2_Template_button_click_0_listener() {
-      const \u0275$index_862_r57 = \u0275\u0275restoreView(_r56).$index;
-      const match_r49 = \u0275\u0275nextContext(2).$implicit;
-      const round_r50 = \u0275\u0275nextContext().$implicit;
+    const _r58 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 141);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_16_For_2_Template_button_click_0_listener() {
+      const \u0275$index_923_r59 = \u0275\u0275restoreView(_r58).$index;
+      const match_r51 = \u0275\u0275nextContext(2).$implicit;
+      const round_r52 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.toggleKnockoutWinner("left", round_r50.key, match_r49.id, \u0275$index_862_r57));
+      return \u0275\u0275resetView(ctx_r0.toggleKnockoutWinner("left", round_r52.key, match_r51.id, \u0275$index_923_r59));
     });
-    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_16_For_2_Conditional_1_Template, 1, 2, "span", 84);
+    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_16_For_2_Conditional_1_Template, 1, 2, "span", 84);
     \u0275\u0275elementStart(2, "span");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const slot_r58 = ctx.$implicit;
-    const \u0275$index_862_r57 = ctx.$index;
-    const match_r49 = \u0275\u0275nextContext(2).$implicit;
+    const slot_r60 = ctx.$implicit;
+    const \u0275$index_923_r59 = ctx.$index;
+    const match_r51 = \u0275\u0275nextContext(2).$implicit;
     const ctx_r0 = \u0275\u0275nextContext(5);
-    \u0275\u0275classProp("active", ctx_r0.isKnockoutWinner(match_r49, \u0275$index_862_r57));
-    \u0275\u0275property("disabled", !slot_r58.teamId);
+    \u0275\u0275classProp("active", ctx_r0.isKnockoutWinner(match_r51, \u0275$index_923_r59));
+    \u0275\u0275property("disabled", !slot_r60.teamId);
     \u0275\u0275advance();
-    \u0275\u0275conditional(slot_r58.color ? 1 : -1);
+    \u0275\u0275conditional(slot_r60.color ? 1 : -1);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(slot_r58.label);
+    \u0275\u0275textInterpolate(slot_r60.label);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_16_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_16_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 125);
-    \u0275\u0275repeaterCreate(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_16_For_2_Template, 4, 5, "button", 126, \u0275\u0275repeaterTrackByIndex);
+    \u0275\u0275elementStart(0, "div", 127);
+    \u0275\u0275repeaterCreate(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_16_For_2_Template, 4, 5, "button", 128, \u0275\u0275repeaterTrackByIndex);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -88248,161 +88312,161 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Co
     \u0275\u0275repeater(ctx.slots);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r48 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "article", 136)(1, "div", 120)(2, "strong");
+    const _r50 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "article", 137)(1, "div", 122)(2, "strong");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(4, "div", 121)(5, "select", 122);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Template_select_change_5_listener($event) {
-      const match_r49 = \u0275\u0275restoreView(_r48).$implicit;
-      const round_r50 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275elementStart(4, "div", 123)(5, "select", 124);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Template_select_change_5_listener($event) {
+      const match_r51 = \u0275\u0275restoreView(_r50).$implicit;
+      const round_r52 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("left", round_r50.key, match_r49.id, 0, $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("left", round_r52.key, match_r51.id, 0, $event.target.value));
     });
-    \u0275\u0275elementStart(6, "option", 123);
+    \u0275\u0275elementStart(6, "option", 125);
     \u0275\u0275text(7, "Selecci\xF3n local");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(8, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_For_9_Template, 2, 3, "option", 124, _forTrack2);
+    \u0275\u0275repeaterCreate(8, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_For_9_Template, 2, 3, "option", 126, _forTrack2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(10, "select", 122);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Template_select_change_10_listener($event) {
-      const match_r49 = \u0275\u0275restoreView(_r48).$implicit;
-      const round_r50 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275elementStart(10, "select", 124);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Template_select_change_10_listener($event) {
+      const match_r51 = \u0275\u0275restoreView(_r50).$implicit;
+      const round_r52 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("left", round_r50.key, match_r49.id, 1, $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("left", round_r52.key, match_r51.id, 1, $event.target.value));
     });
-    \u0275\u0275elementStart(11, "option", 123);
+    \u0275\u0275elementStart(11, "option", 125);
     \u0275\u0275text(12, "Selecci\xF3n visita");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(13, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_For_14_Template, 2, 3, "option", 124, _forTrack2);
+    \u0275\u0275repeaterCreate(13, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_For_14_Template, 2, 3, "option", 126, _forTrack2);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(15, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_15_Template, 11, 10, "div", 137)(16, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Conditional_16_Template, 3, 0, "div", 125);
+    \u0275\u0275template(15, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_15_Template, 11, 10, "div", 138)(16, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Conditional_16_Template, 3, 0, "div", 127);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     let tmp_25_0;
     let tmp_27_0;
     let tmp_30_0;
-    const match_r49 = ctx.$implicit;
-    const round_r50 = \u0275\u0275nextContext().$implicit;
+    const match_r51 = ctx.$implicit;
+    const round_r52 = \u0275\u0275nextContext().$implicit;
     const ctx_r0 = \u0275\u0275nextContext(4);
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(match_r49.title);
+    \u0275\u0275textInterpolate(match_r51.title);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", (tmp_25_0 = match_r49.fixtureTeamIds[0]) !== null && tmp_25_0 !== void 0 ? tmp_25_0 : "");
+    \u0275\u0275property("value", (tmp_25_0 = match_r51.fixtureTeamIds[0]) !== null && tmp_25_0 !== void 0 ? tmp_25_0 : "");
     \u0275\u0275advance(3);
     \u0275\u0275repeater(ctx_r0.fixtureTeamOptions);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", (tmp_27_0 = match_r49.fixtureTeamIds[1]) !== null && tmp_27_0 !== void 0 ? tmp_27_0 : "");
+    \u0275\u0275property("value", (tmp_27_0 = match_r51.fixtureTeamIds[1]) !== null && tmp_27_0 !== void 0 ? tmp_27_0 : "");
     \u0275\u0275advance(3);
     \u0275\u0275repeater(ctx_r0.fixtureTeamOptions);
     \u0275\u0275advance(2);
-    \u0275\u0275conditional(round_r50.key === "round32" ? 15 : -1);
+    \u0275\u0275conditional(round_r52.key === "round32" ? 15 : -1);
     \u0275\u0275advance();
-    \u0275\u0275conditional((tmp_30_0 = ctx_r0.getRenderedMatch("left", round_r50.key, match_r49.id)) ? 16 : -1, tmp_30_0);
+    \u0275\u0275conditional((tmp_30_0 = ctx_r0.getRenderedMatch("left", round_r52.key, match_r51.id)) ? 16 : -1, tmp_30_0);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "section", 115)(1, "div", 118)(2, "h3");
+    \u0275\u0275elementStart(0, "section", 117)(1, "div", 120)(2, "h3");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(4, "div", 135);
-    \u0275\u0275repeaterCreate(5, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_For_6_Template, 17, 5, "article", 136, _forTrack2);
+    \u0275\u0275elementStart(4, "div", 136);
+    \u0275\u0275repeaterCreate(5, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_For_6_Template, 17, 5, "article", 137, _forTrack2);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const round_r50 = ctx.$implicit;
+    const round_r52 = ctx.$implicit;
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(round_r50.label);
+    \u0275\u0275textInterpolate(round_r52.label);
     \u0275\u0275advance(2);
-    \u0275\u0275repeater(round_r50.matches);
+    \u0275\u0275repeater(round_r52.matches);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_For_9_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_For_9_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 124);
+    \u0275\u0275elementStart(0, "option", 126);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const team_r62 = ctx.$implicit;
-    \u0275\u0275property("value", team_r62.id);
+    const team_r64 = ctx.$implicit;
+    \u0275\u0275property("value", team_r64.id);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r62.group, " \xB7 ", team_r62.team, " ");
+    \u0275\u0275textInterpolate2(" ", team_r64.group, " \xB7 ", team_r64.team, " ");
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_For_14_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_For_14_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 124);
-    \u0275\u0275text(1);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const team_r63 = ctx.$implicit;
-    \u0275\u0275property("value", team_r63.id);
-    \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r63.group, " \xB7 ", team_r63.team, " ");
-  }
-}
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_15_For_5_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 139);
+    \u0275\u0275elementStart(0, "option", 126);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     const team_r65 = ctx.$implicit;
-    const match_r60 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(5);
-    \u0275\u0275property("value", team_r65.id)("disabled", ctx_r0.isEditableKnockoutOpeningSlot("right", match_r60.id, 0) && ctx_r0.isKnockoutTeamTaken(team_r65.id, match_r60.id, 0));
+    \u0275\u0275property("value", team_r65.id);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r65.seed, " \xB7 ", team_r65.name, " ");
+    \u0275\u0275textInterpolate2(" ", team_r65.group, " \xB7 ", team_r65.team, " ");
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_15_For_10_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_15_For_5_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 139);
+    \u0275\u0275elementStart(0, "option", 140);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const team_r66 = ctx.$implicit;
-    const match_r60 = \u0275\u0275nextContext(2).$implicit;
+    const team_r67 = ctx.$implicit;
+    const match_r62 = \u0275\u0275nextContext(2).$implicit;
     const ctx_r0 = \u0275\u0275nextContext(5);
-    \u0275\u0275property("value", team_r66.id)("disabled", ctx_r0.isEditableKnockoutOpeningSlot("right", match_r60.id, 1) && ctx_r0.isKnockoutTeamTaken(team_r66.id, match_r60.id, 1));
+    \u0275\u0275property("value", team_r67.id)("disabled", ctx_r0.isEditableKnockoutOpeningSlot("right", match_r62.id, 0) && ctx_r0.isKnockoutTeamTaken(team_r67.id, match_r62.id, 0));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r66.seed, " \xB7 ", team_r66.name, " ");
+    \u0275\u0275textInterpolate2(" ", team_r67.seed, " \xB7 ", team_r67.name, " ");
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_15_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_15_For_10_Template(rf, ctx) {
   if (rf & 1) {
-    const _r64 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 137)(1, "select", 138);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_15_Template_select_change_1_listener($event) {
-      \u0275\u0275restoreView(_r64);
-      const match_r60 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275elementStart(0, "option", 140);
+    \u0275\u0275text(1);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const team_r68 = ctx.$implicit;
+    const match_r62 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r0 = \u0275\u0275nextContext(5);
+    \u0275\u0275property("value", team_r68.id)("disabled", ctx_r0.isEditableKnockoutOpeningSlot("right", match_r62.id, 1) && ctx_r0.isKnockoutTeamTaken(team_r68.id, match_r62.id, 1));
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate2(" ", team_r68.seed, " \xB7 ", team_r68.name, " ");
+  }
+}
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_15_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r66 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 138)(1, "select", 139);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_15_Template_select_change_1_listener($event) {
+      \u0275\u0275restoreView(_r66);
+      const match_r62 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setKnockoutOpeningTeam("right", match_r60.id, 0, $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setKnockoutOpeningTeam("right", match_r62.id, 0, $event.target.value));
     });
-    \u0275\u0275elementStart(2, "option", 123);
+    \u0275\u0275elementStart(2, "option", 125);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(4, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_15_For_5_Template, 2, 4, "option", 139, _forTrack2);
+    \u0275\u0275repeaterCreate(4, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_15_For_5_Template, 2, 4, "option", 140, _forTrack2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "select", 138);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_15_Template_select_change_6_listener($event) {
-      \u0275\u0275restoreView(_r64);
-      const match_r60 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275elementStart(6, "select", 139);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_15_Template_select_change_6_listener($event) {
+      \u0275\u0275restoreView(_r66);
+      const match_r62 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(5);
-      return \u0275\u0275resetView(ctx_r0.setKnockoutOpeningTeam("right", match_r60.id, 1, $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setKnockoutOpeningTeam("right", match_r62.id, 1, $event.target.value));
     });
-    \u0275\u0275elementStart(7, "option", 123);
+    \u0275\u0275elementStart(7, "option", 125);
     \u0275\u0275text(8);
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(9, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_15_For_10_Template, 2, 4, "option", 139, _forTrack2);
+    \u0275\u0275repeaterCreate(9, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_15_For_10_Template, 2, 4, "option", 140, _forTrack2);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -88410,66 +88474,66 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Co
     let tmp_28_0;
     let tmp_32_0;
     let tmp_33_0;
-    const match_r60 = \u0275\u0275nextContext().$implicit;
+    const match_r62 = \u0275\u0275nextContext().$implicit;
     const ctx_r0 = \u0275\u0275nextContext(5);
     \u0275\u0275advance();
-    \u0275\u0275classProp("admin-bracket-select-fixed", !ctx_r0.isEditableKnockoutOpeningSlot("right", match_r60.id, 0));
-    \u0275\u0275property("disabled", !ctx_r0.isEditableKnockoutOpeningSlot("right", match_r60.id, 0))("value", (tmp_27_0 = match_r60.slotTeamIds[0]) !== null && tmp_27_0 !== void 0 ? tmp_27_0 : "");
+    \u0275\u0275classProp("admin-bracket-select-fixed", !ctx_r0.isEditableKnockoutOpeningSlot("right", match_r62.id, 0));
+    \u0275\u0275property("disabled", !ctx_r0.isEditableKnockoutOpeningSlot("right", match_r62.id, 0))("value", (tmp_27_0 = match_r62.slotTeamIds[0]) !== null && tmp_27_0 !== void 0 ? tmp_27_0 : "");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1(" ", (tmp_28_0 = ctx_r0.getKnockoutOpeningRule("right", match_r60.id, 0)) == null ? null : tmp_28_0.seed, " \xB7 Sin asignar ");
+    \u0275\u0275textInterpolate1(" ", (tmp_28_0 = ctx_r0.getKnockoutOpeningRule("right", match_r62.id, 0)) == null ? null : tmp_28_0.seed, " \xB7 Sin asignar ");
     \u0275\u0275advance();
-    \u0275\u0275repeater(ctx_r0.getKnockoutOpeningSelectOptions("right", match_r60.id, 0));
+    \u0275\u0275repeater(ctx_r0.getKnockoutOpeningSelectOptions("right", match_r62.id, 0));
     \u0275\u0275advance(2);
-    \u0275\u0275classProp("admin-bracket-select-fixed", !ctx_r0.isEditableKnockoutOpeningSlot("right", match_r60.id, 1));
-    \u0275\u0275property("disabled", !ctx_r0.isEditableKnockoutOpeningSlot("right", match_r60.id, 1))("value", (tmp_32_0 = match_r60.slotTeamIds[1]) !== null && tmp_32_0 !== void 0 ? tmp_32_0 : "");
+    \u0275\u0275classProp("admin-bracket-select-fixed", !ctx_r0.isEditableKnockoutOpeningSlot("right", match_r62.id, 1));
+    \u0275\u0275property("disabled", !ctx_r0.isEditableKnockoutOpeningSlot("right", match_r62.id, 1))("value", (tmp_32_0 = match_r62.slotTeamIds[1]) !== null && tmp_32_0 !== void 0 ? tmp_32_0 : "");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1(" ", (tmp_33_0 = ctx_r0.getKnockoutOpeningRule("right", match_r60.id, 1)) == null ? null : tmp_33_0.seed, " \xB7 Sin asignar ");
+    \u0275\u0275textInterpolate1(" ", (tmp_33_0 = ctx_r0.getKnockoutOpeningRule("right", match_r62.id, 1)) == null ? null : tmp_33_0.seed, " \xB7 Sin asignar ");
     \u0275\u0275advance();
-    \u0275\u0275repeater(ctx_r0.getKnockoutOpeningSelectOptions("right", match_r60.id, 1));
+    \u0275\u0275repeater(ctx_r0.getKnockoutOpeningSelectOptions("right", match_r62.id, 1));
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_16_For_2_Conditional_1_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_16_For_2_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "span", 33);
   }
   if (rf & 2) {
-    const slot_r69 = \u0275\u0275nextContext().$implicit;
-    \u0275\u0275styleProp("background", slot_r69.color);
+    const slot_r71 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275styleProp("background", slot_r71.color);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_16_For_2_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_16_For_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r67 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 140);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_16_For_2_Template_button_click_0_listener() {
-      const \u0275$index_935_r68 = \u0275\u0275restoreView(_r67).$index;
-      const match_r60 = \u0275\u0275nextContext(2).$implicit;
-      const round_r61 = \u0275\u0275nextContext().$implicit;
+    const _r69 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 141);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_16_For_2_Template_button_click_0_listener() {
+      const \u0275$index_996_r70 = \u0275\u0275restoreView(_r69).$index;
+      const match_r62 = \u0275\u0275nextContext(2).$implicit;
+      const round_r63 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.toggleKnockoutWinner("right", round_r61.key, match_r60.id, \u0275$index_935_r68));
+      return \u0275\u0275resetView(ctx_r0.toggleKnockoutWinner("right", round_r63.key, match_r62.id, \u0275$index_996_r70));
     });
-    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_16_For_2_Conditional_1_Template, 1, 2, "span", 84);
+    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_16_For_2_Conditional_1_Template, 1, 2, "span", 84);
     \u0275\u0275elementStart(2, "span");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const slot_r69 = ctx.$implicit;
-    const \u0275$index_935_r68 = ctx.$index;
-    const match_r60 = \u0275\u0275nextContext(2).$implicit;
+    const slot_r71 = ctx.$implicit;
+    const \u0275$index_996_r70 = ctx.$index;
+    const match_r62 = \u0275\u0275nextContext(2).$implicit;
     const ctx_r0 = \u0275\u0275nextContext(5);
-    \u0275\u0275classProp("active", ctx_r0.isKnockoutWinner(match_r60, \u0275$index_935_r68));
-    \u0275\u0275property("disabled", !slot_r69.teamId);
+    \u0275\u0275classProp("active", ctx_r0.isKnockoutWinner(match_r62, \u0275$index_996_r70));
+    \u0275\u0275property("disabled", !slot_r71.teamId);
     \u0275\u0275advance();
-    \u0275\u0275conditional(slot_r69.color ? 1 : -1);
+    \u0275\u0275conditional(slot_r71.color ? 1 : -1);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(slot_r69.label);
+    \u0275\u0275textInterpolate(slot_r71.label);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_16_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_16_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 125);
-    \u0275\u0275repeaterCreate(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_16_For_2_Template, 4, 5, "button", 126, \u0275\u0275repeaterTrackByIndex);
+    \u0275\u0275elementStart(0, "div", 127);
+    \u0275\u0275repeaterCreate(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_16_For_2_Template, 4, 5, "button", 128, \u0275\u0275repeaterTrackByIndex);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -88477,158 +88541,158 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Co
     \u0275\u0275repeater(ctx.slots);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r59 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "article", 136)(1, "div", 120)(2, "strong");
+    const _r61 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "article", 137)(1, "div", 122)(2, "strong");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(4, "div", 121)(5, "select", 122);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Template_select_change_5_listener($event) {
-      const match_r60 = \u0275\u0275restoreView(_r59).$implicit;
-      const round_r61 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275elementStart(4, "div", 123)(5, "select", 124);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Template_select_change_5_listener($event) {
+      const match_r62 = \u0275\u0275restoreView(_r61).$implicit;
+      const round_r63 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("right", round_r61.key, match_r60.id, 0, $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("right", round_r63.key, match_r62.id, 0, $event.target.value));
     });
-    \u0275\u0275elementStart(6, "option", 123);
+    \u0275\u0275elementStart(6, "option", 125);
     \u0275\u0275text(7, "Selecci\xF3n local");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(8, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_For_9_Template, 2, 3, "option", 124, _forTrack2);
+    \u0275\u0275repeaterCreate(8, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_For_9_Template, 2, 3, "option", 126, _forTrack2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(10, "select", 122);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Template_select_change_10_listener($event) {
-      const match_r60 = \u0275\u0275restoreView(_r59).$implicit;
-      const round_r61 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275elementStart(10, "select", 124);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Template_select_change_10_listener($event) {
+      const match_r62 = \u0275\u0275restoreView(_r61).$implicit;
+      const round_r63 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("right", round_r61.key, match_r60.id, 1, $event.target.value));
+      return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("right", round_r63.key, match_r62.id, 1, $event.target.value));
     });
-    \u0275\u0275elementStart(11, "option", 123);
+    \u0275\u0275elementStart(11, "option", 125);
     \u0275\u0275text(12, "Selecci\xF3n visita");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(13, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_For_14_Template, 2, 3, "option", 124, _forTrack2);
+    \u0275\u0275repeaterCreate(13, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_For_14_Template, 2, 3, "option", 126, _forTrack2);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(15, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_15_Template, 11, 10, "div", 137)(16, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Conditional_16_Template, 3, 0, "div", 125);
+    \u0275\u0275template(15, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_15_Template, 11, 10, "div", 138)(16, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Conditional_16_Template, 3, 0, "div", 127);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     let tmp_25_0;
     let tmp_27_0;
     let tmp_30_0;
-    const match_r60 = ctx.$implicit;
-    const round_r61 = \u0275\u0275nextContext().$implicit;
+    const match_r62 = ctx.$implicit;
+    const round_r63 = \u0275\u0275nextContext().$implicit;
     const ctx_r0 = \u0275\u0275nextContext(4);
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(match_r60.title);
+    \u0275\u0275textInterpolate(match_r62.title);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", (tmp_25_0 = match_r60.fixtureTeamIds[0]) !== null && tmp_25_0 !== void 0 ? tmp_25_0 : "");
+    \u0275\u0275property("value", (tmp_25_0 = match_r62.fixtureTeamIds[0]) !== null && tmp_25_0 !== void 0 ? tmp_25_0 : "");
     \u0275\u0275advance(3);
     \u0275\u0275repeater(ctx_r0.fixtureTeamOptions);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", (tmp_27_0 = match_r60.fixtureTeamIds[1]) !== null && tmp_27_0 !== void 0 ? tmp_27_0 : "");
+    \u0275\u0275property("value", (tmp_27_0 = match_r62.fixtureTeamIds[1]) !== null && tmp_27_0 !== void 0 ? tmp_27_0 : "");
     \u0275\u0275advance(3);
     \u0275\u0275repeater(ctx_r0.fixtureTeamOptions);
     \u0275\u0275advance(2);
-    \u0275\u0275conditional(round_r61.key === "round32" ? 15 : -1);
+    \u0275\u0275conditional(round_r63.key === "round32" ? 15 : -1);
     \u0275\u0275advance();
-    \u0275\u0275conditional((tmp_30_0 = ctx_r0.getRenderedMatch("right", round_r61.key, match_r60.id)) ? 16 : -1, tmp_30_0);
+    \u0275\u0275conditional((tmp_30_0 = ctx_r0.getRenderedMatch("right", round_r63.key, match_r62.id)) ? 16 : -1, tmp_30_0);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "section", 115)(1, "div", 118)(2, "h3");
+    \u0275\u0275elementStart(0, "section", 117)(1, "div", 120)(2, "h3");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(4, "div", 135);
-    \u0275\u0275repeaterCreate(5, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_For_6_Template, 17, 5, "article", 136, _forTrack2);
+    \u0275\u0275elementStart(4, "div", 136);
+    \u0275\u0275repeaterCreate(5, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_For_6_Template, 17, 5, "article", 137, _forTrack2);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const round_r61 = ctx.$implicit;
+    const round_r63 = ctx.$implicit;
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(round_r61.label);
+    \u0275\u0275textInterpolate(round_r63.label);
     \u0275\u0275advance(2);
-    \u0275\u0275repeater(round_r61.matches);
+    \u0275\u0275repeater(round_r63.matches);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_62_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_76_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 124);
+    \u0275\u0275elementStart(0, "option", 126);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const team_r70 = ctx.$implicit;
-    \u0275\u0275property("value", team_r70.id);
+    const team_r72 = ctx.$implicit;
+    \u0275\u0275property("value", team_r72.id);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r70.group, " \xB7 ", team_r70.team, " ");
+    \u0275\u0275textInterpolate2(" ", team_r72.group, " \xB7 ", team_r72.team, " ");
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_67_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_81_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 124);
+    \u0275\u0275elementStart(0, "option", 126);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const team_r71 = ctx.$implicit;
-    \u0275\u0275property("value", team_r71.id);
+    const team_r73 = ctx.$implicit;
+    \u0275\u0275property("value", team_r73.id);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2(" ", team_r71.group, " \xB7 ", team_r71.team, " ");
+    \u0275\u0275textInterpolate2(" ", team_r73.group, " \xB7 ", team_r73.team, " ");
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_70_Conditional_1_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_84_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "span", 33);
   }
   if (rf & 2) {
-    const slot_r74 = \u0275\u0275nextContext().$implicit;
-    \u0275\u0275styleProp("background", slot_r74.color);
+    const slot_r76 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275styleProp("background", slot_r76.color);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_70_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_84_Template(rf, ctx) {
   if (rf & 1) {
-    const _r72 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 140);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_70_Template_button_click_0_listener() {
-      const \u0275$index_982_r73 = \u0275\u0275restoreView(_r72).$index;
+    const _r74 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 141);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_For_84_Template_button_click_0_listener() {
+      const \u0275$index_1043_r75 = \u0275\u0275restoreView(_r74).$index;
       const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.toggleKnockoutWinner("final", "final", ctx_r0.editableKnockoutBracket.finalRound.match.id, \u0275$index_982_r73));
+      return \u0275\u0275resetView(ctx_r0.toggleKnockoutWinner("final", "final", ctx_r0.editableKnockoutBracket.finalRound.match.id, \u0275$index_1043_r75));
     });
-    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_70_Conditional_1_Template, 1, 2, "span", 84);
+    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_84_Conditional_1_Template, 1, 2, "span", 84);
     \u0275\u0275elementStart(2, "span");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const slot_r74 = ctx.$implicit;
-    const \u0275$index_982_r73 = ctx.$index;
+    const slot_r76 = ctx.$implicit;
+    const \u0275$index_1043_r75 = ctx.$index;
     const ctx_r0 = \u0275\u0275nextContext(4);
-    \u0275\u0275classProp("active", ctx_r0.isKnockoutWinner(ctx_r0.editableKnockoutBracket.finalRound.match, \u0275$index_982_r73));
-    \u0275\u0275property("disabled", !slot_r74.teamId);
+    \u0275\u0275classProp("active", ctx_r0.isKnockoutWinner(ctx_r0.editableKnockoutBracket.finalRound.match, \u0275$index_1043_r75));
+    \u0275\u0275property("disabled", !slot_r76.teamId);
     \u0275\u0275advance();
-    \u0275\u0275conditional(slot_r74.color ? 1 : -1);
+    \u0275\u0275conditional(slot_r76.color ? 1 : -1);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(slot_r74.label);
+    \u0275\u0275textInterpolate(slot_r76.label);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_76_For_4_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_90_For_4_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "th", 30);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const stage_r75 = ctx.$implicit;
+    const stage_r77 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(stage_r75.label);
+    \u0275\u0275textInterpolate(stage_r77.label);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_76_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_90_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr")(1, "th");
     \u0275\u0275text(2, "Selecci\xF3n");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(3, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_76_For_4_Template, 2, 1, "th", 30, _forTrack1);
+    \u0275\u0275repeaterCreate(3, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_90_For_4_Template, 2, 1, "th", 30, _forTrack1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -88637,60 +88701,60 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_76_
     \u0275\u0275repeater(ctx_r0.stageDefinitions);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_For_7_Conditional_1_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r77 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 144);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_For_7_Conditional_1_Template_input_change_0_listener($event) {
-      \u0275\u0275restoreView(_r77);
-      const result_r78 = \u0275\u0275nextContext(2).$implicit;
-      const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.setGroupWins(result_r78.team, $event.target.value));
-    });
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const result_r78 = \u0275\u0275nextContext(2).$implicit;
-    \u0275\u0275property("value", result_r78.milestones.groupWin);
-  }
-}
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_For_7_Conditional_2_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_For_7_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r79 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "input", 145);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_For_7_Conditional_2_Template_input_change_0_listener($event) {
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_For_7_Conditional_1_Template_input_change_0_listener($event) {
       \u0275\u0275restoreView(_r79);
-      const stage_r80 = \u0275\u0275nextContext().$implicit;
-      const result_r78 = \u0275\u0275nextContext().$implicit;
+      const result_r80 = \u0275\u0275nextContext(2).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r0.setMilestone(result_r78.team, stage_r80.key, $event.target.checked));
+      return \u0275\u0275resetView(ctx_r0.setGroupWins(result_r80.team, $event.target.value));
     });
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const stage_r80 = \u0275\u0275nextContext().$implicit;
-    const result_r78 = \u0275\u0275nextContext().$implicit;
-    \u0275\u0275property("checked", result_r78.milestones[stage_r80.key] > 0);
+    const result_r80 = \u0275\u0275nextContext(2).$implicit;
+    \u0275\u0275property("value", result_r80.milestones.groupWin);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_For_7_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_For_7_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "td", 141);
-    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_For_7_Conditional_1_Template, 1, 1, "input", 142)(2, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_For_7_Conditional_2_Template, 1, 1, "input", 143);
+    const _r81 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 146);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_For_7_Conditional_2_Template_input_change_0_listener($event) {
+      \u0275\u0275restoreView(_r81);
+      const stage_r82 = \u0275\u0275nextContext().$implicit;
+      const result_r80 = \u0275\u0275nextContext().$implicit;
+      const ctx_r0 = \u0275\u0275nextContext(4);
+      return \u0275\u0275resetView(ctx_r0.setMilestone(result_r80.team, stage_r82.key, $event.target.checked));
+    });
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const stage_r80 = ctx.$implicit;
-    \u0275\u0275advance();
-    \u0275\u0275conditional(stage_r80.key === "groupWin" ? 1 : 2);
+    const stage_r82 = \u0275\u0275nextContext().$implicit;
+    const result_r80 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275property("checked", result_r80.milestones[stage_r82.key] > 0);
   }
 }
-function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_Template(rf, ctx) {
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_For_7_Template(rf, ctx) {
   if (rf & 1) {
-    const _r76 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "td", 142);
+    \u0275\u0275template(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_For_7_Conditional_1_Template, 1, 1, "input", 143)(2, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_For_7_Conditional_2_Template, 1, 1, "input", 144);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const stage_r82 = ctx.$implicit;
+    \u0275\u0275advance();
+    \u0275\u0275conditional(stage_r82.key === "groupWin" ? 1 : 2);
+  }
+}
+function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r78 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "tr")(1, "td", 95)(2, "div", 96)(3, "img", 45);
-    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_Template_img_error_3_listener($event) {
-      \u0275\u0275restoreView(_r76);
+    \u0275\u0275listener("error", function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_Template_img_error_3_listener($event) {
+      \u0275\u0275restoreView(_r78);
       const ctx_r0 = \u0275\u0275nextContext(4);
       return \u0275\u0275resetView(ctx_r0.imgError($event));
     });
@@ -88698,17 +88762,17 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275repeaterCreate(6, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_For_7_Template, 3, 1, "td", 141, _forTrack1);
+    \u0275\u0275repeaterCreate(6, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_For_7_Template, 3, 1, "td", 142, _forTrack1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const result_r78 = ctx.$implicit;
+    const result_r80 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(4);
     \u0275\u0275advance(3);
-    \u0275\u0275propertyInterpolate("alt", result_r78.team);
-    \u0275\u0275property("src", "assets/banderas/Banderas/" + result_r78.flag + ".png", \u0275\u0275sanitizeUrl);
+    \u0275\u0275propertyInterpolate("alt", result_r80.team);
+    \u0275\u0275property("src", "assets/banderas/Banderas/" + result_r80.flag + ".png", \u0275\u0275sanitizeUrl);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(result_r78.team);
+    \u0275\u0275textInterpolate(result_r80.team);
     \u0275\u0275advance();
     \u0275\u0275repeater(ctx_r0.stageDefinitions);
   }
@@ -88764,87 +88828,102 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template(rf, ct
     \u0275\u0275elementEnd()();
     \u0275\u0275element(23, "p-divider");
     \u0275\u0275elementStart(24, "div", 106)(25, "div", 107)(26, "div")(27, "p", 26);
-    \u0275\u0275text(28, "Fase final");
+    \u0275\u0275text(28, "Predicciones");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(29, "h2");
-    \u0275\u0275text(30, "Editar llaves");
+    \u0275\u0275text(30, "Puntaje fase final");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(31, "p", 108);
-    \u0275\u0275text(32, " Los cupos del cuadro se toman desde A1, A2, B1, B2 y as\xED sucesivamente, seg\xFAn la posici\xF3n de cada jugador en las tablas de grupos. Luego puedes elegir ganadores para avanzar autom\xC3\xA1ticamente. ");
+    \u0275\u0275text(32, " Cada victoria suma 3 puntos y cada empate suma 1 punto. Estos puntos se agregan a la columna `PTS de Predicci\xF3n` de la tabla general. ");
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(33, "div", 111)(34, "p-table", 112);
+    \u0275\u0275template(35, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_35_Template, 9, 0, "ng-template", 10)(36, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_36_Template, 12, 6, "ng-template", 11);
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275element(37, "p-divider");
+    \u0275\u0275elementStart(38, "div", 106)(39, "div", 107)(40, "div")(41, "p", 26);
+    \u0275\u0275text(42, "Fase final");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(43, "h2");
+    \u0275\u0275text(44, "Editar llaves");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(45, "p", 108);
+    \u0275\u0275text(46, " Los cupos del cuadro se toman desde A1, A2, B1, B2 y as\xED sucesivamente, seg\xFAn la posici\xF3n de cada jugador en las tablas de grupos. Luego puedes elegir ganadores para avanzar autom\xC3\xA1ticamente. ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(33, "div", 27)(34, "button", 99);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template_button_click_34_listener() {
+    \u0275\u0275elementStart(47, "div", 27)(48, "button", 99);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template_button_click_48_listener() {
       \u0275\u0275restoreView(_r42);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.resetKnockoutBracketFromStandings());
     });
-    \u0275\u0275text(35, " Rearmar desde grupos ");
+    \u0275\u0275text(49, " Rearmar desde grupos ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(36, "button", 99);
-    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template_button_click_36_listener() {
+    \u0275\u0275elementStart(50, "button", 99);
+    \u0275\u0275listener("click", function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template_button_click_50_listener() {
       \u0275\u0275restoreView(_r42);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.clearKnockoutWinners());
     });
-    \u0275\u0275text(37, " Limpiar ganadores ");
+    \u0275\u0275text(51, " Limpiar ganadores ");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(38, "div", 111);
-    \u0275\u0275repeaterCreate(39, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_40_Template, 6, 4, "div", 112, _forTrack2);
+    \u0275\u0275elementStart(52, "div", 113);
+    \u0275\u0275repeaterCreate(53, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_54_Template, 6, 4, "div", 114, _forTrack2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(41, "p-tabView", 113)(42, "p-tabPanel", 114);
-    \u0275\u0275repeaterCreate(43, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_44_Template, 7, 1, "section", 115, _forTrack1);
+    \u0275\u0275elementStart(55, "p-tabView", 115)(56, "p-tabPanel", 116);
+    \u0275\u0275repeaterCreate(57, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_58_Template, 7, 1, "section", 117, _forTrack1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(45, "p-tabPanel", 116);
-    \u0275\u0275repeaterCreate(46, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_47_Template, 7, 1, "section", 115, _forTrack1);
+    \u0275\u0275elementStart(59, "p-tabPanel", 118);
+    \u0275\u0275repeaterCreate(60, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_61_Template, 7, 1, "section", 117, _forTrack1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(48, "p-tabPanel", 117)(49, "section", 115)(50, "div", 118)(51, "h3");
-    \u0275\u0275text(52);
+    \u0275\u0275elementStart(62, "p-tabPanel", 119)(63, "section", 117)(64, "div", 120)(65, "h3");
+    \u0275\u0275text(66);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(53, "article", 119)(54, "div", 120)(55, "strong");
-    \u0275\u0275text(56);
+    \u0275\u0275elementStart(67, "article", 121)(68, "div", 122)(69, "strong");
+    \u0275\u0275text(70);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(57, "div", 121)(58, "select", 122);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template_select_change_58_listener($event) {
+    \u0275\u0275elementStart(71, "div", 123)(72, "select", 124);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template_select_change_72_listener($event) {
       \u0275\u0275restoreView(_r42);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("final", "final", ctx_r0.editableKnockoutBracket.finalRound.match.id, 0, $event.target.value));
     });
-    \u0275\u0275elementStart(59, "option", 123);
-    \u0275\u0275text(60, "Selecci\xF3n local");
+    \u0275\u0275elementStart(73, "option", 125);
+    \u0275\u0275text(74, "Selecci\xF3n local");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(61, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_62_Template, 2, 3, "option", 124, _forTrack2);
+    \u0275\u0275repeaterCreate(75, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_76_Template, 2, 3, "option", 126, _forTrack2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(63, "select", 122);
-    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template_select_change_63_listener($event) {
+    \u0275\u0275elementStart(77, "select", 124);
+    \u0275\u0275listener("change", function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template_select_change_77_listener($event) {
       \u0275\u0275restoreView(_r42);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.setKnockoutFixtureTeam("final", "final", ctx_r0.editableKnockoutBracket.finalRound.match.id, 1, $event.target.value));
     });
-    \u0275\u0275elementStart(64, "option", 123);
-    \u0275\u0275text(65, "Selecci\xF3n visita");
+    \u0275\u0275elementStart(78, "option", 125);
+    \u0275\u0275text(79, "Selecci\xF3n visita");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(66, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_67_Template, 2, 3, "option", 124, _forTrack2);
+    \u0275\u0275repeaterCreate(80, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_81_Template, 2, 3, "option", 126, _forTrack2);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(68, "div", 125);
-    \u0275\u0275repeaterCreate(69, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_70_Template, 4, 5, "button", 126, \u0275\u0275repeaterTrackByIndex);
+    \u0275\u0275elementStart(82, "div", 127);
+    \u0275\u0275repeaterCreate(83, AppComponent_Conditional_4_Conditional_59_Conditional_1_For_84_Template, 4, 5, "button", 128, \u0275\u0275repeaterTrackByIndex);
     \u0275\u0275elementEnd()()()()()();
-    \u0275\u0275element(71, "p-divider");
-    \u0275\u0275elementStart(72, "div", 127)(73, "p", 128);
-    \u0275\u0275text(74, " La tabla de abajo sigue siendo la edici\xC3\xB3n manual de puntajes por etapa. El cuadro administra solo las llaves visuales por ahora. ");
+    \u0275\u0275element(85, "p-divider");
+    \u0275\u0275elementStart(86, "div", 111)(87, "p", 129);
+    \u0275\u0275text(88, " La tabla de abajo sigue siendo la edici\xC3\xB3n manual de puntajes por etapa. El cuadro administra solo las llaves visuales por ahora. ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(75, "p-table", 129);
-    \u0275\u0275template(76, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_76_Template, 5, 0, "ng-template", 10)(77, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_77_Template, 8, 3, "ng-template", 11);
+    \u0275\u0275elementStart(89, "p-table", 130);
+    \u0275\u0275template(90, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_90_Template, 5, 0, "ng-template", 10)(91, AppComponent_Conditional_4_Conditional_59_Conditional_1_ng_template_91_Template, 8, 3, "ng-template", 11);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    let tmp_11_0;
-    let tmp_13_0;
+    let tmp_14_0;
+    let tmp_16_0;
     const ctx_r0 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
     \u0275\u0275textInterpolate(ctx_r0.statusMessage);
     \u0275\u0275advance(20);
     \u0275\u0275repeater(ctx_r0.standingsGroups);
-    \u0275\u0275advance(18);
+    \u0275\u0275advance(13);
+    \u0275\u0275property("value", ctx_r0.predictionScoreEntries)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(11, _c211));
+    \u0275\u0275advance(19);
     \u0275\u0275repeater(ctx_r0.knockoutQualifiedTeams);
     \u0275\u0275advance(4);
     \u0275\u0275repeater(ctx_r0.editableKnockoutBracket.leftRounds);
@@ -88855,22 +88934,22 @@ function AppComponent_Conditional_4_Conditional_59_Conditional_1_Template(rf, ct
     \u0275\u0275advance(4);
     \u0275\u0275textInterpolate(ctx_r0.editableKnockoutBracket.finalRound.match.title);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", (tmp_11_0 = ctx_r0.editableKnockoutBracket.finalRound.match.fixtureTeamIds[0]) !== null && tmp_11_0 !== void 0 ? tmp_11_0 : "");
+    \u0275\u0275property("value", (tmp_14_0 = ctx_r0.editableKnockoutBracket.finalRound.match.fixtureTeamIds[0]) !== null && tmp_14_0 !== void 0 ? tmp_14_0 : "");
     \u0275\u0275advance(3);
     \u0275\u0275repeater(ctx_r0.fixtureTeamOptions);
     \u0275\u0275advance(2);
-    \u0275\u0275property("value", (tmp_13_0 = ctx_r0.editableKnockoutBracket.finalRound.match.fixtureTeamIds[1]) !== null && tmp_13_0 !== void 0 ? tmp_13_0 : "");
+    \u0275\u0275property("value", (tmp_16_0 = ctx_r0.editableKnockoutBracket.finalRound.match.fixtureTeamIds[1]) !== null && tmp_16_0 !== void 0 ? tmp_16_0 : "");
     \u0275\u0275advance(3);
     \u0275\u0275repeater(ctx_r0.fixtureTeamOptions);
     \u0275\u0275advance(3);
     \u0275\u0275repeater(ctx_r0.knockoutBracket.finalRound.match.slots);
     \u0275\u0275advance(6);
-    \u0275\u0275property("value", ctx_r0.editableResults)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(8, _c211));
+    \u0275\u0275property("value", ctx_r0.editableResults)("responsiveLayout", "scroll")("tableStyle", \u0275\u0275pureFunction0(12, _c38));
   }
 }
 function AppComponent_Conditional_4_Conditional_59_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, AppComponent_Conditional_4_Conditional_59_Conditional_0_Template, 9, 1)(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_Template, 78, 9);
+    \u0275\u0275template(0, AppComponent_Conditional_4_Conditional_59_Conditional_0_Template, 9, 1)(1, AppComponent_Conditional_4_Conditional_59_Conditional_1_Template, 92, 13);
   }
   if (rf & 2) {
     const ctx_r0 = \u0275\u0275nextContext(2);
@@ -89180,6 +89259,7 @@ var AppComponent = class _AppComponent {
   standingsGroups = [];
   worldCupGroups = [];
   thirdPlaceRows = [];
+  predictionScoreEntries = [];
   knockoutQualifiedTeams = [];
   knockoutTeamOptions = [];
   fixtureTeamOptions = [];
@@ -89199,13 +89279,15 @@ var AppComponent = class _AppComponent {
     return __async(this, null, function* () {
       try {
         yield this.seedFirebaseData();
-        const [results, scoring, standings, knockoutConfig] = yield Promise.all([
+        const [results, scoring, standings, knockoutConfig, predictionScores] = yield Promise.all([
           this.loadFirebaseTeamResults(),
           this.loadFirebaseScoringRules(),
           this.loadFirebaseGroupStandings(),
-          this.loadFirebaseKnockoutBracket()
+          this.loadFirebaseKnockoutBracket(),
+          this.loadFirebasePredictionScores()
         ]);
         this.applyGroupStandingsState(standings);
+        this.predictionScoreEntries = this.normalizePredictionScoreEntries(predictionScores);
         this.scoringRules = scoring;
         this.stageDefinitions = scoring.stages;
         this.editableResults = this.normalizeResults(results);
@@ -89474,6 +89556,13 @@ var AppComponent = class _AppComponent {
     this.statusMessage = "Ganadores del cuadro limpiados.";
     void this.persistKnockoutBracket();
   }
+  setPredictionScoreEntry(name3, field, rawValue) {
+    const parsed = Number(rawValue);
+    const nextValue = Number.isNaN(parsed) ? 0 : Math.max(0, Math.trunc(parsed));
+    this.predictionScoreEntries = this.normalizePredictionScoreEntries(this.predictionScoreEntries.map((entry) => this.normalizePlayerName(entry.name) === this.normalizePlayerName(name3) ? __spreadProps(__spreadValues({}, entry), { [field]: nextValue }) : entry));
+    this.recalculateSummaries();
+    void this.persistPredictionScores();
+  }
   reloadOriginalResults() {
     return __async(this, null, function* () {
       const results = yield this.loadFirebaseTeamResults();
@@ -89501,6 +89590,10 @@ var AppComponent = class _AppComponent {
     }
     const resultByTeam = new Map(this.editableResults.map((result) => [result.team, result]));
     const stagePoints = new Map(this.scoringRules.stages.map((stage) => [stage.key, stage.points]));
+    const predictionScoreMap = new Map(this.predictionScoreEntries.map((entry) => [
+      this.normalizePlayerName(entry.name),
+      entry.wins * 3 + entry.draws
+    ]));
     this.summaries = this.participants.map((participant) => {
       const selections = participant.selections.map((selection) => {
         const result = resultByTeam.get(selection.team);
@@ -89522,10 +89615,12 @@ var AppComponent = class _AppComponent {
       const countedSelections = selections.slice(0, MAX_COUNTED_SELECTIONS);
       const totalPoints = countedSelections.reduce((sum, selection) => sum + selection.points, 0);
       const standingByTeam = new Map(this.groupStandings.map((s) => [s.team, s]));
-      const predictionPoints = participant.selections.reduce((sum, sel) => {
+      const groupPredictionPoints = participant.selections.reduce((sum, sel) => {
         const s = standingByTeam.get(sel.team);
         return sum + (s?.PTS ?? 0);
       }, 0);
+      const finalStagePredictionPoints = predictionScoreMap.get(this.normalizePlayerName(participant.name)) ?? 0;
+      const predictionPoints = groupPredictionPoints + finalStagePredictionPoints;
       return {
         name: participant.name,
         color: participant.color,
@@ -89582,6 +89677,7 @@ var AppComponent = class _AppComponent {
     this.participants = this.buildParticipantsFromStandings(this.groupStandings);
     this.worldCupGroups = this.buildWorldCupGroups(this.groupStandings);
     this.thirdPlaceRows = this.buildThirdPlaceRows(this.worldCupGroups);
+    this.predictionScoreEntries = this.normalizePredictionScoreEntries(this.predictionScoreEntries);
     this.applyKnockoutState(this.editableKnockoutBracket);
   }
   getStandingGroups(standings) {
@@ -89616,6 +89712,12 @@ var AppComponent = class _AppComponent {
   loadFirebaseKnockoutBracket() {
     return __async(this, null, function* () {
       return yield getKnockoutBracketConfig();
+    });
+  }
+  loadFirebasePredictionScores() {
+    return __async(this, null, function* () {
+      const data = yield getPredictionScoresConfig();
+      return data?.players ?? null;
     });
   }
   persistStanding(group, team) {
@@ -89654,6 +89756,17 @@ var AppComponent = class _AppComponent {
       } catch (error) {
         console.error("Error guardando knockoutBracket en Firebase:", error);
         this.statusMessage = "Fallo el guardado del cuadro final en Firebase.";
+      }
+    });
+  }
+  persistPredictionScores() {
+    return __async(this, null, function* () {
+      try {
+        yield savePredictionScoresConfig({ players: this.predictionScoreEntries });
+        this.statusMessage = "Puntajes de predicci\xF3n guardados en Firebase.";
+      } catch (error) {
+        console.error("Error guardando predictionScores en Firebase:", error);
+        this.statusMessage = "Fallo el guardado de puntajes de predicci\xF3n.";
       }
     });
   }
@@ -90025,6 +90138,24 @@ var AppComponent = class _AppComponent {
       }, thirdPlace);
     }).filter((row) => Boolean(row)).sort((left, right) => right.PTS - left.PTS || right.DG - left.DG || right.GF - left.GF || left.GC - right.GC || left.participantName.localeCompare(right.participantName, "es"));
   }
+  normalizePredictionScoreEntries(entries) {
+    const entryMap = new Map((entries ?? []).map((entry) => [
+      this.normalizePlayerName(entry.name),
+      {
+        name: entry.name,
+        wins: this.toNonNegativeInteger(entry.wins),
+        draws: this.toNonNegativeInteger(entry.draws)
+      }
+    ]));
+    return this.participants.map((participant) => {
+      const existing = entryMap.get(this.normalizePlayerName(participant.name));
+      return {
+        name: participant.name,
+        wins: existing?.wins ?? 0,
+        draws: existing?.draws ?? 0
+      };
+    }).sort((left, right) => left.name.localeCompare(right.name, "es"));
+  }
   normalizeMilestones(milestones) {
     return {
       groupWin: this.clampGroupWins(milestones?.groupWin ?? 0),
@@ -90082,7 +90213,7 @@ var AppComponent = class _AppComponent {
   static \u0275fac = function AppComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _AppComponent)();
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 5, vars: 1, consts: [["adminPasswordInput", ""], ["groupStandingsUpload", ""], [1, "shell"], [1, "content", "surface-card"], [1, "state"], [1, "state", "error"], [1, "summary-block"], [1, "summary-header"], [1, "table-scroll"], ["styleClass", "summary-table", 3, "value", "tableStyle"], ["pTemplate", "header"], ["pTemplate", "body"], [1, "groups-block"], ["styleClass", "group-tabview"], [3, "header"], [1, "third-places-block"], ["styleClass", "third-places-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "knockout-block"], [1, "summary-hint"], [1, "bracket-toggle-actions"], ["type", "button", 1, "bracket-toggle-button"], ["type", "button", 1, "bracket-toggle-button", "secondary"], [1, "bracket-panel"], ["styleClass", "participant-tabview"], [1, "admin-panel", "surface-card"], [1, "admin-header"], [1, "eyebrow"], [1, "admin-actions"], ["type", "button", 1, "admin-button", "secondary"], [1, "numeric", "strong"], [1, "numeric"], ["data-label", "Jugador"], [1, "player-cell"], [1, "player-dot"], ["data-label", "Total puntos", 1, "numeric", "strong"], ["data-label", "Puntos de Selecci\xF3n", 1, "numeric", "strong"], ["data-label", "Puntos de predicciones", 1, "numeric", "strong"], [1, "group-card"], [1, "group-card-header"], [1, "group-badge"], [1, "group-count"], [1, "group-teams-preview"], [1, "group-team-chip"], [1, "group-standings-wrap"], ["styleClass", "group-standings-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "flag-img", 3, "error", "src", "alt"], ["data-label", "Pos"], ["data-label", "PTS", 1, "numeric", "strong"], ["data-label", "PJ", 1, "numeric"], ["data-label", "G", 1, "numeric"], ["data-label", "E", 1, "numeric"], ["data-label", "P", 1, "numeric"], ["data-label", "GF", 1, "numeric"], ["data-label", "GC", 1, "numeric"], ["data-label", "DG", 1, "numeric"], ["data-label", "Grupo"], ["type", "button", 1, "bracket-toggle-button", 3, "click"], ["type", "button", 1, "bracket-toggle-button", "secondary", 3, "click"], [1, "bracket-mobile-hint"], [1, "bracket-desktop"], [1, "bracket-scroll"], [1, "knockout-bracket"], [1, "bracket-side", "bracket-side-left"], [1, "bracket-round", "bracket-round-left", 3, "padding-top"], [1, "bracket-center"], [1, "bracket-round", "bracket-round-final"], [1, "bracket-round-header"], [1, "bracket-match", "bracket-match-final"], [1, "bracket-match-topline"], [1, "bracket-match-title"], [1, "bracket-fixture-mini"], [1, "bracket-slot"], [1, "bracket-side", "bracket-side-right"], [1, "bracket-round", "bracket-round-right", 3, "padding-top"], [1, "bracket-mobile"], [1, "bracket-mobile-slider"], [1, "bracket-mobile-slide", 3, "bracket-mobile-slide-final"], [1, "bracket-round", "bracket-round-left"], [1, "bracket-round-matches"], [1, "bracket-match"], [1, "fixture-flag", 3, "src", "alt"], [1, "fixture-vs"], [1, "fixture-flag", 3, "error", "src", "alt"], [1, "bracket-seed"], [1, "player-dot", 3, "background"], [1, "bracket-slot-name"], [1, "bracket-round", "bracket-round-right"], [1, "bracket-mobile-slide"], [1, "bracket-mobile-side-label"], [1, "bracket-mobile-matches"], [1, "bracket-match", 3, "bracket-match-final"], [1, "participant-header"], [3, "label", "styleClass"], [1, "participant-metrics"], ["styleClass", "selection-table", 3, "value", "responsiveLayout", "tableStyle"], ["data-label", "Selecci\xF3n"], [1, "team-cell"], ["data-label", "Victorias", 1, "numeric"], ["data-label", "Rondas", 1, "numeric"], ["type", "button", 1, "admin-button", "secondary", 3, "click"], [1, "admin-login"], [1, "admin-field"], ["for", "adminPassword"], ["id", "adminPassword", "type", "password", "placeholder", "Ingresa la clave", 3, "input"], ["type", "button", 1, "admin-button", 3, "click"], [1, "admin-success"], [1, "admin-section"], [1, "admin-header", "admin-header-tight"], [1, "admin-note"], ["type", "file", "accept", ".json,application/json", "hidden", "", 3, "change"], ["styleClass", "group-tabview admin-group-tabview"], [1, "admin-qualifiers"], [1, "admin-qualifier-chip"], ["styleClass", "participant-tabview admin-bracket-tabview"], ["header", "Lado izquierdo"], [1, "admin-bracket-stage"], ["header", "Lado derecho"], ["header", "Final"], [1, "admin-bracket-stage-header"], [1, "admin-bracket-match", "admin-bracket-match-final"], [1, "admin-bracket-match-header"], [1, "admin-bracket-selects", "admin-fixture-selects"], [1, "admin-bracket-select", 3, "change", "value"], ["value", ""], [3, "value"], [1, "admin-winner-buttons"], ["type", "button", 1, "admin-winner-button", 3, "active", "disabled"], [1, "table-scroll", "admin-table-wrap"], [1, "admin-note", "admin-note-tight"], ["styleClass", "admin-table", 3, "value", "responsiveLayout", "tableStyle"], ["styleClass", "admin-standings-table", 3, "value", "responsiveLayout", "tableStyle"], ["type", "text", 1, "admin-text-input", 3, "change", "value"], ["type", "color", 1, "admin-color-input", 3, "change", "value"], ["type", "number", "min", "0", "step", "1", 1, "admin-number-input", 3, "change", "value"], [1, "admin-qualifier-seed"], [1, "admin-bracket-matches"], [1, "admin-bracket-match"], [1, "admin-bracket-selects"], [1, "admin-bracket-select", 3, "change", "disabled", "value"], [3, "value", "disabled"], ["type", "button", 1, "admin-winner-button", 3, "click", "disabled"], [1, "numeric", "admin-checkbox-cell"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "value"], ["type", "checkbox", 3, "checked"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "change", "value"], ["type", "checkbox", 3, "change", "checked"]], template: function AppComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 5, vars: 1, consts: [["adminPasswordInput", ""], ["groupStandingsUpload", ""], [1, "shell"], [1, "content", "surface-card"], [1, "state"], [1, "state", "error"], [1, "summary-block"], [1, "summary-header"], [1, "table-scroll"], ["styleClass", "summary-table", 3, "value", "tableStyle"], ["pTemplate", "header"], ["pTemplate", "body"], [1, "groups-block"], ["styleClass", "group-tabview"], [3, "header"], [1, "third-places-block"], ["styleClass", "third-places-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "knockout-block"], [1, "summary-hint"], [1, "bracket-toggle-actions"], ["type", "button", 1, "bracket-toggle-button"], ["type", "button", 1, "bracket-toggle-button", "secondary"], [1, "bracket-panel"], ["styleClass", "participant-tabview"], [1, "admin-panel", "surface-card"], [1, "admin-header"], [1, "eyebrow"], [1, "admin-actions"], ["type", "button", 1, "admin-button", "secondary"], [1, "numeric", "strong"], [1, "numeric"], ["data-label", "Jugador"], [1, "player-cell"], [1, "player-dot"], ["data-label", "Total puntos", 1, "numeric", "strong"], ["data-label", "Puntos de Selecci\xF3n", 1, "numeric", "strong"], ["data-label", "Puntos de predicciones", 1, "numeric", "strong"], [1, "group-card"], [1, "group-card-header"], [1, "group-badge"], [1, "group-count"], [1, "group-teams-preview"], [1, "group-team-chip"], [1, "group-standings-wrap"], ["styleClass", "group-standings-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "flag-img", 3, "error", "src", "alt"], ["data-label", "Pos"], ["data-label", "PTS", 1, "numeric", "strong"], ["data-label", "PJ", 1, "numeric"], ["data-label", "G", 1, "numeric"], ["data-label", "E", 1, "numeric"], ["data-label", "P", 1, "numeric"], ["data-label", "GF", 1, "numeric"], ["data-label", "GC", 1, "numeric"], ["data-label", "DG", 1, "numeric"], ["data-label", "Grupo"], ["type", "button", 1, "bracket-toggle-button", 3, "click"], ["type", "button", 1, "bracket-toggle-button", "secondary", 3, "click"], [1, "bracket-mobile-hint"], [1, "bracket-desktop"], [1, "bracket-scroll"], [1, "knockout-bracket"], [1, "bracket-side", "bracket-side-left"], [1, "bracket-round", "bracket-round-left", 3, "padding-top"], [1, "bracket-center"], [1, "bracket-round", "bracket-round-final"], [1, "bracket-round-header"], [1, "bracket-match", "bracket-match-final"], [1, "bracket-match-topline"], [1, "bracket-match-title"], [1, "bracket-fixture-mini"], [1, "bracket-slot"], [1, "bracket-side", "bracket-side-right"], [1, "bracket-round", "bracket-round-right", 3, "padding-top"], [1, "bracket-mobile"], [1, "bracket-mobile-slider"], [1, "bracket-mobile-slide", 3, "bracket-mobile-slide-final"], [1, "bracket-round", "bracket-round-left"], [1, "bracket-round-matches"], [1, "bracket-match"], [1, "fixture-flag", 3, "src", "alt"], [1, "fixture-vs"], [1, "fixture-flag", 3, "error", "src", "alt"], [1, "bracket-seed"], [1, "player-dot", 3, "background"], [1, "bracket-slot-name"], [1, "bracket-round", "bracket-round-right"], [1, "bracket-mobile-slide"], [1, "bracket-mobile-side-label"], [1, "bracket-mobile-matches"], [1, "bracket-match", 3, "bracket-match-final"], [1, "participant-header"], [3, "label", "styleClass"], [1, "participant-metrics"], ["styleClass", "selection-table", 3, "value", "responsiveLayout", "tableStyle"], ["data-label", "Selecci\xF3n"], [1, "team-cell"], ["data-label", "Victorias", 1, "numeric"], ["data-label", "Rondas", 1, "numeric"], ["type", "button", 1, "admin-button", "secondary", 3, "click"], [1, "admin-login"], [1, "admin-field"], ["for", "adminPassword"], ["id", "adminPassword", "type", "password", "placeholder", "Ingresa la clave", 3, "input"], ["type", "button", 1, "admin-button", 3, "click"], [1, "admin-success"], [1, "admin-section"], [1, "admin-header", "admin-header-tight"], [1, "admin-note"], ["type", "file", "accept", ".json,application/json", "hidden", "", 3, "change"], ["styleClass", "group-tabview admin-group-tabview"], [1, "table-scroll", "admin-table-wrap"], ["styleClass", "admin-table admin-prediction-table", 3, "value", "responsiveLayout", "tableStyle"], [1, "admin-qualifiers"], [1, "admin-qualifier-chip"], ["styleClass", "participant-tabview admin-bracket-tabview"], ["header", "Lado izquierdo"], [1, "admin-bracket-stage"], ["header", "Lado derecho"], ["header", "Final"], [1, "admin-bracket-stage-header"], [1, "admin-bracket-match", "admin-bracket-match-final"], [1, "admin-bracket-match-header"], [1, "admin-bracket-selects", "admin-fixture-selects"], [1, "admin-bracket-select", 3, "change", "value"], ["value", ""], [3, "value"], [1, "admin-winner-buttons"], ["type", "button", 1, "admin-winner-button", 3, "active", "disabled"], [1, "admin-note", "admin-note-tight"], ["styleClass", "admin-table", 3, "value", "responsiveLayout", "tableStyle"], ["styleClass", "admin-standings-table", 3, "value", "responsiveLayout", "tableStyle"], ["type", "text", 1, "admin-text-input", 3, "change", "value"], ["type", "color", 1, "admin-color-input", 3, "change", "value"], ["type", "number", "min", "0", "step", "1", 1, "admin-number-input", 3, "change", "value"], [1, "admin-qualifier-seed"], [1, "admin-bracket-matches"], [1, "admin-bracket-match"], [1, "admin-bracket-selects"], [1, "admin-bracket-select", 3, "change", "disabled", "value"], [3, "value", "disabled"], ["type", "button", 1, "admin-winner-button", 3, "click", "disabled"], [1, "numeric", "admin-checkbox-cell"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "value"], ["type", "checkbox", 3, "checked"], ["type", "number", "min", "0", "max", "3", "step", "1", 1, "admin-group-wins", 3, "change", "value"], ["type", "checkbox", 3, "change", "checked"]], template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275elementStart(0, "main", 2)(1, "section", 3);
       \u0275\u0275template(2, AppComponent_Conditional_2_Template, 2, 0, "p", 4)(3, AppComponent_Conditional_3_Template, 2, 1, "p", 5)(4, AppComponent_Conditional_4_Template, 60, 11);
@@ -90095,7 +90226,7 @@ var AppComponent = class _AppComponent {
   }, dependencies: [CommonModule, CardModule, PrimeTemplate, ChipModule, Chip, DividerModule, Divider, TabViewModule, TabView, TabPanel, TableModule, Table], styles: ['\n\n.shell[_ngcontent-%COMP%] {\n  width: min(1200px, 100vw - 32px);\n  margin: 32px auto 48px;\n  display: grid;\n  gap: 24px;\n}\n.hero[_ngcontent-%COMP%] {\n  padding: 28px;\n  display: grid;\n  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);\n  gap: 20px;\n  align-items: end;\n}\n.eyebrow[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.82rem;\n  font-weight: 700;\n  letter-spacing: 0.14em;\n  text-transform: uppercase;\n  color: var(--accent-strong);\n}\nh1[_ngcontent-%COMP%], \nh2[_ngcontent-%COMP%], \np[_ngcontent-%COMP%] {\n  margin: 0;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: clamp(2rem, 4vw, 3.6rem);\n  line-height: 1.02;\n  max-width: 12ch;\n}\n.lead[_ngcontent-%COMP%] {\n  margin-top: 14px;\n  max-width: 60ch;\n  color: var(--text-muted);\n  font-size: 1.02rem;\n  line-height: 1.7;\n}\n.hero-stats[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 12px;\n}\n.hero-stats[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n  padding: 16px;\n  border-radius: 18px;\n  background: var(--surface-strong);\n  border: 1px solid var(--border);\n}\n.hero-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n  color: var(--text-muted);\n  font-size: 0.86rem;\n}\n.hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-top: 8px;\n  font-size: 1.6rem;\n}\n.content[_ngcontent-%COMP%] {\n  padding: 14px 18px 18px;\n}\n.table-scroll[_ngcontent-%COMP%] {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.state[_ngcontent-%COMP%] {\n  padding: 26px 10px;\n  color: var(--text-muted);\n}\n.state.error[_ngcontent-%COMP%] {\n  color: #b91c1c;\n}\n.participant-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 18px;\n}\n.participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.6rem;\n}\n.selection-chip[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-panel[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin-bottom: 18px;\n}\n.admin-section[_ngcontent-%COMP%] {\n  margin-top: 18px;\n}\n.admin-header-tight[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n.admin-text-input[_ngcontent-%COMP%], \n.admin-number-input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  color: var(--text-main);\n  padding: 0.55rem 0.7rem;\n  font: inherit;\n}\n.admin-color-input[_ngcontent-%COMP%] {\n  width: 100%;\n  min-width: 56px;\n  height: 38px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  padding: 0.2rem;\n}\n.admin-number-input[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.admin-text-input[_ngcontent-%COMP%]:focus, \n.admin-number-input[_ngcontent-%COMP%]:focus, \n.admin-color-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid color-mix(in srgb, var(--accent-strong) 30%, transparent);\n  outline-offset: 1px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .team-cell[_ngcontent-%COMP%] {\n  min-width: 150px;\n}\n.admin-standings-table[_ngcontent-%COMP%]   td[_ngcontent-%COMP%] {\n  vertical-align: middle;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%], \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  padding: 0.42rem 0.45rem;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-thead[_ngcontent-%COMP%]    > tr[_ngcontent-%COMP%]    > th[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n.admin-standings-table[_ngcontent-%COMP%]   .numeric[_ngcontent-%COMP%] {\n  min-width: 60px;\n}\n.summary-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.groups-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.third-places-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.knockout-block[_ngcontent-%COMP%] {\n  margin-bottom: 18px;\n}\n.bracket-toggle-actions[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: flex-end;\n}\n.bracket-toggle-button[_ngcontent-%COMP%] {\n  border: 0;\n  border-radius: 14px;\n  padding: 0.8rem 1rem;\n  background: var(--accent-strong);\n  color: #fff;\n  cursor: pointer;\n  font: inherit;\n  font-weight: 700;\n}\n.bracket-toggle-button.secondary[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.bracket-panel[_ngcontent-%COMP%] {\n  padding: 18px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: color-mix(in srgb, var(--surface-strong) 92%, white);\n}\n.bracket-mobile-hint[_ngcontent-%COMP%] {\n  display: none;\n  margin-bottom: 12px;\n  color: var(--text-muted);\n  font-size: 0.84rem;\n}\n.bracket-desktop[_ngcontent-%COMP%] {\n  display: block;\n}\n.bracket-mobile[_ngcontent-%COMP%] {\n  display: none;\n}\n.bracket-scroll[_ngcontent-%COMP%] {\n  width: 100%;\n  overflow-x: auto;\n  overflow-y: hidden;\n  padding-bottom: 12px;\n  -webkit-overflow-scrolling: touch;\n}\n.knockout-bracket[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: max-content 180px max-content;\n  gap: 18px;\n  align-items: stretch;\n  min-width: 1460px;\n}\n.bracket-side[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, minmax(138px, 1fr));\n  gap: 14px;\n  align-items: start;\n}\n.bracket-center[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.bracket-round[_ngcontent-%COMP%] {\n  position: relative;\n}\n.bracket-round-final[_ngcontent-%COMP%] {\n  width: 170px;\n}\n.bracket-round-header[_ngcontent-%COMP%] {\n  margin-bottom: 14px;\n  padding: 0.45rem 0.75rem;\n  border: 1px solid var(--border);\n  border-radius: 999px;\n  background: var(--surface);\n  color: var(--accent-strong);\n  font-size: 0.8rem;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-align: center;\n  text-transform: uppercase;\n}\n.bracket-round-matches[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n}\n.bracket-match[_ngcontent-%COMP%] {\n  position: relative;\n  display: grid;\n  gap: 6px;\n  min-width: 138px;\n  padding: 8px;\n  border: 1px solid var(--border);\n  border-radius: 14px;\n  background:\n    linear-gradient(\n      180deg,\n      color-mix(in srgb, var(--surface) 78%, white),\n      color-mix(in srgb, var(--surface-strong) 88%, white));\n  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.06);\n}\n.bracket-round-left[_ngcontent-%COMP%]   .bracket-match[_ngcontent-%COMP%]::after, \n.bracket-round-right[_ngcontent-%COMP%]   .bracket-match[_ngcontent-%COMP%]::before, \n.bracket-match-final[_ngcontent-%COMP%]::before, \n.bracket-match-final[_ngcontent-%COMP%]::after {\n  content: "";\n  position: absolute;\n  top: 50%;\n  width: 18px;\n  border-top: 1px solid color-mix(in srgb, var(--border) 88%, transparent);\n}\n.bracket-round-left[_ngcontent-%COMP%]   .bracket-match[_ngcontent-%COMP%]::after, \n.bracket-match-final[_ngcontent-%COMP%]::after {\n  right: -18px;\n}\n.bracket-round-right[_ngcontent-%COMP%]   .bracket-match[_ngcontent-%COMP%]::before, \n.bracket-match-final[_ngcontent-%COMP%]::before {\n  left: -18px;\n}\n.bracket-match-final[_ngcontent-%COMP%] {\n  min-width: 170px;\n  background:\n    linear-gradient(\n      180deg,\n      color-mix(in srgb, var(--accent-soft) 55%, white),\n      color-mix(in srgb, var(--surface-strong) 86%, white));\n}\n.bracket-match-title[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  color: var(--text-muted);\n}\n.bracket-match-topline[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n}\n.bracket-fixture-mini[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  min-width: 0;\n}\n.fixture-flag[_ngcontent-%COMP%] {\n  width: 16px;\n  height: 11px;\n  border-radius: 3px;\n  object-fit: cover;\n  display: inline-block;\n}\n.fixture-vs[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.6rem;\n  font-weight: 700;\n  text-transform: uppercase;\n}\n.bracket-slot[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-height: 36px;\n  padding: 0.55rem 0.65rem;\n  border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);\n  border-radius: 10px;\n  background: color-mix(in srgb, var(--surface) 92%, white);\n}\n.bracket-seed[_ngcontent-%COMP%] {\n  flex: 0 0 auto;\n  min-width: 2.3rem;\n  padding: 0.25rem 0.45rem;\n  border-radius: 999px;\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n  font-size: 0.72rem;\n  font-weight: 700;\n  text-align: center;\n}\n.bracket-slot-name[_ngcontent-%COMP%] {\n  color: var(--text-main);\n  font-size: 0.82rem;\n  font-weight: 600;\n  line-height: 1.15;\n}\n.bracket-mobile-slider[_ngcontent-%COMP%] {\n  display: grid;\n  grid-auto-flow: column;\n  grid-auto-columns: minmax(0, 100%);\n  gap: 12px;\n  overflow-x: auto;\n  padding-bottom: 8px;\n  scroll-snap-type: x mandatory;\n  -webkit-overflow-scrolling: touch;\n}\n.bracket-mobile-slider[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 8px;\n}\n.bracket-mobile-slider[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: rgba(15, 23, 42, 0.18);\n  border-radius: 999px;\n}\n.bracket-mobile-slide[_ngcontent-%COMP%] {\n  scroll-snap-align: start;\n}\n.bracket-mobile-side-label[_ngcontent-%COMP%] {\n  margin-bottom: 6px;\n  color: var(--text-muted);\n  font-size: 0.72rem;\n  font-weight: 700;\n  letter-spacing: 0.06em;\n  text-transform: uppercase;\n}\n.bracket-mobile-matches[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 12px;\n}\n.groups-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, minmax(0, 1fr));\n  gap: 12px;\n}\n.group-card[_ngcontent-%COMP%] {\n  border: 1px solid var(--border);\n  border-radius: 16px;\n  background: var(--surface-strong);\n  padding: 12px;\n}\n.group-card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 12px;\n  margin-bottom: 10px;\n  flex-wrap: wrap;\n}\n.group-badge[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  color: var(--accent-strong);\n}\n.group-count[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--text-muted);\n}\n.group-teams-preview[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 8px;\n}\n.group-team-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 0.35rem 0.6rem;\n  border-radius: 999px;\n  background: var(--surface);\n  border: 1px solid var(--border);\n  font-size: 0.76rem;\n  color: var(--text-main);\n  white-space: nowrap;\n}\n.group-team-chip[_ngcontent-%COMP%]   .flag-img[_ngcontent-%COMP%] {\n  width: 18px;\n  height: 12px;\n  object-fit: cover;\n  border-radius: 2px;\n}\n.group-teams[_ngcontent-%COMP%] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: grid;\n  gap: 8px;\n}\n.group-teams[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.group-owner[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  font-weight: 700;\n}\n.group-standings-wrap[_ngcontent-%COMP%] {\n  margin-top: 12px;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td {\n  padding: 0.36rem 0.42rem;\n  font-size: 0.76rem;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n  white-space: nowrap;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child {\n  width: 2.2rem;\n  text-align: center;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n  min-width: 148px;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(1), \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(1) {\n  min-width: 2.6rem;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.numeric, \n[_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th.numeric {\n  text-align: right;\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td.strong {\n  font-weight: 700;\n}\n[_nghost-%COMP%]     .third-places-table .p-datatable-thead > tr > th, \n[_nghost-%COMP%]     .third-places-table .p-datatable-tbody > tr > td {\n  padding: 0.42rem 0.5rem;\n  font-size: 0.78rem;\n}\n[_nghost-%COMP%]     .third-places-table .p-datatable-thead > tr > th {\n  white-space: nowrap;\n}\n[_nghost-%COMP%]     .third-places-table .p-datatable-tbody > tr > td:nth-child(1), \n[_nghost-%COMP%]     .third-places-table .p-datatable-thead > tr > th:nth-child(1) {\n  min-width: 2.6rem;\n  text-align: center;\n}\n[_nghost-%COMP%]     .third-places-table .p-datatable-tbody > tr > td:nth-child(2), \n[_nghost-%COMP%]     .third-places-table .p-datatable-thead > tr > th:nth-child(2) {\n  min-width: 5.6rem;\n}\n[_nghost-%COMP%]     .third-places-table .p-datatable-tbody > tr > td:nth-child(3), \n[_nghost-%COMP%]     .third-places-table .p-datatable-thead > tr > th:nth-child(3) {\n  min-width: 170px;\n}\n[_nghost-%COMP%]     .third-places-table .p-datatable-tbody > tr > td.numeric, \n[_nghost-%COMP%]     .third-places-table .p-datatable-thead > tr > th.numeric {\n  text-align: right;\n}\n[_nghost-%COMP%]     .third-places-table .p-datatable-tbody > tr.highlight-third-qualified > td {\n  background: color-mix(in srgb, var(--accent-soft) 52%, white);\n}\n.admin-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.admin-note[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.admin-note[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-weight: 700;\n  color: var(--text-main);\n}\n.admin-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n}\n.admin-login[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  align-items: flex-end;\n  flex-wrap: wrap;\n}\n.admin-field[_ngcontent-%COMP%] {\n  flex: 1 1 260px;\n}\n.admin-field[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 6px;\n  font-size: 0.85rem;\n  font-weight: 700;\n  color: var(--text-muted);\n}\n.admin-field[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 14px;\n  padding: 0.85rem 0.95rem;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n.admin-button[_ngcontent-%COMP%] {\n  border: 0;\n  border-radius: 14px;\n  padding: 0.85rem 1rem;\n  font: inherit;\n  font-weight: 700;\n  background: var(--accent-strong);\n  color: #fff;\n  cursor: pointer;\n}\n.admin-button.secondary[_ngcontent-%COMP%] {\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n}\n.admin-button[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.admin-qualifiers[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 16px;\n}\n.admin-qualifier-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  padding: 0.55rem 0.8rem;\n  border: 1px solid var(--border);\n  border-radius: 999px;\n  background: var(--surface);\n  font-size: 0.82rem;\n  font-weight: 600;\n}\n.admin-qualifier-seed[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 2.2rem;\n  padding: 0.2rem 0.45rem;\n  border-radius: 999px;\n  background: var(--accent-soft);\n  color: var(--accent-strong);\n  font-size: 0.72rem;\n  font-weight: 700;\n}\n.admin-bracket-stage[_ngcontent-%COMP%] {\n  margin-top: 12px;\n}\n.admin-bracket-stage-header[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n.admin-bracket-stage-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1rem;\n}\n.admin-bracket-matches[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));\n  gap: 12px;\n}\n.admin-bracket-match[_ngcontent-%COMP%] {\n  padding: 12px;\n  border: 1px solid var(--border);\n  border-radius: 18px;\n  background: var(--surface-strong);\n}\n.admin-bracket-match-header[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n  color: var(--text-muted);\n}\n.admin-bracket-selects[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin-bottom: 10px;\n}\n.admin-fixture-selects[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n}\n.admin-bracket-select[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  background: var(--surface);\n  color: var(--text-main);\n  padding: 0.65rem 0.8rem;\n  font: inherit;\n}\n.admin-bracket-select[_ngcontent-%COMP%]:focus {\n  outline: 2px solid color-mix(in srgb, var(--accent-strong) 30%, transparent);\n  outline-offset: 1px;\n}\n.admin-bracket-select-fixed[_ngcontent-%COMP%], \n.admin-bracket-select[_ngcontent-%COMP%]:disabled {\n  appearance: none;\n  -webkit-appearance: none;\n  cursor: default;\n  opacity: 1;\n  color: var(--text-main);\n  background: color-mix(in srgb, var(--surface-strong) 94%, white);\n  font-weight: 700;\n}\n.admin-winner-buttons[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n}\n.admin-winner-button[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 100%;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  padding: 0.7rem 0.8rem;\n  background: var(--surface);\n  color: var(--text-main);\n  cursor: pointer;\n  font: inherit;\n  font-weight: 600;\n  text-align: left;\n}\n.admin-winner-button.active[_ngcontent-%COMP%] {\n  border-color: var(--accent-strong);\n  background: color-mix(in srgb, var(--accent-soft) 58%, white);\n  color: var(--accent-strong);\n}\n.admin-winner-button[_ngcontent-%COMP%]:disabled {\n  opacity: 0.55;\n  cursor: not-allowed;\n}\n.admin-note-tight[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n.admin-success[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  color: var(--accent-strong);\n  font-size: 0.9rem;\n  font-weight: 700;\n}\n.admin-table-wrap[_ngcontent-%COMP%] {\n  margin-top: 8px;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%] {\n  text-align: center;\n}\n.admin-checkbox-cell[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] {\n  width: 1rem;\n  height: 1rem;\n  accent-color: var(--accent-strong);\n}\n.admin-group-wins[_ngcontent-%COMP%] {\n  width: 3.2rem;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  padding: 0.25rem 0.35rem;\n  text-align: center;\n  font: inherit;\n  background: var(--surface-strong);\n  color: var(--text-main);\n}\n[_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top > td, \n[_nghost-%COMP%]     .admin-standings-table .p-datatable-tbody > tr.highlight-top > td, \n.admin-standings-table[_ngcontent-%COMP%]   .p-datatable-tbody[_ngcontent-%COMP%]    > tr.highlight-top[_ngcontent-%COMP%]    > td[_ngcontent-%COMP%] {\n  background-color: rgba(15, 23, 42, 0.03);\n  transition: background-color 120ms ease-in-out;\n}\n.summary-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  gap: 16px;\n  margin-bottom: 14px;\n}\n.summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.4rem;\n  margin-top: 2px;\n}\n.summary-hint[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.9rem;\n}\n.player-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n[_nghost-%COMP%]     .summary-table .player-cell {\n  gap: 8px;\n}\n.player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: block;\n}\n.player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--text-muted);\n  font-size: 0.86rem;\n  margin-top: 2px;\n}\n.player-dot[_ngcontent-%COMP%] {\n  width: 0.9rem;\n  height: 0.9rem;\n  border-radius: 50%;\n  flex: 0 0 auto;\n  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.04);\n}\n.participant-metrics[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n[_nghost-%COMP%]     .p-tabview-nav {\n  border: 0;\n  margin-bottom: 12px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container {\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 8px;\n}\n[_nghost-%COMP%]     .p-tabview-nav-container::-webkit-scrollbar-thumb, \n.table-scroll[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: rgba(15, 23, 42, 0.18);\n  border-radius: 999px;\n}\n[_nghost-%COMP%]     .p-tabview-panels {\n  padding: 0;\n}\n[_nghost-%COMP%]     .p-tabview-nav li {\n  flex: 0 0 auto;\n}\n[_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n  border: 0;\n  border-radius: 999px;\n  margin-right: 8px;\n  background: transparent;\n  color: var(--text-muted);\n  padding-inline: 18px;\n}\n[_nghost-%COMP%]     .p-tabview-nav li.p-highlight .p-tabview-nav-link {\n  background: var(--accent-strong);\n  color: white;\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th {\n  background: transparent;\n  color: var(--text-muted);\n  border-color: var(--border);\n  padding: 0.55rem 0.65rem;\n}\n[_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n  border-color: var(--border);\n  padding: 0.55rem 0.65rem;\n}\n.team-cell[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.flag[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 50%;\n  display: grid;\n  place-items: center;\n  background: var(--accent-soft);\n  font-size: 1rem;\n}\n.flag-img[_ngcontent-%COMP%] {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 6px;\n  object-fit: cover;\n  display: inline-block;\n}\n.numeric[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.strong[_ngcontent-%COMP%] {\n  font-weight: 700;\n}\n@media (max-width: 900px) {\n  .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .hero-stats[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .participant-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .summary-header[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .knockout-bracket[_ngcontent-%COMP%] {\n    gap: 14px;\n    min-width: 1340px;\n  }\n  .bracket-side[_ngcontent-%COMP%] {\n    gap: 12px;\n    grid-template-columns: repeat(4, minmax(132px, 1fr));\n  }\n  .bracket-match[_ngcontent-%COMP%] {\n    min-width: 132px;\n  }\n}\n@media (max-width: 640px) {\n  .shell[_ngcontent-%COMP%] {\n    width: min(100vw - 16px, 1200px);\n    margin: 12px auto 24px;\n    gap: 16px;\n  }\n  .hero[_ngcontent-%COMP%], \n   .content[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: clamp(1.6rem, 8vw, 2.4rem);\n    max-width: 14ch;\n  }\n  .lead[_ngcontent-%COMP%] {\n    font-size: 0.95rem;\n    line-height: 1.6;\n  }\n  .hero-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n    font-size: 1.35rem;\n  }\n  .hero-stats[_ngcontent-%COMP%]   article[_ngcontent-%COMP%], \n   .participant-metrics[_ngcontent-%COMP%]   article[_ngcontent-%COMP%] {\n    padding: 14px;\n    border-radius: 16px;\n  }\n  .participant-metrics[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .summary-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .participant-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n    font-size: 1.2rem;\n  }\n  .participant-header[_ngcontent-%COMP%], \n   .summary-header[_ngcontent-%COMP%] {\n    gap: 10px;\n    margin-bottom: 12px;\n  }\n  .bracket-toggle-actions[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .bracket-toggle-button[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .player-cell[_ngcontent-%COMP%] {\n    gap: 10px;\n  }\n  .player-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n    margin-top: 0;\n  }\n  [_nghost-%COMP%]     .p-tabview-nav li .p-tabview-nav-link {\n    padding-inline: 14px;\n    font-size: 0.92rem;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav-container {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 8px;\n    margin-bottom: 10px;\n    padding-bottom: 2px;\n    scroll-snap-type: x proximity;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li {\n    flex: 0 0 calc((100% - 16px) / 10);\n    min-width: calc((100% - 16px) / 10);\n    scroll-snap-align: start;\n  }\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li .p-tabview-nav-link {\n    width: 100%;\n    margin-right: 0;\n    justify-content: center;\n    text-align: center;\n    padding: 0.5rem 0.12rem;\n    font-size: 0.7rem;\n    line-height: 1.1;\n    white-space: nowrap;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav-container {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 8px;\n    margin-bottom: 10px;\n    padding-bottom: 2px;\n    scroll-snap-type: x proximity;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li {\n    flex: 0 0 calc((100% - 16px) / 10);\n    min-width: calc((100% - 16px) / 10);\n    scroll-snap-align: start;\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li .p-tabview-nav-link {\n    width: 100%;\n    margin-right: 0;\n    justify-content: center;\n    text-align: center;\n    padding: 0.5rem 0.12rem;\n    font-size: 0.7rem;\n    line-height: 1.15;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n  [_nghost-%COMP%]     .p-datatable .p-datatable-thead > tr > th, \n   [_nghost-%COMP%]     .p-datatable .p-datatable-tbody > tr > td {\n    padding: 0.3rem 0.18rem;\n    font-size: 0.7rem;\n  }\n  .admin-table-wrap[_ngcontent-%COMP%] {\n    overflow-x: auto;\n  }\n  [_nghost-%COMP%]     .admin-table .p-datatable-table {\n    width: 740px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-wrapper, \n   [_nghost-%COMP%]     .selection-table .p-datatable-wrapper, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-wrapper {\n    overflow: visible;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table, \n   [_nghost-%COMP%]     .selection-table .p-datatable-table, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-table {\n    width: 100%;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead {\n    display: none;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-wrapper {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-table {\n    width: max-content;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-table {\n    width: max-content;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-table {\n    width: max-content;\n    min-width: 0 !important;\n    table-layout: auto;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead {\n    display: table-header-group;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody {\n    display: table-row-group;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr {\n    display: table-row;\n    border: 0;\n    border-radius: 0;\n    background: transparent;\n    padding: 0;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.24rem 0.14rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.2rem 0.14rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td, \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th {\n    display: table-cell;\n    width: auto;\n    padding: 0.22rem 0.16rem;\n    border: 0;\n    text-align: right;\n    vertical-align: middle;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:first-child {\n    text-align: left;\n    width: auto;\n    min-width: 64px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td:not(:first-child), \n   [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th:not(:first-child) {\n    width: auto;\n    min-width: 50px;\n  }\n  [_nghost-%COMP%]     .summary-table .player-cell {\n    gap: 6px;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n    text-align: left;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:first-child {\n    min-width: 1.8rem;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(2), \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(2) {\n    min-width: 82px;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td:nth-child(n+3), \n   [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th:nth-child(n+3) {\n    min-width: 24px;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:first-child, \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th:first-child {\n    text-align: left;\n    min-width: 92px;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td:nth-child(n+2), \n   [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th:nth-child(n+2) {\n    min-width: 34px;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr > td::before {\n    content: none;\n  }\n  [_nghost-%COMP%]     .summary-table .p-datatable-thead > tr > th {\n    white-space: normal;\n    font-size: 0.62rem;\n    line-height: 1.05;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-thead > tr > th {\n    white-space: nowrap;\n    font-size: 0.62rem;\n    line-height: 1.05;\n  }\n  [_nghost-%COMP%]     .selection-table .p-datatable-thead > tr > th {\n    white-space: nowrap;\n    font-size: 0.62rem;\n    line-height: 1.05;\n  }\n  .player-cell[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%] {\n    min-width: 0;\n    gap: 3px;\n  }\n  .player-cell[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%], \n   .team-cell[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:last-child {\n    display: block;\n    min-width: 0;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n  }\n  .flag-img[_ngcontent-%COMP%] {\n    width: 1rem;\n    height: 1rem;\n    border-radius: 3px;\n  }\n  .player-dot[_ngcontent-%COMP%] {\n    width: 0.58rem;\n    height: 0.58rem;\n    box-shadow: none;\n  }\n  .admin-header[_ngcontent-%COMP%], \n   .admin-login[_ngcontent-%COMP%] {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n  .admin-login[_ngcontent-%COMP%] {\n    gap: 8px;\n  }\n  .admin-field[_ngcontent-%COMP%] {\n    flex: none;\n    width: 100%;\n  }\n  .admin-actions[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  .admin-panel[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .admin-button[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .admin-qualifiers[_ngcontent-%COMP%] {\n    gap: 8px;\n  }\n  .admin-qualifier-chip[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .admin-bracket-matches[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .groups-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .group-owner[_ngcontent-%COMP%] {\n    font-size: 0.72rem;\n  }\n  .group-teams-preview[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n  .bracket-panel[_ngcontent-%COMP%] {\n    padding: 10px;\n  }\n  .bracket-mobile-hint[_ngcontent-%COMP%] {\n    display: block;\n    margin-bottom: 8px;\n    font-size: 0.76rem;\n    line-height: 1.35;\n  }\n  .bracket-desktop[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .bracket-mobile[_ngcontent-%COMP%] {\n    display: block;\n  }\n  .bracket-mobile-slider[_ngcontent-%COMP%] {\n    grid-auto-columns: min(54vw, 188px);\n    gap: 8px;\n    padding-inline: 2px;\n    scroll-padding-inline: 2px;\n  }\n  .bracket-mobile-slide[_ngcontent-%COMP%] {\n    width: min(54vw, 188px);\n  }\n  .bracket-mobile-side-label[_ngcontent-%COMP%] {\n    margin-bottom: 4px;\n    font-size: 0.6rem;\n  }\n  .bracket-mobile-matches[_ngcontent-%COMP%] {\n    gap: 8px;\n  }\n  .bracket-round-header[_ngcontent-%COMP%] {\n    margin-bottom: 8px;\n    padding: 0.28rem 0.42rem;\n    font-size: 0.58rem;\n  }\n  .bracket-match[_ngcontent-%COMP%], \n   .bracket-match-final[_ngcontent-%COMP%] {\n    min-width: 0;\n    width: 100%;\n    max-width: min(54vw, 188px);\n    padding: 6px;\n    border-radius: 10px;\n  }\n  .bracket-match[_ngcontent-%COMP%]::before, \n   .bracket-match[_ngcontent-%COMP%]::after, \n   .bracket-match-final[_ngcontent-%COMP%]::before, \n   .bracket-match-final[_ngcontent-%COMP%]::after {\n    display: none;\n  }\n  .bracket-slot[_ngcontent-%COMP%] {\n    min-height: 28px;\n    gap: 4px;\n    padding: 0.38rem 0.44rem;\n    border-radius: 8px;\n  }\n  .bracket-slot-name[_ngcontent-%COMP%] {\n    font-size: 0.64rem;\n  }\n  .bracket-seed[_ngcontent-%COMP%] {\n    min-width: 1.55rem;\n    padding: 0.14rem 0.28rem;\n    font-size: 0.54rem;\n  }\n  .bracket-match-title[_ngcontent-%COMP%] {\n    font-size: 0.5rem;\n  }\n  .bracket-match-topline[_ngcontent-%COMP%] {\n    gap: 5px;\n  }\n  .bracket-fixture-mini[_ngcontent-%COMP%] {\n    gap: 3px;\n  }\n  .fixture-flag[_ngcontent-%COMP%] {\n    width: 12px;\n    height: 8px;\n    border-radius: 2px;\n  }\n  .fixture-vs[_ngcontent-%COMP%] {\n    font-size: 0.48rem;\n  }\n  [_nghost-%COMP%]     .group-standings-table .p-datatable-tbody > tr.highlight-top {\n    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);\n  }\n}\n@media (max-width: 420px) {\n  [_nghost-%COMP%]     .group-tabview .p-tabview-nav li {\n    flex-basis: calc((100% - 12px) / 5);\n    min-width: calc((100% - 12px) / 5);\n  }\n  [_nghost-%COMP%]     .participant-tabview .p-tabview-nav li {\n    flex-basis: calc((100% - 12px) / 5);\n    min-width: calc((100% - 12px) / 5);\n  }\n}\n/*# sourceMappingURL=app.component.css.map */'] });
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 494 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 502 });
 })();
 
 // src/main.ts
